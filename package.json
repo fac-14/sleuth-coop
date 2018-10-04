@@ -4,9 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --watch",
-    "start": "parcel index.html",
-    "build": "parcel build ./public/index.html"
+    "start": "node src/server.js",
+    "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build",
+    "client": "cd client && npm start",
+    "server": "nodemon src/server.js",
+    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
   },
   "repository": {
     "type": "git",
@@ -21,7 +23,6 @@
   "homepage": "https://github.com/fac-14/sleuth-coop#readme",
   "devDependencies": {
     "babel-core": "^6.26.3",
-    "babel-eslint": "^10.0.1",
     "babel-jest": "^23.6.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-env": "^1.7.0",
