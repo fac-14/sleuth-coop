@@ -13,7 +13,7 @@
     "server": "nodemon src/server.js",
     "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
     "express-test": "jest",
-    "react-test": "cd client && npm test",
+    "react-test": "cd client && npm i && npm test",
     "test": "npm run express-test && npm run react-test"
   },
   "repository": {
