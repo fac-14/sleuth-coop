@@ -1,13 +1,13 @@
-import React, { Component } from "react";
-import logo from "./logo.svg";
-import "./App.css";
-import LandingPage from "./components/LandingPage";
-import Info from "./components/Info";
-import { BrowserRouter as Router, Link, Route } from "react-router-dom";
+import React, { Component } from 'react';
+import './App.css';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import LandingPage from './components/LandingPage';
+import Info from './components/Info';
+import SignUp from './components/SignUp';
 
 class App extends Component {
   state = {
-    response: ""
+    response: ''
   };
 
   componentDidMount() {
@@ -17,7 +17,7 @@ class App extends Component {
   }
 
   callApi = async () => {
-    const response = await fetch("/api/hello");
+    const response = await fetch('/api/hello');
     const body = await response.json();
 
     if (response.status !== 200) throw Error(body.message);
@@ -29,8 +29,9 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Route exact="true" path="/" component={LandingPage}/>
+          <Route exact="true" path="/" component={LandingPage} />
           <Route exact="true" path="/info" component={Info} />
+          <Route exact="true" path="/sign-up" component={SignUp} />
         </div>
       </Router>
     );
