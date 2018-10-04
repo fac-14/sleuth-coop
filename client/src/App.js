@@ -6,6 +6,7 @@ import LandingPage from './components/LandingPage';
 import Info from './components/Info';
 import SignUp from './components/SignUp';
 import Profile from './components/Profile';
+import Add from './components/ProfileComponents/Add';
 
 class App extends Component {
   state = {
@@ -35,6 +36,7 @@ class App extends Component {
           <Route exact={true} path="/info" component={Info} />
           <Route exact={true} path="/sign-up" component={SignUp} />
           <Route path="/profile/:id" component={Profile} />
+          <Route exact={true} path="/profile/:id/add" component={Add} />
         </div>
       </Router>
     );

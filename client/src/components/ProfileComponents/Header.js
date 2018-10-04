@@ -1,6 +1,6 @@
 import React from "react";
 
-export default class ProfileHeader extends React.Component {
+export default class Header extends React.Component {
   render() {
     const { compName, website, desc } = this.props;
     return (
