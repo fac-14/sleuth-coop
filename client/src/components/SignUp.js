@@ -14,6 +14,7 @@ export default class SignUp extends React.Component {
           type="text"
           text="a short description explaining your product"
         />
+        <button type="submit">Submit</button>
       </form>
     );
   }
