@@ -1,5 +1,6 @@
-import React from 'react';
-import SignUpCard from './SignUpCard';
+import React from "react";
+import SignUpCard from "./SignUpCard";
+import { Link } from "react-router-dom";
 
 export default class SignUp extends React.Component {
   render() {
@@ -14,7 +15,9 @@ export default class SignUp extends React.Component {
           type="text"
           text="a short description explaining your product"
         />
-        <button type="submit">Submit</button>
+        <Link to={"/profile/123"}>
+          <button type="submit">Submit</button>
+        </Link>
       </form>
     );
   }

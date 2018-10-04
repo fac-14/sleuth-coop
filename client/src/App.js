@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+
 import LandingPage from './components/LandingPage';
 import Info from './components/Info';
 import SignUp from './components/SignUp';
+import Profile from './components/Profile';
 
 class App extends Component {
   state = {
@@ -29,9 +31,10 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Route exact="true" path="/" component={LandingPage} />
-          <Route exact="true" path="/info" component={Info} />
-          <Route exact="true" path="/sign-up" component={SignUp} />
+          <Route exact={true} path="/" component={LandingPage} />
+          <Route exact={true} path="/info" component={Info} />
+          <Route exact={true} path="/sign-up" component={SignUp} />
+          <Route path="/profile/:id" component={Profile} />
         </div>
       </Router>
     );

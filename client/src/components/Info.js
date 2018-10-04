@@ -18,7 +18,7 @@ export default class Info extends React.Component {
         <Link to={'/sign-up'}>
           <button>Begin</button>
         </Link>
-        <Link to={'/sign-in'}>
+        <Link to={'/profile/123'}>
           <button>I already have a profile</button>
         </Link>
       </div>
