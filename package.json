@@ -1,0 +1,50 @@
+{
+  "name": "sleuth-coop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --watch",
+    "start": "parcel index.html",
+    "build": "parcel build ./public/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fac-14/sleuth-coop.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fac-14/sleuth-coop/issues"
+  },
+  "homepage": "https://github.com/fac-14/sleuth-coop#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^23.6.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "concurrently": "^4.0.1",
+    "eslint": "^5.6.1",
+    "eslint-config-node": "^4.0.0",
+    "eslint-config-prettier": "^3.1.0",
+    "eslint-config-recommended": "^4.0.0",
+    "eslint-plugin-react": "^7.11.1",
+    "jest": "^23.6.0",
+    "parcel-bundler": "^1.10.1"
+  },
+  "dependencies": {
+    "create-react-app": "^2.0.3",
+    "env2": "^2.2.2",
+    "express": "^4.16.3",
+    "express-validator": "^5.3.0",
+    "nodemon": "^1.18.4",
+    "pg": "^7.5.0",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "react-router-dom": "^4.3.1",
+    "serve-favicon": "^2.5.0"
+  }
+}
