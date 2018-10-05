@@ -1,4 +1,8 @@
-const dummyProfile = {
+exports.get = (req, res) => {
+  res.send(JSON.stringify(profileData));
+};
+
+const profileData = {
   basic_info: {
     company_name: "Senzing",
     email: "senzing@senzing.com",
@@ -29,5 +33,3 @@ const dummyProfile = {
     img_urls: ["image1.jpg", "image2.jpg"]
   }
 };
-
-export default dummyProfile;

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Header from "./ProfileComponents/Header";
 import Contact from "./ProfileComponents/Contact";
 import HomeBtn from "./HomeBtn";
-import dummyProfile from "../utils/dummyProfileData";
+import getProfile from "../utils/getProfile";
 
 export default class Profile extends React.Component {
   state = {
@@ -13,20 +13,17 @@ export default class Profile extends React.Component {
   };
 
   componentDidMount() {
-    this.populateProfile();
+    getProfile(123)
+      .then(res =>
+        this.setState({
+          response: res,
+          loading: false
+        })
+      )
+      .catch(err => console.log(err));
   }
 
-  populateProfile = () => {
-    this.setState({
-      response: dummyProfile,
-      loading: false
-    });
-    console.log("response", this.state.response);
-  };
-
   render() {
-    console.log("response", this.state.response);
-
     // destructure the state
 
     if (this.state.loading) {
