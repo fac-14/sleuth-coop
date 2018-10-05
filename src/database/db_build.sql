@@ -6,7 +6,7 @@ CREATE TABLE users (
   id SERIAL PRIMARY KEY,
   email VARCHAR(100) UNIQUE NOT NULL,
   password VARCHAR(100) NOT NULL
-)
+);
 
 CREATE TABLE companies (
   id SERIAL PRIMARY KEY,
@@ -17,7 +17,7 @@ CREATE TABLE companies (
   contact_name VARCHAR(100) NOT NULL,
   contact_title VARCHAR(100) NOT NULL,
   contact_email VARCHAR(100) NOT NULL
-)
+);
 
 CREATE TABLE questions (
   id SERIAL PRIMARY KEY,
@@ -25,17 +25,16 @@ CREATE TABLE questions (
   input_type VARCHAR(100) NOT NULL,
   helper_text TEXT NOT NULL,
   category VARCHAR(100) NOT NULL
-)
+);
 
 INSERT INTO questions (question, input_type, helper_text, category) VALUES
-("Why is this product useful to Local Authorities?", "short text", "Its important to use plain english and avoid any technical jargon!", "product")
-;
+('Why is this product useful to Local Authorities?', 'short text', 'Its important to use plain english and avoid any technical jargon!', 'product');
 
 CREATE TABLE answers (
   id SERIAL PRIMARY KEY,
   company_id INTEGER REFERENCES companies(id),
-  question_id INTEGER REFERENCES question(id),
+  question_id INTEGER REFERENCES questions(id),
   answer TEXT NOT NULL
-)
+);
 
 COMMIT;
