@@ -5,9 +5,14 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 // API CALLS
+
+const profileData = require("./getProfileData");
+
 app.get("/api/hello", (req, res) => {
   res.send({ express: "Hello From Express" });
 });
+
+app.get("/profile/:id", profileData.get);
 
 if (process.env.NODE_ENV === "production") {
   // serve any static files
