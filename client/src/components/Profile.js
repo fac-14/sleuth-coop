@@ -5,13 +5,32 @@ import Header from "./ProfileComponents/Header";
 import Contact from "./ProfileComponents/Contact";
 import Content from "./ProfileComponents/Content";
 import HomeBtn from "./HomeBtn";
+import getProfile from "../utils/getProfile";
 
 export default class Profile extends React.Component {
-  render() {  
+  state = {
+    response: null,
+    loading: true
+  };
+
+  componentDidMount() {
+    getProfile(123)
+      .then(res =>
+        this.setState({
+          response: res,
+          loading: false
+        })
+      )
+      .catch(err => console.log(err));
+  }
+
+  render() {
+    // destructure the state
+
     if (this.state.loading) {
       return <h1>Loading...</h1>;
     }
-    // destructure the state
+
     const {
       basic_info: basicInfo,
       answers
@@ -21,14 +40,14 @@ export default class Profile extends React.Component {
       <React.Fragment>
         <HomeBtn />
         <Header
-          compName="Company Name"
-          website="www.website.com"
-          desc="A short descriptor"
+          compName={basicInfo.company_name}
+          website={basicInfo.website}
+          desc={basicInfo.one_liner}
         />
         <Contact
-          name="Jessie Beech"
-          title="Head of Fun"
-          email="jessie@cool.com"
+          name={basicInfo.contact_name}
+          title={basicInfo.contact_title}
+          email={basicInfo.email}
         />
         <Content answers={answers}/>
         <Link to="/profile/id/add">
