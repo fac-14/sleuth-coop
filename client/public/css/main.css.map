@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["../../src/sass/_carousel.scss"],"names":[],"mappings":"AAAA;EACE","file":"main.css"}
+{"version":3,"sourceRoot":"","sources":["../../src/private/sass/_fonts.scss","../../src/private/sass/_carousel.scss"],"names":[],"mappings":"AAKQ;ACLR;EACE","file":"main.css"}
