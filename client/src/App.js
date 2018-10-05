@@ -1,10 +1,16 @@
-import React, { Component } from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import React, { Component } from 'react';
+import './App.css';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+
+import LandingPage from './components/LandingPage';
+import Info from './components/Info';
+import SignUp from './components/SignUp';
+import Profile from './components/Profile';
+import Add from './components/ProfileComponents/Add';
 
 class App extends Component {
   state = {
-    response: ""
+    response: ''
   };
 
   componentDidMount() {
@@ -14,7 +20,7 @@ class App extends Component {
   }
 
   callApi = async () => {
-    const response = await fetch("/api/hello");
+    const response = await fetch('/api/hello');
     const body = await response.json();
 
     if (response.status !== 200) throw Error(body.message);
@@ -24,23 +30,15 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-        <p className="App-intro">{this.state.response}</p>
-      </div>
+      <Router>
+        <div>
+          <Route exact={true} path="/" component={LandingPage} />
+          <Route exact={true} path="/info" component={Info} />
+          <Route exact={true} path="/sign-up" component={SignUp} />
+          <Route path="/profile/:id" component={Profile} />
+          <Route exact={true} path="/profile/:id/add" component={Add} />
+        </div>
+      </Router>
     );
   }
 }
