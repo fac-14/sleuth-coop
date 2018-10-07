@@ -9,7 +9,9 @@ export default class SignUpCard extends React.Component {
           id={this.props.name}
           name={this.props.name}
           type={this.props.type}
+          value={this.props.value}
           autoComplete="off"
+          onChange={this.props.change}
           required
         />
       </div>

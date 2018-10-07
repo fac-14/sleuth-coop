@@ -1,0 +1,40 @@
+@import 'colors';
+@import 'fonts';
+@import 'sizes';
+@import 'reset';
+@import 'carousel';
+
+body {
+  font-family: $main-text;
+  font-size: medium;
+  color: $black;
+  background-color: $js-grey;
+  padding: $small;
+}
+
+h1 {
+  font-family: $title-text;
+  font-size: $largerer;
+  font-weight: 100;
+  margin-bottom: $medium;
+  text-align: center;
+}
+
+h2 {
+  font-family: $header-text;
+  font-size: $large;
+  font-weight: 400;
+  margin-bottom: $medium;
+  margin-top: $medium;
+}
+
+h3 {
+  font-family: $header-text;
+  font-size: $font-h3;
+  font-weight: 600;
+  margin-bottom: $medium;
+}
+
+p {
+  margin-bottom: $small;
+}

@@ -1,0 +1,152 @@
+@import 'colors';
+@import 'fonts';
+@import 'sizes';
+@import 'reset';
+
+body {
+  font-family: $main-text;
+  font-size: medium;
+  color: $black;
+  background-color: $js-grey;
+  padding: $small;
+}
+
+h1 {
+  font-family: $title-text;
+  font-size: $largerer;
+  font-weight: 100;
+  margin-bottom: $medium;
+  text-align: center;
+}
+
+h2 {
+  font-family: $header-text;
+  font-size: $large;
+  font-weight: 400;
+  margin-bottom: $medium;
+  margin-top: $medium;
+}
+
+h3 {
+  font-family: $header-text;
+  font-size: $font-h3;
+  font-weight: 600;
+  margin-bottom: $medium;
+}
+
+p {
+  margin-bottom: $small;
+}
+
+// colours
+
+.colors {
+  width: 50%;
+  margin-bottom: $large;
+}
+
+.colors > li {
+  padding: $small;
+  border: 2px $black solid;
+  margin-bottom: $smallest;
+  height: $medium;
+}
+
+.colors > li:nth-child(1) {
+  background: $grey1;
+  color: $white;
+}
+
+.colors > li:nth-child(2) {
+  background: $turqoise1;
+  color: $black;
+}
+
+.colors > li:nth-child(3) {
+  background: $teal1;
+  color: $white;
+}
+
+.colors > li:nth-child(4) {
+  background: $orange1;
+  color: $black;
+}
+
+.colors > li:nth-child(5) {
+  background: $red1;
+  color: $white;
+}
+
+.colors > li:nth-child(6) {
+  background: $white;
+  color: $black;
+}
+
+.colors > li:nth-child(7) {
+  background: $black;
+  color: $white;
+}
+
+.colors > li:nth-child(8) {
+  background: $js-grey;
+  color: $black;
+}
+
+// sizes
+
+.sizes {
+  width: 50%;
+  margin-bottom: $large;
+}
+
+.sizes > li {
+  padding: $small;
+  border: $smallest $black solid;
+  margin-bottom: $smallest;
+}
+
+.sizes > li:nth-child(1) {
+  height: $smallest;
+  font-size: $smallest;
+  padding: $smallest;
+  border-radius: 5px;
+}
+
+.sizes > li:nth-child(2) {
+  height: $small;
+  font-size: $small;
+  padding: $small;
+  border-radius: 10px;
+}
+
+.sizes > li:nth-child(3) {
+  height: $medium;
+  font-size: $medium;
+  padding: $medium;
+  border-radius: 20px;
+}
+
+.sizes > li:nth-child(4) {
+  height: $font-h3;
+  font-size: $font-h3;
+  padding: $font-h3;
+}
+
+.sizes > li:nth-child(5) {
+  height: $large;
+  font-size: $large;
+  padding: $large;
+}
+
+.sizes > li:nth-child(6) {
+  height: $larger;
+  font-size: $larger;
+  padding: $larger;
+}
+
+.sizes > li:nth-child(7) {
+  background-image: $gradient1;
+  height: $godzilla;
+  font-size: $godzilla;
+  padding: $godzilla;
+}
