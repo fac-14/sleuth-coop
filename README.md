@@ -8,7 +8,7 @@ The initial MVP will help SMEs build a profile about their product(s) that provi
 The aim for this is to speed up innovation in the public sector and increase the market share for SMEs.
 
 ### The Team
-[Jessie](https://github.com/developess) - Scrum Master | [Joe](https://github.com/thejoefriel) - DevOps | [Dominic](https://github.com/VirtualDOM) - QA | [Emma](https://github.com/SleepySheepy172) - Doc Wizard 
+[Jessie](https://github.com/developess) - Scrum Master | [Joe](https://github.com/thejoefriel) - DevOps | [Dominic](https://github.com/VirtualDOMinic) - QA | [Emma](https://github.com/SleepySheepy172) - Doc Wizard 
 
 ### Tech Stack
 
