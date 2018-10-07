@@ -1,62 +1,87 @@
-import React from "react";
-import SignUpCard from "./SignUpCard";
-import { Link } from "react-router-dom";
+import React from 'react';
+import SignUpCard from './SignUpCard';
+import questions from './formQuestions';
+import { Link } from 'react-router-dom';
 
 export default class SignUp extends React.Component {
-
   state = {
-    email: "",
-    name: "",
-    jobtitle: "",
-    company: "",
-    website: "",
-    description: "",
-  }
+    position: 0,
+    email: '',
+    name: '',
+    jobtitle: '',
+    company: '',
+    website: '',
+    description: ''
+  };
 
-  handleChange = (e) => {
-  const target = e.target;
-  const value = target.value;
-  this.setState({ [target.name]: value })
-  }
+  handleChange = e => {
+    const target = e.target;
+    const value = target.value;
+    this.setState({ [target.name]: value });
+  };
 
-  handleSubmit = (e) => {
+  handleSubmit = e => {
     e.preventDefault();
-    const data = JSON.stringify(this.state)
+    const data = JSON.stringify(this.state);
     // post req will go here (see fetch example below)
     fetch('/signup', {
       method: 'post',
-      body: data,
-    })
+      body: data
+    });
 
     this.setState({
-      email: "",
-      name: "",
-      jobtitle: "",
-      company: "",
-      website: "",
-      description: "",
-    })
-  }
+      email: '',
+      name: '',
+      jobtitle: '',
+      company: '',
+      website: '',
+      description: ''
+    });
+  };
+
+  nextSlide = () => {
+    const { position } = this.state;
+    const lastItem = questions.length - 1;
+    const newPos1 = position === lastItem ? lastItem : position + 1;
+    this.setState({
+      position: newPos1
+    });
+  };
+
+  prevSlide = () => {
+    const { position } = this.state;
+    const newPos2 = position === 0 ? 0 : position - 1;
+    this.setState({ position: newPos2 });
+  };
 
   render() {
+    const { position } = this.state;
+    const q = questions[position];
+    const lastQ = questions.length - 1;
     return (
-      <form onSubmit={this.handleSubmit}>
-        <SignUpCard name="email" type="email" text="your contact email" change={this.handleChange} value={this.state.email} />
-        <SignUpCard name="name" type="text" text="your contact name" change={this.handleChange} value={this.state.name}/>
-        <SignUpCard name="jobtitle" type="text" text="your job title / role within the company" change={this.handleChange} value={this.state.jobtitle}/>
-        <SignUpCard name="company" type="text" text="your company name" change={this.handleChange} value={this.state.company} />
-        <SignUpCard name="website" type="text" text="your company website" change={this.handleChange} value={this.state.website} />
-        <SignUpCard
-          name="description"
-          type="text"
-          text="a short description explaining your product"
-          change={this.handleChange}
-          value={this.state.description}
-        />
-        {/* <Link to={"/profile/123"}> */}
-          <button type="submit">Submit</button>
-        {/* </Link> */}
-      </form>
+      <React.Fragment>
+        <form className="form-carousel" onSubmit={this.handleSubmit}>
+          <SignUpCard
+            position={position}
+            lastQ={questions.length - 1}
+            name={q.name}
+            type={q.type}
+            text={q.text}
+            change={this.handleChange}
+            key={q.id}
+            value={this.state[q.name]}
+            next={() => this.nextSlide()}
+            prev={() => this.prevSlide()}
+          />
+          {position === lastQ ? (
+            <button className="carousel-submit" type="submit">
+              Submit
+            </button>
+          ) : (
+            <React.Fragment />
+          )}
+        </form>
+      </React.Fragment>
     );
   }
 }

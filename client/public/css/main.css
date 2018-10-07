@@ -134,6 +134,56 @@ table {
   border-spacing: 0;
 }
 
+.form-carousel {
+  text-align: center;
+}
+
+.carousel-slot {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.sign-up {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #6ab8af;
+  margin: 0.5rem;
+  height: 50vh;
+  width: 70%;
+  padding: 1rem;
+  border-radius: 30px;
+}
+
+.sign-up > label {
+  font-family: "Quicksand", sans-serif;
+  padding: 1rem;
+  font-size: 1.25rem;
+}
+
+.sign-up > input {
+  font-family: "Quicksand", sans-serif;
+  padding: 0.25rem;
+  font-size: 1rem;
+  border-radius: 50px;
+  min-width: 70%;
+  max-width: 90%;
+  overflow: scroll;
+}
+
+.carousel-submit {
+  position: sticky;
+  bottom: 10vh;
+  padding: 1rem;
+  border-radius: 50px;
+  font-size: 1.5rem;
+}
+
 body {
   font-family: "Quicksand", sans-serif;
   font-size: medium;

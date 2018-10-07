@@ -1,0 +1,50 @@
+.form-carousel {
+  text-align: center;
+}
+
+.carousel-slot {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.sign-up {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: $turqoise1;
+  margin: $small;
+  height: 50vh;
+  width: 70%;
+  padding: 1rem;
+  border-radius: 30px;
+}
+
+.sign-up > label {
+  font-family: $main-text;
+  padding: 1rem;
+  font-size: 1.25rem;
+}
+
+.sign-up > input {
+  font-family: $main-text;
+  padding: $smallest;
+  font-size: 1rem;
+  border-radius: 50px;
+  min-width: 70%;
+  max-width: 90%;
+  overflow: scroll;
+}
+
+.carousel-submit {
+  position: sticky;
+  // width: $largerer;
+  bottom: 10vh;
+  padding: $medium;
+  border-radius: 50px;
+  font-size: 1.5rem;
+}
