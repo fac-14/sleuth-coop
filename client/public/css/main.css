@@ -135,6 +135,68 @@ table {
 }
 
 body {
+  overflow-x: hidden;
+}
+
+.form-div {
+  width: 500px;
+  max-width: 80vw;
+  height: 300px;
+  position: absolute;
+  top: 30vh;
+}
+
+.outer-left {
+  background-color: aliceblue;
+  transform: translateX(-100vw) scale(0.3);
+  transition-duration: 1s;
+  visibility: hidden;
+}
+
+.left {
+  background-color: burlywood;
+  transition-duration: 0.5s;
+  transform: translateX(-25vw) scale(0.8);
+  opacity: 0.5;
+}
+
+.focus {
+  background-color: #7979cc;
+  transition-duration: 0.5s;
+  transform: translateX(25vw);
+}
+
+.right {
+  background-color: papayawhip;
+  transition-duration: 0.5s;
+  transform: translateX(75vw) scale(0.8);
+  opacity: 0.5;
+}
+
+.outer-right {
+  background-color: aliceblue;
+  transform: translateX(125vw);
+  transition-duration: 1s;
+  visibility: hidden;
+}
+
+.back-arrow {
+  position: absolute;
+  left: 5vw;
+  top: 50vh;
+}
+
+.forward-arrow {
+  position: absolute;
+  left: 85vw;
+  top: 50vh;
+}
+
+#form {
+  display: flex;
+}
+
+body {
   font-family: "Quicksand", sans-serif;
   font-size: medium;
   color: #1d2425;
