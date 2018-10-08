@@ -102,3 +102,22 @@ textarea {
 input:focus {
   outline: $orange1 2px solid;
 }
+
+.error {
+    background-color: $red1;
+    color: $white;
+    font-size: $font-h3;
+    margin-top: $medium;
+    padding: $small;
+    position: absolute;
+    bottom: 25vh;
+    left: 25vw;
+    width: 50vw;
+    min-width: 250px;
+    text-align: center;
+}
+
+.hidden {
+    visibility: hidden;
+    // need to make this accessible
+}

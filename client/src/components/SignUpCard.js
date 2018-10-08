@@ -15,9 +15,11 @@ export default class SignUpCard extends React.Component {
             value={this.props.value}
             autoComplete="off"
             onChange={this.props.change}
+            onBlur={this.props.validator}
             required
           />
         </div>
+        
       );
     }
     return (
@@ -32,6 +34,7 @@ export default class SignUpCard extends React.Component {
           value={this.props.value}
           autoComplete="off"
           onChange={this.props.change}
+          onBlur={this.props.validator}
           required
         />
       </div>
