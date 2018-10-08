@@ -1,6 +1,6 @@
 import React from "react";
 import SignUpCard from "./SignUpCard";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 export default class SignUp extends React.Component {
 

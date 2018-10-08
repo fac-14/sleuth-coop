@@ -1,22 +1,29 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import logo from '../assets/sleuth-logo.png';
 
 export default class LandingPage extends React.Component {
   render() {
     return (
-      <React.Fragment>
+      <div className="landing-content">
         <div className="logo-div">
-          <img src="" alt="sleuth logo" />
+          <img src={logo} alt="sleuth logo" />
         </div>
         <h1>Innovation Platform</h1>
-        <h2>Showcasing SME innovation for Local Authority Audiences</h2>
+        <h2 className="landing-text">
+          Showcasing SME innovation for Local Authority Audiences
+        </h2>
         <Link to={'/info'}>
-          <button className="large-home-btn">I represent an SME</button>
+          <button className="default-btn large-home-btn1">
+            I represent an SME
+          </button>
         </Link>
         <Link to={'/discover'}>
-          <button className="large-home-btn">I am in Local Government</button>
+          <button className="large-home-btn2 default-btn">
+            I am in Local Government
+          </button>
         </Link>
-      </React.Fragment>
+      </div>
     );
   }
 }

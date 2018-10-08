@@ -1,8 +1,10 @@
-@import 'colors';
-@import 'fonts';
-@import 'sizes';
-@import 'reset';
-@import 'carousel';
+@import "colors";
+@import "fonts";
+@import "sizes";
+@import "reset";
+@import "carousel";
+@import "profile";
+@import "landing-page";
 
 body {
   font-family: $main-text;
@@ -21,7 +23,7 @@ h1 {
 }
 
 h2 {
-  font-family: $header-text;
+  font-family: $main-text;
   font-size: $large;
   font-weight: 400;
   margin-bottom: $medium;
@@ -29,12 +31,30 @@ h2 {
 }
 
 h3 {
-  font-family: $header-text;
+  font-family: $main-text;
   font-size: $font-h3;
   font-weight: 600;
   margin-bottom: $medium;
 }
 
 p {
+  font-family: $main-text;
   margin-bottom: $small;
+}
+
+#home-btn {
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  padding: 5px;
+}
+
+.default-btn {
+  font-family: $main-text;
+  border-radius: 50px;
+  // background: $turqoise1;
+  // color: black;
+  font-size: $font-h3;
+  padding: $small $medium;
+  min-width: 200px;
+  // margin: $small;
 }
