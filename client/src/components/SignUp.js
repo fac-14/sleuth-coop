@@ -78,10 +78,6 @@ export default class SignUp extends React.Component {
     return (
       <React.Fragment>
         <form id="form" onSubmit={this.handleSubmit}>
-          <Link to={"/profile/123"}>
-            <button type="submit" onClick={this.handleSubmit}>Submit</button>
-          </Link>
-
           <div id="0" className={this.handleFocus(0)}>
             <SignUpCard
               inputType="input"
@@ -151,18 +147,24 @@ export default class SignUp extends React.Component {
           <div className={this.state.errorMsg ? "error" : "hidden" }>{(this.state.errorMsg)}</div>
         </form>
         <input
-          className="arrow back-arrow"
+          className={this.state.position === 0 ? "hidden" : "arrow back-arrow"}
           type="image"
           onClick={this.handleBackArrow}
           src={prevImg}
+          alt="back arrow"
         />
         <input
-          className="arrow forward-arrow"
+          className={this.state.position === 5 ? "hidden" : "arrow forward-arrow"}
           type="image"
           src={nextImg}
-          alt="next-arrow"
+          alt="forward arrow"
           onClick={this.handleFrontArrow}
         />
+        <Link to={"/profile/123"}>
+            <button 
+            className={this.state.position < 5 ? "hidden" : "forward-arrow"}
+            type="submit" onClick={this.handleSubmit}>Submit</button>
+        </Link>
       </React.Fragment>
     );
   }

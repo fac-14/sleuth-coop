@@ -103,6 +103,11 @@ input:focus {
   outline: $orange1 2px solid;
 }
 
+button[type="submit"] {
+    font-size: $medium;
+    background-color: $red1;
+}
+
 .error {
     background-color: $red1;
     color: $white;
@@ -121,3 +126,4 @@ input:focus {
     visibility: hidden;
     // need to make this accessible
 }
+

@@ -237,6 +237,11 @@ input:focus {
   outline: #db792e 2px solid;
 }
 
+button[type=submit] {
+  font-size: 1rem;
+  background-color: #801418;
+}
+
 .error {
   background-color: #801418;
   color: white;
