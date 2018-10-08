@@ -1,0 +1,31 @@
+//primary colour - grey
+$grey1: #555561;
+//shades of this colour:
+
+// secondary colour - turqoise
+$turqoise1: #6ab8af;
+
+// shades of this colour:
+$teal1: #3c5e5d;
+
+// accent colour - orange
+$orange1: #db792e;
+
+// accent colour - red
+$red1: #801418;
+
+// black and white
+$white: rgb(255, 255, 255);
+$black: #1d2425;
+
+$js-grey: #ecf0f1;
+
+// gradient
+$gradient1: linear-gradient(
+  to right top,
+  #555561,
+  #3c5e5d,
+  #6ab8af,
+  #3c5e5d,
+  #555561
+);
