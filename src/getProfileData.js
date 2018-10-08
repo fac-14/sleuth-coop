@@ -10,7 +10,7 @@ const profileData = {
       "Super duper fancy technological solution that in some way is relevant for local government but we don't know how or why",
     contact_name: "Jessie Beech",
     contact_title: "Head of Fun",
-    website: "http://www.senzing.com",
+    website: "www.senzing.com",
     logo_url: "logo.jpg"
   },
   answers: [
@@ -19,7 +19,7 @@ const profileData = {
       answer:
         "Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking monstra adventus resi dentevil vultus comedat cerebella viventium. Qui animated corpse, cricket bat max brucks terribilem incessu zomby. The voodoo sacerdos flesh eater, suscitat mortuos comedere carnem virus. Zonbi tattered for solum oculi eorum defunctis go lum cerebro.",
       category: "product",
-      input_type: "short text",
+      input_type: "short_text",
       helper_text:
         "Its important to use plain english and avoid any technical jargon!"
     },
@@ -40,7 +40,7 @@ const profileData = {
     
     In Craven omni memoria patriae zombieland clairvius narcisse religionis sunt diri undead historiarum. Golums, zombies unrelenting et Raimi fascinati beheading. Maleficia! Vel cemetery man a modern bursting eyeballs perhsaps morbi. A terrenti flesh contagium. Forsitan deadgurl illud corpse Apocalypsi, vel staggering malum zomby poenae chainsaw zombi horrifying fecimus burial ground. Indeflexus shotgun coup de poudre monstra per plateas currere. Fit de decay nostra carne undead. Poenitentiam violent zom biehig hway agite RE:dead pœnitentiam! Vivens mortua sunt apud nos night of the living dead.`,
       category: "Local Authorities",
-      input_type: "long text",
+      input_type: "long_text",
       helper_text:
         "Please be as specific as possible, including figures for time or financial savings"
     },
@@ -49,7 +49,7 @@ const profileData = {
       answer:
         "http://digitalspyuk.cdnds.net/17/15/768x384/landscape-1491824829-hodor-game-of-thrones-hbo.jpg",
       category: "Images and Demos",
-      input_type: "file upload",
+      input_type: "image",
       helper_text: "Please upload images of your product"
     }
   ]

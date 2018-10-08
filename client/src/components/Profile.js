@@ -1,15 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
-
 import Header from "./ProfileComponents/Header";
 import Contact from "./ProfileComponents/Contact";
+import Content from "./ProfileComponents/Content";
+import AddContent from "./ProfileComponents/AddContent";
 import HomeBtn from "./HomeBtn";
 import getProfile from "../utils/getProfile";
 
 export default class Profile extends React.Component {
   state = {
     response: null,
-    loading: true
+    loading: true,
+    edit: true
   };
 
   componentDidMount() {
@@ -27,32 +28,30 @@ export default class Profile extends React.Component {
     // destructure the state
 
     if (this.state.loading) {
-      return <h1>Loading...</h1>;
+      return <h3>Loading...</h3>;
     }
 
-    const {
-      basic_info: basicInfo,
-      product,
-      impact,
-      ˀimages_demos: assets
-    } = this.state.response;
-
+    const { basic_info: basicInfo, answers } = this.state.response;
+    const { edit } = this.state
     return (
       <React.Fragment>
         <HomeBtn />
-        <Header
-          compName={basicInfo.company_name}
-          website={basicInfo.website}
-          desc={basicInfo.one_liner}
-        />
-        <Contact
-          name={basicInfo.contact_name}
-          title={basicInfo.contact_title}
-          email={basicInfo.email}
-        />
-        <Link to="/profile/id/add">
-          <button>Add more content</button>
-        </Link>
+        <div id="profile-wrapper">
+          <Header
+            className="Header"
+            compName={basicInfo.company_name}
+            website={basicInfo.website}
+            desc={basicInfo.one_liner}
+          />
+          <Contact
+            className="contact"
+            name={basicInfo.contact_name}
+            title={basicInfo.contact_title}
+            email={basicInfo.email}
+          />
+          { edit ? <AddContent /> : null }
+          <Content answers={answers} />
+        </div>
       </React.Fragment>
     );
   }

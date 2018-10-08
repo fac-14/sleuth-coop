@@ -4,13 +4,13 @@ export default class Contact extends React.Component {
   render() {
     const { name, title, email } = this.props;
     return (
-      <div className="contact">
-        <h2>Contact Details</h2>
-        <p>name</p>
+      <div className="contact profile-block">
+        <h3>Contact Details</h3>
+        <p className="label-text">name</p>
         <p>{name}</p>
-        <p>title</p>
+        <p className="label-text">title</p>
         <p>{title}</p>
-        <p>email</p>
+        <p className="label-text">email</p>
         <p>{email}</p>
       </div>
     );
