@@ -1,6 +1,8 @@
-#profile-wrapper {
-  width: 80%;
-  margin: 0 auto;
+.profile-content-wrapper {
+  width: 70vw;
+  margin-left: 30vw;
+  box-sizing: border-box;
+  padding: 0 100px;
 }
 
 .profile-block {
@@ -9,48 +11,53 @@
   border-radius: 20px;
   margin: 5px;
   box-shadow: $dat-drop-shadow;
-}
-
-.profile-block {
   h3 {
     margin-top: 0;
   }
 }
 
 .header {
+  width: 30vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: $grey1;
+  color: white;
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: column nowrap;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
 
   #logo-div {
     border-radius: 50%;
-    background: rgba(0,0,0,0.3);
-    min-height: 216px;
-    min-width: 216px;
-    margin: 0 40px;
+    background: rgba(0, 0, 0, 0.3);
+    min-height: 160px;
+    min-width: 160px;
+    margin: 40px;
     box-shadow: $dat-drop-shadow;
   }
+}
 
-  .info-container {
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: space-between;
+.profile-links {
+  li {
+    padding: 10px;
+    font-family: $main-text;
+    font-weight: 600;
+    font-size: $mediumish;
   }
-
-  h1 {
-    text-align: left;
-  }
-
 }
 
 .contact {
   display: inline-block;
-
   .label-text {
     text-transform: uppercase;
     color: $grey1;
     font-size: $small-medium;
   }
 }
+
 .link-component {
   text-decoration: none;
 }
@@ -68,7 +75,6 @@
   align-items: center;
   width: 70%;
   box-shadow: $dat-drop-shadow;
-
   img {
     margin-right: 20px;
   }

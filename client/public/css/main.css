@@ -134,9 +134,11 @@ table {
   border-spacing: 0;
 }
 
-#profile-wrapper {
-  width: 80%;
-  margin: 0 auto;
+.profile-content-wrapper {
+  width: 70vw;
+  margin-left: 30vw;
+  box-sizing: border-box;
+  padding: 0 100px;
 }
 
 .profile-block {
@@ -146,30 +148,38 @@ table {
   margin: 5px;
   box-shadow: 0 15px 15px 0 rgba(0, 0, 0, 0.015);
 }
-
 .profile-block h3 {
   margin-top: 0;
 }
 
 .header {
+  width: 30vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #555561;
+  color: white;
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: column nowrap;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
 }
 .header #logo-div {
   border-radius: 50%;
   background: rgba(0, 0, 0, 0.3);
-  min-height: 216px;
-  min-width: 216px;
-  margin: 0 40px;
+  min-height: 160px;
+  min-width: 160px;
+  margin: 40px;
   box-shadow: 0 15px 15px 0 rgba(0, 0, 0, 0.015);
 }
-.header .info-container {
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: space-between;
-}
-.header h1 {
-  text-align: left;
+
+.profile-links li {
+  padding: 10px;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 600;
+  font-size: 1.2rem;
 }
 
 .contact {
