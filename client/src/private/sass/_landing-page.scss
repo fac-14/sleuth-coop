@@ -19,9 +19,52 @@
   margin-bottom: $larger;
 }
 
-.large-home-btn {
+.large-home-btn1,
+.large-home-btn2 {
   margin: $small;
   margin-top: $medium;
   width: 360px;
   box-shadow: $dat-drop-shadow;
+}
+.large-home-btn1 {
+  background: $turqoise1;
+  color: black;
+}
+.large-home-btn2 {
+  background: $teal1;
+  color: white;
+}
+
+.intro-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  p {
+    padding: $larger;
+    padding-top: $largerer;
+    width: 60%;
+    font-size: $mediumish;
+    // margin-top: calc($small + $medium);
+  }
+}
+
+.heading-banner {
+  background-color: $grey1;
+  width: 100%;
+  h1 {
+    color: $js-grey;
+    margin-top: $largerer;
+    margin-bottom: $large;
+  }
+}
+
+.back-btn {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  border-radius: 50%;
+  position: absolute;
+  left: 10px;
+  top: 10px;
 }

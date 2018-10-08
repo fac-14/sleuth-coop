@@ -14,12 +14,12 @@ export default class LandingPage extends React.Component {
           Showcasing SME innovation for Local Authority Audiences
         </h2>
         <Link to={'/info'}>
-          <button className="default-btn large-home-btn">
+          <button className="default-btn large-home-btn1">
             I represent an SME
           </button>
         </Link>
         <Link to={'/discover'}>
-          <button className="large-home-btn default-btn">
+          <button className="large-home-btn2 default-btn">
             I am in Local Government
           </button>
         </Link>

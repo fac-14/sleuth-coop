@@ -1,10 +1,10 @@
-@import 'colors';
-@import 'fonts';
-@import 'sizes';
-@import 'reset';
-@import 'carousel';
-@import 'profile';
-@import 'landing-page';
+@import "colors";
+@import "fonts";
+@import "sizes";
+@import "reset";
+@import "carousel";
+@import "profile";
+@import "landing-page";
 
 body {
   font-family: $main-text;
@@ -51,8 +51,8 @@ p {
 .default-btn {
   font-family: $main-text;
   border-radius: 50px;
-  background: $turqoise1;
-  color: white;
+  // background: $turqoise1;
+  // color: black;
   font-size: $font-h3;
   padding: $small $medium;
   min-width: 200px;

@@ -224,11 +224,55 @@ table {
   margin-bottom: 4rem;
 }
 
-.large-home-btn {
+.large-home-btn1,
+.large-home-btn2 {
   margin: 0.5rem;
   margin-top: 1rem;
   width: 360px;
   box-shadow: 0 15px 15px 0 rgba(0, 0, 0, 0.015);
+}
+
+.large-home-btn1 {
+  background: #6ab8af;
+  color: black;
+}
+
+.large-home-btn2 {
+  background: #3c5e5d;
+  color: white;
+}
+
+.intro-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.intro-content p {
+  padding: 4rem;
+  padding-top: 6rem;
+  width: 60%;
+  font-size: 1.2rem;
+}
+
+.heading-banner {
+  background-color: #555561;
+  width: 100%;
+}
+.heading-banner h1 {
+  color: #ecf0f1;
+  margin-top: 6rem;
+  margin-bottom: 2rem;
+}
+
+.back-btn {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  border-radius: 50%;
+  position: absolute;
+  left: 10px;
+  top: 10px;
 }
 
 body {
@@ -276,8 +320,6 @@ p {
 .default-btn {
   font-family: "Quicksand", sans-serif;
   border-radius: 50px;
-  background: #6ab8af;
-  color: white;
   font-size: 1.5rem;
   padding: 0.5rem 1rem;
   min-width: 200px;
