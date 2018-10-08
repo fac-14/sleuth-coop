@@ -4,6 +4,7 @@
 @import 'reset';
 @import 'carousel';
 @import 'profile';
+@import 'landing-page';
 
 body {
   font-family: $main-text;
@@ -42,7 +43,18 @@ p {
 }
 
 #home-btn {
-  background-color: rgba(0,0,0,0);
+  background-color: rgba(0, 0, 0, 0);
   border: none;
   padding: 5px;
+}
+
+.default-btn {
+  font-family: $main-text;
+  border-radius: 50px;
+  background: $turqoise1;
+  color: white;
+  font-size: $font-h3;
+  padding: $small $medium;
+  min-width: 200px;
+  // margin: $small;
 }

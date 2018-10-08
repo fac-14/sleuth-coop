@@ -1,0 +1,27 @@
+.landing-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: $large 0;
+}
+
+.logo-div {
+  border: $grey1 solid 2px;
+  margin-bottom: $large;
+  height: 150px;
+  img {
+    height: 100%;
+  }
+}
+
+.landing-text {
+  margin-bottom: $larger;
+}
+
+.large-home-btn {
+  margin: $small;
+  margin-top: $medium;
+  width: 360px;
+  box-shadow: $dat-drop-shadow;
+}
