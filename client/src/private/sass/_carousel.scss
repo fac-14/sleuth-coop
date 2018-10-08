@@ -1,63 +1,104 @@
 body {
-    overflow-x: hidden;
+  overflow-x: hidden;
 }
 
 .form-div {
-    width: 500px;
-    max-width: 80vw;
-    height: 300px;
-    position: absolute;
-    top: 30vh;
-}
-  
-.outer-left {
-    background-color: aliceblue;
-    transform: translateX(-100vw) scale(0.3);
-    transition-duration: 1s;
-    visibility: hidden;
+  width: 50vw;
+  min-width: 250px;
+  height: 400px;
+  position: absolute;
+  top: 20vh;
+  border-radius: 2rem;
+  box-shadow: 0px 4px 8px gray;
+  border: 4px $teal1 solid;
+  padding: 1rem;
+  box-sizing: border-box;
 }
 
-.left{
-    background-color: burlywood;
-    transition-duration: 0.5s;
-    transform: translateX(-25vw) scale(0.8);
-    opacity: 0.5;
+.outer-left {
+  background-color: $turqoise1;
+  transform: translateX(-100vw) scale(0.3);
+  transition-duration: 1s;
+  visibility: hidden;
+}
+
+.left {
+  background-color: $turqoise1;
+  transition-duration: 0.5s;
+  transform: translateX(-25vw) scale(0.8);
+  opacity: 0.5;
 }
 
 .focus {
-    background-color: rgb(121, 121, 204);
-    transition-duration: 0.5s;
-    transform: translateX(25vw);
+  background-color: $turqoise1;
+  transition-duration: 0.5s;
+  transform: translateX(25vw);
+  z-index: 2;
 }
 
 .right {
-    background-color: papayawhip;
-    transition-duration: 0.5s;
-    transform: translateX(75vw) scale(0.8); 
-    opacity: 0.5;
+  background-color: $turqoise1;
+  transition-duration: 0.5s;
+  transform: translateX(75vw) scale(0.8);
+  opacity: 0.5;
 }
 
 .outer-right {
-    background-color: aliceblue;
-    transform: translateX(125vw);
-    transition-duration: 1s;
-    visibility: hidden;
+  background-color: $turqoise1;
+  transform: translateX(125vw);
+  transition-duration: 1s;
+  visibility: hidden;
 }
 
 .back-arrow {
-    position: absolute;
-    left: 5vw;
-    top: 50vh;
+  position: absolute;
+  left: 15vw;
+  top: 50vh;
 }
 
 .forward-arrow {
-    position: absolute;
-    left: 85vw;
-    top: 50vh;
+  position: absolute;
+  right: 15vw;
+  top: 50vh;
 }
 
 #form {
-    display: flex;
-    // flex-direction: row;
-    // flex-wrap: nowrap;
+  display: flex;
+  // flex-direction: row;
+  // flex-wrap: nowrap;
+}
+
+.arrow {
+  width: 50px;
+}
+
+.form-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.form-text > label {
+  margin-bottom: $large;
+  text-align: center;
+}
+
+.form-text > input,
+textarea {
+  width: 80%;
+  height: $large;
+  border-radius: $medium;
+  border: none;
+  padding: $small;
+  font-size: $medium;
+}
+
+.form-text > textarea {
+  height: $larger;
+}
+
+input:focus {
+  outline: $orange1 2px solid;
 }

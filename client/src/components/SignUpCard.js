@@ -1,10 +1,30 @@
-import React from 'react';
+import React from "react";
 
 export default class SignUpCard extends React.Component {
   render() {
+    if (this.props.inputType === "textarea") {
+      return (
+        <div className="form-text">
+          <label htmlFor={this.props.name}>
+            <h3>Please enter {this.props.text}:</h3>
+          </label>
+          <textarea
+            id={this.props.name}
+            name={this.props.name}
+            type={this.props.type}
+            value={this.props.value}
+            autoComplete="off"
+            onChange={this.props.change}
+            required
+          />
+        </div>
+      );
+    }
     return (
-      <div>
-        <label htmlFor={this.props.name}>Please enter {this.props.text}:</label>
+      <div className="form-text">
+        <label htmlFor={this.props.name}>
+          <h3>Please enter {this.props.text}:</h3>
+        </label>
         <input
           id={this.props.name}
           name={this.props.name}
