@@ -134,6 +134,79 @@ table {
   border-spacing: 0;
 }
 
+#profile-wrapper {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.profile-block {
+  background: white;
+  padding: 20px;
+  border-radius: 20px;
+  margin: 5px;
+  box-shadow: 0 15px 15px 0 rgba(0, 0, 0, 0.015);
+}
+
+.text-block {
+  width: 70%;
+}
+
+.profile-block h3 {
+  margin-top: 0;
+}
+
+.header {
+  display: flex;
+  flex-flow: row nowrap;
+}
+.header #logo-div {
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.3);
+  height: 216px;
+  width: 216px;
+  margin: 0 40px;
+  box-shadow: 0 15px 15px 0 rgba(0, 0, 0, 0.015);
+}
+.header .info-container {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+}
+.header h1 {
+  text-align: left;
+}
+
+.contact {
+  width: 30%;
+}
+.contact .label-text {
+  text-transform: uppercase;
+  color: #555561;
+  font-size: 0.75rem;
+}
+
+.link-component {
+  text-decoration: none;
+}
+
+#add-content-btn {
+  background: #555561;
+  color: white;
+  border: 4px solid white;
+  font-size: 1.5rem;
+  padding: 10px 20px;
+  display: block;
+  border-radius: 20px;
+  font-family: "Quicksand", sans-serif;
+  display: flex;
+  align-items: center;
+  width: 70%;
+  box-shadow: 0 15px 15px 0 rgba(0, 0, 0, 0.015);
+}
+#add-content-btn img {
+  margin-right: 20px;
+}
+
 body {
   font-family: "Quicksand", sans-serif;
   font-size: medium;
@@ -151,7 +224,7 @@ h1 {
 }
 
 h2 {
-  font-family: "K2D", sans-serif;
+  font-family: "Quicksand", sans-serif;
   font-size: 2rem;
   font-weight: 400;
   margin-bottom: 1rem;
@@ -159,14 +232,21 @@ h2 {
 }
 
 h3 {
-  font-family: "K2D", sans-serif;
+  font-family: "Quicksand", sans-serif;
   font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 1rem;
 }
 
 p {
+  font-family: "Quicksand", sans-serif;
   margin-bottom: 0.5rem;
+}
+
+#home-btn {
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  padding: 5px;
 }
 
 /*# sourceMappingURL=main.css.map */
