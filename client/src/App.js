@@ -1,15 +1,16 @@
-import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import React, { Component } from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import LandingPage from './components/LandingPage';
-import Info from './components/Info';
-import SignUp from './components/SignUp';
-import Profile from './components/Profile';
-import Add from './components/ProfileComponents/Add';
+import LandingPage from "./components/LandingPage";
+import Info from "./components/Info";
+import SignUp from "./components/SignUp";
+import Profile from "./components/Profile";
+import Add from "./components/ProfileComponents/Add";
+import Discovery from "./components/Discovery";
 
 class App extends Component {
   state = {
-    response: ''
+    response: ""
   };
 
   componentDidMount() {
@@ -19,7 +20,7 @@ class App extends Component {
   }
 
   callApi = async () => {
-    const response = await fetch('/api/hello');
+    const response = await fetch("/api/hello");
     const body = await response.json();
 
     if (response.status !== 200) throw Error(body.message);
@@ -36,6 +37,7 @@ class App extends Component {
           <Route exact={true} path="/sign-up" component={SignUp} />
           <Route path="/profile/:id" component={Profile} />
           <Route exact={true} path="/profile/:id/add" component={Add} />
+          <Route exact={true} path="/discover" component={Discovery} />
         </React.Fragment>
       </Router>
     );
