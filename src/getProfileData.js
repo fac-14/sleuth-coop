@@ -52,6 +52,13 @@ const profileData = {
       helper_text: ""
     },
     {
+      question: "Video Demo",
+      answer: "https://www.youtube.com/embed/A1WOE5puKno",
+      category: "Images and Demos",
+      input_type: "video",
+      helper_text: ""
+    },
+    {
       question: "Examples of council implementation. What were the outcomes?",
       answer: `Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking monstra adventus resi dentevil vultus comedat cerebella viventium. Qui animated corpse, cricket bat max brucks terribilem incessu zomby. The voodoo sacerdos flesh eater, suscitat mortuos comedere carnem virus. Zonbi tattered for solum oculi eorum defunctis go lum cerebro. Nescio brains an Undead zombies. Sicut malus putrid voodoo horror. Nigh tofth eliv ingdead.
 
@@ -68,7 +75,7 @@ const profileData = {
     {
       question: "Product screenshots",
       answer:
-        "http://digitalspyuk.cdnds.net/17/15/768x384/landscape-1491824829-hodor-game-of-thrones-hbo.jpg",
+        "http://peoplebookhr.com/wp-content/uploads/2017/01/destop.png",
       category: "Images and Demos",
       input_type: "image",
       helper_text: "Please upload images of your product"

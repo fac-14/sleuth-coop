@@ -16,6 +16,13 @@ export default class Block extends React.Component {
           </a>
         </div>
       );
+      } else if (type === "video") {
+        return (
+          <div className={this.props.type + " profile-block"}>
+            <h3>{this.props.heading}</h3>
+            <iframe title="demo video" width="560" height="315" src={this.props.answer} frameBorder="0" allow="encrypted-media" allowFullScreen></iframe>
+          </div>
+        );
     } else if (type === "image") {
       return (
         <div className={this.props.type + " profile-block"}>
