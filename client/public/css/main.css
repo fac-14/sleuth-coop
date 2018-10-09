@@ -287,42 +287,59 @@ button[type=submit] {
   background-color: #555561;
 }
 
-#profile-wrapper {
-  width: 80%;
-  margin: 0 auto;
+.profile-content-wrapper {
+  margin-left: 30vw;
+  box-sizing: border-box;
+  padding: 0;
 }
 
 .profile-block {
   background: white;
   padding: 20px;
   border-radius: 20px;
-  margin: 5px;
+  margin: 1rem;
   box-shadow: 0 15px 15px 0 rgba(0, 0, 0, 0.015);
 }
-
 .profile-block h3 {
   margin-top: 0;
 }
 
 .header {
+  width: 30vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #6ab8af;
+  color: white;
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: column nowrap;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
 }
 .header #logo-div {
   border-radius: 50%;
   background: rgba(0, 0, 0, 0.3);
-  min-height: 216px;
-  min-width: 216px;
-  margin: 0 40px;
+  min-height: 160px;
+  min-width: 160px;
+  margin: 40px;
   box-shadow: 0 15px 15px 0 rgba(0, 0, 0, 0.015);
 }
-.header .info-container {
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: space-between;
-}
 .header h1 {
-  text-align: left;
+  font-size: 4rem;
+}
+.header h2, .header h1 {
+  word-wrap: break-word;
+  max-width: 28vw;
+}
+
+.profile-links li {
+  padding: 10px;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
 }
 
 .contact {
@@ -354,6 +371,33 @@ button[type=submit] {
 }
 #add-content-btn img {
   margin-right: 20px;
+}
+
+.category {
+  min-height: 75vh;
+  padding-right: 1rem;
+  padding-top: 0.5rem;
+}
+
+.category > h2 {
+  background: #6ab8af;
+  width: 50%;
+  border-radius: 0 1rem 1rem 0;
+  padding: 0.5rem;
+  color: white;
+  margin-bottom: 1.5rem;
+}
+
+.profile-links > li:hover {
+  cursor: pointer;
+  color: #555561;
+  border-radius: 15px;
+  box-shadow: inset 0 0 0 2px #3c5e5d;
+  transition: box-shadow 0.15s ease-in-out;
+}
+
+img {
+  max-width: 100%;
 }
 
 .landing-content {
@@ -423,7 +467,7 @@ button[type=submit] {
   border: none;
   padding: 0;
   border-radius: 50%;
-  position: absolute;
+  position: fixed;
   left: 10px;
   top: 10px;
 }
@@ -539,10 +583,11 @@ p {
 }
 
 #home-btn {
-  background-color: rgba(0, 0, 0, 0);
+  background-color: transparent;
   border: none;
   padding: 5px;
-  position: absolute;
+  position: fixed;
+  z-index: 2;
 }
 
 .default-btn {
