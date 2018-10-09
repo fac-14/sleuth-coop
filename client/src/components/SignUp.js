@@ -9,10 +9,10 @@ export default class SignUp extends React.Component {
   state = {
     email: "",
     name: "",
-    jobtitle: "Legend",
-    company: "Jessie Co",
-    website: "jessie.co",
-    description: "so cool",
+    jobtitle: "",
+    company: "",
+    website: "",
+    description: "",
     position: 0,
     errorMsg: ""
   };
@@ -33,9 +33,11 @@ export default class SignUp extends React.Component {
 
   handleFrontArrow = () => {
     if(this.handleValidation() === true){
+      const selector = `#\\3${this.state.position + 1}  .input`
+      if (document.querySelector(selector)) {
+        document.querySelector(selector).focus();
+      }
       this.setState({ position: this.state.position + 1, errorMsg: "" })
-      const selector = `#\\3${this.state.position + 1}  input`
-      document.querySelector(selector).focus()
     } else {
       this.setState({errorMsg: this.handleValidation()})
     }
@@ -59,7 +61,6 @@ export default class SignUp extends React.Component {
       description: ""
     });
   };
-
   handleFocus = divID => {
     if (divID === this.state.position) {
       return "form-div focus";
@@ -180,6 +181,15 @@ export default class SignUp extends React.Component {
             className={this.state.position < 5 ? "hidden" : "forward-arrow default-btn"}
             type="submit" onClick={this.handleSubmit}>Submit</button>
         </Link>
+        <div className="progress-circles-div">
+          {[0,1,2,3,4,5].map((circle, index) => {
+            if(circle === this.state.position) {
+              return <div key={index} className="progress-circle filled"></div>
+            } else {
+              return <div key={index} className="progress-circle"></div>
+            }
+          })}
+        </div>
       </React.Fragment>
     );
   }
