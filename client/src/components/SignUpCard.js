@@ -1,6 +1,7 @@
 import React from "react";
 
 export default class SignUpCard extends React.Component {
+
   render() {
     if (this.props.inputType === "textarea") {
       return (
@@ -9,6 +10,7 @@ export default class SignUpCard extends React.Component {
             <h3>Please enter {this.props.text}:</h3>
           </label>
           <textarea
+            className="input"
             id={this.props.name}
             name={this.props.name}
             type={this.props.type}
@@ -28,6 +30,7 @@ export default class SignUpCard extends React.Component {
           <h3>Please enter {this.props.text}:</h3>
         </label>
         <input
+          className="input"
           id={this.props.name}
           name={this.props.name}
           type={this.props.type}
@@ -35,6 +38,7 @@ export default class SignUpCard extends React.Component {
           autoComplete="off"
           onChange={this.props.change}
           onBlur={this.props.validator}
+          onKeyDown={this.props.keyHandler} 
           required
         />
       </div>

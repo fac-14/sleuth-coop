@@ -7,7 +7,7 @@ body {
   min-width: 250px;
   height: 400px;
   position: absolute;
-  top: 20vh;
+  top: calc((100vh - 400px) / 2);
   border-radius: 2rem;
   box-shadow: 0px 4px 8px gray;
   border: 4px $teal1 solid;
@@ -50,26 +50,24 @@ body {
   visibility: hidden;
 }
 
-.back-arrow {
+.arrow {
+  width: 50px;
   position: absolute;
+  top: calc((100vh - 50px) / 2);
+  z-index: 10;
+}
+
+.back-arrow {
   left: 15vw;
-  top: 50vh;
 }
 
 .forward-arrow {
-  position: absolute;
   right: 15vw;
-  top: 50vh;
 }
 
 #form {
   display: flex;
-  // flex-direction: row;
-  // flex-wrap: nowrap;
-}
-
-.arrow {
-  width: 50px;
+  align-items: center;
 }
 
 .form-text {
@@ -78,52 +76,80 @@ body {
   justify-content: center;
   align-items: center;
   height: 100%;
+
+  label {
+    margin-bottom: $large;
+    text-align: center;
+  }
+  textarea {
+    resize: none;
+    height: $largerer;
+  }
+  input {
+    height: $large;
+  }
+  input, textarea {
+    width: 80%;
+    border-radius: $medium;
+    border: none;
+    padding: $small;
+    font-size: $mediumish;
+    font-family: $main-text;
+  }
 }
 
-.form-text > label {
-  margin-bottom: $large;
-  text-align: center;
-}
-
-.form-text > input,
-textarea {
-  width: 80%;
-  height: $large;
-  border-radius: $medium;
-  border: none;
-  padding: $small;
-  font-size: $medium;
-}
-
-.form-text > textarea {
-  height: $larger;
-}
-
-input:focus {
+input:focus, textarea:focus {
   outline: $orange1 2px solid;
 }
 
 button[type="submit"] {
-    font-size: $medium;
-    background-color: $red1;
+  font-size: $mediumish;
+  background-color: $orange1;
+  color: white;
+  min-width: 100px;
+  position: absolute;
+  top: calc((100vh - 40px) / 2);
+  right: 10vw;
 }
 
 .error {
-    background-color: $red1;
-    color: $white;
-    font-size: $font-h3;
-    margin-top: $medium;
-    padding: $small;
-    position: absolute;
-    bottom: 25vh;
-    left: 25vw;
-    width: 50vw;
-    min-width: 250px;
-    text-align: center;
+  background-color: $orange1;
+  border-radius: 50px;
+  color: $white;
+  font-size: $font-h3;
+  margin-top: $medium;
+  padding: $small;
+  position: absolute;
+  top: calc((100vh - 400px) / 4);
+  left: 25vw;
+  width: 50vw;
+  min-width: 250px;
+  text-align: center;
 }
 
 .hidden {
-    visibility: hidden;
-    // need to make this accessible
+  visibility: hidden;
+  // need to make this accessible
 }
 
+.progress-circles-div {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  position: absolute;
+  left: calc((100vw - 180px) / 2);
+  bottom: calc((100vh - 400px) / 4);
+
+  .progress-circle {
+    transition-duration: 0.5s;
+    height: 20px;
+    width: 20px;
+    border: 3px solid $grey1;
+    padding: 5px;
+    border-radius: 50%;
+    margin: 5px;
+  }
+  .filled {
+    background-color: $grey1;
+  }
+}

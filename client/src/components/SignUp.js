@@ -25,7 +25,6 @@ export default class SignUp extends React.Component {
     const target = e.target;
     const value = target.value;
     this.setState({ [target.name]: value });
-    console.log(this.state);
   };
 
   handleBackArrow = () => {
@@ -34,6 +33,10 @@ export default class SignUp extends React.Component {
 
   handleFrontArrow = () => {
     if(this.handleValidation() === true){
+      const selector = `#\\3${this.state.position + 1}  .input`
+      if (document.querySelector(selector)) {
+        document.querySelector(selector).focus();
+      }
       this.setState({ position: this.state.position + 1, errorMsg: "" })
     } else {
       this.setState({errorMsg: this.handleValidation()})
@@ -42,8 +45,8 @@ export default class SignUp extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    const data = JSON.stringify(this.state);
     // post req will go here (see fetch example below)
+    // const data = JSON.stringify(this.state);
     // fetch("/signup", {
     //   method: "post",
     //   body: data
@@ -58,7 +61,6 @@ export default class SignUp extends React.Component {
       description: ""
     });
   };
-
   handleFocus = divID => {
     if (divID === this.state.position) {
       return "form-div focus";
@@ -74,10 +76,18 @@ export default class SignUp extends React.Component {
     return "nope";
   };
 
+  handleKey = e => {
+    const key = e.key.toLowerCase()
+    if( key === "tab" || key === "enter") {
+      e.preventDefault();
+      this.handleFrontArrow();
+    }
+  }
+
   render() {
     return (
       <React.Fragment>
-        <form id="form" onSubmit={this.handleSubmit}>
+        <form id="form" onSubmit={this.handleSubmit} >
           <div id="0" className={this.handleFocus(0)}>
             <SignUpCard
               inputType="input"
@@ -87,6 +97,7 @@ export default class SignUp extends React.Component {
               change={this.handleChange}
               value={this.state.email}
               validator={this.handleValidation}
+              keyHandler={this.handleKey} 
             />
           </div>
           <div id="1" className={this.handleFocus(1)}>
@@ -98,6 +109,7 @@ export default class SignUp extends React.Component {
               change={this.handleChange}
               value={this.state.name}
               validator={this.handleValidation}
+              keyHandler={this.handleKey} 
             />
           </div>
           <div id="2" className={this.handleFocus(2)}>
@@ -109,6 +121,7 @@ export default class SignUp extends React.Component {
               change={this.handleChange}
               value={this.state.jobtitle}
               validator={this.handleValidation}
+              keyHandler={this.handleKey} 
             />
           </div>
           <div id="3" className={this.handleFocus(3)}>
@@ -120,6 +133,7 @@ export default class SignUp extends React.Component {
               change={this.handleChange}
               value={this.state.company}
               validator={this.handleValidation}
+              keyHandler={this.handleKey} 
             />
           </div>
           <div id="4" className={this.handleFocus(4)}>
@@ -131,6 +145,7 @@ export default class SignUp extends React.Component {
               change={this.handleChange}
               value={this.state.website}
               validator={this.handleValidation}
+              keyHandler={this.handleKey}
             />
           </div>
           <div id="5" className={this.handleFocus(5)}>
@@ -142,6 +157,7 @@ export default class SignUp extends React.Component {
               change={this.handleChange}
               value={this.state.description}
               validator={this.handleValidation}
+              keyHandler={this.handleKey} 
             />
           </div>
           <div className={this.state.errorMsg ? "error" : "hidden" }>{(this.state.errorMsg)}</div>
@@ -154,7 +170,7 @@ export default class SignUp extends React.Component {
           alt="back arrow"
         />
         <input
-          className={this.state.position === 5 ? "hidden" : "arrow forward-arrow"}
+          className={this.state.position >= 5 ? "hidden" : "arrow forward-arrow"}
           type="image"
           src={nextImg}
           alt="forward arrow"
@@ -162,9 +178,18 @@ export default class SignUp extends React.Component {
         />
         <Link to={"/profile/123"}>
             <button 
-            className={this.state.position < 5 ? "hidden" : "forward-arrow"}
+            className={this.state.position < 5 ? "hidden" : "forward-arrow default-btn"}
             type="submit" onClick={this.handleSubmit}>Submit</button>
         </Link>
+        <div className="progress-circles-div">
+          {[0,1,2,3,4,5].map((circle, index) => {
+            if(circle === this.state.position) {
+              return <div key={index} className="progress-circle filled"></div>
+            } else {
+              return <div key={index} className="progress-circle"></div>
+            }
+          })}
+        </div>
       </React.Fragment>
     );
   }
