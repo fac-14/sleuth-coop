@@ -2,16 +2,24 @@ import React from "react";
 import Block from "./Block";
 export default class Content extends React.Component {
   render() {
+    const categories = Object.entries(this.props.answers);
+
     return (
       <div>
-        {this.props.answers.Product.map((el, index) => {
+        {categories.map((el, index) => {
           return (
-            <Block
-              key={index}
-              type={el.input_type}
-              heading={el.question}
-              answer={el.answer}
-            />
+            <div className={"category category-" + el[0]} key={index}>
+              {el[1].map((e, index) => {
+                return (
+                  <Block
+                    key={index}
+                    type={e.input_type}
+                    heading={e.question}
+                    answer={e.answer}
+                  />
+                );
+              })}
+            </div>
           );
         })}
       </div>

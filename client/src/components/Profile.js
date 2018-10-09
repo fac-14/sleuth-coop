@@ -19,7 +19,6 @@ export default class Profile extends React.Component {
     getProfile(123)
       .then(res => {
         const transformed = filterData(res);
-        console.log(Object.keys(transformed.answers));
         this.setState({
           response: transformed,
           loading: false
