@@ -22,6 +22,13 @@ const profileData = {
       helper_text: null
     },
     {
+      question: "Do you offer a free proof of concept?",
+      answer: true,
+      category: "Product",
+      input_type: "checkbox",
+      helper_text: null
+    },
+    {
       question: "Why is this product useful to Local Authorities?",
       answer:
         "Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking monstra adventus resi dentevil vultus comedat cerebella viventium. Qui animated corpse, cricket bat max brucks terribilem incessu zomby. The voodoo sacerdos flesh eater, suscitat mortuos comedere carnem virus. Zonbi tattered for solum oculi eorum defunctis go lum cerebro.",
@@ -32,9 +39,16 @@ const profileData = {
     },
     {
       question: "What type of council(s) is it running with?",
-      answer: "District",
+      answer: "District, London Borough",
       category: "Local Authorities",
       input_type: "dropdown",
+      helper_text: ""
+    },
+    {
+      question: "ROI Spreadsheet",
+      answer: "link/to/download/file.xlsx",
+      category: "Impact",
+      input_type: "file_upload",
       helper_text: ""
     },
     {

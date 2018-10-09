@@ -17,6 +17,32 @@
   }
 }
 
+.file_upload {
+  display: flex;
+  flex-flow: column nowrap;
+}
+.download-badge {
+  display: flex;
+  align-items: center;
+  max-width: 400px;
+  background-color: $js-grey;
+  border-radius: 40px;
+  color: $js-grey;
+  font-size: $mediumish;
+  text-decoration: none;
+  color: $teal1;
+
+  .icon-wrapper {
+    background-color: $teal1;
+    border-radius: 50%;
+    margin-right: 20px;
+  }
+  img {
+    width: 70px; height: 70px;
+    padding: 15px;
+  }
+}
+
 .header {
   width: 30vw;
   height: 100vh;
