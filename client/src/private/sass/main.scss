@@ -43,9 +43,11 @@ p {
 }
 
 #home-btn {
-  background-color: rgba(0, 0, 0, 0);
+  background-color: transparent;
   border: none;
   padding: 5px;
+  position: fixed;
+  z-index: 10;
 }
 
 .default-btn {

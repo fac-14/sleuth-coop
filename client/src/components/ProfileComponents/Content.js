@@ -9,6 +9,7 @@ export default class Content extends React.Component {
         {categories.map((el, index) => {
           return (
             <div className={"category category-" + el[0]} key={index}>
+              <h2>{el[0]}</h2>
               {el[1].map((e, index) => {
                 return (
                   <Block

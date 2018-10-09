@@ -2,14 +2,14 @@
   width: 70vw;
   margin-left: 30vw;
   box-sizing: border-box;
-  padding: 0 100px;
+  padding: 0;
 }
 
 .profile-block {
   background: white;
   padding: 20px;
   border-radius: 20px;
-  margin: 5px;
+  margin: $medium;
   box-shadow: $dat-drop-shadow;
   h3 {
     margin-top: 0;
@@ -22,7 +22,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  background-color: $grey1;
+  background-color: $turqoise1;
   color: white;
   display: flex;
   flex-flow: column nowrap;
@@ -78,4 +78,17 @@
   img {
     margin-right: 20px;
   }
+}
+
+.category {
+  min-height: 100vh;
+}
+
+.category > h2 {
+  background: $turqoise1;
+  width: 50%;
+  border-radius: 0 $medium $medium 0;
+  padding: $small;
+  color: $white;
+  margin-bottom: $font-h3;
 }
