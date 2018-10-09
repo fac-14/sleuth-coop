@@ -5,6 +5,7 @@
 @import "carousel";
 @import "profile";
 @import "landing-page";
+@import "discovery-page";
 
 * {
   box-sizing: border-box;
@@ -50,6 +51,7 @@ p {
   background-color: rgba(0, 0, 0, 0);
   border: none;
   padding: 5px;
+  position: absolute;
 }
 
 .default-btn {
