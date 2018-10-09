@@ -19,6 +19,7 @@ export default class Profile extends React.Component {
     getProfile(123)
       .then(res => {
         const transformed = filterData(res);
+        console.log(Object.keys(transformed.answers));
         this.setState({
           response: transformed,
           loading: false
@@ -45,6 +46,7 @@ export default class Profile extends React.Component {
             compName={basicInfo.company_name}
             website={basicInfo.website}
             desc={basicInfo.one_liner}
+            answers={answers}
           />
           <div className="profile-content-wrapper">
             <Content answers={answers} />

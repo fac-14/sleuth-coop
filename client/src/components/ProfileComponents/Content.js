@@ -4,8 +4,7 @@ export default class Content extends React.Component {
   render() {
     return (
       <div>
-        {
-          this.props.answers.product.map((el, index) => {
+        {this.props.answers.Product.map((el, index) => {
           return (
             <Block
               key={index}
