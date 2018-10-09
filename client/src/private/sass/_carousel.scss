@@ -1,0 +1,129 @@
+body {
+  overflow-x: hidden;
+}
+
+.form-div {
+  width: 50vw;
+  min-width: 250px;
+  height: 400px;
+  position: absolute;
+  top: 20vh;
+  border-radius: 2rem;
+  box-shadow: 0px 4px 8px gray;
+  border: 4px $teal1 solid;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.outer-left {
+  background-color: $turqoise1;
+  transform: translateX(-100vw) scale(0.3);
+  transition-duration: 1s;
+  visibility: hidden;
+}
+
+.left {
+  background-color: $turqoise1;
+  transition-duration: 0.5s;
+  transform: translateX(-25vw) scale(0.8);
+  opacity: 0.5;
+}
+
+.focus {
+  background-color: $turqoise1;
+  transition-duration: 0.5s;
+  transform: translateX(25vw);
+  z-index: 2;
+}
+
+.right {
+  background-color: $turqoise1;
+  transition-duration: 0.5s;
+  transform: translateX(75vw) scale(0.8);
+  opacity: 0.5;
+}
+
+.outer-right {
+  background-color: $turqoise1;
+  transform: translateX(125vw);
+  transition-duration: 1s;
+  visibility: hidden;
+}
+
+.back-arrow {
+  position: absolute;
+  left: 15vw;
+  top: 50vh;
+}
+
+.forward-arrow {
+  position: absolute;
+  right: 15vw;
+  top: 50vh;
+}
+
+#form {
+  display: flex;
+  // flex-direction: row;
+  // flex-wrap: nowrap;
+}
+
+.arrow {
+  width: 50px;
+}
+
+.form-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.form-text > label {
+  margin-bottom: $large;
+  text-align: center;
+}
+
+.form-text > input,
+textarea {
+  width: 80%;
+  height: $large;
+  border-radius: $medium;
+  border: none;
+  padding: $small;
+  font-size: $medium;
+}
+
+.form-text > textarea {
+  height: $larger;
+}
+
+input:focus {
+  outline: $orange1 2px solid;
+}
+
+button[type="submit"] {
+    font-size: $medium;
+    background-color: $red1;
+}
+
+.error {
+    background-color: $red1;
+    color: $white;
+    font-size: $font-h3;
+    margin-top: $medium;
+    padding: $small;
+    position: absolute;
+    bottom: 25vh;
+    left: 25vw;
+    width: 50vw;
+    min-width: 250px;
+    text-align: center;
+}
+
+.hidden {
+    visibility: hidden;
+    // need to make this accessible
+}
+
