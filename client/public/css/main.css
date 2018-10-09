@@ -329,7 +329,8 @@ button[type=submit] {
 .header h1 {
   font-size: 4rem;
 }
-.header h2, .header h1 {
+.header h2,
+.header h1 {
   word-wrap: break-word;
   max-width: 28vw;
 }
@@ -353,30 +354,38 @@ button[type=submit] {
 
 .link-component {
   text-decoration: none;
+  max-width: 28vw;
 }
 
 #add-content-btn {
   background: #555561;
   color: white;
-  border: 4px solid white;
-  font-size: 1.5rem;
-  padding: 10px 20px;
+  border: 2px solid white;
+  font-size: 1rem;
+  padding: 5px 15px 5px 5px;
   display: block;
   border-radius: 20px;
   font-family: "Quicksand", sans-serif;
   display: flex;
   align-items: center;
-  width: 70%;
+  width: 100%;
   box-shadow: 0 15px 15px 0 rgba(0, 0, 0, 0.015);
 }
 #add-content-btn img {
   margin-right: 20px;
+  height: 2rem;
+}
+#add-content-btn:hover {
+  color: #801418;
 }
 
 .category {
   min-height: 75vh;
   padding-right: 1rem;
   padding-top: 0.5rem;
+}
+.category p {
+  line-height: 1.2rem;
 }
 
 .category > h2 {

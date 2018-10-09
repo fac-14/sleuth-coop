@@ -1,18 +1,17 @@
 import React from "react";
-import Sidebar from "./ProfileComponents/Sidebar";
+
 import Contact from "./ProfileComponents/Contact";
 import Content from "./ProfileComponents/Content";
-
-import AddContent from "./ProfileComponents/AddContent";
 import HomeBtn from "./HomeBtn";
+import Sidebar from "./ProfileComponents/Sidebar";
+
 import getProfile from "../utils/getProfile";
 import filterData from "../utils/filterData";
 
 export default class Profile extends React.Component {
   state = {
     response: null,
-    loading: true,
-    edit: true
+    loading: true
   };
 
   componentDidMount() {
@@ -29,13 +28,11 @@ export default class Profile extends React.Component {
 
   render() {
     // destructure the state
-
     if (this.state.loading) {
       return <h3>Loading...</h3>;
     }
 
     const { basic_info: basicInfo, answers } = this.state.response;
-    const { edit } = this.state;
     return (
       <React.Fragment>
         <HomeBtn />
@@ -46,16 +43,16 @@ export default class Profile extends React.Component {
             website={basicInfo.website}
             desc={basicInfo.one_liner}
             answers={answers}
+            editable={this.props.SME}
           />
           <div className="profile-content-wrapper">
-            <Content answers={answers} about={basicInfo.one_liner}/>
+            <Content answers={answers} about={basicInfo.one_liner} />
             <Contact
               className="contact"
               name={basicInfo.contact_name}
               title={basicInfo.contact_title}
               email={basicInfo.email}
             />
-            {edit ? <AddContent /> : null}
           </div>
         </div>
       </React.Fragment>
