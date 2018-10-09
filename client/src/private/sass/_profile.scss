@@ -1,5 +1,6 @@
 .profile-content-wrapper {
-  width: 70vw;
+  // width: 70vw;
+  // Commented the above out to temporarily fix issues with scrollIntoView()
   margin-left: 30vw;
   box-sizing: border-box;
   padding: 0;
@@ -81,7 +82,9 @@
 }
 
 .category {
-  min-height: 100vh;
+  min-height: 75vh;
+  padding-right: $medium;
+  padding-top: $small;
 }
 
 .category > h2 {

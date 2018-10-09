@@ -30,13 +30,13 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div>
+        <React.Fragment>
           <Route exact={true} path="/" component={LandingPage} />
           <Route exact={true} path="/info" component={Info} />
           <Route exact={true} path="/sign-up" component={SignUp} />
           <Route path="/profile/:id" component={Profile} />
           <Route exact={true} path="/profile/:id/add" component={Add} />
-        </div>
+        </React.Fragment>
       </Router>
     );
   }

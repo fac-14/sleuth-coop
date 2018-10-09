@@ -14,7 +14,7 @@ export default class Header extends React.Component {
         <ul className="profile-links">
           <li>About</li>
           {categories.map((cat, index) => (
-            <li key={index}>{cat}</li>
+            <li key={index} onClick={() => document.getElementById(cat.toLowerCase().replace(/ /g, "-")).scrollIntoView({ block: 'start',  behavior: 'smooth' })}>{cat}</li>
           ))}
           {/* <li>Product</li>
           <li>Pricing and Legal</li>
