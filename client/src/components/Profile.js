@@ -48,7 +48,7 @@ export default class Profile extends React.Component {
             answers={answers}
           />
           <div className="profile-content-wrapper">
-            <Content answers={answers} />
+            <Content answers={answers} about={basicInfo.one_liner}/>
             <Contact
               className="contact"
               name={basicInfo.contact_name}
