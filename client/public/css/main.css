@@ -228,7 +228,8 @@ body {
   border-radius: 1rem;
   border: none;
   padding: 0.5rem;
-  font-size: 1rem;
+  font-size: 1.2rem;
+  font-family: "Quicksand", sans-serif;
 }
 
 input:focus {
@@ -236,8 +237,10 @@ input:focus {
 }
 
 button[type=submit] {
-  font-size: 1rem;
-  background-color: #801418;
+  font-size: 1.2rem;
+  background-color: #db792e;
+  color: white;
+  min-width: 100px;
 }
 
 .error {

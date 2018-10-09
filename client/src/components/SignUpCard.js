@@ -1,6 +1,7 @@
 import React from "react";
 
 export default class SignUpCard extends React.Component {
+
   render() {
     if (this.props.inputType === "textarea") {
       return (
@@ -35,6 +36,7 @@ export default class SignUpCard extends React.Component {
           autoComplete="off"
           onChange={this.props.change}
           onBlur={this.props.validator}
+          onKeyUp={this.props.keyHandler} 
           required
         />
       </div>

@@ -92,7 +92,8 @@ body {
     border-radius: $medium;
     border: none;
     padding: $small;
-    font-size: $medium;
+    font-size: $mediumish;
+    font-family: $main-text;
   }
 }
 
@@ -101,8 +102,10 @@ input:focus {
 }
 
 button[type="submit"] {
-  font-size: $medium;
-  background-color: $red1;
+  font-size: $mediumish;
+  background-color: $orange1;
+  color: white;
+  min-width: 100px;
 }
 
 .error {
