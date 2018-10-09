@@ -213,24 +213,22 @@ body {
   align-items: center;
   height: 100%;
 }
-
-.form-text > label {
+.form-text label {
   margin-bottom: 2rem;
   text-align: center;
 }
-
-.form-text > input,
-textarea {
+.form-text textarea {
+  resize: none;
+  height: 4rem;
+}
+.form-text input,
+.form-text textarea {
   width: 80%;
   height: 2rem;
   border-radius: 1rem;
   border: none;
   padding: 0.5rem;
   font-size: 1rem;
-}
-
-.form-text > textarea {
-  height: 4rem;
 }
 
 input:focus {

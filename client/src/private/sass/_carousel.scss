@@ -64,8 +64,6 @@ body {
 
 #form {
   display: flex;
-  // flex-direction: row;
-  // flex-wrap: nowrap;
 }
 
 .arrow {
@@ -78,25 +76,24 @@ body {
   justify-content: center;
   align-items: center;
   height: 100%;
-}
 
-.form-text > label {
-  margin-bottom: $large;
-  text-align: center;
-}
-
-.form-text > input,
-textarea {
-  width: 80%;
-  height: $large;
-  border-radius: $medium;
-  border: none;
-  padding: $small;
-  font-size: $medium;
-}
-
-.form-text > textarea {
-  height: $larger;
+  label {
+    margin-bottom: $large;
+    text-align: center;
+  }
+  textarea {
+    resize: none;
+    height: $larger;
+  }
+  input,
+  textarea {
+    width: 80%;
+    height: $large;
+    border-radius: $medium;
+    border: none;
+    padding: $small;
+    font-size: $medium;
+  }
 }
 
 input:focus {
@@ -104,26 +101,25 @@ input:focus {
 }
 
 button[type="submit"] {
-    font-size: $medium;
-    background-color: $red1;
+  font-size: $medium;
+  background-color: $red1;
 }
 
 .error {
-    background-color: $red1;
-    color: $white;
-    font-size: $font-h3;
-    margin-top: $medium;
-    padding: $small;
-    position: absolute;
-    bottom: 25vh;
-    left: 25vw;
-    width: 50vw;
-    min-width: 250px;
-    text-align: center;
+  background-color: $red1;
+  color: $white;
+  font-size: $font-h3;
+  margin-top: $medium;
+  padding: $small;
+  position: absolute;
+  bottom: 25vh;
+  left: 25vw;
+  width: 50vw;
+  min-width: 250px;
+  text-align: center;
 }
 
 .hidden {
-    visibility: hidden;
-    // need to make this accessible
+  visibility: hidden;
+  // need to make this accessible
 }
-
