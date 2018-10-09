@@ -5,6 +5,7 @@
 @import "carousel";
 @import "profile";
 @import "landing-page";
+@import "discovery-page";
 
 * {
   box-sizing: border-box;
@@ -51,7 +52,7 @@ p {
   border: none;
   padding: 5px;
   position: fixed;
-  z-index: 10;
+  z-index: 2;
 }
 
 .default-btn {

@@ -7,12 +7,15 @@ const port = process.env.PORT || 5000;
 // API CALLS
 
 const profileData = require("./getProfileData");
+const smesData = require("./getSMEs")
 
 app.get("/api/hello", (req, res) => {
   res.send({ express: "Hello From Express" });
 });
 
 app.get("/profile/:id", profileData.get);
+
+app.get("/smes", smesData.get);
 
 if (process.env.NODE_ENV === "production") {
   // serve any static files
