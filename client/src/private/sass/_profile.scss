@@ -133,7 +133,8 @@
     height: $large;
   }
   &:hover {
-    color: $red1;
+    color: $turqoise1;
+    font-weight: 500;
   }
 }
 
@@ -143,7 +144,7 @@
   flex-direction: column;
   justify-content: center;
   p {
-    line-height: 1.2rem;
+    line-height: 1.3rem;
   }
 }
 

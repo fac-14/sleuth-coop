@@ -26,14 +26,23 @@
   margin-top: $medium;
   width: 360px;
   box-shadow: $dat-drop-shadow;
+  cursor: pointer;
 }
 .large-home-btn1 {
   background: $turqoise1;
   color: black;
+  transition: transform 0.2s ease;
+  &:hover {
+    box-shadow: inset 0 0 0 2px $teal1;
+  }
 }
 .large-home-btn2 {
   background: $teal1;
   color: white;
+  transition: transform 0.2s ease;
+  &:hover {
+    box-shadow: inset 0 0 0 2px $turqoise1;
+  }
 }
 
 .intro-content {
@@ -61,11 +70,18 @@
 }
 
 .back-btn {
+  width: 70px;
+  height: 70px;
   background-color: transparent;
   border: none;
-  padding: 0;
+  padding: 8px;
   border-radius: 50%;
   position: fixed;
-  left: 10px;
-  top: 10px;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  &:hover {
+    transform: scale(1.1);
+  }
 }

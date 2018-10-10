@@ -5,7 +5,7 @@ export default class Content extends React.Component {
     const categories = Object.entries(this.props.answers);
 
     return (
-      <div class="content-container">
+      <div className="content-container">
         {categories.map((el, index) => {
           return (
             <div
