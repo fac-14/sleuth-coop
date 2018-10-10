@@ -298,7 +298,7 @@ button[type=submit] {
   padding: 20px;
   border-radius: 20px;
   margin: 1rem 4rem 1.2rem 4rem;
-  box-shadow: 0 15px 15px 0 rgba(0, 0, 0, 0.015);
+  box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, 0.055);
 }
 .profile-block h3 {
   margin-top: 0;
@@ -385,8 +385,10 @@ button[type=submit] {
 }
 
 .category {
-  min-height: 75vh;
-  padding-top: 0.5rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .category > h2 {

@@ -11,7 +11,7 @@
   padding: 20px;
   border-radius: 20px;
   margin: $medium $larger $mediumish $larger;
-  box-shadow: $dat-drop-shadow;
+  box-shadow: $dat-big-shadow;
   h3 {
     margin-top: 0;
   }
@@ -106,8 +106,11 @@
 }
 
 .category {
-  min-height: 75vh;
-  padding-top: $small;
+  min-height: 100vh;
+  // padding-top: $small;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .category > h2 {
