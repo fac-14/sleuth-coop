@@ -10,7 +10,7 @@
   background: white;
   padding: 20px;
   border-radius: 20px;
-  margin: $medium;
+  margin: $medium $larger $mediumish $larger;
   box-shadow: $dat-drop-shadow;
   h3 {
     margin-top: 0;
@@ -33,18 +33,24 @@
 
   #logo-div {
     border-radius: 50%;
-    background: rgba(0, 0, 0, 0.3);
+    // background: rgba(0, 0, 0, 0.3);
     min-height: 160px;
     min-width: 160px;
     margin: 40px;
-    box-shadow: $dat-drop-shadow;
+    // box-shadow: $dat-drop-shadow;
+
+    img {
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.3);
+    }
   }
 
   h1 {
     font-size: $larger;
   }
 
-  h2, h1 {
+  h2,
+  h1 {
     word-wrap: break-word;
     max-width: 28vw;
   }
@@ -57,7 +63,15 @@
     font-weight: 600;
     font-size: $mediumish;
     margin-bottom: $small;
+    transition: all 0.2s ease-in-out;
   }
+}
+
+.profile-links > li:hover {
+  cursor: pointer;
+  color: $grey1;
+  border-radius: $large;
+  box-shadow: inset 0 0 0 2px $teal1;
 }
 
 .contact {
@@ -93,25 +107,16 @@
 
 .category {
   min-height: 75vh;
-  padding-right: $medium;
   padding-top: $small;
 }
 
 .category > h2 {
   background: $turqoise1;
   width: 50%;
-  border-radius: 0 $medium $medium 0;
+  border-radius: 0 $large $large 0;
   padding: $small;
   color: $white;
-  margin-bottom: $font-h3;
-}
-
-.profile-links > li:hover {
-  cursor: pointer;
-  color: $grey1;
-  border-radius: 15px;
-  box-shadow: inset 0 0 0 2px $teal1;
-  transition: box-shadow 0.15s ease-in-out
+  margin-bottom: $large;
 }
 
 img {
