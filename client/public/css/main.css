@@ -304,6 +304,33 @@ button[type=submit] {
   margin-top: 0;
 }
 
+.file_upload {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.download-badge {
+  display: flex;
+  align-items: center;
+  max-width: 400px;
+  background-color: #ecf0f1;
+  border-radius: 40px;
+  color: #ecf0f1;
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: #3c5e5d;
+}
+.download-badge .icon-wrapper {
+  background-color: #3c5e5d;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+.download-badge img {
+  width: 70px;
+  height: 70px;
+  padding: 15px;
+}
+
 .header {
   width: 30vw;
   height: 100vh;
@@ -364,24 +391,29 @@ button[type=submit] {
 
 .link-component {
   text-decoration: none;
+  max-width: 28vw;
 }
 
 #add-content-btn {
   background: #555561;
   color: white;
-  border: 4px solid white;
-  font-size: 1.5rem;
-  padding: 10px 20px;
+  border: 2px solid white;
+  font-size: 1rem;
+  padding: 5px 15px 5px 5px;
   display: block;
   border-radius: 20px;
   font-family: "Quicksand", sans-serif;
   display: flex;
   align-items: center;
-  width: 70%;
+  width: 100%;
   box-shadow: 0 15px 15px 0 rgba(0, 0, 0, 0.015);
 }
 #add-content-btn img {
   margin-right: 20px;
+  height: 2rem;
+}
+#add-content-btn:hover {
+  color: #801418;
 }
 
 .category {
@@ -389,6 +421,9 @@ button[type=submit] {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+.category p {
+  line-height: 1.2rem;
 }
 
 .category > h2 {

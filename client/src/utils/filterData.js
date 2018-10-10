@@ -1,5 +1,4 @@
-
-const filter = (data) => {
+const filter = data => {
   const transformed = {};
   transformed["basic_info"] = data.basic_info;
   transformed.answers = {};
@@ -12,10 +11,9 @@ const filter = (data) => {
       // add to category
       transformed.answers[element.category].push(element);
     }
-  })
-  console.log(transformed);
+  });
+  // console.log("data", transformed);
   return transformed;
-}
-
+};
 
 export default filter;

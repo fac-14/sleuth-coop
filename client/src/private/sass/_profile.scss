@@ -17,6 +17,33 @@
   }
 }
 
+.file_upload {
+  display: flex;
+  flex-flow: column nowrap;
+}
+.download-badge {
+  display: flex;
+  align-items: center;
+  max-width: 400px;
+  background-color: $js-grey;
+  border-radius: 40px;
+  color: $js-grey;
+  font-size: $mediumish;
+  text-decoration: none;
+  color: $teal1;
+
+  .icon-wrapper {
+    background-color: $teal1;
+    border-radius: 50%;
+    margin-right: 20px;
+  }
+  img {
+    width: 70px;
+    height: 70px;
+    padding: 15px;
+  }
+}
+
 .header {
   width: 30vw;
   height: 100vh;
@@ -85,32 +112,39 @@
 
 .link-component {
   text-decoration: none;
+  max-width: 28vw;
 }
 
 #add-content-btn {
   background: $grey1;
   color: white;
-  border: 4px solid white;
-  font-size: $font-h3;
-  padding: 10px 20px;
+  border: 2px solid white;
+  font-size: $medium;
+  padding: 5px 15px 5px 5px;
   display: block;
   border-radius: 20px;
   font-family: $main-text;
   display: flex;
   align-items: center;
-  width: 70%;
+  width: 100%;
   box-shadow: $dat-drop-shadow;
   img {
     margin-right: 20px;
+    height: $large;
+  }
+  &:hover {
+    color: $red1;
   }
 }
 
 .category {
   min-height: 100vh;
-  // padding-top: $small;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  p {
+    line-height: 1.2rem;
+  }
 }
 
 .category > h2 {

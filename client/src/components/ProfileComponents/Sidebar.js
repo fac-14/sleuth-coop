@@ -1,9 +1,10 @@
 import React from "react";
 import senzingLogo from "../../assets/senzing-squarelogo.png";
+import AddContent from "./AddContent";
 
 export default class Header extends React.Component {
   render() {
-    const { compName, website, desc, answers } = this.props;
+    const { compName, website, answers, editable } = this.props;
     const categories = Object.keys(answers);
     return (
       <div className="header">
@@ -26,6 +27,7 @@ export default class Header extends React.Component {
             </li>
           ))}
         </ul>
+        {editable ? <AddContent /> : null}
       </div>
     );
   }
