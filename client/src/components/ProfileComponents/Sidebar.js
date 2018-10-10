@@ -1,8 +1,9 @@
 import React from "react";
+import AddContent from "./AddContent";
 
 export default class Header extends React.Component {
   render() {
-    const { compName, website, desc, answers } = this.props;
+    const { compName, website, answers, editable } = this.props;
     const categories = Object.keys(answers);
     return (
       <div className="header">
@@ -13,12 +14,19 @@ export default class Header extends React.Component {
         </div>
         <ul className="profile-links">
           {categories.map((cat, index) => (
-            <li 
-            key={index} 
-            onClick={() => document.getElementById(cat.toLowerCase().replace(/ /g, "-")).scrollIntoView({ block: 'start',  behavior: 'smooth' })}
-            >{cat}</li>
+            <li
+              key={index}
+              onClick={() =>
+                document
+                  .getElementById(cat.toLowerCase().replace(/ /g, "-"))
+                  .scrollIntoView({ block: "start", behavior: "smooth" })
+              }
+            >
+              {cat}
+            </li>
           ))}
         </ul>
+        {editable ? <AddContent /> : null}
       </div>
     );
   }

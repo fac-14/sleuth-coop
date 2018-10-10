@@ -23,13 +23,13 @@ export default class Discovery extends React.Component {
     }
     const smes = this.state.response;
     return (
-      <div class="discovery-container">
+      <div className="discovery-container">
         <HomeBtn />
-        <header class="discover-header">
+        <header className="discover-header">
           <h1>Discover</h1>
           <h3>Search for innovative SMEs with proven success.</h3>
         </header>
-        <main class="company-container">
+        <main className="company-container">
           {smes.map((el, index) => {
             return (
               <div key={index} className="company-block">

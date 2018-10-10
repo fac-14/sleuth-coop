@@ -35,7 +35,16 @@ class App extends Component {
           <Route exact={true} path="/" component={LandingPage} />
           <Route exact={true} path="/info" component={Info} />
           <Route exact={true} path="/sign-up" component={SignUp} />
-          <Route path="/profile/:id" component={Profile} />
+          <Route
+            exact={true}
+            path="/profile/:id"
+            render={props => <Profile {...props} SME={false} />}
+          />
+          <Route
+            exact={true}
+            path="/profile/:id/sme"
+            render={props => <Profile {...props} SME={true} />}
+          />
           <Route exact={true} path="/profile/:id/add" component={Add} />
           <Route exact={true} path="/discover" component={Discovery} />
         </React.Fragment>

@@ -70,7 +70,8 @@
     font-size: $larger;
   }
 
-  h2, h1 {
+  h2,
+  h1 {
     word-wrap: break-word;
     max-width: 28vw;
   }
@@ -97,23 +98,28 @@
 
 .link-component {
   text-decoration: none;
+  max-width: 28vw;
 }
 
 #add-content-btn {
   background: $grey1;
   color: white;
-  border: 4px solid white;
-  font-size: $font-h3;
-  padding: 10px 20px;
+  border: 2px solid white;
+  font-size: $medium;
+  padding: 5px 15px 5px 5px;
   display: block;
   border-radius: 20px;
   font-family: $main-text;
   display: flex;
   align-items: center;
-  width: 70%;
+  width: 100%;
   box-shadow: $dat-drop-shadow;
   img {
     margin-right: 20px;
+    height: $large;
+  }
+  &:hover {
+    color: $red1;
   }
 }
 
@@ -121,6 +127,9 @@
   min-height: 75vh;
   padding-right: $medium;
   padding-top: $small;
+  p {
+    line-height: 1.2rem;
+  }
 }
 
 .category > h2 {
@@ -137,7 +146,7 @@
   color: $grey1;
   border-radius: 15px;
   box-shadow: inset 0 0 0 2px $teal1;
-  transition: box-shadow 0.15s ease-in-out
+  transition: box-shadow 0.15s ease-in-out;
 }
 
 img {

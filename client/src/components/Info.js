@@ -5,7 +5,7 @@ import arrow from "../assets/back-arrow.svg";
 export default class Info extends React.Component {
   render() {
     return (
-      <div className='intro-content'>
+      <div className="intro-content">
         <div className="heading-banner">
           <Link to={"/"}>
             <button className="back-btn">
@@ -23,7 +23,7 @@ export default class Info extends React.Component {
         <Link to={"/sign-up"}>
           <button className="large-home-btn1 default-btn">Begin</button>
         </Link>
-        <Link to={"/profile/123"}>
+        <Link to={"/profile/123/sme"}>
           <button className="large-home-btn2 default-btn">
             I already have a profile
           </button>
