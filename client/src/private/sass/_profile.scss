@@ -12,25 +12,27 @@
   border-radius: 20px;
   margin: $medium $larger $mediumish $larger;
   box-shadow: $dat-big-shadow;
+  display: inline-block;
+  margin-bottom: 0;
   h3 {
     margin-top: 0;
   }
 }
 
 .file_upload {
-  display: flex;
+  display: inline-flex;
   flex-flow: column nowrap;
 }
 .download-badge {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  max-width: 400px;
   background-color: $js-grey;
   border-radius: 40px;
   color: $js-grey;
   font-size: $mediumish;
   text-decoration: none;
   color: $teal1;
+  padding-right: 30px;
 
   .icon-wrapper {
     background-color: $teal1;
@@ -41,6 +43,37 @@
     width: 70px;
     height: 70px;
     padding: 15px;
+  }
+}
+
+.star-badge {
+  display: inline-flex;
+  align-items: center;
+  width: auto;
+  margin-bottom: 0;
+  border: 2px solid $turqoise1;
+  h3 {
+    margin: 0;
+    font-size: $mediumish;
+    margin-right: 8px;
+  }
+  img {
+    height: $large;
+    width: $large;
+    margin-right: 10px;
+  }
+}
+
+.tagged-list {
+  ul {
+    display: flex;
+  }
+  .tag {
+    margin: 5px;
+    background: $teal1;
+    padding: 10px;
+    color: $js-grey;
+    border-radius: 5px;
   }
 }
 
@@ -61,9 +94,8 @@
   #logo-div {
     border-radius: 50%;
     // background: rgba(0, 0, 0, 0.3);
-    min-height: 160px;
-    min-width: 160px;
-    margin: 40px;
+    min-width: 60%;
+    margin: 1rem;
     // box-shadow: $dat-drop-shadow;
 
     img {
@@ -74,12 +106,16 @@
 
   h1 {
     font-size: $larger;
+    margin-top: $large;
   }
 
   h2,
   h1 {
     word-wrap: break-word;
     max-width: 28vw;
+  }
+  h2 {
+    margin-top: 0;
   }
 }
 
@@ -148,7 +184,7 @@
   }
 }
 
-.category > h2 {
+.vert-center > h2 {
   background: $turqoise1;
   width: 50%;
   border-radius: 0 $large $large 0;
