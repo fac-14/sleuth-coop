@@ -1,4 +1,4 @@
-@import "colors";
+@import "_colors";
 @import "fonts";
 @import "sizes";
 @import "reset";
@@ -48,20 +48,23 @@ p {
 }
 
 #home-btn {
+  width: 60px;
   background-color: transparent;
   border: none;
-  padding: 5px;
+  padding: 6px;
   position: fixed;
   z-index: 2;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  &:hover {
+    transform: scale(1.1);
+  }
 }
 
 .default-btn {
   font-family: $main-text;
   border-radius: 50px;
-  // background: $turqoise1;
-  // color: black;
   font-size: $font-h3;
   padding: $small $medium;
   min-width: 200px;
-  // margin: $small;
 }
