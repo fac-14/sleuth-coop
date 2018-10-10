@@ -304,6 +304,33 @@ button[type=submit] {
   margin-top: 0;
 }
 
+.file_upload {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.download-badge {
+  display: flex;
+  align-items: center;
+  max-width: 400px;
+  background-color: #ecf0f1;
+  border-radius: 40px;
+  color: #ecf0f1;
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: #3c5e5d;
+}
+.download-badge .icon-wrapper {
+  background-color: #3c5e5d;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+.download-badge img {
+  width: 70px;
+  height: 70px;
+  padding: 15px;
+}
+
 .header {
   width: 30vw;
   height: 100vh;
