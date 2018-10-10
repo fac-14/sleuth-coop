@@ -3,7 +3,7 @@ import SignUpCard from "./SignUpCard";
 import { Link } from "react-router-dom";
 import nextImg from "../assets/next-arrow.svg";
 import prevImg from "../assets/prev-arrow.svg";
-import formValidation from "../utils/formValidation"
+import formValidation from "../utils/formValidation";
 
 export default class SignUp extends React.Component {
   state = {
@@ -18,8 +18,8 @@ export default class SignUp extends React.Component {
   };
 
   handleValidation = () => {
-    return formValidation(this.state)
-  }
+    return formValidation(this.state);
+  };
 
   handleChange = e => {
     const target = e.target;
@@ -32,19 +32,20 @@ export default class SignUp extends React.Component {
   };
 
   handleFrontArrow = () => {
-    if(this.handleValidation() === true){
-      const selector = `#\\3${this.state.position + 1}  .input`
+    if (this.handleValidation() === true) {
+      const selector = `#\\3${this.state.position + 1}  .input`;
       if (document.querySelector(selector)) {
         document.querySelector(selector).focus();
       }
-      this.setState({ position: this.state.position + 1, errorMsg: "" })
+      this.setState({ position: this.state.position + 1, errorMsg: "" });
     } else {
-      this.setState({errorMsg: this.handleValidation()})
+      this.setState({ errorMsg: this.handleValidation() });
     }
   };
 
   handleSubmit = e => {
-    e.preventDefault();
+    // e.preventDefault();
+    console.log("submit hit");
     // post req will go here (see fetch example below)
     // const data = JSON.stringify(this.state);
     // fetch("/signup", {
@@ -77,17 +78,17 @@ export default class SignUp extends React.Component {
   };
 
   handleKey = e => {
-    const key = e.key.toLowerCase()
-    if( key === "tab" || key === "enter") {
+    const key = e.key.toLowerCase();
+    if (key === "tab" || key === "enter") {
       e.preventDefault();
       this.handleFrontArrow();
     }
-  }
+  };
 
   render() {
     return (
       <React.Fragment>
-        <form id="form" onSubmit={this.handleSubmit} >
+        <form id="form" onSubmit={this.handleSubmit}>
           <div id="0" className={this.handleFocus(0)}>
             <SignUpCard
               inputType="input"
@@ -97,7 +98,7 @@ export default class SignUp extends React.Component {
               change={this.handleChange}
               value={this.state.email}
               validator={this.handleValidation}
-              keyHandler={this.handleKey} 
+              keyHandler={this.handleKey}
             />
           </div>
           <div id="1" className={this.handleFocus(1)}>
@@ -109,7 +110,7 @@ export default class SignUp extends React.Component {
               change={this.handleChange}
               value={this.state.name}
               validator={this.handleValidation}
-              keyHandler={this.handleKey} 
+              keyHandler={this.handleKey}
             />
           </div>
           <div id="2" className={this.handleFocus(2)}>
@@ -121,7 +122,7 @@ export default class SignUp extends React.Component {
               change={this.handleChange}
               value={this.state.jobtitle}
               validator={this.handleValidation}
-              keyHandler={this.handleKey} 
+              keyHandler={this.handleKey}
             />
           </div>
           <div id="3" className={this.handleFocus(3)}>
@@ -133,7 +134,7 @@ export default class SignUp extends React.Component {
               change={this.handleChange}
               value={this.state.company}
               validator={this.handleValidation}
-              keyHandler={this.handleKey} 
+              keyHandler={this.handleKey}
             />
           </div>
           <div id="4" className={this.handleFocus(4)}>
@@ -157,10 +158,12 @@ export default class SignUp extends React.Component {
               change={this.handleChange}
               value={this.state.description}
               validator={this.handleValidation}
-              keyHandler={this.handleKey} 
+              keyHandler={this.handleKey}
             />
           </div>
-          <div className={this.state.errorMsg ? "error" : "hidden" }>{(this.state.errorMsg)}</div>
+          <div className={this.state.errorMsg ? "error" : "hidden"}>
+            {this.state.errorMsg}
+          </div>
         </form>
         <input
           className={this.state.position === 0 ? "hidden" : "arrow back-arrow"}
@@ -170,23 +173,31 @@ export default class SignUp extends React.Component {
           alt="back arrow"
         />
         <input
-          className={this.state.position >= 5 ? "hidden" : "arrow forward-arrow"}
+          className={
+            this.state.position >= 5 ? "hidden" : "arrow forward-arrow"
+          }
           type="image"
           src={nextImg}
           alt="forward arrow"
           onClick={this.handleFrontArrow}
         />
         <Link to={"/profile/123"}>
-            <button 
-            className={this.state.position < 5 ? "hidden" : "forward-arrow default-btn"}
-            type="submit" onClick={this.handleSubmit}>Submit</button>
+          <button
+            className={
+              this.state.position < 5 ? "hidden" : "forward-arrow default-btn"
+            }
+            type="submit"
+            onClick={this.handleSubmit}
+          >
+            Submit
+          </button>
         </Link>
         <div className="progress-circles-div">
-          {[0,1,2,3,4,5].map((circle, index) => {
-            if(circle === this.state.position) {
-              return <div key={index} className="progress-circle filled"></div>
+          {[0, 1, 2, 3, 4, 5].map((circle, index) => {
+            if (circle === this.state.position) {
+              return <div key={index} className="progress-circle filled" />;
             } else {
-              return <div key={index} className="progress-circle"></div>
+              return <div key={index} className="progress-circle" />;
             }
           })}
         </div>
