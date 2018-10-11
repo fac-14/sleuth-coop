@@ -8,15 +8,17 @@ export default class CheckBox extends React.Component {
         <h4>{content.question}</h4>
         <p>{content.helper_text}</p>
         {content.options.map((box, index) => {
-          return <label htmlFor={content.id}>
-            {box}
-            <input
-              id={content.id}
-              onChange={this.props.onChange}
-              className="checkbox"
-              type="checkbox"
-            />
-          </label>;
+          return (
+            <label key={index} htmlFor={content.id}>
+              {box}
+              <input
+                id={content.id}
+                onChange={this.props.onChange}
+                className="checkbox"
+                type="checkbox"
+              />
+            </label>
+          );
         })}
       </fieldset>
     );
