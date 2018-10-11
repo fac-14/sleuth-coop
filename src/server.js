@@ -11,6 +11,7 @@ const port = process.env.PORT || 5000;
 const profileData = require("./getProfileData");
 const smesData = require("./getSMEs");
 const uploadFile = require("./uploadFile");
+const questions = require("./questions");
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -21,8 +22,9 @@ app.get("/api/hello", (req, res) => {
 });
 
 app.get("/profile/:id", profileData.get);
-
 app.get("/smes", smesData.get);
+app.get("/questions", questions.get);
+
 
 app.post("/upload", uploadFile.post);
 
