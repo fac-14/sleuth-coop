@@ -91,13 +91,20 @@ describe("Get all profile data for specific user", () => {
   })
 })
 
-/*
 
 describe("Get all questions for add content section, including answers already filled in by user", () => {
-  return queries.getAllQs(1)
-    .then(res => {
-      expect(res[]).toBe()
-    })
+  test("Get specific company info", () => {
+    const companyID = 1;
+    return queries.getAllQs(companyID)
+      .then(res => {
+        // testing that res[0] is an array of the company's basic info
+        expect(res[0][0].company_name).toBe("Senzing");
+        // testing that res[1] is an array of the questions
+        expect(res[1][5].question).toBeTruthy();
+        // testing that res[2] is an array of answered questions for that company
+        expect(res[2][0].company_id).toBe(companyID);
+      })
+
+  })
 })
 
-*/
