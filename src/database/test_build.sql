@@ -10,7 +10,8 @@ CREATE TABLE users (
 
 INSERT INTO users (email, password) VALUES
 ('admin@senzing.com', 'canyousenzing'),
-('user@test.com', 'testme');
+('user@test.com', 'testme'),
+('user-empty@test.com', 'testmeimempty');
 
 CREATE TABLE companies (
   id SERIAL PRIMARY KEY,
@@ -25,7 +26,10 @@ CREATE TABLE companies (
 );
 
 INSERT INTO companies (user_id, company_name, website, description, contact_name, contact_title, contact_email) VALUES
-(1, 'Senzing', 'http://www.senzing.com', 'Super duper fancy technological solution that in some way is relevant for local government but we don''t know how or why', 'Jessie Beech', 'Head of Fun', 'senzing@senzing.com');
+(1, 'Senzing', 'http://www.senzing.com', 'Super duper fancy technological solution that in some way is relevant for local government but we don''t know how or why', 'Jessie Beech', 'Head of Fun', 'senzing@senzing.com'),
+(2, 'Dom ind', 'https://dominic.digital', 'great stuff', 'dominic coelho', 'master of fun', 'spam@dominic.digital'),
+(3, 'AntiDom', 'https://dom.digital', 'bad stuff', 'dom lho', 'master of nun', 'spam@dom.digital')
+;
 
 CREATE TABLE questions (
   id SERIAL PRIMARY KEY,
@@ -67,6 +71,11 @@ CREATE TABLE answers (
 );
 
 INSERT INTO answers (company_id, question_id, answer) VALUES 
-(1, 1, 'Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking monstra adventus resi dentevil vultus comedat cerebella viventium. Qui animated corpse, cricket bat max brucks terribilem incessu zomby. The voodoo sacerdos flesh eater, suscitat mortuos comedere carnem virus. Zonbi tattered for solum oculi eorum defunctis go lum cerebro.');
+(1, 1, 'Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking monstra adventus resi dentevil vultus comedat cerebella viventium. Qui animated corpse, cricket bat max brucks terribilem incessu zomby. The voodoo sacerdos flesh eater, suscitat mortuos comedere carnem virus. Zonbi tattered for solum oculi eorum defunctis go lum cerebro.'),
+(1, 2, 'kdjgdd785g'),
+(2, 1, 'sgfdgdfgdhd'),
+(2, 1, 'sfdsfsgs'),
+(1, 4, 'fsgdfgdgd'),
+(1, 3, 'sfdfsdgdfgd');
 
 COMMIT;

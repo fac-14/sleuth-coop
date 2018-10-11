@@ -46,6 +46,7 @@ describe("getting all users", () => {
   });
 });
 
+/*
 describe("Add user to database and basic info to companies table", () => {
   test("Successfully add user to users table", () => {
     expect.assertions(2);
@@ -53,8 +54,8 @@ describe("Add user to database and basic info to companies table", () => {
       .addUser(dummyUser)
       .then(() => queries.getUsers())
       .then(res => {
-        expect(res.length).toBe(3);
-        expect(res[2].email).toBe("dummy@dummy.com");
+        expect(res.length).toBe(4);
+        expect(res[3].email).toBe("dummy@dummy.com");
       });
   });
 
@@ -62,12 +63,13 @@ describe("Add user to database and basic info to companies table", () => {
     // expect.assertions(2);
     return queries
       .addUser(dummyUser)
-      .then(() => queries.getCompanyInfo(3))
+      .then(() => queries.getCompanyInfo(4))
       .then(res => {
         expect(res[0].company_name).toBe("Dummy Inc");
       });
   });
 });
+*/
 
 test("Successfully get all SMEs for Discovery page", () => {
   return queries.getSMEs().then(res => {
@@ -75,3 +77,27 @@ test("Successfully get all SMEs for Discovery page", () => {
     expect(res[0].company_name).toBe("Senzing");
   });
 });
+
+describe("Get all profile data for specific user", () => {
+  test("Successfully get user profile data", () => {
+    // expect.assertions(1);
+    const companyID = 1;
+    return queries.getUserProfileData(companyID)
+      .then(res => {
+        expect(res[0][0].company_name).toBe("Senzing");
+        // console.log("huh?", res[1][0]);
+        expect(res[1][0].company_id).toBe(companyID);
+      })
+  })
+})
+
+/*
+
+describe("Get all questions for add content section, including answers already filled in by user", () => {
+  return queries.getAllQs(1)
+    .then(res => {
+      expect(res[]).toBe()
+    })
+})
+
+*/
