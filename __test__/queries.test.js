@@ -104,7 +104,6 @@ describe("Get all questions for add content section, including answers already f
         // testing that res[2] is an array of answered questions for that company
         expect(res[2][0].company_id).toBe(companyID);
       })
-
   })
 })
 
