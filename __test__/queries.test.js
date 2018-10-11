@@ -68,3 +68,10 @@ describe("Add user to database and basic info to companies table", () => {
       });
   });
 });
+
+test("Successfully get all SMEs for Discovery page", () => {
+  return queries.getSMEs().then(res => {
+    expect(res).toBeTruthy();
+    expect(res[0].company_name).toBe("Senzing");
+  });
+});
