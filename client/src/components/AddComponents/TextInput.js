@@ -2,16 +2,20 @@ import React from "react";
 
 export default class TextInput extends React.Component {
   render() {
+    const { content } = this.props;
     return (
-      <label htmlFor={this.props.content.id}>
-        {this.props.content.question}
+      <fieldset>
+        <label htmlFor={content.id}>
+          <h4>{content.question}</h4>
+        </label>
+        <p>{content.helper_text}</p>
         <input
-          id={this.props.content.id}
+          id={content.id}
           onChange={this.props.onChange}
           className="text-input"
           type="text"
         />
-      </label>
+      </fieldset>
     );
   }
 }

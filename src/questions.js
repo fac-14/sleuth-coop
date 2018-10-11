@@ -17,7 +17,7 @@ const dummyQuestions = [
     input_type: "checkbox",
     helper_text: "Do you offer a free proof of concept?",
     category: "Product",
-    options: ["Yes", "No"]
+    options: ["Yes"]
   },
   {
     id: 2,

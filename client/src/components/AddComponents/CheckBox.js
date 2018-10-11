@@ -2,16 +2,23 @@ import React from "react";
 
 export default class CheckBox extends React.Component {
   render() {
+    const { content } = this.props;
     return (
-      <label htmlFor={this.props.content.id}>
-        {this.props.content.question}
-        <input
-          id={this.props.content.id}
-          onChange={this.props.onChange}
-          className="checkbox"
-          type="checkbox"
-        />
-      </label>
+      <fieldset>
+        <h4>{content.question}</h4>
+        <p>{content.helper_text}</p>
+        {content.options.map((box, index) => {
+          return <label htmlFor={content.id}>
+            {box}
+            <input
+              id={content.id}
+              onChange={this.props.onChange}
+              className="checkbox"
+              type="checkbox"
+            />
+          </label>;
+        })}
+      </fieldset>
     );
   }
 }
