@@ -4,6 +4,7 @@ exports.get = (req, res) => {
 
 const dummyQuestions = [
   {
+    id: 0,
     question: "Why is it useful to Local Authorities?",
     input_type: "short_text",
     helper_text:
@@ -11,6 +12,7 @@ const dummyQuestions = [
     category: "Product"
   },
   {
+    id: 1,
     question: "Free Proof of Concept",
     input_type: "checkbox",
     helper_text: "Do you offer a free proof of concept?",
@@ -18,6 +20,7 @@ const dummyQuestions = [
     options: ["Yes", "No"]
   },
   {
+    id: 2,
     question: "ROI Spreadsheet",
     input_type: "file_upload",
     helper_text: "Upload a spreadsheet that demonstrates return on investment for your clients",

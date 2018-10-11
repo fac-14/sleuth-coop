@@ -8,7 +8,7 @@ import getQuestions from "../utils/getQuestions";
 
 export default class Add extends React.Component {
   state = {
-    file: "",
+    formState: {},
     questions: ""
   };
   componentDidMount() {
@@ -17,15 +17,28 @@ export default class Add extends React.Component {
       .catch(err => console.log(err))
   }
   handleChange = e => {
-    this.setState({ file: e.target.value });
-  };
-  handleFileChange = e => {
-    this.setState({ file: e.target.files[0] });
+    const questionId = e.target.id;
+    let answer;
+    if (e.target.type === "checkbox") {
+      answer = e.target.checked;
+    } else if (e.target.type === "file") {
+      answer = e.target.files[0];
+    } else {  
+      answer = e.target.value;
+    }
+    const state = this.state.formState;
+    state[questionId] = answer;
+    this.setState(() => {
+      return ({formState : state })
+    })
   };
   handleSubmit = e => {
     e.preventDefault();
     const data = new FormData();
-    data.append("file", this.state.file);
+    const {formState} = this.state;
+    for (let key in formState) {
+      data.append(key, formState[key]);
+    }
     fetch("/upload", {
       method: "POST",
       body: data
@@ -39,6 +52,7 @@ export default class Add extends React.Component {
       return <h3>Loading...</h3>;
     }
     const { questions } = this.state;
+    console.log(this.state.formState)
     return (
       <div className="container">
         <Link to={"/profile/123/SME"}>
@@ -49,11 +63,11 @@ export default class Add extends React.Component {
         <form onSubmit={this.handleSubmit}>
           {questions.map((el, index) => {
             if (el.input_type === "short_text") {
-              return <TextInput key={index} id={index} content={el} onChange={this.handleChange} />;
+              return <TextInput key={index} content={el} onChange={this.handleChange} />;
             } else if (el.input_type === "file_upload") {
-              return <FileUpload key={index} id={index} content={el} onChange={this.handleFileChange} />
+              return <FileUpload key={index} content={el} onChange={this.handleChange} />
             } else if (el.input_type === "checkbox") {
-              return <CheckBox key={index} id={index} content={el} onChange={this.handleChange} />;
+              return <CheckBox key={index} content={el} onChange={this.handleChange} />;
             }
             return "";
           })}
