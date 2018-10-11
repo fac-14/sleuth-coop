@@ -29,6 +29,7 @@ export default class Add extends React.Component {
       .catch(err => console.log(err));
   };
 
+
   render() {
     if (!this.state.questions) {
       return <h3>Loading...</h3>;
@@ -41,7 +42,7 @@ export default class Add extends React.Component {
         </Link>
         <h2>Edit</h2>
         <form onSubmit={this.handleSubmit}>
-          {questions.map(el => {
+          {questions.map((el, index) => {
             return <h3>{el.question}</h3>;
           })}
           <FileUpload onChange={this.handleFileUpload} />
