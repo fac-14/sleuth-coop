@@ -9,4 +9,7 @@ notifications:
 services:
   - postgresql
 before_script:
+  - psql --version
   - psql -c 'create database travis_ci_test;' -U postgres
+  - psql -c "CREATE USER test WITH PASSWORD 'pw123';" -U postgres
+  - psql -c "ALTER DATABASE travis_ci_test OWNER TO test;" -U postgres
