@@ -10,6 +10,9 @@ export default class Category extends React.Component {
     const questions = this.props.questions;
     return (
       <React.Fragment>
+        {/* loops through all questions relating to one category and 
+        produces the correct element for the input type */}
+
         {questions.map((el, index) => {
           if (el.input_type === "short_text") {
             return (

@@ -1,11 +1,15 @@
 import React from "react";
+import arrow from "../../assets/dropdown-arrow.svg";
 
 export default class CheckBox extends React.Component {
   render() {
     const { content } = this.props;
     return (
-      <fieldset>
+      <fieldset className="checkbox-section">
         <h4>{content.question}</h4>
+        <button>
+          <img src={arrow} alt="down arrow" />
+        </button>
         <p>{content.helper_text}</p>
         {content.options.map((box, index) => {
           return (

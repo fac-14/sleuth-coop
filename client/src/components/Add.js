@@ -73,17 +73,19 @@ export default class Add extends React.Component {
     const categories = Object.entries(questions);
     // console.log(this.state.formState);
     return (
-      <div className="container">
+      <div className="edit-page-container">
         <Link to={"/profile/123/SME"}>
           <button>Back</button>
         </Link>
-        <form onSubmit={this.handleSubmit}>
+        <form id="edit-form" onSubmit={this.handleSubmit}>
           {categories.map((el, index) => {
             return (
-              <div key={index}>
-                <h2 className={el[0].toLowerCase().replace(/ /g, "-")}>
-                  {el[0]}
-                </h2>
+              <div
+                key={index}
+                className={"q-category "}
+                id={el[0].toLowerCase().replace(/ /g, "-")}
+              >
+                <h2>{el[0]}</h2>
                 <Category
                   questions={el[1]}
                   change={this.handleChange}
