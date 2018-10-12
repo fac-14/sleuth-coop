@@ -13,14 +13,13 @@ export default class Discovery extends React.Component {
     getSmes()
       .then(res => this.setState({ response: res, loading: false }))
       .catch(err => console.log(err));
-    // fetch all SMEs (1. Name 2. Logo 3. Description 4. Link to profile (ID))
-    // set state putting this info into the response
   }
 
   render() {
     if (this.state.loading) {
       return <h3>Loading...</h3>;
     }
+    console.log(this.state.response)
     const smes = this.state.response;
     return (
       <div className="discovery-container">
@@ -35,7 +34,7 @@ export default class Discovery extends React.Component {
               <div key={index} className="company-block">
                 <h3>{el.company_name}</h3>
                 <p>{el.description}</p>
-                <Link to={`profile/${el.user_id}`} className="profile-link">
+                <Link to={`profile/${el.id}`} className="profile-link">
                   Find out more
                 </Link>
               </div>
