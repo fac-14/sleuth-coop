@@ -1,5 +1,5 @@
-const getProfile = async id => {
-  const response = await fetch(`/profile/${id}`);
+const getProfile = async url => {
+  const response = await fetch(url);
 
   const body = await response.json();
 

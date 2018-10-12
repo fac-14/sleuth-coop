@@ -37,15 +37,15 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 app.use((req, res, next) => {
-  res.status(404).send("Sorry - can't find that!")
-})
+  res.status(404).send("Sorry - can't find that!");
+});
 
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).send("Something broke!");
 });
 
-if (process.env.NODE_ENV !== 'test') {
-  app.listen(port, () => console.log(`listening on port ${port}`));
+if (process.env.NODE_ENV !== "test") {
+  app.listen(port, () => console.log(`Express server running on port ${port}`));
 }
 module.exports = app;
