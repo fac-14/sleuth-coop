@@ -9,9 +9,9 @@ export default class FileUpload extends React.Component {
         <label htmlFor={content.id}>
           <h4>{content.question}</h4>
         </label>
-        <button>
+        {/* <button>
           <img src={arrow} alt="down arrow" />
-        </button>
+        </button> */}
         <p>{content.helper_text}</p>
         <input
           id={content.id}

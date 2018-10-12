@@ -14,11 +14,31 @@ export default class Add extends React.Component {
   componentDidMount() {
     getQuestions()
       .then(res => {
-        const filtered = filterQuestions(res);
+        const answersArr = res[2];
+        const state = this.state.formState;
+        answersArr.forEach(function(element) {
+          state[element.question_id] = element.answer;
+        });
+
+        this.setState(() => {
+          return { formState: state };
+        });
+
+        console.log("state", this.state.formState);
+        const filtered = filterQuestions(res[1]);
         this.setState({ questions: filtered });
       })
       .catch(err => console.log(err));
   }
+
+  alreadyAnswered = contentId => {
+    const answers = this.state.formState;
+    console.log("answers", answers);
+    if (answers.hasOwnProperty(contentId)) {
+      return answers[contentId];
+    }
+  };
+
   handleChange = e => {
     const questionId = e.target.id;
     let answer;
@@ -34,6 +54,7 @@ export default class Add extends React.Component {
     this.setState(() => {
       return { formState: state };
     });
+    console.log(this.state.formState);
   };
   dropdownSelect = e => {
     // console.log(e.target.textContent);
@@ -91,6 +112,7 @@ export default class Add extends React.Component {
                   change={this.handleChange}
                   dropdownSelect={this.dropdownSelect}
                   state={this.state}
+                  alreadyAnswered={this.alreadyAnswered}
                 />
               </div>
             );
@@ -100,45 +122,4 @@ export default class Add extends React.Component {
       </div>
     );
   }
-}
-
-{
-  /*{questions.map((el, index) => {
-            if (el.input_type === "short_text") {
-              return (
-                <TextInput
-                  key={index}
-                  content={el}
-                  onChange={this.handleChange}
-                />
-              );
-            } else if (el.input_type === "file_upload") {
-              return (
-                <FileUpload
-                  key={index}
-                  content={el}
-                  onChange={this.handleChange}
-                />
-              );
-            } else if (el.input_type === "checkbox") {
-              return (
-                <CheckBox
-                  key={index}
-                  content={el}
-                  onChange={this.handleChange}
-                />
-              );
-            } else if (el.input_type === "dropdown") {
-              return (
-                <Dropdown
-                  key={index}
-                  content={el}
-                  onChange={this.handleChange}
-                  dropdownSelect={this.dropdownSelect}
-                  value={this.state.formState[el.id]}
-                />
-              );
-            }
-            return "";
-          })} */
 }

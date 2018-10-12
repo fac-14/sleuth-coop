@@ -20,6 +20,8 @@ export default class Category extends React.Component {
                 key={index}
                 content={el}
                 onChange={this.props.change}
+                answers={this.props.state.formState}
+                alreadyAnswered={this.props.alreadyAnswered}
               />
             );
           } else if (el.input_type === "file_upload") {

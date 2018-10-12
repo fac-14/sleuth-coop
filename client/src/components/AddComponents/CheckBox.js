@@ -7,9 +7,9 @@ export default class CheckBox extends React.Component {
     return (
       <fieldset className="checkbox-section">
         <h4>{content.question}</h4>
-        <button>
+        {/* <button>
           <img src={arrow} alt="down arrow" />
-        </button>
+        </button> */}
         <p>{content.helper_text}</p>
         {content.options.map((box, index) => {
           return (

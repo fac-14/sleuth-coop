@@ -8,9 +8,9 @@ export default class Dropdown extends React.Component {
     return (
       <fieldset className="dropdown-section">
         <h4>{content.question}</h4>
-        <button>
+        {/* <button>
           <img src={arrow} alt="down arrow" />
-        </button>
+        </button> */}
         <input type="text" value={this.props.value} />
         <ul>
           {options.map((item, index) => {
