@@ -11,7 +11,7 @@
     "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build",
     "client": "cd client && npm start",
     "server": "nodemon src/server.js",
-    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
+    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\" \"npm run sass\"",
     "express-test": "jest",
     "react-test": "cd client && npm i && npm test",
     "test": "npm run express-test && npm run react-test",
@@ -45,9 +45,11 @@
     "parcel-bundler": "^1.10.1"
   },
   "dependencies": {
+    "body-parser": "^1.18.3",
     "create-react-app": "^2.0.3",
     "env2": "^2.2.2",
     "express": "^4.16.3",
+    "express-fileupload": "^1.0.0-alpha.1",
     "express-validator": "^5.3.0",
     "nodemon": "^1.18.4",
     "pg": "^7.5.0",

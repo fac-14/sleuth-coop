@@ -5,7 +5,7 @@ import LandingPage from "./components/LandingPage";
 import Info from "./components/Info";
 import SignUp from "./components/SignUp";
 import Profile from "./components/Profile";
-import Add from "./components/ProfileComponents/Add";
+import Add from "./components/Add";
 import Discovery from "./components/Discovery";
 
 class App extends Component {
