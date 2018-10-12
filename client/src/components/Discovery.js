@@ -19,7 +19,6 @@ export default class Discovery extends React.Component {
     if (this.state.loading) {
       return <h3>Loading...</h3>;
     }
-    console.log(this.state.response)
     const smes = this.state.response;
     return (
       <div className="discovery-container">

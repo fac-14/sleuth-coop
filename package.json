@@ -12,7 +12,7 @@
     "client": "cd client && npm start",
     "server": "nodemon src/server.js",
     "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\" \"npm run sass\"",
-    "express-test": "jest",
+    "express-test": "NODE_ENV=test jest --watch",
     "react-test": "cd client && npm i && npm test",
     "test": "npm run express-test && npm run react-test",
     "local-test": "npm run express-test && cd client && npm test",
@@ -42,7 +42,8 @@
     "eslint-config-recommended": "^4.0.0",
     "eslint-plugin-react": "^7.11.1",
     "jest": "^23.6.0",
-    "parcel-bundler": "^1.10.1"
+    "parcel-bundler": "^1.10.1",
+    "supertest": "^3.3.0"
   },
   "dependencies": {
     "body-parser": "^1.18.3",

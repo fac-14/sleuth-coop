@@ -25,9 +25,7 @@ app.get("/profile/:id", profileData.get);
 app.get("/smes", smesData.get);
 app.get("/questions", questions.get);
 
-
 app.post("/upload", uploadFile.post);
-
 
 if (process.env.NODE_ENV === "production") {
   // serve any static files
@@ -38,5 +36,16 @@ if (process.env.NODE_ENV === "production") {
     res.sendFile(path.join(__dirname, "../client/build", "index.html"));
   });
 }
+app.use((req, res, next) => {
+  res.status(404).send("Sorry - can't find that!")
+})
 
-app.listen(port, () => console.log(`listening on port ${port}`));
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send("Something broke!");
+});
+
+if (process.env.NODE_ENV !== 'test') {
+  app.listen(port, () => console.log(`listening on port ${port}`));
+}
+module.exports = app;
