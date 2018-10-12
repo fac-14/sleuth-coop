@@ -1,11 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import FileUpload from "./AddComponents/FileUpload";
-import TextInput from "./AddComponents/TextInput";
-import CheckBox from "./AddComponents/CheckBox";
-import Dropdown from "./AddComponents/Dropdown";
+import Category from "./AddComponents/Category";
+
 import getQuestions from "../utils/getQuestions";
+import filterQuestions from "../utils/filterQuestions";
 
 export default class Add extends React.Component {
   state = {
@@ -14,7 +13,10 @@ export default class Add extends React.Component {
   };
   componentDidMount() {
     getQuestions()
-      .then(res => this.setState({ questions: res }))
+      .then(res => {
+        const filtered = filterQuestions(res);
+        this.setState({ questions: filtered });
+      })
       .catch(err => console.log(err));
   }
   handleChange = e => {
@@ -34,18 +36,18 @@ export default class Add extends React.Component {
     });
   };
   dropdownSelect = e => {
-    console.log(e.target.textContent);
-    console.log(e.target.className)
+    // console.log(e.target.textContent);
+    // console.log(e.target.className);
     const questionId = e.target.className;
     const selected = e.target.textContent;
-    const state = this.state.formState
-    if (!this.state.formState[questionId]) {   
-      state[questionId] = [selected]
+    const state = this.state.formState;
+    if (!this.state.formState[questionId]) {
+      state[questionId] = [selected];
     } else {
-      state[questionId].push(selected)
+      state[questionId].push(selected);
     }
-    this.setState({formState : state});
-  }
+    this.setState({ formState: state });
+  };
   handleSubmit = e => {
     e.preventDefault();
     const data = new FormData();
@@ -68,16 +70,40 @@ export default class Add extends React.Component {
       return <h3>Loading...</h3>;
     }
     const { questions } = this.state;
-    // console.log(this.state.formState)
+    const categories = Object.entries(questions);
+    // console.log(this.state.formState);
     return (
-      <div className="container">
+      <div className="edit-page-container">
         <Link to={"/profile/123/SME"}>
           <button>Back</button>
         </Link>
+        <form id="edit-form" onSubmit={this.handleSubmit}>
+          {categories.map((el, index) => {
+            return (
+              <div
+                key={index}
+                className={"q-category "}
+                id={el[0].toLowerCase().replace(/ /g, "-")}
+              >
+                <h2>{el[0]}</h2>
+                <Category
+                  questions={el[1]}
+                  change={this.handleChange}
+                  dropdownSelect={this.dropdownSelect}
+                  state={this.state}
+                />
+              </div>
+            );
+          })}
+          <button type="submit">Save changes</button>
+        </form>
+      </div>
+    );
+  }
+}
 
-        <h2>Edit</h2>
-        <form onSubmit={this.handleSubmit}>
-          {questions.map((el, index) => {
+{
+  /*{questions.map((el, index) => {
             if (el.input_type === "short_text") {
               return (
                 <TextInput
@@ -114,10 +140,5 @@ export default class Add extends React.Component {
               );
             }
             return "";
-          })}
-          <button type="submit">Save changes</button>
-        </form>
-      </div>
-    );
-  }
+          })} */
 }

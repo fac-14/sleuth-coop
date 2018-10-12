@@ -633,6 +633,14 @@ img {
   left: 0;
 }
 
+#edit-form fieldset {
+  margin-bottom: 1rem;
+}
+
+.q-category {
+  padding: 1rem;
+}
+
 * {
   box-sizing: border-box;
 }
