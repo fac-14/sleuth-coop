@@ -28,3 +28,29 @@ describe("GET /profile/:id", () => {
       });
   });
 });
+
+describe("POST /signup", () => {
+  test("responds with 200", done => {
+    Supertest(app)
+      .post("/signup")
+      .send(testState)
+      .set("Accept", "application/json")
+      .expect(200)
+      .then(res => {
+         expect(res.status).toBe(200);
+         done();
+      });
+  });
+});
+
+const testState = {
+  email: "test@test.com",
+  name: "testy test",
+  password: "test-password",
+  jobtitle: "head of test",
+  company: "testytests",
+  website: "tests.com",
+  description: "we like tests",
+  position: 5,
+  errorMsg: ""
+};

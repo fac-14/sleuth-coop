@@ -12,6 +12,7 @@ const profileData = require("./getProfileData");
 const smesData = require("./getSMEs");
 const uploadFile = require("./uploadFile");
 const questions = require("./questions");
+const signup = require("./signup");
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -24,7 +25,7 @@ app.get("/api/hello", (req, res) => {
 app.get("/profile/:id", profileData.get);
 app.get("/smes", smesData.get);
 app.get("/questions", questions.get);
-
+app.post("/signup", signup.post);
 app.post("/upload", uploadFile.post);
 
 if (process.env.NODE_ENV === "production") {
