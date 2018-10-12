@@ -6,10 +6,11 @@ export default class Dropdown extends React.Component {
     const options = content.options;
     return (
       <fieldset>
-        <h2>{content.question}</h2>
+        <h4>{content.question}</h4>
+        <input type="text" value={this.props.value}/>
         <ul>
           {options.map((item, index) => {
-            return <li key={index}>{item}</li>;
+            return <li key={index} className={content.id} onClick={this.props.dropdownSelect}>{item}</li>;
           })}
         </ul>
       </fieldset>

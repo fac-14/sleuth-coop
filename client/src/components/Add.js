@@ -22,7 +22,6 @@ export default class Add extends React.Component {
     let answer;
     if (e.target.type === "checkbox") {
       answer = e.target.checked;
-      console.log(e.target);
     } else if (e.target.type === "file") {
       answer = e.target.files[0];
     } else {
@@ -34,6 +33,19 @@ export default class Add extends React.Component {
       return { formState: state };
     });
   };
+  dropdownSelect = e => {
+    console.log(e.target.textContent);
+    console.log(e.target.className)
+    const questionId = e.target.className;
+    const selected = e.target.textContent;
+    const state = this.state.formState
+    if (!this.state.formState[questionId]) {   
+      state[questionId] = [selected]
+    } else {
+      state[questionId].push(selected)
+    }
+    this.setState({formState : state});
+  }
   handleSubmit = e => {
     e.preventDefault();
     const data = new FormData();
@@ -47,7 +59,6 @@ export default class Add extends React.Component {
     })
       .then(res => {
         this.setState({ formState: {} });
-        console.log(res);
       })
       .catch(err => console.log(err));
   };
@@ -57,7 +68,7 @@ export default class Add extends React.Component {
       return <h3>Loading...</h3>;
     }
     const { questions } = this.state;
-    console.log(this.state.formState);
+    // console.log(this.state.formState)
     return (
       <div className="container">
         <Link to={"/profile/123/SME"}>
@@ -97,6 +108,8 @@ export default class Add extends React.Component {
                   key={index}
                   content={el}
                   onChange={this.handleChange}
+                  dropdownSelect={this.dropdownSelect}
+                  value={this.state.formState[el.id]}
                 />
               );
             }
