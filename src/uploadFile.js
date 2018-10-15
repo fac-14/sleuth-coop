@@ -1,4 +1,7 @@
+const { updateAnswers } = require('./database/queries/index')
+
 exports.post = (req, res) => {
+
   const files = req.files;
   const body = req.body;
   // cycle through body updating answers database with new answers.
@@ -17,4 +20,14 @@ exports.post = (req, res) => {
       res.json({ file: `public/${file.name}` });
     });
   });
+
+  // Above, we uploaded file(s). Below, we update table 
+
+  const updatedObj = Object.assign({company_id: req.headers.referer.split("/")[4]}, {answers: req.body})
+
+  updateAnswers(updatedObj)
+    .then(done => res.send(done))
+    .catch(err => console.log(err))
+
+    res.end();
 };

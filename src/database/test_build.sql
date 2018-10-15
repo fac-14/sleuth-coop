@@ -28,8 +28,7 @@ CREATE TABLE companies (
 INSERT INTO companies (user_id, company_name, website, description, contact_name, contact_title, contact_email) VALUES
 (1, 'Senzing', 'http://www.senzing.com', 'Super duper fancy technological solution that in some way is relevant for local government but we don''t know how or why', 'Jessie Beech', 'Head of Fun', 'senzing@senzing.com'),
 (2, 'Dom ind', 'https://dominic.digital', 'great stuff', 'dominic coelho', 'master of fun', 'spam@dominic.digital'),
-(3, 'AntiDom', 'https://dom.digital', 'bad stuff', 'dom lho', 'master of nun', 'spam@dom.digital')
-;
+(3, 'AntiDom', 'https://dom.digital', 'bad stuff', 'dom lho', 'master of nun', 'spam@dom.digital');
 
 CREATE TABLE questions (
   id SERIAL PRIMARY KEY,
@@ -42,9 +41,9 @@ CREATE TABLE questions (
 
 INSERT INTO questions (question, input_type, helper_text, category, options) VALUES
 ('Why is this product useful to Local Authorities?', 'short_text', 'Imagine this is being read by a member of the public. Avoid any technical language and clearly explain how your product solves a problem.', 'Product', ARRAY['250 words']),
-('Video Product Explanation', 'video', 'Imagine this is being watched by a member of the public. Avoid any technical language and clearly explain how your product solves a problem.', 'product', NULL),
+('Video Product Explanation', 'video', 'Imagine this is being watched by a member of the public. Avoid any technical language and clearly explain how your product solves a problem.', 'Product', NULL),
 ('Do you offer a free proof of concept or free trial?', 'checkbox', '', 'Product', ARRAY['yes', 'no']),
-('What is the typical implementation time?', 'short_text', 'If it varies depending on size of organisation give a range / examples', 'product', ARRAY['250 words']),
+('What is the typical implementation time?', 'short_text', 'If it varies depending on size of organisation give a range / examples', 'Product', ARRAY['250 words']),
 ('What service(s) could the product be relevant to?', 'dropdown', 'For example: parking, council tax, vulnerable adults.', 'Product', ARRAY[ 'Staff Team', 'Further Education', 'Looked after Children', 'Adults Social care', 'Housing Needs', 'Welfare benefits', 'Building Control', 'Business Services', 'Carers Services', 'Council wide', 'Family Support', 'Signposting', 'Adults Social Care', 'Council Tax', 'Planning', 'Disabled Adults', 'Housing Benefits', 'Early Years', 'Special Educational Needs', 'Welfare Benefits', 'Council Housing Management', 'Farming', 'Council Wide', 'Looked After Children', 'Leisure', 'Parking', 'School Admissions', 'Housing Advice', 'Recycling', 'Regulatory Services', 'Archaeology', 'Arts', 'Libraries', 'Waste collection', 'Transport', 'Cemeteries', 'Education Welfare', 'Environmental Services', 'Registrars', 'Highways', 'Education Provision', 'Adult Education', 'Health and Safety', 'Public Health', 'Land Registry', 'Council Wide', 'Children''s Social Care', 'Council Housing management', 'Waste Collection', 'Sundry Debtors', 'Electoral Services', 'Leaseholder Services', 'Coastal Protection']),
 ('Is it currently running live with any local government or authority?', 'checkbox', '', 'Local Authorities', ARRAY['yes', 'no']),
 ('Which council(s) is it running with?', 'short_text', '', 'Local Authorities', NULL),
@@ -67,15 +66,17 @@ CREATE TABLE answers (
   id SERIAL PRIMARY KEY,
   company_id INTEGER REFERENCES companies(id),
   question_id INTEGER REFERENCES questions(id),
-  answer TEXT NOT NULL
+  answer TEXT [] NOT NULL
 );
 
 INSERT INTO answers (company_id, question_id, answer) VALUES 
-(1, 1, 'Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking monstra adventus resi dentevil vultus comedat cerebella viventium. Qui animated corpse, cricket bat max brucks terribilem incessu zomby. The voodoo sacerdos flesh eater, suscitat mortuos comedere carnem virus. Zonbi tattered for solum oculi eorum defunctis go lum cerebro.'),
-(1, 2, 'kdjgdd785g'),
-(2, 1, 'sgfdgdfgdhd'),
-(2, 5, 'sfdsfsgs'),
-(1, 4, 'fsgdfgdgd'),
-(1, 3, 'sfdfsdgdfgd');
+(1, 1, ARRAY['Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking monstra adventus resi dentevil vultus comedat cerebella viventium. Qui animated corpse, cricket bat max brucks terribilem incessu zomby. The voodoo sacerdos flesh eater, suscitat mortuos comedere carnem virus. Zonbi tattered for solum oculi eorum defunctis go lum cerebro.']),
+(1, 2, ARRAY['kdjgdd785g']),
+(2, 1, ARRAY['sgfdgdfgdhd']),
+(2, 5, ARRAY['sfdsfsgs']),
+(1, 4, ARRAY['fsgdfgdgd']),
+(1, 3, ARRAY['sfdfsdgdfgd']);
+
+
 
 COMMIT;

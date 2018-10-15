@@ -22,6 +22,7 @@ app.get("/api/hello", (req, res) => {
   res.send({ express: "Hello From Express" });
 });
 
+app.get("/profile/:id/sme", profileData.get)
 app.get("/profile/:id", profileData.get);
 app.get("/profile/:id/sme", profileData.get);
 app.get("/smes", smesData.get);

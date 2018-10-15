@@ -84,7 +84,6 @@ describe("Get all profile data for specific user", () => {
     const companyID = 1;
     return queries.getUserProfileData(companyID).then(res => {
       expect(res[0][0].company_name).toBe("Senzing");
-      // console.log("huh?", res[1][0]);
       expect(res[1][0].company_id).toBe(companyID);
     });
   });
@@ -104,7 +103,7 @@ describe("Get all questions for add content section, including answers already f
   });
 });
 
-const dummyResponse = {
+const dummyPost = {
   company_id: 2,
   answers: {
     1: "Answer for Q1 successfully UPDATED",
@@ -115,11 +114,11 @@ const dummyResponse = {
 
 describe("Update answers for that specific company", () => {
   test("Successfully insert and update answers for a specific company", () => {
-    return queries.updateAnswers(dummyResponse).then(res => {
+    return queries.updateAnswers(dummyPost).then(res => {
       expect(res).toBeTruthy();
       expect(res[0].company_id).toBe(2);
-      expect(res[1].answer).toBe("Answer for Q2 successfully INSERTED");
-      expect(res[2].answer).toBe("Answer for Q5 successfully UPDATED");
+      expect(res[1].answer[0]).toBe("Answer for Q2 successfully INSERTED");
+      expect(res[2].answer[0]).toBe("Answer for Q5 successfully UPDATED");
     });
   });
 });

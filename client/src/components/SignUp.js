@@ -53,7 +53,7 @@ export default class SignUp extends React.Component {
       headers: {"content-type": "application/json"},
       body: data
     })
-    .then(res => console.log(res))
+    .then(res => console.log("response:", res))
     .catch(err => console.log(err))
 
     this.setState({
