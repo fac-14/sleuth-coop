@@ -101,9 +101,10 @@ export default class Add extends React.Component {
       method: "POST",
       body: data
     })
-      .then(res => {
-        this.setState({ formState: {} });
-      })
+      // .then(res => {
+      // // INSTEAD OF CLEARING FORM HERE, WE COULD SHOW THAT THEY'VE SAVED SUCCESSFULLY WITH A TEMP MODAL OR SOMETHING...
+      //   this.setState({ formState: {} });
+      // })
       .catch(err => console.log(err));
   };
 
