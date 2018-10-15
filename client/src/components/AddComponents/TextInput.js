@@ -1,9 +1,9 @@
 import React from "react";
-import arrow from "../../assets/dropdown-arrow.svg";
+// import arrow from "../../assets/dropdown-arrow.svg";
 
 export default class TextInput extends React.Component {
   render() {
-    const { content } = this.props;
+    const { content, answers } = this.props;
     return (
       <fieldset className="text-input-section">
         <label htmlFor={content.id}>
@@ -18,7 +18,7 @@ export default class TextInput extends React.Component {
           onChange={this.props.onChange}
           className="text-input"
           type="text"
-          value={this.props.alreadyAnswered(content.id)}
+          value={answers[content.id] ? answers[content.id] : ""}
         />
       </fieldset>
     );
