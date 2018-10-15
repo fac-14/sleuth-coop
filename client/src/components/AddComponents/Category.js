@@ -4,6 +4,7 @@ import FileUpload from "./FileUpload";
 import TextInput from "./TextInput";
 import CheckBox from "./CheckBox";
 import Dropdown from "./Dropdown";
+import LinkList from "./LinkList";
 
 export default class Category extends React.Component {
   render() {
@@ -57,6 +58,15 @@ export default class Category extends React.Component {
                 alreadyAnswered={this.props.alreadyAnswered}
               />
             );
+          } else if (el.input_type === "url_imputs") {
+            return (
+              <LinkList 
+                key={index}
+                content={el}
+                onChange={this.props.change}
+                answers={this.props.state.formState}
+              />
+            )
           }
           return "";
         })}
