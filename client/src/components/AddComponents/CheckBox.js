@@ -1,5 +1,5 @@
 import React from "react";
-import arrow from "../../assets/dropdown-arrow.svg";
+// import arrow from "../../assets/dropdown-arrow.svg";
 
 export default class CheckBox extends React.Component {
   render() {

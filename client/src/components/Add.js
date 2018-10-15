@@ -24,7 +24,7 @@ export default class Add extends React.Component {
           return { formState: state };
         });
 
-        console.log("state", this.state.formState);
+        // console.log("state", this.state.formState);
         const filtered = filterQuestions(res[1]);
         this.setState({ questions: filtered });
       })
@@ -78,6 +78,18 @@ export default class Add extends React.Component {
     this.setState({ formState: state });
   };
 
+  getLinks = linkState => {
+    const { qId, description, link } = linkState;
+    const newState = this.state.formState;
+    const linkArray = [description, link];
+    if (!newState[qId]) {
+      newState[qId] = [linkArray];
+    } else {
+      newState[qId].push(linkArray);
+    }
+    this.setState({ formState: newState });
+  };
+
   handleSubmit = e => {
     e.preventDefault();
     const data = new FormData();
@@ -121,6 +133,7 @@ export default class Add extends React.Component {
                   change={this.handleChange}
                   dropdownSelect={this.dropdownSelect}
                   dropdownRemove={this.dropdownRemove}
+                  getLinks={this.getLinks}
                   state={this.state}
                   alreadyAnswered={this.alreadyAnswered}
                 />

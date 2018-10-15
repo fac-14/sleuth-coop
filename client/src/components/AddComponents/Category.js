@@ -58,15 +58,15 @@ export default class Category extends React.Component {
                 alreadyAnswered={this.props.alreadyAnswered}
               />
             );
-          } else if (el.input_type === "url_imputs") {
+          } else if (el.input_type === "url_inputs") {
             return (
-              <LinkList 
+              <LinkList
                 key={index}
                 content={el}
-                onChange={this.props.change}
+                getLinks={this.props.getLinks}
                 answers={this.props.state.formState}
               />
-            )
+            );
           }
           return "";
         })}

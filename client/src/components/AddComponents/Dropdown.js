@@ -1,11 +1,10 @@
 import React from "react";
-import arrow from "../../assets/dropdown-arrow.svg";
+// import arrow from "../../assets/dropdown-arrow.svg";
 
 export default class Dropdown extends React.Component {
   render() {
     const { content, answers } = this.props;
     const options = content.options;
-    console.log("content", this.props);
     const selected = answers[content.id] || [];
     return (
       <fieldset className="dropdown-section">

@@ -1,5 +1,5 @@
 import React from "react";
-import arrow from "../../assets/dropdown-arrow.svg";
+// import arrow from "../../assets/dropdown-arrow.svg";
 
 export default class TextInput extends React.Component {
   render() {
@@ -18,7 +18,7 @@ export default class TextInput extends React.Component {
           onChange={this.props.onChange}
           className="text-input"
           type="text"
-          value={answers[content.id] ? answers[content.id] : null}
+          value={answers[content.id] ? answers[content.id] : ""}
         />
       </fieldset>
     );
