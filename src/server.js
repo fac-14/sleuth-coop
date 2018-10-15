@@ -23,6 +23,7 @@ app.get("/api/hello", (req, res) => {
 });
 
 app.get("/profile/:id", profileData.get);
+app.get("/profile/:id/sme", profileData.get);
 app.get("/smes", smesData.get);
 app.get("/questions", questions.get);
 app.post("/signup", signup.post);
