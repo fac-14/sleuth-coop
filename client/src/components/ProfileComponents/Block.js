@@ -65,7 +65,7 @@ export default class Block extends React.Component {
       return (
         <div className={this.props.type + " profile-block"}>
           <h3>{this.props.heading}</h3>
-          {this.props.answer.split("<br>").map(el => {
+          {this.props.answer.map(el => {
             return <p>{el}</p>;
           })}
         </div>
