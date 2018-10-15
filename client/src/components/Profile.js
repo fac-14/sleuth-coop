@@ -15,7 +15,8 @@ export default class Profile extends React.Component {
   };
 
   componentDidMount() {
-    getProfile(123)
+    const profile = this.props.location.pathname;
+    getProfile(profile)
       .then(res => {
         const transformed = filterData(res);
         this.setState({

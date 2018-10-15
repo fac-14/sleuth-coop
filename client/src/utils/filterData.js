@@ -1,8 +1,8 @@
 const filter = data => {
   const transformed = {};
-  transformed["basic_info"] = data.basic_info;
+  transformed["basic_info"] = data[0][0];
   transformed.answers = {};
-  data.answers.forEach(element => {
+  data[1].forEach(element => {
     if (!transformed.answers[element.category]) {
       // create category
       transformed.answers[element.category] = [];
@@ -12,7 +12,6 @@ const filter = data => {
       transformed.answers[element.category].push(element);
     }
   });
-  // console.log("data", transformed);
   return transformed;
 };
 

@@ -9,6 +9,7 @@ export default class SignUp extends React.Component {
   state = {
     email: "",
     name: "",
+    password: "test-password",
     jobtitle: "",
     company: "",
     website: "",
@@ -44,14 +45,16 @@ export default class SignUp extends React.Component {
   };
 
   handleSubmit = e => {
-    // e.preventDefault();
-    console.log("submit hit");
-    // post req will go here (see fetch example below)
-    // const data = JSON.stringify(this.state);
-    // fetch("/signup", {
-    //   method: "post",
-    //   body: data
-    // });
+    e.preventDefault();
+    const data = JSON.stringify(this.state);
+    console.log("sending...", data)
+    fetch("/signup", {
+      method: "post",
+      headers: {"content-type": "application/json"},
+      body: data
+    })
+    .then(res => console.log(res))
+    .catch(err => console.log(err))
 
     this.setState({
       email: "",

@@ -3,12 +3,14 @@ const db = require("../db_connection");
 const getUserProfileData = companyID => {
     const companyInfo = new Promise((resolve, reject) => {
         db.query(`SELECT * FROM companies WHERE id = ${companyID}`)
-        .then(res => resolve(res));
+        .then(res => resolve(res))
+        .catch(err => reject(err))
     });
 
     const questionsAndAnswers = new Promise((resolve, reject) => { 
         db.query(`SELECT * FROM answers LEFT JOIN questions ON questions.id = answers.question_id WHERE answers.company_id = ${companyID}`)
-        .then(res => resolve(res));
+        .then(res => resolve(res))
+        .catch(err => reject(err))
     });
 
     return Promise.all([companyInfo, questionsAndAnswers])
