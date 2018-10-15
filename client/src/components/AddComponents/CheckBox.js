@@ -4,6 +4,7 @@ import arrow from "../../assets/dropdown-arrow.svg";
 export default class CheckBox extends React.Component {
   render() {
     const { content } = this.props;
+    console.log("props answered", this.props.answers[3]);
     return (
       <fieldset className="checkbox-section">
         <h4>{content.question}</h4>
@@ -20,6 +21,11 @@ export default class CheckBox extends React.Component {
                 onChange={this.props.onChange}
                 className="checkbox"
                 type="checkbox"
+                name={box}
+                checked={
+                  box === this.props.alreadyAnswered(content.id) ||
+                  box === this.props.answers[content.id]
+                }
               />
             </label>
           );

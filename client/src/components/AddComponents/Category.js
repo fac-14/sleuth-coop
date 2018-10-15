@@ -33,8 +33,15 @@ export default class Category extends React.Component {
               />
             );
           } else if (el.input_type === "checkbox") {
+            console.log("category answers", this.props.state.formState);
             return (
-              <CheckBox key={index} content={el} onChange={this.props.change} />
+              <CheckBox
+                key={index}
+                content={el}
+                onChange={this.props.change}
+                answers={this.props.state.formState}
+                alreadyAnswered={this.props.alreadyAnswered}
+              />
             );
           } else if (el.input_type === "dropdown") {
             return (

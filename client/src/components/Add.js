@@ -42,8 +42,8 @@ export default class Add extends React.Component {
   handleChange = e => {
     const questionId = e.target.id;
     let answer;
-    if (e.target.type === "checkbox") {
-      answer = e.target.checked;
+    if (e.target.type === "checkbox" && e.target.checked === true) {
+      answer = e.target.name;
     } else if (e.target.type === "file") {
       answer = e.target.files[0];
     } else {
@@ -55,6 +55,7 @@ export default class Add extends React.Component {
       return { formState: state };
     });
     console.log(this.state.formState);
+    console.log(this.state.answers);
   };
   dropdownSelect = e => {
     // console.log(e.target.textContent);
