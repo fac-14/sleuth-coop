@@ -6,7 +6,7 @@ import add from "../../assets/add.svg";
 export default class AddContent extends React.Component {
   render() {
     return (
-      <Link to="/profile/id/add" className="link-component">
+      <Link to="/profile/1/add" className="link-component">
         <button id="add-content-btn">
           <img src={add} alt="add icon" />
           Add Content

@@ -14,16 +14,35 @@ export default class Add extends React.Component {
   componentDidMount() {
     getQuestions()
       .then(res => {
-        const filtered = filterQuestions(res);
+        const answersArr = res[2];
+        const state = this.state.formState;
+        answersArr.forEach(function(element) {
+          state[element.question_id] = element.answer;
+        });
+
+        this.setState(() => {
+          return { formState: state };
+        });
+
+        console.log("state", this.state.formState);
+        const filtered = filterQuestions(res[1]);
         this.setState({ questions: filtered });
       })
       .catch(err => console.log(err));
   }
+
+  alreadyAnswered = contentId => {
+    const answers = this.state.formState;
+    if (answers.hasOwnProperty(contentId)) {
+      return answers[contentId];
+    }
+  };
+
   handleChange = e => {
     const questionId = e.target.id;
     let answer;
-    if (e.target.type === "checkbox") {
-      answer = e.target.checked;
+    if (e.target.type === "checkbox" && e.target.checked === true) {
+      answer = e.target.name;
     } else if (e.target.type === "file") {
       answer = e.target.files[0];
     } else {
@@ -34,6 +53,7 @@ export default class Add extends React.Component {
     this.setState(() => {
       return { formState: state };
     });
+    console.log(this.state.formState);
   };
   dropdownSelect = e => {
     // console.log(e.target.textContent);
@@ -91,6 +111,7 @@ export default class Add extends React.Component {
                   change={this.handleChange}
                   dropdownSelect={this.dropdownSelect}
                   state={this.state}
+                  alreadyAnswered={this.alreadyAnswered}
                 />
               </div>
             );
