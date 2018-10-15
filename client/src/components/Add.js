@@ -91,7 +91,7 @@ export default class Add extends React.Component {
     }
     const { questions } = this.state;
     const categories = Object.entries(questions);
-    // console.log(this.state.formState);
+    console.log(this.state.formState);
     return (
       <div className="edit-page-container">
         <Link to={"/profile/123/SME"}>
