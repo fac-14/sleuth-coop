@@ -52,6 +52,7 @@ describe("POST /upload", () => {
       .post("/upload")
       .send(testSubmit)
       .set("Accept", "application/json")
+      .set('Referer', 'http://localhost:3000/profile/1/add')
       .expect(200)
       .then(res => {
         expect(res.status).toBe(200);

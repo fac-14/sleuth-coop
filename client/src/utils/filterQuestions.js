@@ -13,7 +13,6 @@ const filterQuestions = data => {
       filtered[el.category].push(el);
     }
   });
-  // console.log("Q data", filtered);
   return filtered;
 };
 

@@ -24,7 +24,6 @@ export default class Add extends React.Component {
           return { formState: state };
         });
 
-        // console.log("state", this.state.formState);
         const filtered = filterQuestions(res[1]);
         this.setState({ questions: filtered });
       })
@@ -53,7 +52,6 @@ export default class Add extends React.Component {
     this.setState(() => {
       return { formState: state };
     });
-    console.log(this.state.formState);
   };
   dropdownSelect = e => {
     const questionId = e.target.className;
@@ -114,7 +112,6 @@ export default class Add extends React.Component {
     }
     const { questions } = this.state;
     const categories = Object.entries(questions);
-    console.log(this.state.formState);
     return (
       <div className="edit-page-container">
         <Link to={"/profile/123/SME"}>

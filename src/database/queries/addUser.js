@@ -30,7 +30,6 @@ const addUser = userObj =>
         // getUsers()
       })
       .then(res => {
-        console.log("wooooo yeah!")
         resolve(res);
       })
       .catch(err => reject(err));
