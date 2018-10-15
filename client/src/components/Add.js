@@ -56,18 +56,28 @@ export default class Add extends React.Component {
     console.log(this.state.formState);
   };
   dropdownSelect = e => {
-    // console.log(e.target.textContent);
-    // console.log(e.target.className);
     const questionId = e.target.className;
     const selected = e.target.textContent;
     const state = this.state.formState;
     if (!this.state.formState[questionId]) {
       state[questionId] = [selected];
-    } else {
+    } else if (!state[questionId].includes(selected)) {
       state[questionId].push(selected);
     }
     this.setState({ formState: state });
   };
+
+  dropdownRemove = e => {
+    const questionId = e.target.className;
+    const selected = e.target.textContent;
+    const state = this.state.formState;
+    if (state[questionId].includes(selected)) {
+      const index = state[questionId].indexOf(selected);
+      state[questionId].splice(index, 1);
+    }
+    this.setState({ formState: state });
+  };
+
   handleSubmit = e => {
     e.preventDefault();
     const data = new FormData();
@@ -110,6 +120,7 @@ export default class Add extends React.Component {
                   questions={el[1]}
                   change={this.handleChange}
                   dropdownSelect={this.dropdownSelect}
+                  dropdownRemove={this.dropdownRemove}
                   state={this.state}
                   alreadyAnswered={this.alreadyAnswered}
                 />

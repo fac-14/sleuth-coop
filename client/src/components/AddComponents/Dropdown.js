@@ -3,15 +3,29 @@ import arrow from "../../assets/dropdown-arrow.svg";
 
 export default class Dropdown extends React.Component {
   render() {
-    const { content } = this.props;
+    const { content, answers } = this.props;
     const options = content.options;
+    console.log("content", this.props);
+    const selected = answers[content.id] || [];
     return (
       <fieldset className="dropdown-section">
         <h4>{content.question}</h4>
-        {/* <button>
-          <img src={arrow} alt="down arrow" />
-        </button> */}
-        <input type="text" value={this.props.value} />
+        {/* <input type="text" value={this.props.value} /> */}
+        <h3>Selected items:</h3>
+        <ul>
+          {selected.map((item, index) => {
+            return (
+              <li
+                key={index}
+                className={content.id}
+                onClick={this.props.dropdownRemove}
+              >
+                {item}
+              </li>
+            );
+          })}
+        </ul>
+        <h3>Select Options:</h3>
         <ul>
           {options.map((item, index) => {
             return (
@@ -25,6 +39,8 @@ export default class Dropdown extends React.Component {
             );
           })}
         </ul>
+
+        <div />
       </fieldset>
     );
   }

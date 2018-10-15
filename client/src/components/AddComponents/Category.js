@@ -30,10 +30,11 @@ export default class Category extends React.Component {
                 key={index}
                 content={el}
                 onChange={this.props.change}
+                answers={this.props.state.formState}
+                alreadyAnswered={this.props.alreadyAnswered}
               />
             );
           } else if (el.input_type === "checkbox") {
-            console.log("category answers", this.props.state.formState);
             return (
               <CheckBox
                 key={index}
@@ -50,7 +51,10 @@ export default class Category extends React.Component {
                 content={el}
                 onChange={this.props.change}
                 dropdownSelect={this.props.dropdownSelect}
+                dropdownRemove={this.props.dropdownRemove}
                 value={this.props.state.formState[el.id]}
+                answers={this.props.state.formState}
+                alreadyAnswered={this.props.alreadyAnswered}
               />
             );
           }
