@@ -1,9 +1,10 @@
 import React from "react";
-import arrow from "../../assets/dropdown-arrow.svg";
+// import arrow from "../../assets/dropdown-arrow.svg";
 
 export default class FileUpload extends React.Component {
   render() {
     const { content } = this.props;
+    // this will need to get the file from the database and assign to value
     return (
       <fieldset className="upload-section">
         <label htmlFor={content.id}>
