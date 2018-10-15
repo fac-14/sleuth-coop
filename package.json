@@ -12,7 +12,7 @@
     "client": "cd client && npm start",
     "server": "nodemon src/server.js",
     "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\" \"npm run sass\"",
-    "express-test": "NODE_ENV=test jest",
+    "express-test": "NODE_ENV=test jest --forceExit",
     "react-test": "cd client && npm i && npm test",
     "test": "npm run express-test && npm run react-test",
     "local-test": "npm run express-test && cd client && npm test",
