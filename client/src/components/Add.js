@@ -33,7 +33,6 @@ export default class Add extends React.Component {
 
   alreadyAnswered = contentId => {
     const answers = this.state.formState;
-    console.log("answers", answers);
     if (answers.hasOwnProperty(contentId)) {
       return answers[contentId];
     }
@@ -55,7 +54,6 @@ export default class Add extends React.Component {
       return { formState: state };
     });
     console.log(this.state.formState);
-    console.log(this.state.answers);
   };
   dropdownSelect = e => {
     // console.log(e.target.textContent);

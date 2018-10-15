@@ -4,7 +4,6 @@ import arrow from "../../assets/dropdown-arrow.svg";
 export default class CheckBox extends React.Component {
   render() {
     const { content } = this.props;
-    console.log("props answered", this.props.answers[3]);
     return (
       <fieldset className="checkbox-section">
         <h4>{content.question}</h4>
