@@ -46,7 +46,7 @@ export default class Add extends React.Component {
     let file;
     if (e.target.type === "checkbox" && e.target.checked === true) {
       answer = e.target.name;
-    } else if (e.target.type === "file") {
+    } else if (e.target.type === "file" && e.target.files[0] !== undefined) {
       answer = [e.target.files[0].name];
       file = e.target.files[0]
     } else if (e.target.className.includes("video")) {
