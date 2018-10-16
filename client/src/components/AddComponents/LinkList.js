@@ -14,13 +14,15 @@ export default class LinkList extends React.Component {
   };
 
   render() {
-    const { content } = this.props;
+    const { content, answers } = this.props;
     return (
       <fieldset>
         <h4>{content.question}</h4>
         <p>{content.helper_text}</p>
         <ul>
-          <li>placeholder link list</li>
+          {answers[content.id].map(link => {
+            return <li>{link[0]}</li>;
+          })}
         </ul>
         <label htmlFor="description">
           Link description:

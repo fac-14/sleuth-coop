@@ -5,6 +5,7 @@ import Category from "./AddComponents/Category";
 
 import getQuestions from "../utils/getQuestions";
 import filterQuestions from "../utils/filterQuestions";
+import videoLinkFormatter from "../utils/videoLinkFormatter";
 
 export default class Add extends React.Component {
   state = {
@@ -44,11 +45,13 @@ export default class Add extends React.Component {
       answer = e.target.name;
     } else if (e.target.type === "file") {
       answer = e.target.files[0];
+    } else if (e.target.className.includes("video")) {
+      answer = videoLinkFormatter(e.target.value);
     } else {
       answer = e.target.value;
     }
     const state = this.state.formState;
-    state[questionId] = answer;
+    state[questionId] = [ answer ];
     this.setState(() => {
       return { formState: state };
     });
@@ -110,11 +113,12 @@ export default class Add extends React.Component {
     if (!this.state.questions) {
       return <h3>Loading...</h3>;
     }
+    // console.log(this.state.formState)
     const { questions } = this.state;
     const categories = Object.entries(questions);
     return (
       <div className="edit-page-container">
-        <Link to={"/profile/123/SME"}>
+        <Link to={"/profile/1/SME"}>
           <button>Back</button>
         </Link>
         <form id="edit-form" onSubmit={this.handleSubmit}>
