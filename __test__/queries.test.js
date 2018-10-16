@@ -106,9 +106,9 @@ describe("Get all questions for add content section, including answers already f
 const dummyPost = {
   company_id: 2,
   answers: {
-    1: "Answer for Q1 successfully UPDATED",
-    2: "Answer for Q2 successfully INSERTED",
-    5: "Answer for Q5 successfully UPDATED"
+    1: ["Answer for Q1 successfully UPDATED"],
+    2: ["Answer for Q2 successfully INSERTED"],
+    5: ["Answer for Q5 successfully UPDATED"]
   }
 };
 
