@@ -16,7 +16,7 @@ The aim for this is to speed up innovation in the public sector and increase the
 | - | -------- | -------- |
 |Node|jest|babel
 |Express|supertest|parcel-bundler
-|React|eslint|pg
+|React|eslint|pg-promise
 |PostgreSQL|react-testing-library|serve-favicon|
 |HTML|nodemon|env2|
 |CSS|concurrently||
