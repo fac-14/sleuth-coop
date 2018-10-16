@@ -50,11 +50,12 @@ export default class Block extends React.Component {
           <img src={this.props.answer} alt="content" />
         </div>
       );
-    } else if (type === "multi-checkbox") {
+    } else if (type === "dropdown") {
       return (
         <div className="tagged-list profile-block">
           <h3>{this.props.heading}</h3>
           <ul>
+            {console.log("this answer", this.props.answer)}
             {this.props.answer.map((el, index) => {
               return <li className="tag">{el}</li>;
             })}

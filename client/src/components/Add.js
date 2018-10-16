@@ -90,14 +90,18 @@ export default class Add extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    const data = new FormData();
-    const { formState } = this.state;
-    for (let key in formState) {
-      data.append(key, formState[key]);
-    }
+    // const data = new FormData();
+    // const { formState } = this.state;
+    // for (let key in formState) {
+    //   data.append(key, formState[key]);
+    // }
     fetch("/upload", {
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+      },
       method: "POST",
-      body: data
+      body: JSON.stringify(this.state.formState)
     })
       // .then(res => {
       // // INSTEAD OF CLEARING FORM HERE, WE COULD SHOW THAT THEY'VE SAVED SUCCESSFULLY WITH A TEMP MODAL OR SOMETHING...

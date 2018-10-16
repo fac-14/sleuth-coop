@@ -16,8 +16,18 @@ const updateAnswers = async dummyResponse => {
 
 const updateOneAnswer = (questionId, answer, companyId) =>
   new Promise((resolve, reject) => {
+
+    let ans = answer;
+    console.log("ans", ans)
+
+    if(answer instanceof Array){
+      console.log("1111", ans)
+      console.log("1111", ans.join(",'"))
+
+    }
+    // console.log("1111", )
     db.query(
-      `DO $$ BEGIN IF EXISTS (SELECT * FROM answers WHERE company_id=$3 AND question_id=$1) THEN UPDATE answers SET answer = ARRAY[$2] WHERE company_id=$3 AND question_id=$1; ELSE INSERT INTO answers (company_id, question_id, answer) VALUES ($3, $1, ARRAY[$2]); END IF; END $$;`,
+      `DO $$ BEGIN IF EXISTS (SELECT * FROM answers WHERE company_id=$3 AND question_id=$1) THEN UPDATE answers SET answer = $2 WHERE company_id=$3 AND question_id=$1; ELSE INSERT INTO answers (company_id, question_id, answer) VALUES ($3, $1, $2); END IF; END $$;`,
       [questionId, answer, companyId]
     )
       .then(res => resolve(res))
