@@ -62,6 +62,21 @@ export default class Block extends React.Component {
           </ul>
         </div>
       );
+    } else if (type === "url_inputs") {
+      return (
+        <div className="tagged-list profile-block">
+          <h3>{this.props.heading}</h3>
+          <div>
+            {this.props.answer.map((el, index) => {
+              return (
+                <a key={index} href={el.split("-")[1]} rel="noopener noreferrer" target="_blank">
+                  <p>{el.split("-")[0]}</p>
+                </a>
+              )
+            })}
+          </div>
+        </div>
+      );
     } else {
       return (
         <div className={this.props.type + " profile-block"}>

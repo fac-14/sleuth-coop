@@ -52,7 +52,7 @@ export default class Profile extends React.Component {
               className="contact"
               name={basicInfo.contact_name}
               title={basicInfo.contact_title}
-              email={basicInfo.email}
+              email={basicInfo.contact_email}
             />
           </div>
         </div>

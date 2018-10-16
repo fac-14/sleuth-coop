@@ -16,7 +16,8 @@
     "react-test": "cd client && npm i && npm test",
     "test": "npm run express-test && npm run react-test",
     "local-test": "npm run express-test && cd client && npm test",
-    "sass": "sass --watch ./client/src/private/sass:./client/public/css"
+    "sass": "sass --watch ./client/src/private/sass:./client/public/css",
+    "build-db": "node src/database/db_build.js"
   },
   "repository": {
     "type": "git",

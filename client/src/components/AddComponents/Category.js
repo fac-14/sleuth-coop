@@ -5,6 +5,7 @@ import TextInput from "./TextInput";
 import CheckBox from "./CheckBox";
 import Dropdown from "./Dropdown";
 import LinkList from "./LinkList";
+import VideoInput from "./VideoInput";
 
 export default class Category extends React.Component {
   render() {
@@ -15,7 +16,7 @@ export default class Category extends React.Component {
         produces the correct element for the input type */}
 
         {questions.map((el, index) => {
-          if (el.input_type === "short_text") {
+          if (el.input_type === "short_text" || el.input_type === "long_text") {
             return (
               <TextInput
                 key={index}
@@ -65,6 +66,15 @@ export default class Category extends React.Component {
                 content={el}
                 getLinks={this.props.getLinks}
                 answers={this.props.state.formState}
+              />
+            );
+          } else if (el.input_type === "video") {
+            return (
+              <VideoInput
+                key={index}
+                content={el}
+                answers={this.props.state.formState}
+                onChange={this.props.change}
               />
             );
           }
