@@ -6,6 +6,7 @@ import Category from "./AddComponents/Category";
 import getQuestions from "../utils/getQuestions";
 import filterQuestions from "../utils/filterQuestions";
 import videoLinkFormatter from "../utils/videoLinkFormatter";
+import { exists } from "fs";
 
 export default class Add extends React.Component {
   state = {
@@ -82,12 +83,16 @@ export default class Add extends React.Component {
   getLinks = linkState => {
     const { qId, description, link } = linkState;
     const newState = this.state.formState;
-    const linkArray = [description, link];
+    const linkArray = `${description}-${link}`;
     if (!newState[qId]) {
+      console.log('doesn\'nt exist, creating...')
       newState[qId] = [linkArray];
     } else {
+      console.log('before: ',newState[qId])
+      console.log('pushing...')
       newState[qId].push(linkArray);
     }
+    console.log('after: ',newState[qId])
     this.setState({ formState: newState });
   };
 

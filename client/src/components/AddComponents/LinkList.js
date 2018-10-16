@@ -20,8 +20,8 @@ export default class LinkList extends React.Component {
         <h4>{content.question}</h4>
         <p>{content.helper_text}</p>
         <ul>
-          {answers[content.id].map(link => {
-            return <li>{link[0]}</li>;
+          {answers[content.id].map((link, index) => {
+            return <li key={index}>{link.split("-")[0]}</li>;
           })}
         </ul>
         <label htmlFor="description">

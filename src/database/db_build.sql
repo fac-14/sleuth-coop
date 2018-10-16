@@ -74,6 +74,6 @@ INSERT INTO answers (company_id, question_id, answer) VALUES
 (1, 8, ARRAY['London Boroughs', 'Metropolitan Districts']),
 (1, 13, ARRAY['test.xlsx']),
 (1, 19, ARRAY['https://confluence.atlassian.com/jirasoftware/files/949226697/950287800/4/1527857985277/jira_issue_navigator.png']),
-(1, 21, ARRAY[['Linkedin Company Page','https://www.linkedin.com/company/atlassian']]);
+(1, 21, ARRAY['Linkedin Company Page-https://www.linkedin.com/company/atlassian']);
 
 COMMIT;

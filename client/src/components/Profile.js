@@ -34,7 +34,6 @@ export default class Profile extends React.Component {
     }
 
     const { basic_info: basicInfo, answers } = this.state.response;
-    console.log('basicInfo: ', basicInfo)
     return (
       <React.Fragment>
         <HomeBtn />
