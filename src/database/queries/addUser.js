@@ -10,7 +10,6 @@ const addUser = userObj =>
       [userObj.email, userObj.password]
     )
       .then(res => {
-        console.log("user table sucessfully updated")
         const userId = res[0].id;
         db.query(
           `INSERT INTO companies (user_id, company_name, website, description, contact_name, contact_title, contact_email, logo_url) VALUES ($1, $2, $3, $4, $5, $6, $7, NULL)`,
@@ -26,7 +25,6 @@ const addUser = userObj =>
         );
       })
       .then(() => {
-        console.log("company table sucessfully updated")
         // getUsers()
       })
       .then(res => {
