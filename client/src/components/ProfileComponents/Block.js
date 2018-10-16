@@ -69,8 +69,8 @@ export default class Block extends React.Component {
           <div>
             {this.props.answer.map((el, index) => {
               return (
-                <a key={index} href={el[1]} rel="noopener noreferrer" target="_blank">
-                  <p>{el[0]}</p>
+                <a key={index} href={el.split("-")[1]} rel="noopener noreferrer" target="_blank">
+                  <p>{el.split("-")[0]}</p>
                 </a>
               )
             })}
