@@ -27,7 +27,6 @@ exports.post = (req, res) => {
 
   updateAnswers(updatedObj)
     .then(done => res.send(done))
+    // .then(res.end())
     .catch(err => console.log(err))
-
-    res.end();
 };

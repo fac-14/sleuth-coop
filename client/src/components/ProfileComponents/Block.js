@@ -55,6 +55,7 @@ export default class Block extends React.Component {
         <div className="tagged-list profile-block">
           <h3>{this.props.heading}</h3>
           <ul>
+            {console.log("this answer", this.props.answer)}
             {this.props.answer.map((el, index) => {
               return <li className="tag">{el}</li>;
             })}
