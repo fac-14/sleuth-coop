@@ -16,7 +16,7 @@ export default class LinkList extends React.Component {
   render() {
     const { content, answers } = this.props;
     return (
-      <fieldset>
+      <fieldset className="link-section">
         <h4>{content.question}</h4>
         <p>{content.helper_text}</p>
         <ul>
