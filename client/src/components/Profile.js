@@ -34,6 +34,7 @@ export default class Profile extends React.Component {
     }
 
     const { basic_info: basicInfo, answers } = this.state.response;
+    console.log('basicInfo: ', basicInfo)
     return (
       <React.Fragment>
         <HomeBtn />
@@ -52,7 +53,7 @@ export default class Profile extends React.Component {
               className="contact"
               name={basicInfo.contact_name}
               title={basicInfo.contact_title}
-              email={basicInfo.email}
+              email={basicInfo.contact_email}
             />
           </div>
         </div>

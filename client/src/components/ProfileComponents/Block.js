@@ -50,7 +50,7 @@ export default class Block extends React.Component {
           <img src={this.props.answer} alt="content" />
         </div>
       );
-    } else if (type === "multi-checkbox") {
+    } else if (type === "dropdown" || type === "multi_checkbox") {
       return (
         <div className="tagged-list profile-block">
           <h3>{this.props.heading}</h3>
@@ -59,6 +59,21 @@ export default class Block extends React.Component {
               return <li className="tag">{el}</li>;
             })}
           </ul>
+        </div>
+      );
+    } else if (type === "url_inputs") {
+      return (
+        <div className="tagged-list profile-block">
+          <h3>{this.props.heading}</h3>
+          <div>
+            {this.props.answer.map((el, index) => {
+              return (
+                <a key={index} href={el[1]} rel="noopener noreferrer" target="_blank">
+                  <p>{el[0]}</p>
+                </a>
+              )
+            })}
+          </div>
         </div>
       );
     } else {
