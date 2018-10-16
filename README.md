@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.com/fac-14/sleuth-coop.svg?branch=master)](https://travis-ci.com/fac-14/sleuth-coop)
 
-# Sleuth Co-operative: Innovation Platform
+# Sleuth Co-operative
 
 An online network connecting local government and SMEs. 
 
@@ -8,7 +8,7 @@ The initial MVP will help SMEs build a profile about their product(s) that provi
 The aim for this is to speed up innovation in the public sector and increase the market share for SMEs.
 
 ### The Team
-[Jessie](https://github.com/developess) - Scrum Master | [Joe](https://github.com/thejoefriel) - DevOps | [Dominic](https://github.com/VirtualDOMinic) - QA | [Emma](https://github.com/SleepySheepy172) - Doc Wizard 
+[Jessie](https://github.com/developess) - Scrum Master | [Joe](https://github.com/thejoefriel) - DevOps | [Dominic](https://github.com/VirtualDOM) - QA | [Emma](https://github.com/SleepySheepy172) - Doc Wizard 
 
 ### Tech Stack
 
@@ -55,27 +55,50 @@ $ npm i
 Create a `.env` file in the `client` folder.
 Add this👇 line to the file.
 ```
-`SKIP_PREFLIGHT_CHECK=true`
+SKIP_PREFLIGHT_CHECK=true
 ```
 
-#### 5. Run the Tests
-To make sure everything is working as it should. Make sure you are in the root directory.
+#### 5. Setup the Databases
+Create the dev and test databases.
 ```
-$ cd ..
+$ psql (or pgcli)
+# CREATE DATABASE sleuth;
+# CREATE DATABASE test_sleuth;
+# ALTER DATABASE sleuth OWNER TO [your user];
+# ALTER DATABASE test_sleuth OWNER TO [your user];
+```
+
+#### 6. Ensure you have Databases Environment Variables
+Create a `config.env` file in the root.
+Add these👇 lines to the file inserting your own psql username and password.
+```
+DB_URL = postgres://[USER]:[PASSWORD]@localhost:5432/sleuth
+TEST_DB_URL = postgres://[USER]:[PASSWORD]@localhost:5432/test_sleuth
+```
+
+#### 7. Build the Database
+Use this script that runs db_build.js
+```
+$ npm run build-db
+```
+OR 
+use pgcli to connect to the sleuth database and run the whole script from db_build.sql by copy/pasting into pgcli.
+
+#### 8. Run the Tests
+To make sure everything is working as it should.
+```
 $ npm test
 ```
 
-#### 6. Run the Server
+#### 9. Run the Server
 ```
 $ npm run dev
 ```
 Wait for a `compiled successfully` message.
 
-#### 7. Have Fun
+#### 10. Have Fun
 The webapp should now be running on
 ```localhost:3000```
 Now you can play with the code all you like 🎉
-
-**Database setup instructions coming soon!**
 
 If you notice anything wrong with the instructions or the project isn't running as expected don't hesitate to raise an issue and we'll try to figure it out.
