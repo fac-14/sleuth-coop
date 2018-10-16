@@ -45,7 +45,11 @@ class App extends Component {
             path="/profile/:id/sme"
             render={props => <Profile {...props} SME={true} />}
           />
-          <Route exact={true} path="/profile/:id/add" component={Add} />
+          <Route
+            exact={true}
+            path="/profile/:id/add"
+            render={props => <Add {...props} />}
+          />
           <Route exact={true} path="/discover" component={Discovery} />
         </React.Fragment>
       </Router>

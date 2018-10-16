@@ -2,8 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import Category from "./AddComponents/Category";
+import BasicInfo from "./AddComponents/BasicInfo";
 
 import getQuestions from "../utils/getQuestions";
+import getProfile from "../utils/getProfile";
 import filterQuestions from "../utils/filterQuestions";
 import videoLinkFormatter from "../utils/videoLinkFormatter";
 import { exists } from "fs";
@@ -12,9 +14,18 @@ export default class Add extends React.Component {
   state = {
     formState: {},
     questions: "",
-    files: {}
+    files: {},
+    basicInfo: {}
   };
   componentDidMount() {
+    const profile = this.props.location.pathname;
+    const profileUrl = profile.replace(/add/gi, "sme");
+    console.log("Add", profileUrl);
+    getProfile(profileUrl).then(res => {
+      const profileData = res[0][0];
+      this.setState({ basicInfo: profileData });
+    });
+
     getQuestions()
       .then(res => {
         const answersArr = res[2];
@@ -44,11 +55,19 @@ export default class Add extends React.Component {
     const questionId = e.target.id;
     let answer;
     let file;
+    let profileAnswer;
     if (e.target.type === "checkbox" && e.target.checked === true) {
       answer = e.target.name;
+    } else if (e.target.className.includes("basic-info")) {
+      if (e.target.type === "file" && e.target.files[0] !== undefined) {
+        profileAnswer = e.target.files[0].name;
+        file = e.target.files[0];
+      } else {
+        profileAnswer = e.target.value;
+      }
     } else if (e.target.type === "file" && e.target.files[0] !== undefined) {
       answer = [e.target.files[0].name];
-      file = e.target.files[0]
+      file = e.target.files[0];
     } else if (e.target.className.includes("video")) {
       answer = [videoLinkFormatter(e.target.value)];
     } else {
@@ -58,12 +77,18 @@ export default class Add extends React.Component {
     state[questionId] = answer;
     const fileObj = this.state.files;
     fileObj[questionId] = file;
+
+    const basicInfoObj = this.state.basicInfo;
+    basicInfoObj[questionId] = profileAnswer;
+
     this.setState(() => {
-      return { 
+      return {
         formState: state,
-        files: fileObj 
+        files: fileObj,
+        basicInfo: basicInfoObj
       };
     });
+    console.log("STATE", this.state.basicInfo);
   };
   dropdownSelect = e => {
     const questionId = e.target.className;
@@ -93,14 +118,14 @@ export default class Add extends React.Component {
     const newState = this.state.formState;
     const linkArray = `${description}-${link}`;
     if (!newState[qId]) {
-      console.log('doesn\'nt exist, creating...')
+      console.log("doesn'nt exist, creating...");
       newState[qId] = [linkArray];
     } else {
-      console.log('before: ',newState[qId])
-      console.log('pushing...')
+      console.log("before: ", newState[qId]);
+      console.log("pushing...");
       newState[qId].push(linkArray);
     }
-    console.log('after: ',newState[qId])
+    console.log("after: ", newState[qId]);
     this.setState({ formState: newState });
   };
 
@@ -115,16 +140,17 @@ export default class Add extends React.Component {
       method: "POST",
       body: data
     })
-    .catch(err => console.log(err))
-    .then(
-    fetch("/upload", {
-      headers: {
-        "Accept": "application/json",
-        "Content-Type": "application/json"
-      },
-      method: "POST",
-      body: JSON.stringify(this.state.formState)
-    }))
+      .catch(err => console.log(err))
+      .then(
+        fetch("/upload", {
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json"
+          },
+          method: "POST",
+          body: JSON.stringify(this.state.formState)
+        })
+      )
       // .then(res => {
       // // INSTEAD OF CLEARING FORM HERE, WE COULD SHOW THAT THEY'VE SAVED SUCCESSFULLY WITH A TEMP MODAL OR SOMETHING...
       //   this.setState({ formState: {} });
@@ -145,6 +171,11 @@ export default class Add extends React.Component {
           <button>Back</button>
         </Link>
         <form id="edit-form" onSubmit={this.handleSubmit}>
+          <BasicInfo
+            onChange={this.handleChange}
+            profileData={this.state.basicInfo}
+          />
+
           {categories.map((el, index) => {
             return (
               <div
