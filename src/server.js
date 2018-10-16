@@ -10,7 +10,8 @@ const port = process.env.PORT || 5000;
 
 const profileData = require("./getProfileData");
 const smesData = require("./getSMEs");
-const uploadFile = require("./uploadFile");
+const updateInfo = require("./updateInfo");
+const uploadFiles = require("./uploadFiles")
 const questions = require("./questions");
 const signup = require("./signup");
 
@@ -28,7 +29,8 @@ app.get("/profile/:id/sme", profileData.get);
 app.get("/smes", smesData.get);
 app.get("/questions", questions.get);
 app.post("/signup", signup.post);
-app.post("/upload", uploadFile.post);
+app.post("/upload", updateInfo.post);
+app.post("/upload-files", uploadFiles.post)
 
 if (process.env.NODE_ENV === "production") {
   // serve any static files

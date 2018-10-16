@@ -11,7 +11,8 @@ import { exists } from "fs";
 export default class Add extends React.Component {
   state = {
     formState: {},
-    questions: ""
+    questions: "",
+    files: {}
   };
   componentDidMount() {
     getQuestions()
@@ -42,19 +43,26 @@ export default class Add extends React.Component {
   handleChange = e => {
     const questionId = e.target.id;
     let answer;
+    let file;
     if (e.target.type === "checkbox" && e.target.checked === true) {
       answer = e.target.name;
     } else if (e.target.type === "file") {
-      answer = e.target.files[0];
+      answer = [e.target.files[0].name];
+      file = e.target.files[0]
     } else if (e.target.className.includes("video")) {
-      answer = videoLinkFormatter(e.target.value);
+      answer = [videoLinkFormatter(e.target.value)];
     } else {
-      answer = e.target.value;
+      answer = [e.target.value];
     }
     const state = this.state.formState;
-    state[questionId] = [ answer ];
+    state[questionId] = answer;
+    const fileObj = this.state.files;
+    fileObj[questionId] = file;
     this.setState(() => {
-      return { formState: state };
+      return { 
+        formState: state,
+        files: fileObj 
+      };
     });
   };
   dropdownSelect = e => {
@@ -98,11 +106,17 @@ export default class Add extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    // const data = new FormData();
-    // const { formState } = this.state;
-    // for (let key in formState) {
-    //   data.append(key, formState[key]);
-    // }
+    const data = new FormData();
+    const { files } = this.state;
+    for (let key in files) {
+      data.append(key, files[key]);
+    }
+    fetch("/upload-files", {
+      method: "POST",
+      body: data
+    })
+    .catch(err => console.log(err))
+    .then(
     fetch("/upload", {
       headers: {
         "Accept": "application/json",
@@ -110,7 +124,7 @@ export default class Add extends React.Component {
       },
       method: "POST",
       body: JSON.stringify(this.state.formState)
-    })
+    }))
       // .then(res => {
       // // INSTEAD OF CLEARING FORM HERE, WE COULD SHOW THAT THEY'VE SAVED SUCCESSFULLY WITH A TEMP MODAL OR SOMETHING...
       //   this.setState({ formState: {} });
