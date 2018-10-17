@@ -20,6 +20,7 @@ export default class CheckBox extends React.Component {
             className="checkbox"
             type="checkbox"
             name="yes"
+            checked={answers[content.id] && answers[content.id][0] === "yes"}
             // checked={answers[content.id] === "yes"}
           />
         </label>
