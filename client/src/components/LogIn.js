@@ -6,7 +6,8 @@ export default class LogIn extends React.Component {
   state = {
     email: "",
     password: "",
-    emailError: false
+    errorMsg: false,
+    serverError: ""
   };
 
   handleChange = e => {
@@ -18,12 +19,13 @@ export default class LogIn extends React.Component {
   handleSubmit = e => {
     e.preventDefault();
     // update email error state in case focus not taken off email input field (as handleInitialValidation only gets called onBlur)
-    this.handleInitialValidation();
-    const data = JSON.stringify(this.state);
-    if(this.state.emailError || this.state.password.length <= 3){
-        console.log("submit not allowed, either due to invalid email or absence of password")
+    this.setState({serverError: ""})
+    this.checkEmailValid();
+    if(this.state.errorMsg || this.state.password.length <= 3){
+      this.setState({errorMsg: "invalid email or password"})
     } else {
-    // console.log("submit!", data);
+      // console.log("submit!", data);
+    const data = JSON.stringify(this.state);
     fetch("/login-check", {
       method: "post",
       headers: { "Content-Type": "application/json" },
@@ -36,7 +38,7 @@ export default class LogIn extends React.Component {
           return (window.location = `/profile/${res}/sme`);
         } else {
           console.log(res)
-          this.setState({errorMsg: res});
+          this.setState({serverError: res});
       }})
       .catch(e => console.log(e))
 
@@ -46,13 +48,13 @@ export default class LogIn extends React.Component {
     }
   };
 
-  handleInitialValidation = () => {
+  checkEmailValid = () => {
     const emailCheckRes = this.emailCheck(this.state.email);
 
     if(emailCheckRes === true){
-        this.setState({emailError: ""})
+        this.setState({errorMsg: ""})
     } else {
-        this.setState({emailError: emailCheckRes})
+        this.setState({errorMsg: emailCheckRes})
     }
 
     // some sort of form validation here?
@@ -101,7 +103,7 @@ export default class LogIn extends React.Component {
             value={this.state.email}
             onChange={this.handleChange}
             type="email"
-            onBlur={this.handleInitialValidation}
+            onBlur={this.checkEmailValid}
             required
           />
           <label htmlFor="password">
@@ -112,11 +114,12 @@ export default class LogIn extends React.Component {
             name="password"
             value={this.state.password}
             onChange={this.handleChange}
+            onBlur={this.checkEmailValid}
             type="password"
             required
           />
-          <div className={this.state.emailError ? "error" : "hidden"}>
-            {this.state.emailError}
+          <div className={this.state.errorMsg || this.state.serverError ? "error" : "hidden"}>
+            {this.state.errorMsg} {this.state.serverError}
           </div>
           <button
             className="large-home-btn2 default-btn"

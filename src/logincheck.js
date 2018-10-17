@@ -16,10 +16,10 @@ exports.post = (req, res) => {
     })
     .catch(e => {
       if (e === "user not found") {
-        res.status(500).send(JSON.stringify("user not found"));
+        res.status(500).send(JSON.stringify("Email not found"));
         // res.redirect(302, "/formError/un");
-      } else {
-        console.log(e);
+      } else if (e === "password doesn't match") {
+        res.status(500).send(JSON.stringify("Password doesn't match"));
       }
     });
 };
