@@ -1,7 +1,8 @@
 .edit-page-container {
   #back-btn {
-    position: absolute;
+    position: fixed;
     top: 0;
+    left: 0;
   }
 }
 
@@ -67,11 +68,8 @@
   width: 90vw;
 }
 #basic-info-section {
-  padding: $medium;
+  // padding: $medium;
   width: 90vw;
-  h2 {
-    margin-bottom: 0;
-  }
   h4 {
     margin: $medium;
   }

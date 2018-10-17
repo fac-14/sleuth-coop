@@ -634,8 +634,9 @@ img {
 }
 
 .edit-page-container #back-btn {
-  position: absolute;
+  position: fixed;
   top: 0;
+  left: 0;
 }
 
 #help {
@@ -700,11 +701,7 @@ img {
 }
 
 #basic-info-section {
-  padding: 1rem;
   width: 90vw;
-}
-#basic-info-section h2 {
-  margin-bottom: 0;
 }
 #basic-info-section h4 {
   margin: 1rem;
@@ -804,10 +801,61 @@ img {
   transform: scale(1.1);
 }
 
+.edit-page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .contact-hilary {
   position: fixed;
+  left: 0;
   background-color: #ecf0f1;
+  width: 90%;
+  margin: 10% 5%;
+  border-radius: 5px;
+  border: 1px solid #3c5e5d;
 }
+.contact-hilary h1 {
+  margin-top: 2rem;
+}
+.contact-hilary p {
+  padding: 1rem;
+}
+.contact-hilary #sleuth-info {
+  display: flex;
+  padding: 1rem;
+}
+.contact-hilary #sleuth-info .contact-section {
+  width: 50%;
+  height: 50%;
+}
+.contact-hilary #sleuth-info .sleuth-link-section a {
+  font-family: "Quicksand", sans-serif;
+  font-size: 1.2rem;
+  color: #1d2425;
+  margin: 0.5rem;
+  cursor: pointer;
+  text-decoration: none;
+}
+.contact-hilary #sleuth-info .sleuth-link-section a:hover, .contact-hilary #sleuth-info .sleuth-link-section a:focus {
+  font-weight: 500;
+  color: #db792e;
+}
+.contact-hilary #sleuth-info .sleuth-link-section a:active {
+  color: #3c5e5d;
+}
+.contact-hilary #sleuth-info .sleuth-link-section .sleuth-profile-links {
+  margin-top: 1rem;
+}
+.contact-hilary #sleuth-info .sleuth-link-section .sleuth-profile-links img {
+  margin: 0.5rem;
+  transition: transform 0.2s ease;
+}
+.contact-hilary #sleuth-info .sleuth-link-section .sleuth-profile-links img:hover {
+  transform: scale(1.1);
+}
+
 * {
   box-sizing: border-box;
 }

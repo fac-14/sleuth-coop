@@ -1,10 +1,60 @@
+.edit-page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .contact-hilary {
   position: fixed;
+  left: 0;
   background-color: $js-grey;
-  .contact-section {
+  width: 90%;
+  margin: 10% 5%;
+  // padding: $medium;
+  border-radius: 5px;
+  border: 1px solid $teal1;
+  h1 {
+    margin-top: $large;
   }
-  .site-span {
+  p {
+    padding: $medium;
   }
-  .sleuth-profile-links {
+  #sleuth-info {
+    display: flex;
+    padding: $medium;
+    .contact-section {
+      width: 50%;
+      height: 50%;
+    }
+
+    .sleuth-link-section {
+      a {
+        font-family: $main-text;
+        font-size: $mediumish;
+        color: $black;
+        margin: $small;
+        cursor: pointer;
+        text-decoration: none;
+        &:hover,
+        &:focus {
+          font-weight: 500;
+          color: $orange1;
+        }
+        &:active {
+          color: $teal1;
+        }
+      }
+      .sleuth-profile-links {
+        margin-top: $medium;
+
+        img {
+          margin: $small;
+          transition: transform 0.2s ease;
+          &:hover {
+            transform: scale(1.1);
+          }
+        }
+      }
+    }
   }
 }
