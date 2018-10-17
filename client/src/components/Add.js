@@ -2,11 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import Category from "./AddComponents/Category";
-
 import getQuestions from "../utils/getQuestions";
 import filterQuestions from "../utils/filterQuestions";
 import videoLinkFormatter from "../utils/videoLinkFormatter";
-import { exists } from "fs";
 
 export default class Add extends React.Component {
   state = {
