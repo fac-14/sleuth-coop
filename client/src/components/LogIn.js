@@ -16,10 +16,8 @@ export default class LogIn extends React.Component {
   };
 
   handleSubmit = e => {
-    //incomplete
     e.preventDefault();
     const data = JSON.stringify(this.state);
-    console.log("submit!", data);
     fetch("/login-check", {
       method: "post",
       headers: { "Content-Type": "application/json" },
@@ -27,12 +25,14 @@ export default class LogIn extends React.Component {
     })
       .then(res => res.json())
       .then(res => {
-        if (res) {
+        // if returning id, user is auth - redirect
+        if (typeof res === "number") {
           return (window.location = `/profile/${res}/sme`);
         } else {
-          console.log("NA AH AH");
-        }
-      });
+          console.log(res)
+          this.setState({errorMsg: res});
+      }})
+      .catch(e => console.log(e))
 
     this.setState({
       password: ""

@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import {
   BrowserRouter as Router,
   Route,
-  Redirect,
-  withRouter
+  Redirect
 } from "react-router-dom";
 
 import LandingPage from "./components/LandingPage";
@@ -24,41 +23,28 @@ class App extends Component {
 
   componentDidMount() {
     this.authenticate();
-    // this.unlisten = this.props.history.listen(() => {
     fetch("/auth")
       .then(res => {
         if (res.ok) {
-          // this.setState({ loaded: true, isAuthenticated: true });
           console.log("profileId", res);
         } else {
-          console.log("error reached");
+          console.log("Not authenticated, setting state.");
           if (this.state.isAuthenticated)
             this.setState({ isAuthenticated: false });
         }
       })
-      .catch(() => {
-        console.log("catch reached");
+      .catch(e => {
+        console.log(e);
       });
-    // });
   }
 
   authenticate() {
     fetch("/auth")
-      // .then(res => res.json())
       .then(res => {
         this.setState({ loaded: true, isAuthenticated: true });
       })
       .catch(e => console.log(e));
   }
-
-  // checkAuth = async () => {
-  //   const response = await fetch("/auth");
-  //   const body = await response.json();
-
-  //   if (response.status !== 200) throw Error(body.message);
-
-  //   return body;
-  // };
 
   render() {
     const { loaded, isAuthenticated } = this.state;

@@ -10,13 +10,13 @@ exports.post = (req, res) => {
         res.send(JSON.stringify(resolve));
         // res.redirect(302, "/profile/:id/sme");
       } else {
-        res.end("password error");
+        res.status(500).send(JSON.stringify("password error"));
         // res.redirect(302, "/formError/pw");
       }
     })
     .catch(e => {
       if (e === "user not found") {
-        res.end(e);
+        res.status(500).send(JSON.stringify("user not found"));
         // res.redirect(302, "/formError/un");
       } else {
         console.log(e);

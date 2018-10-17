@@ -1,6 +1,5 @@
 import React from "react";
 import SignUpCard from "./SignUpCard";
-import { Link, Redirect } from "react-router-dom";
 import nextImg from "../assets/next-arrow.svg";
 import prevImg from "../assets/prev-arrow.svg";
 import formValidation from "../utils/formValidation";
