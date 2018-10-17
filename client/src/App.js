@@ -7,7 +7,7 @@ import SignUp from "./components/SignUp";
 import Profile from "./components/Profile";
 import Add from "./components/Add";
 import Discovery from "./components/Discovery";
-import { userInfo } from "os";
+import LogIn from "./components/LogIn";
 
 class App extends Component {
   state = {
@@ -49,7 +49,7 @@ class App extends Component {
                 <Profile {...props} SME={true} />
               ) : (
                 <Redirect
-                  to={{ pathname: "/log-in", state: { from: props.location } }}
+                  to={{ pathname: "/login", state: { from: props.location } }}
                 />
               )
             }
@@ -60,7 +60,7 @@ class App extends Component {
             render={props => <Add {...props} />}
           />
           <Route exact={true} path="/discover" component={Discovery} />
-          <Route exact={true} path="/log-in" component={Discovery} />
+          <Route exact={true} path="/login" component={LogIn} />
         </React.Fragment>
       </Router>
     );

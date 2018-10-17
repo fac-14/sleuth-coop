@@ -41,28 +41,28 @@ app.get("/api/hello", (req, res) => {
 });
 
 app.get("/profile/:id", profileData.get);
-app.get("/profile/:id/sme", requiresLogin, profileData.get);
+app.get("/profile/:id/sme", profileData.get);
 app.get("/smes", smesData.get);
-app.get("/questions", requiresLogin, questions.get);
+app.get("/questions", questions.get);
 
 app.post("/signup", signup.post);
 app.post("/login-check", logincheck.post);
 
-app.post("/upload", requiresLogin, updateInfo.post);
-app.post("/upload-files", requiresLogin, uploadFiles.post);
-app.post("/updateBasicInfo", requiresLogin, updateBasicInfo.post);
+app.post("/upload", updateInfo.post);
+app.post("/upload-files", uploadFiles.post);
+app.post("/updateBasicInfo", updateBasicInfo.post);
 
 // check they are logged in
 
-function requiresLogin(req, res, next) {
-  if (!req.session.loggedIn) {
-    res.redirect(302, "/log-in");
-    // res.send(res);
-    // res.end();
-  } else {
-    next();
-  }
-}
+// function requiresLogin(req, res, next) {
+//   if (!req.session.loggedIn) {
+//     res.redirect(302, "/login");
+//     // res.send(res);
+//     // res.end();
+//   } else {
+//     next();
+//   }
+// }
 
 if (process.env.NODE_ENV === "production") {
   // serve any static files

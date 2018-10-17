@@ -1,0 +1,26 @@
+#login-form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: $large;
+  
+    label {
+      margin-top: $medium;
+      text-align: center;
+    }
+
+    input {
+      min-width: 18rem;
+      max-width: 500px;
+      width: 40%;
+      border-radius: $medium;
+      border: $smallest solid $teal1;
+      padding: $small;
+      font-size: $mediumish;
+      font-family: $main-text;
+    }
+
+  }
