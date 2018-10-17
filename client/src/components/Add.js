@@ -8,7 +8,6 @@ import getQuestions from "../utils/getQuestions";
 import getProfile from "../utils/getProfile";
 import filterQuestions from "../utils/filterQuestions";
 import videoLinkFormatter from "../utils/videoLinkFormatter";
-import { exists } from "fs";
 
 export default class Add extends React.Component {
   state = {
