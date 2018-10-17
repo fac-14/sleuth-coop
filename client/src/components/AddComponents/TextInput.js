@@ -13,13 +13,21 @@ export default class TextInput extends React.Component {
           <img src={arrow} alt="down arrow" />
         </button> */}
         <p>{content.helper_text}</p>
-        <input
+        <textarea
+          id={content.id}
+          onChange={this.props.onChange}
+          className="text-input"
+          type="text"
+          rows="5"
+          value={answers[content.id] ? answers[content.id] : ""}
+        />
+        {/* <input
           id={content.id}
           onChange={this.props.onChange}
           className="text-input"
           type="text"
           value={answers[content.id] ? answers[content.id] : ""}
-        />
+        /> */}
       </fieldset>
     );
   }
