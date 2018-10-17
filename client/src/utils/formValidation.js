@@ -2,7 +2,7 @@ const formValidation = state => {
   // take in state
   // check each of the 6 inputs, return error/boolean based on issue
   // use helper functions for "tests"
-
+  
   if (state.position === 0) {
     // email check
     return emailCheck(state.email);

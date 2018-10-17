@@ -114,7 +114,7 @@ export default class SignUp extends React.Component {
               change={this.handleChange}
               value={this.state.password}
               validator={this.handleValidation}
-              keyHandler={this.handlekey}
+              keyHandler={this.handleKey}
             />
           </div>
           <div id="2" className={this.handleFocus(2)}>
@@ -201,6 +201,7 @@ export default class SignUp extends React.Component {
           className={
             this.state.position < 6 ? "hidden" : "forward-arrow default-btn"
           }
+          id="carousel-submit-btn"
           type="submit"
           onClick={this.handleSubmit}
         >
