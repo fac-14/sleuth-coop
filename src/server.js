@@ -11,7 +11,8 @@ const port = process.env.PORT || 5000;
 const profileData = require("./getProfileData");
 const smesData = require("./getSMEs");
 const updateInfo = require("./updateInfo");
-const uploadFiles = require("./uploadFiles")
+const uploadFiles = require("./uploadFiles");
+const updateBasicInfo = require("./updateBasicInfo");
 const questions = require("./questions");
 const signup = require("./signup");
 
@@ -23,14 +24,15 @@ app.get("/api/hello", (req, res) => {
   res.send({ express: "Hello From Express" });
 });
 
-app.get("/profile/:id/sme", profileData.get)
+app.get("/profile/:id/sme", profileData.get);
 app.get("/profile/:id", profileData.get);
 app.get("/profile/:id/sme", profileData.get);
 app.get("/smes", smesData.get);
 app.get("/questions", questions.get);
 app.post("/signup", signup.post);
 app.post("/upload", updateInfo.post);
-app.post("/upload-files", uploadFiles.post)
+app.post("/upload-files", uploadFiles.post);
+app.post("/updateBasicInfo", updateBasicInfo.post);
 
 if (process.env.NODE_ENV === "production") {
   // serve any static files

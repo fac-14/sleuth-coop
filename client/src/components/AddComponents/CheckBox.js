@@ -11,21 +11,18 @@ export default class CheckBox extends React.Component {
           <img src={arrow} alt="down arrow" />
         </button> */}
         <p>{content.helper_text}</p>
-        {content.options.map((box, index) => {
-          return (
-            <label key={index} htmlFor={content.id}>
-              {box}
-              <input
-                id={content.id}
-                onChange={this.props.onChange}
-                className="checkbox"
-                type="checkbox"
-                name={box}
-                checked={box === answers[content.id]}
-              />
-            </label>
-          );
-        })}
+
+        <label htmlFor={content.id}>
+          yes
+          <input
+            id={content.id}
+            onChange={this.props.onChange}
+            className="checkbox"
+            type="checkbox"
+            name="yes"
+            // checked={answers[content.id] === "yes"}
+          />
+        </label>
       </fieldset>
     );
   }

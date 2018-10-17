@@ -20,7 +20,6 @@ export default class Add extends React.Component {
   componentDidMount() {
     const profile = this.props.location.pathname;
     const profileUrl = profile.replace(/add/gi, "sme");
-    console.log("Add", profileUrl);
     getProfile(profileUrl).then(res => {
       const profileData = res[0][0];
       this.setState({ basicInfo: profileData });
@@ -56,22 +55,24 @@ export default class Add extends React.Component {
     let answer;
     let file;
     let profileAnswer;
-    if (e.target.type === "checkbox" && e.target.checked === true) {
-      answer = e.target.name;
-    } else if (e.target.className.includes("basic-info")) {
+    if (e.target.className.includes("basic-info")) {
       if (e.target.type === "file" && e.target.files[0] !== undefined) {
         profileAnswer = e.target.files[0].name;
         file = e.target.files[0];
-      } else {
+      } else if (e.target.type === "text") {
         profileAnswer = e.target.value;
       }
-    } else if (e.target.type === "file" && e.target.files[0] !== undefined) {
-      answer = [e.target.files[0].name];
-      file = e.target.files[0];
-    } else if (e.target.className.includes("video")) {
-      answer = [videoLinkFormatter(e.target.value)];
     } else {
-      answer = [e.target.value];
+      if (e.target.type === "checkbox" && e.target.checked === true) {
+        answer = [e.target.name];
+      } else if (e.target.type === "file" && e.target.files[0] !== undefined) {
+        answer = [e.target.files[0].name];
+        file = e.target.files[0];
+      } else if (e.target.className.includes("video")) {
+        answer = [videoLinkFormatter(e.target.value)];
+      } else {
+        answer = [e.target.value];
+      }
     }
     const state = this.state.formState;
     state[questionId] = answer;
@@ -88,8 +89,8 @@ export default class Add extends React.Component {
         basicInfo: basicInfoObj
       };
     });
-    console.log("STATE", this.state.basicInfo);
   };
+
   dropdownSelect = e => {
     const questionId = e.target.className;
     const selected = e.target.textContent;
@@ -149,6 +150,17 @@ export default class Add extends React.Component {
           },
           method: "POST",
           body: JSON.stringify(this.state.formState)
+        })
+      )
+      .catch(err => console.log(err))
+      .then(
+        fetch("/updateBasicInfo", {
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json"
+          },
+          method: "POST",
+          body: JSON.stringify(this.state.basicInfo)
         })
       )
       // .then(res => {
