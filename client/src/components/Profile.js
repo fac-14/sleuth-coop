@@ -19,6 +19,7 @@ export default class Profile extends React.Component {
     console.log("PROFILE", profile);
     getProfile(profile)
       .then(res => {
+        console.log("RES", res);
         const transformed = filterData(res);
         this.setState({
           response: transformed,

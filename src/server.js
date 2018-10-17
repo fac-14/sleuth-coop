@@ -57,6 +57,8 @@ app.post("/updateBasicInfo", requiresLogin, updateBasicInfo.post);
 function requiresLogin(req, res, next) {
   if (!req.session.loggedIn) {
     res.redirect(302, "/log-in");
+    // res.send(res);
+    // res.end();
   } else {
     next();
   }

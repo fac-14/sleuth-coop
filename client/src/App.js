@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 
 import LandingPage from "./components/LandingPage";
 import Info from "./components/Info";
@@ -7,6 +7,7 @@ import SignUp from "./components/SignUp";
 import Profile from "./components/Profile";
 import Add from "./components/Add";
 import Discovery from "./components/Discovery";
+import { userInfo } from "os";
 
 class App extends Component {
   state = {
@@ -43,7 +44,15 @@ class App extends Component {
           <Route
             exact={true}
             path="/profile/:id/sme"
-            render={props => <Profile {...props} SME={true} />}
+            render={props =>
+              1 === 1 ? (
+                <Profile {...props} SME={true} />
+              ) : (
+                <Redirect
+                  to={{ pathname: "/log-in", state: { from: props.location } }}
+                />
+              )
+            }
           />
           <Route
             exact={true}
