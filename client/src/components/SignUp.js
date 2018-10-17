@@ -190,6 +190,7 @@ export default class SignUp extends React.Component {
               this.state.position < 5 ? "hidden" : "forward-arrow default-btn"
             }
             type="submit"
+            id="carousel-submit-btn"
             onClick={this.handleSubmit}
           >
             Submit

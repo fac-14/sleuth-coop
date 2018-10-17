@@ -23,6 +23,11 @@ export default class LandingPage extends React.Component {
             I am in Local Government
           </button>
         </Link>
+        <Link to={'/login'}>
+          <button className="large-home-btn2 default-btn" id="log-in">
+            Log In
+          </button>
+        </Link>
       </div>
     );
   }

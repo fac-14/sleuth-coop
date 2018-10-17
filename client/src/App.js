@@ -7,6 +7,7 @@ import SignUp from "./components/SignUp";
 import Profile from "./components/Profile";
 import Add from "./components/Add";
 import Discovery from "./components/Discovery";
+import LogIn from "./components/LogIn"
 
 class App extends Component {
   state = {
@@ -51,6 +52,7 @@ class App extends Component {
             render={props => <Add {...props} />}
           />
           <Route exact={true} path="/discover" component={Discovery} />
+          <Route exact={true} path="/login" component={LogIn} />
         </React.Fragment>
       </Router>
     );
