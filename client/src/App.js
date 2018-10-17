@@ -51,6 +51,7 @@ class App extends Component {
             render={props => <Add {...props} />}
           />
           <Route exact={true} path="/discover" component={Discovery} />
+          <Route exact={true} path="/log-in" component={Discovery} />
         </React.Fragment>
       </Router>
     );
