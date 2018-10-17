@@ -6,7 +6,7 @@ exports.post = (req, res) => {
     .then(resolve => {
       if (resolve) {
         req.session.loggedIn = true;
-        res.end("sucessful login");
+        res.send(JSON.stringify(resolve));
         // res.redirect(302, "/profile/:id/sme");
       } else {
         res.end("password error");

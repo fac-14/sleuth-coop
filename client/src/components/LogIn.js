@@ -24,7 +24,15 @@ export default class LogIn extends React.Component {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: data
-    });
+    })
+      .then(res => res.json())
+      .then(res => {
+        if (res) {
+          return (window.location = `/profile/${res}/sme`);
+        } else {
+          console.log("NA AH AH");
+        }
+      });
 
     this.setState({
       password: ""

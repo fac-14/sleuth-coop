@@ -4,7 +4,7 @@ const bcrypt = require("bcryptjs");
 const checkPassword = object => {
   return new Promise((resolve, reject) => {
     const { email, password } = object;
-    db.query(`SELECT password FROM users WHERE email = '${email}';`)
+    db.query(`SELECT id, password FROM users WHERE email = '${email}';`)
       .then(res => {
         if (res.length < 1) {
           reject("user not found");
@@ -13,7 +13,7 @@ const checkPassword = object => {
           // temp solution without hashing
           if (hash === password) {
             console.log("Its a match!");
-            resolve(res);
+            resolve(res[0].id);
           } else {
             reject(`error hashing pw:`);
           }

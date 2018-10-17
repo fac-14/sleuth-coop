@@ -27,7 +27,8 @@ class App extends Component {
     fetch("/auth")
       .then(res => {
         if (res.ok) {
-          console.log("res", res);
+          // this.setState({ loaded: true, isAuthenticated: true });
+          // console.log("res", res);
         } else {
           console.log("error reached");
           if (this.state.isAuthenticated)
