@@ -5,13 +5,13 @@ export default class BasicInfo extends React.Component {
     const profileData = this.props.profileData;
     console.log(profileData);
     return (
-      <React.Fragment>
-        <fieldset className="basic-info-section">
+      <div className="q-category">
+        <fieldset id="basic-info-section">
           <legend>
             <h2>Basic Info</h2>
           </legend>
           <label htmlFor="basic-info">
-            <h4>Company Name:</h4>
+            <h4 id="basic-first">Company Name:</h4>
           </label>
           <input
             id="company_name"
@@ -63,12 +63,13 @@ export default class BasicInfo extends React.Component {
           <label htmlFor="basic-info">
             <h4>Company Description:</h4>
           </label>
-          <input
+          <textarea
             id="description"
             onChange={this.props.onChange}
             className="basic-info"
             type="text"
             value={profileData.description}
+            rows="5"
           />
           <label htmlFor="basic-info">
             <h4>Logo:</h4>
@@ -86,7 +87,7 @@ export default class BasicInfo extends React.Component {
           <img src={arrow} alt="down arrow" />
         </button> */}
         </fieldset>
-      </React.Fragment>
+      </div>
     );
 
     // return (

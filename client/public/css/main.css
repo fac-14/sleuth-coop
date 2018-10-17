@@ -633,10 +633,33 @@ img {
   left: 0;
 }
 
+.edit-page-container #back-btn {
+  position: absolute;
+  top: 0;
+}
+
+#help {
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: #db792e;
+  margin: 0.5rem;
+  font-family: "Quicksand", sans-serif;
+  border-radius: 50px;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+#help:hover {
+  transform: scale(1.1);
+}
+
 #edit-form {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 4rem;
 }
 #edit-form fieldset {
   width: 100%;
@@ -645,6 +668,21 @@ img {
 }
 #edit-form fieldset label,
 #edit-form fieldset input {
+  font-family: "Quicksand", sans-serif;
+  font-size: 1rem;
+  padding: 0.25rem;
+  margin: 0.25rem;
+}
+#edit-form fieldset input[type=text],
+#edit-form fieldset input[type=url],
+#edit-form fieldset input[type=file] {
+  border-radius: 5px;
+  border: 1px solid #3c5e5d;
+}
+#edit-form fieldset textarea {
+  border-radius: 5px;
+  border: 1px solid #3c5e5d;
+  max-height: 8rem;
   font-family: "Quicksand", sans-serif;
   font-size: 1rem;
   padding: 0.25rem;
@@ -661,15 +699,28 @@ img {
   width: 90vw;
 }
 
+#basic-info-section {
+  padding: 1rem;
+  width: 90vw;
+}
+#basic-info-section h2 {
+  margin-bottom: 0;
+}
+#basic-info-section h4 {
+  margin: 1rem;
+}
+#basic-info-section #basic-first {
+  margin-top: 0;
+}
+#basic-info-section input {
+  min-width: 60%;
+}
+#basic-info-section textarea {
+  min-width: 60%;
+}
+
 .text-input-section textarea {
   width: calc(100% - 0.5rem);
-  border-radius: 5px;
-  border: 1px solid #3c5e5d;
-  max-height: 8rem;
-  font-family: "Quicksand", sans-serif;
-  font-size: 1rem;
-  padding: 0.25rem;
-  margin: 0.25rem;
 }
 
 .dropdown-section h5 {
@@ -708,6 +759,9 @@ img {
   max-height: 60vh;
   overflow-y: scroll;
 }
+.dropdown-section .dropdown {
+  width: 16rem;
+}
 .dropdown-section .dropdown ul {
   border-radius: 5px;
 }
@@ -721,17 +775,16 @@ img {
 }
 
 .video-add input {
-  border-radius: 5px;
-  border: 1px solid #3c5e5d;
+  min-width: 60%;
 }
 
-.link-section input {
-  border-radius: 5px;
-  border: 1px solid #3c5e5d;
-}
 .link-section label {
   padding: 0.25rem;
   margin: 0.25rem;
+}
+.link-section input[type=text],
+.link-section input[type=url] {
+  min-width: 30%;
 }
 
 #add-submit-btn {
@@ -742,10 +795,19 @@ img {
   font-family: "Quicksand", sans-serif;
   font-size: 1.2rem;
   margin-bottom: 4rem;
-  border-radius: 5px;
+  border-radius: 50px;
   border: 1px solid #555561;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+#add-submit-btn:hover {
+  transform: scale(1.1);
 }
 
+.contact-hilary {
+  position: fixed;
+  background-color: #ecf0f1;
+}
 * {
   box-sizing: border-box;
 }
