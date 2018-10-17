@@ -207,7 +207,9 @@ export default class Add extends React.Component {
               </div>
             );
           })}
-          <button type="submit">Save changes</button>
+          <button id="add-submit-btn" type="submit">
+            Save changes
+          </button>
         </form>
       </div>
     );

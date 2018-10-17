@@ -55,9 +55,12 @@ export default class Block extends React.Component {
         <div className="tagged-list profile-block">
           <h3>{this.props.heading}</h3>
           <ul>
-            {console.log("this answer", this.props.answer)}
             {this.props.answer.map((el, index) => {
-              return <li className="tag">{el}</li>;
+              return (
+                <li key={index} className="tag">
+                  {el}
+                </li>
+              );
             })}
           </ul>
         </div>
@@ -69,10 +72,15 @@ export default class Block extends React.Component {
           <div>
             {this.props.answer.map((el, index) => {
               return (
-                <a key={index} href={el.split("-")[1]} rel="noopener noreferrer" target="_blank">
+                <a
+                  key={index}
+                  href={el.split("-")[1]}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
                   <p>{el.split("-")[0]}</p>
                 </a>
-              )
+              );
             })}
           </div>
         </div>

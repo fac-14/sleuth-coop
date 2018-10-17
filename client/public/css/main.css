@@ -633,12 +633,117 @@ img {
   left: 0;
 }
 
+#edit-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 #edit-form fieldset {
+  width: 100%;
   margin-bottom: 1rem;
+  font-family: "Quicksand", sans-serif;
+}
+#edit-form fieldset label,
+#edit-form fieldset input {
+  font-family: "Quicksand", sans-serif;
+  font-size: 1rem;
+  padding: 0.25rem;
+  margin: 0.25rem;
+}
+#edit-form fieldset h4 {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
 }
 
 .q-category {
   padding: 1rem;
+  width: 90vw;
+}
+
+.text-input-section textarea {
+  width: calc(100% - 0.5rem);
+  border-radius: 5px;
+  border: 1px solid #3c5e5d;
+  max-height: 8rem;
+  font-family: "Quicksand", sans-serif;
+  font-size: 1rem;
+  padding: 0.25rem;
+  margin: 0.25rem;
+}
+
+.dropdown-section h5 {
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+.dropdown-section .dropdown-selected {
+  display: flex;
+  flex-wrap: wrap;
+}
+.dropdown-section .dropdown-selected li {
+  padding: 0.5rem;
+  background-color: #6ab8af;
+  color: white;
+  margin: 0.25rem;
+  border-radius: 5px;
+}
+.dropdown-section .dropdown-btn {
+  background-color: #3c5e5d;
+  font-family: "Quicksand", sans-serif;
+  font-size: 1rem;
+  color: white;
+  padding: 0.25rem;
+  width: 16rem;
+  border-radius: 5px;
+  margin-bottom: 0.25rem;
+}
+.dropdown-section .dropdown:hover .select-items {
+  display: block;
+}
+.dropdown-section .select-items {
+  display: none;
+  position: absolute;
+  background-color: #6ab8af;
+  width: 16rem;
+  max-height: 60vh;
+  overflow-y: scroll;
+}
+.dropdown-section .dropdown ul {
+  border-radius: 5px;
+}
+.dropdown-section .dropdown li {
+  width: 16rem;
+  padding: 0.5rem;
+  background-color: white;
+}
+.dropdown-section .dropdown li:hover {
+  background-color: #db792e;
+}
+
+.video-add input {
+  border-radius: 5px;
+  border: 1px solid #3c5e5d;
+}
+
+.link-section input {
+  border-radius: 5px;
+  border: 1px solid #3c5e5d;
+}
+.link-section label {
+  padding: 0.25rem;
+  margin: 0.25rem;
+}
+
+#add-submit-btn {
+  position: relative;
+  top: auto;
+  right: auto;
+  padding: 0.5rem;
+  font-family: "Quicksand", sans-serif;
+  font-size: 1.2rem;
+  margin-bottom: 4rem;
+  border-radius: 5px;
+  border: 1px solid #555561;
 }
 
 * {
