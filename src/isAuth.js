@@ -3,7 +3,9 @@ exports.get = (req, res) => {
     console.log("user authenticated");
     // res.redirect(302, "/login");
     // res.send(res);
-    res.send(true);
+    const profileId = req.session.profileId;
+    console.log("SENDING ID>>>", profileId);
+    res.send(JSON.stringify(profileId));
   } else {
     console.log("not authorised!!!!!");
     res.status(500).send("Not authorised");

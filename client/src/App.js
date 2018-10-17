@@ -18,7 +18,8 @@ class App extends Component {
   state = {
     response: "",
     isAuthenticated: false,
-    loaded: false
+    loaded: false,
+    authId: null
   };
 
   componentDidMount() {
@@ -28,7 +29,7 @@ class App extends Component {
       .then(res => {
         if (res.ok) {
           // this.setState({ loaded: true, isAuthenticated: true });
-          // console.log("res", res);
+          console.log("profileId", res);
         } else {
           console.log("error reached");
           if (this.state.isAuthenticated)
@@ -43,10 +44,11 @@ class App extends Component {
 
   authenticate() {
     fetch("/auth")
-      .then(() => {
+      // .then(res => res.json())
+      .then(res => {
         this.setState({ loaded: true, isAuthenticated: true });
       })
-      .catch(() => this.props.history.push("/auth"));
+      .catch(e => console.log(e));
   }
 
   // checkAuth = async () => {

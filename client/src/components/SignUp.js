@@ -54,7 +54,7 @@ export default class SignUp extends React.Component {
       body: data
     })
       // .then(res => console.log("response:", res))
-      .then(() => (window.location = "/log-in"))
+      .then(() => (window.location = "/login"))
       .catch(err => console.log(err));
 
     this.setState({

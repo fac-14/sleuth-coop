@@ -6,6 +6,7 @@ exports.post = (req, res) => {
     .then(resolve => {
       if (resolve) {
         req.session.loggedIn = true;
+        req.session.profileId = resolve;
         res.send(JSON.stringify(resolve));
         // res.redirect(302, "/profile/:id/sme");
       } else {
