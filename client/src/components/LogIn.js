@@ -7,25 +7,48 @@ export default class LogIn extends React.Component {
     email: "",
     password: "",
     errorMsg: false,
-    serverError: ""
+    serverError: "",
+    allowFetchSubmit: false
   };
+
+  /* 
+  Possible functions:
+    sanitiseInputs() // to remove any "illegal" characters from email and pw inputs
+    handleBackendValidation // likely not necessary and implemented as part of the fetch
+  */
 
   handleChange = e => {
     const target = e.target;
     const value = target.value;
     this.setState({ [target.name]: value });
+    this.checkIfSubmitAllowed();
   };
+
+  checkIfSubmitAllowed = () => {
+    if(this.emailCheck(this.state.email) && this.state.password.length > 3){
+      this.setState({allowFetchSubmit: true})
+    } else {
+      this.setState({allowFetchSubmit: false})
+    }
+  }
 
   handleSubmit = e => {
     e.preventDefault();
-    // update email error state in case focus not taken off email input field (as handleInitialValidation only gets called onBlur)
+
+    // clear serverError state before retrying fetch request
     this.setState({serverError: ""})
+
+    // update email error state in case focus not taken off email input field (as checkEmailValid only gets called onBlur)
+    // checkEmailValid isn't called on each change because then 
     this.checkEmailValid();
-    if(this.state.errorMsg || this.state.password.length <= 3){
-      this.setState({errorMsg: "invalid email or password"})
-    } else {
-      // console.log("submit!", data);
+    this.checkIfSubmitAllowed();
+
+    if(this.state.password.length <= 3){
+      this.setState({ errorMsg: "Invalid password: not enough characters" })
+      this.setState({ password: "" });
+    } else if(this.state.allowFetchSubmit) {
     const data = JSON.stringify(this.state);
+
     fetch("/login-check", {
       method: "post",
       headers: { "Content-Type": "application/json" },
@@ -52,26 +75,10 @@ export default class LogIn extends React.Component {
     const emailCheckRes = this.emailCheck(this.state.email);
 
     if(emailCheckRes === true){
-        this.setState({errorMsg: ""})
+        this.setState({errorMsg: false})
     } else {
-        this.setState({errorMsg: emailCheckRes})
+        this.setState({errorMsg: "Invalid email address"})
     }
-
-    // some sort of form validation here?
-    // ensure no weird characters in either form?
-    // back-end validation subsequent to this
-  };
-
-  sanitiseInputs = () => {
-    // this *may* be redundant, depending on handleValidation
-    // plan is to remove any "illegal" characters from email and
-  };
-
-  handleBackendValidation = () => {
-    // is this necessary, or just part of the fetch.then()/catch()?
-    // check if email exists
-    // check if pw works
-    // alert the user of any error
   };
 
   emailCheck = email => {
@@ -82,7 +89,7 @@ export default class LogIn extends React.Component {
     if (emailRegex.test(email.trim())) {
       return true;
     }
-    return "Invalid email address";
+    return false;
   };
 
   render() {
