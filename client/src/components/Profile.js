@@ -1,4 +1,5 @@
 import React from "react";
+import { withRouter } from "react-router-dom";
 
 import Contact from "./ProfileComponents/Contact";
 import Content from "./ProfileComponents/Content";
@@ -8,7 +9,7 @@ import Sidebar from "./ProfileComponents/Sidebar";
 import getProfile from "../utils/getProfile";
 import filterData from "../utils/filterData";
 
-export default class Profile extends React.Component {
+class Profile extends React.Component {
   state = {
     response: null,
     loading: true
@@ -61,3 +62,7 @@ export default class Profile extends React.Component {
     );
   }
 }
+
+Profile = withRouter(Profile);
+
+export default Profile;

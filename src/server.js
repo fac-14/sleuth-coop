@@ -31,6 +31,7 @@ const updateBasicInfo = require("./updateBasicInfo");
 const questions = require("./questions");
 const signup = require("./signup");
 const logincheck = require("./logincheck");
+const isAuth = require("./isAuth");
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -44,6 +45,7 @@ app.get("/profile/:id", profileData.get);
 app.get("/profile/:id/sme", profileData.get);
 app.get("/smes", smesData.get);
 app.get("/questions", questions.get);
+app.get("/auth", isAuth.get);
 
 app.post("/signup", signup.post);
 app.post("/login-check", logincheck.post);
@@ -56,9 +58,9 @@ app.post("/updateBasicInfo", updateBasicInfo.post);
 
 // function requiresLogin(req, res, next) {
 //   if (!req.session.loggedIn) {
-//     res.redirect(302, "/login");
+//     // res.redirect(302, "/login");
 //     // res.send(res);
-//     // res.end();
+//     res.end("false");
 //   } else {
 //     next();
 //   }

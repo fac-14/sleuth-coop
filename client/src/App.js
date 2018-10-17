@@ -1,5 +1,10 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Redirect,
+  withRouter
+} from "react-router-dom";
 
 import LandingPage from "./components/LandingPage";
 import Info from "./components/Info";
@@ -11,25 +16,50 @@ import LogIn from "./components/LogIn";
 
 class App extends Component {
   state = {
-    response: ""
+    response: "",
+    isAuthenticated: false,
+    loaded: false
   };
 
   componentDidMount() {
-    this.callApi()
-      .then(res => this.setState({ response: res.express }))
-      .catch(err => console.log(err));
+    this.authenticate();
+    // this.unlisten = this.props.history.listen(() => {
+    fetch("/auth")
+      .then(res => {
+        if (res.ok) {
+          console.log("res", res);
+        } else {
+          console.log("error reached");
+          if (this.state.isAuthenticated)
+            this.setState({ isAuthenticated: false });
+        }
+      })
+      .catch(() => {
+        console.log("catch reached");
+      });
+    // });
   }
 
-  callApi = async () => {
-    const response = await fetch("/api/hello");
-    const body = await response.json();
+  authenticate() {
+    fetch("/auth")
+      .then(() => {
+        this.setState({ loaded: true, isAuthenticated: true });
+      })
+      .catch(() => this.props.history.push("/auth"));
+  }
 
-    if (response.status !== 200) throw Error(body.message);
+  // checkAuth = async () => {
+  //   const response = await fetch("/auth");
+  //   const body = await response.json();
 
-    return body;
-  };
+  //   if (response.status !== 200) throw Error(body.message);
+
+  //   return body;
+  // };
 
   render() {
+    const { loaded, isAuthenticated } = this.state;
+    if (!loaded) return null;
     return (
       <Router>
         <React.Fragment>
@@ -44,15 +74,15 @@ class App extends Component {
           <Route
             exact={true}
             path="/profile/:id/sme"
-            render={props =>
-              1 === 1 ? (
+            render={props => {
+              return isAuthenticated ? (
                 <Profile {...props} SME={true} />
               ) : (
                 <Redirect
                   to={{ pathname: "/login", state: { from: props.location } }}
                 />
-              )
-            }
+              );
+            }}
           />
           <Route
             exact={true}

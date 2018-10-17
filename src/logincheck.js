@@ -6,14 +6,17 @@ exports.post = (req, res) => {
     .then(resolve => {
       if (resolve) {
         req.session.loggedIn = true;
-        res.redirect(302, "/profile/:id/sme");
+        res.end("sucessful login");
+        // res.redirect(302, "/profile/:id/sme");
       } else {
-        res.redirect(302, "/formError/pw");
+        res.end("password error");
+        // res.redirect(302, "/formError/pw");
       }
     })
     .catch(e => {
       if (e === "user not found") {
-        res.redirect(302, "/formError/un");
+        res.end(e);
+        // res.redirect(302, "/formError/un");
       } else {
         console.log(e);
       }

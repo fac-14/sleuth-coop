@@ -10,12 +10,19 @@ const checkPassword = object => {
           reject("user not found");
         } else {
           const hash = res[0].password;
-          bcrypt.compare(password, hash, (err, res) => {
-            if (err) reject(`error hashing pw: ${err}`);
-            else {
-              resolve(res);
-            }
-          });
+          // temp solution without hashing
+          if (hash === password) {
+            console.log("Its a match!");
+            resolve(res);
+          } else {
+            reject(`error hashing pw:`);
+          }
+          // bcrypt.compare(password, hash, (err, res) => {
+          //   if (err) reject(`error hashing pw: ${err}`);
+          //   else {
+          //     resolve(res);
+          //   }
+          // });
         }
       })
       .catch(e => reject(`Couldn't update db: ${e}`));
