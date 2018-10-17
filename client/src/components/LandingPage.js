@@ -1,6 +1,6 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import logo from '../assets/sleuth-logo.png';
+import React from "react";
+import { Link } from "react-router-dom";
+import logo from "../assets/sleuth-logo.png";
 
 export default class LandingPage extends React.Component {
   render() {
@@ -9,18 +9,18 @@ export default class LandingPage extends React.Component {
         <div className="logo-div">
           <img src={logo} alt="sleuth logo" />
         </div>
-        <h1>Innovation Platform</h1>
+        <h1>This Works</h1>
         <h2 className="landing-text">
-          Showcasing SME innovation for Local Authority Audiences
+          New ways to deliver public services with innovative technologies
         </h2>
-        <Link to={'/info'}>
+        <Link to={"/info"}>
           <button className="default-btn large-home-btn1">
             I represent an SME
           </button>
         </Link>
-        <Link to={'/discover'}>
+        <Link to={"/find"}>
           <button className="large-home-btn2 default-btn">
-            I am in Local Government
+            I am in local government
           </button>
         </Link>
       </div>

@@ -12,16 +12,14 @@ export default class Info extends React.Component {
               <img src={arrow} alt="return to previous" />
             </button>
           </Link>
-          <h1>Get Started</h1>
+          <h1>Start Here</h1>
         </div>
         <p>
-          Use our marketplace and profille buidling tools to create the perfect
-          showcase of your product. With our help, you can maximise engagement
-          with Local Government and councils to give you the best chance of
-          securing procurement.
+          Use our comprehensive profile building tools to demonstrate that your
+          product works in Local Government.
         </p>
         <Link to={"/sign-up"}>
-          <button className="large-home-btn1 default-btn">Begin</button>
+          <button className="large-home-btn1 default-btn">Start</button>
         </Link>
         <Link to={"/profile/1/sme"}>
           <button className="large-home-btn2 default-btn">

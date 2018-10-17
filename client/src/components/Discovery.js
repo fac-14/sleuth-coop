@@ -24,8 +24,8 @@ export default class Discovery extends React.Component {
       <div className="discovery-container">
         <HomeBtn />
         <header className="discover-header">
-          <h1>Discover</h1>
-          <h3>Search for innovative SMEs with proven success.</h3>
+          <h1>Find</h1>
+          <h3>Find innovative solutions that work for your service area</h3>
         </header>
         <main className="company-container">
           {smes.map((el, index) => {

@@ -50,7 +50,7 @@ class App extends Component {
             path="/profile/:id/add"
             render={props => <Add {...props} />}
           />
-          <Route exact={true} path="/discover" component={Discovery} />
+          <Route exact={true} path="/find" component={Discovery} />
         </React.Fragment>
       </Router>
     );

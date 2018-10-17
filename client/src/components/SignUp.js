@@ -1,5 +1,6 @@
 import React from "react";
 import SignUpCard from "./SignUpCard";
+import BackBtn from "./BackBtn";
 import { Link } from "react-router-dom";
 import nextImg from "../assets/next-arrow.svg";
 import prevImg from "../assets/prev-arrow.svg";
@@ -47,14 +48,14 @@ export default class SignUp extends React.Component {
   handleSubmit = e => {
     e.preventDefault();
     const data = JSON.stringify(this.state);
-    console.log("sending...", data)
+    console.log("sending...", data);
     fetch("/signup", {
       method: "post",
-      headers: {"content-type": "application/json"},
+      headers: { "content-type": "application/json" },
       body: data
     })
-    .then(res => console.log("response:", res))
-    .catch(err => console.log(err))
+      .then(res => console.log("response:", res))
+      .catch(err => console.log(err));
 
     this.setState({
       email: "",
@@ -91,6 +92,7 @@ export default class SignUp extends React.Component {
   render() {
     return (
       <React.Fragment>
+        <BackBtn url="/info" color="dark" />
         <form id="form" onSubmit={this.handleSubmit}>
           <div id="0" className={this.handleFocus(0)}>
             <SignUpCard
@@ -157,7 +159,7 @@ export default class SignUp extends React.Component {
               inputType="textarea"
               name="description"
               type="textarea"
-              text="a short description explaining your product"
+              text="a short description explaining the problem your product solves in plain English"
               change={this.handleChange}
               value={this.state.description}
               validator={this.handleValidation}

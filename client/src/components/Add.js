@@ -1,8 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import BackBtn from "./BackBtn";
 import Category from "./AddComponents/Category";
 import BasicInfo from "./AddComponents/BasicInfo";
+
 
 import getQuestions from "../utils/getQuestions";
 import getProfile from "../utils/getProfile";
@@ -178,9 +180,7 @@ export default class Add extends React.Component {
     const categories = Object.entries(questions);
     return (
       <div className="edit-page-container">
-        <Link to={"/profile/1/SME"}>
-          <button>Back</button>
-        </Link>
+          <BackBtn url='/profile/1/SME' color='dark'/>
         <form id="edit-form" onSubmit={this.handleSubmit}>
           <BasicInfo
             onChange={this.handleChange}
