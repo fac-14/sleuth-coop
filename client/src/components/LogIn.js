@@ -6,7 +6,7 @@ export default class LogIn extends React.Component {
   state = {
     email: "",
     password: "",
-    errorMsg: ""
+    emailError: false
   };
 
   handleChange = e => {
@@ -17,7 +17,13 @@ export default class LogIn extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault();
+    // update email error state in case focus not taken off email input field (as handleInitialValidation only gets called onBlur)
+    this.handleInitialValidation();
     const data = JSON.stringify(this.state);
+    if(this.state.emailError || this.state.password.length <= 3){
+        console.log("submit not allowed, either due to invalid email or absence of password")
+    } else {
+    // console.log("submit!", data);
     fetch("/login-check", {
       method: "post",
       headers: { "Content-Type": "application/json" },
@@ -37,9 +43,18 @@ export default class LogIn extends React.Component {
     this.setState({
       password: ""
     });
+    }
   };
 
   handleInitialValidation = () => {
+    const emailCheckRes = this.emailCheck(this.state.email);
+
+    if(emailCheckRes === true){
+        this.setState({emailError: ""})
+    } else {
+        this.setState({emailError: emailCheckRes})
+    }
+
     // some sort of form validation here?
     // ensure no weird characters in either form?
     // back-end validation subsequent to this
@@ -86,6 +101,7 @@ export default class LogIn extends React.Component {
             value={this.state.email}
             onChange={this.handleChange}
             type="email"
+            onBlur={this.handleInitialValidation}
             required
           />
           <label htmlFor="password">
@@ -99,6 +115,9 @@ export default class LogIn extends React.Component {
             type="password"
             required
           />
+          <div className={this.state.emailError ? "error" : "hidden"}>
+            {this.state.emailError}
+          </div>
           <button
             className="large-home-btn2 default-btn"
             type="submit"
@@ -108,6 +127,7 @@ export default class LogIn extends React.Component {
           </button>
         </form>
         <Link to={"/"}>
+        {/* this will likely become the top left home button... */}
           <button className="large-home-btn2 default-btn">
             Return to home
           </button>
