@@ -44,7 +44,7 @@ export default class LogIn extends React.Component {
     this.checkIfSubmitAllowed();
 
     if(this.state.password.length <= 3){
-      this.setState({ errorMsg: "Invalid password: not enough characters" })
+      this.setState({ errorMsg: "Invalid login information" })
       this.setState({ password: "" });
     } else if(this.state.allowFetchSubmit) {
     const data = JSON.stringify(this.state);

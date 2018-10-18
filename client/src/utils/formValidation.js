@@ -7,7 +7,7 @@ const formValidation = state => {
     // email check
     return emailCheck(state.email);
   } else if (state.position === 1) {
-    return textCheck(state.password);
+    return passwordCheck(state.password);
   } else if (state.position === 2) {
     // name check
     return textCheck(state.name);
@@ -38,12 +38,19 @@ const emailCheck = email => {
 };
 
 const textCheck = text => {
-  const textRegex = RegExp("^[0-9a-z\\. \\-\\']{3,}$", "i");
+  const textRegex = RegExp("^[0-9a-z\\. \\-\\']{2,}$", "i");
   if (textRegex.test(text.trim())) {
     return true;
   }
   return "Invalid entry. Please only use letters, numbers, spaces, dashes and apostrophes.";
 };
+
+const passwordCheck = pw => {
+  if(pw.length > 3){
+    return true;
+  }
+  return "Password too short."
+}
 
 const siteCheck = url => {
   // thanks to Taha @ regextester.com/94502 for the below regex
