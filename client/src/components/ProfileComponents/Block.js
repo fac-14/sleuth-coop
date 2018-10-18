@@ -1,6 +1,7 @@
 import React from "react";
 import download from "../../assets/download.svg";
 import star from "../../assets/star.svg";
+import eyeIcon from "../../assets/Eye button.svg";
 
 export default class Block extends React.Component {
   render() {
@@ -67,22 +68,23 @@ export default class Block extends React.Component {
       );
     } else if (type === "url_inputs") {
       return (
-        <div className="tagged-list profile-block">
+        <div className="link-list profile-block">
           <h3>{this.props.heading}</h3>
-          <div>
-            {this.props.answer.map((el, index) => {
-              return (
+
+          {this.props.answer.map((el, index) => {
+            return (
+              <div id="links" key={index}>
+                <img id="eye-icon" src={eyeIcon} alt="question mark" />
                 <a
-                  key={index}
                   href={el.split("-")[1]}
                   rel="noopener noreferrer"
                   target="_blank"
                 >
                   <p>{el.split("-")[0]}</p>
                 </a>
-              );
-            })}
-          </div>
+              </div>
+            );
+          })}
         </div>
       );
     } else {

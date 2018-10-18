@@ -38,7 +38,7 @@ class Profile extends React.Component {
     const { basic_info: basicInfo, answers } = this.state.response;
     return (
       <React.Fragment>
-        {this.props.SME ? <HomeBtn /> : <BackBtn url="/discover" />}
+        {this.props.SME ? <HomeBtn /> : <BackBtn url="/find" />}
         <div id="profile-wrapper">
           <Sidebar
             className="Header"
