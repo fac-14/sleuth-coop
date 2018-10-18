@@ -9,19 +9,12 @@ const checkPassword = object => new Promise((resolve, reject) => {
           reject("user not found");
         } else {
           const hash = res[0].password;
-          // temp solution without hashing
-          if (hash === password) {
-            console.log("Its a match!");
-            resolve(res[0].id);
-          } else {
-            reject("password doesn't match");
-          }
-          // bcrypt.compare(password, hash, (err, res) => {
-          //   if (err) reject(`error hashing pw: ${err}`);
-          //   else {
-          //     resolve(res);
-          //   }
-          // });
+          bcrypt.compare(password, hash, (err, resp) => {
+            if (err) reject(`password incorrect: ${err}`);
+            else {
+              resolve(res[0].id);
+            }
+          });
         }
       })
       .catch(e => reject(`Couldn't update db: ${e}`));
