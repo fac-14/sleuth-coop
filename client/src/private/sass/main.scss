@@ -6,7 +6,7 @@
 @import "profile";
 @import "landing-page";
 @import "discovery-page";
-@import "add-page";
+@import "_add-page";
 @import "contact-hilary";
 @import "login-page";
 
@@ -51,8 +51,7 @@ p {
 }
 
 #home-btn,
-#back-btn,
-#eye-icon {
+#back-btn {
   width: 60px;
   background-color: transparent;
   border: none;

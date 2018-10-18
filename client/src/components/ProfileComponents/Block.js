@@ -68,24 +68,20 @@ export default class Block extends React.Component {
       );
     } else if (type === "url_inputs") {
       return (
-        <div className="tagged-list profile-block">
+        <div className="link-list profile-block">
           <h3>{this.props.heading}</h3>
 
           {this.props.answer.map((el, index) => {
             return (
-              <div>
-                <button id="eye-icon">
-                  <img src={eyeIcon} alt="question mark" />
-                </button>
+              <div id="links" key={index}>
+                <img id="eye-icon" src={eyeIcon} alt="question mark" />
                 <a
-                  key={index}
                   href={el.split("-")[1]}
                   rel="noopener noreferrer"
                   target="_blank"
                 >
                   <p>{el.split("-")[0]}</p>
                 </a>
-                <p>{el.split("-")[1]}</p>
               </div>
             );
           })}

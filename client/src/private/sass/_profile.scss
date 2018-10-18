@@ -136,6 +136,7 @@
   margin: $medium $larger $mediumish $larger;
   box-shadow: $dat-big-shadow;
   display: inline-block;
+  min-width: 60%;
   margin-bottom: 0;
   h3 {
     margin-top: 0;
@@ -197,6 +198,39 @@
     padding: 10px;
     color: $js-grey;
     border-radius: 5px;
+  }
+}
+
+.link-list {
+  #eye-icon {
+    width: 30px;
+    height: 30px;
+    margin: 6px;
+    border-radius: 50%;
+  }
+  #links {
+    display: flex;
+    align-items: center;
+
+    border-radius: 20px;
+    margin: $smallest;
+    box-shadow: $dat-big-shadow;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    p {
+      margin: 0;
+    }
+    a {
+      color: $black;
+      text-decoration: none;
+    }
+    &:hover,
+    &:focus {
+      transform: scale(1.025);
+      a {
+        color: $orange1;
+      }
+    }
   }
 }
 

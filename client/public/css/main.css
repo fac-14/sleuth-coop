@@ -416,6 +416,7 @@ input:focus, textarea:focus {
   margin: 1rem 4rem 1.2rem 4rem;
   box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, 0.055);
   display: inline-block;
+  min-width: 60%;
   margin-bottom: 0;
 }
 .profile-block h3 {
@@ -476,6 +477,35 @@ input:focus, textarea:focus {
   padding: 10px;
   color: #ecf0f1;
   border-radius: 5px;
+}
+
+.link-list #eye-icon {
+  width: 30px;
+  height: 30px;
+  margin: 6px;
+  border-radius: 50%;
+}
+.link-list #links {
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
+  margin: 0.25rem;
+  box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, 0.055);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.link-list #links p {
+  margin: 0;
+}
+.link-list #links a {
+  color: #1d2425;
+  text-decoration: none;
+}
+.link-list #links:hover, .link-list #links:focus {
+  transform: scale(1.025);
+}
+.link-list #links:hover a, .link-list #links:focus a {
+  color: #db792e;
 }
 
 img {
@@ -950,8 +980,7 @@ p {
 }
 
 #home-btn,
-#back-btn,
-#eye-icon {
+#back-btn {
   width: 60px;
   background-color: transparent;
   border: none;
@@ -962,8 +991,7 @@ p {
   transition: transform 0.2s ease;
 }
 #home-btn:hover,
-#back-btn:hover,
-#eye-icon:hover {
+#back-btn:hover {
   transform: scale(1.1);
 }
 
