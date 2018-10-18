@@ -163,6 +163,16 @@
   input[type="url"] {
     min-width: 30%;
   }
+  h5 {
+    font-weight: 500;
+    margin-top: $medium;
+  }
+  #add-link-list {
+    margin: $small 0 $medium 0;
+    li {
+      padding: $smallest;
+    }
+  }
   #add-link-btn {
     padding: $smallest $small;
     font-family: $main-text;
