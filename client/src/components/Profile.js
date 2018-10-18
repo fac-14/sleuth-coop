@@ -18,7 +18,6 @@ class Profile extends React.Component {
 
   componentDidMount() {
     const profile = this.props.location.pathname;
-    console.log("PROFILE", profile);
     getProfile(profile)
       .then(res => {
         const transformed = filterData(res);
@@ -49,6 +48,8 @@ class Profile extends React.Component {
             answers={answers}
             editable={this.props.SME}
             logo={basicInfo.logo_url}
+            compId={basicInfo.id}
+
           />
           <div className="profile-content-wrapper">
             <Content answers={answers} about={basicInfo.one_liner} />
