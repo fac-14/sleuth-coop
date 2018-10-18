@@ -651,6 +651,11 @@ img {
   left: 0;
 }
 
+.edit-page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .edit-page-container #back-btn {
   position: fixed;
   top: 0;
@@ -816,9 +821,24 @@ img {
   color: white;
 }
 
-.edit-page-container {
+.save-success {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  height: 100%;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.save-success .success-header {
+  padding: 1.2rem;
+  background-color: #3c5e5d;
+  color: #ecf0f1;
+  border-radius: 5px;
+  border: 1px solid #3c5e5d;
+  box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, 0.055);
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
 
@@ -837,39 +857,6 @@ img {
 }
 .contact-hilary p {
   padding: 1rem;
-}
-.contact-hilary #sleuth-info {
-  display: flex;
-  padding: 1rem;
-}
-.contact-hilary #sleuth-info .contact-section {
-  width: 50%;
-  height: 50%;
-}
-.contact-hilary #sleuth-info .sleuth-link-section a {
-  font-family: "Quicksand", sans-serif;
-  font-size: 1.2rem;
-  color: #1d2425;
-  margin: 0.5rem;
-  cursor: pointer;
-  text-decoration: none;
-}
-.contact-hilary #sleuth-info .sleuth-link-section a:hover, .contact-hilary #sleuth-info .sleuth-link-section a:focus {
-  font-weight: 500;
-  color: #db792e;
-}
-.contact-hilary #sleuth-info .sleuth-link-section a:active {
-  color: #3c5e5d;
-}
-.contact-hilary #sleuth-info .sleuth-link-section .sleuth-profile-links {
-  margin-top: 1rem;
-}
-.contact-hilary #sleuth-info .sleuth-link-section .sleuth-profile-links img {
-  margin: 0.5rem;
-  transition: transform 0.2s ease;
-}
-.contact-hilary #sleuth-info .sleuth-link-section .sleuth-profile-links img:hover {
-  transform: scale(1.1);
 }
 
 #login-form {

@@ -5,6 +5,7 @@ import BackBtn from "./BackBtn";
 import Category from "./AddComponents/Category";
 import BasicInfo from "./AddComponents/BasicInfo";
 import ContactHilary from "./ContactHilary";
+import SaveSuccess from "./SaveSuccess";
 
 import getQuestions from "../utils/getQuestions";
 import getProfile from "../utils/getProfile";
@@ -19,7 +20,8 @@ export default class Add extends React.Component {
     questions: "",
     files: {},
     basicInfo: {},
-    help: ""
+    help: "",
+    save: ""
   };
   componentDidMount() {
     const profile = this.props.location.pathname;
@@ -167,6 +169,12 @@ export default class Add extends React.Component {
           body: JSON.stringify(this.state.basicInfo)
         })
       )
+      .then(this.setState({ save: "yes", help: "hello" }))
+      .then(
+        setTimeout(() => {
+          this.setState({ save: "" });
+        }, 1200)
+      )
       // .then(res => {
       // // INSTEAD OF CLEARING FORM HERE, WE COULD SHOW THAT THEY'VE SAVED SUCCESSFULLY WITH A TEMP MODAL OR SOMETHING...
       //   this.setState({ formState: {} });
@@ -180,6 +188,7 @@ export default class Add extends React.Component {
       this.setState({ help: "yes" });
     }
   };
+
   render() {
     if (!this.state.questions) {
       return <h3>Loading...</h3>;
@@ -190,6 +199,7 @@ export default class Add extends React.Component {
     const url = `/profile/${basicInfo.id}/SME`;
     return (
       <div className="edit-page-container">
+        {this.state.save === "yes" ? <SaveSuccess /> : null}
         <BackBtn url={url} color="dark" />
 
         <button id="help-btn" onClick={this.getHelp}>

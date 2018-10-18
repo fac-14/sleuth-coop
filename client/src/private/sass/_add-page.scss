@@ -1,4 +1,7 @@
 .edit-page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   #back-btn {
     position: fixed;
     top: 0;
@@ -195,5 +198,27 @@
     transform: scale(1.1);
     border: 1px solid $orange1;
     color: white;
+  }
+}
+
+.save-success {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // padding: $medium;
+  .success-header {
+    padding: $mediumish;
+    background-color: $teal1;
+    color: $js-grey;
+    border-radius: 5px;
+    border: 1px solid $teal1;
+    box-shadow: $dat-big-shadow;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
