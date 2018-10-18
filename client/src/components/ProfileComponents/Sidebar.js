@@ -1,10 +1,9 @@
 import React from "react";
-import senzingLogo from "../../assets/senzing-squarelogo.png";
 import AddContent from "./AddContent";
 
 export default class Header extends React.Component {
   render() {
-    const { compName, website, answers, editable, compId } = this.props;
+    const { compName, website, answers, editable, logo, compId } = this.props;
     const categories = Object.keys(answers);
     return (
       <div className="header">
@@ -12,9 +11,9 @@ export default class Header extends React.Component {
         <a href={website} target="_blank" rel="noopener noreferrer">
           <h2 id="comp-link">{website}</h2>
         </a>
-        <div id="logo-div">
-          <img src={senzingLogo} alt="logo" id="logo-img" />
-        </div>
+        { logo ? <div id="logo-div">
+          <img src={`/static/${logo}`} alt="logo" id="logo-img" />
+        </div> : ""}
         <ul className="profile-links">
           {categories.map((cat, index) => (
             <li

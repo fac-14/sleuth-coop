@@ -37,34 +37,26 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(fileUpload());
 
-app.get("/api/hello", (req, res) => {
-  res.send({ express: "Hello From Express" });
-});
+// Serve image files e.g. logos from public file
+app.use('/static', express.static(path.join(__dirname, "./public")))
 
+// Get data routes
 app.get("/profile/:id", profileData.get);
 app.get("/profile/:id/sme", profileData.get);
 app.get("/smes", smesData.get);
 app.get("/questions", questions.get);
-app.get("/auth", isAuth.get);
 
+// Check for authorised cookie
+app.get("/auth", isAuth.get);
+// Create new profile
 app.post("/signup", signup.post);
+// Sign in route, authorise cookie
 app.post("/login-check", logincheck.post);
 
+// Update profile info routes
 app.post("/upload", updateInfo.post);
 app.post("/upload-files", uploadFiles.post);
 app.post("/updateBasicInfo", updateBasicInfo.post);
-
-// check they are logged in
-
-// function requiresLogin(req, res, next) {
-//   if (!req.session.loggedIn) {
-//     // res.redirect(302, "/login");
-//     // res.send(res);
-//     res.end("false");
-//   } else {
-//     next();
-//   }
-// }
 
 if (process.env.NODE_ENV === "production") {
   // serve any static files
@@ -75,13 +67,13 @@ if (process.env.NODE_ENV === "production") {
     res.sendFile(path.join(__dirname, "../client/build", "index.html"));
   });
 }
+
 app.use((req, res, next) => {
   res.status(404).send("Sorry - can't find that!");
 });
 
 app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).send("Something broke!");
+  res.status(500).send(`Something broke! ${err}`);
 });
 
 // SERVER LISTENING

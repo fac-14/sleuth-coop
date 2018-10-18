@@ -21,7 +21,7 @@ export default class Block extends React.Component {
       return (
         <div className={this.props.type + " profile-block"}>
           <h3>{this.props.heading}</h3>
-          <a href={this.props.answer} download className="download-badge">
+          <a href={`/static/3-${this.props.answer}`} download className="download-badge">
             <div className="icon-wrapper">
               <img src={download} alt="download" />
             </div>
