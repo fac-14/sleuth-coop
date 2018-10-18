@@ -48,6 +48,7 @@ class Profile extends React.Component {
             desc={basicInfo.one_liner}
             answers={answers}
             editable={this.props.SME}
+            logo={basicInfo.logo_url}
           />
           <div className="profile-content-wrapper">
             <Content answers={answers} about={basicInfo.one_liner} />

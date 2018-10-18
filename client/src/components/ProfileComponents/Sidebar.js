@@ -4,7 +4,7 @@ import AddContent from "./AddContent";
 
 export default class Header extends React.Component {
   render() {
-    const { compName, website, answers, editable } = this.props;
+    const { compName, website, answers, editable, logo } = this.props;
     const categories = Object.keys(answers);
     return (
       <div className="header">
@@ -13,7 +13,7 @@ export default class Header extends React.Component {
           <h2 id="comp-link">{website}</h2>
         </a>
         <div id="logo-div">
-          <img src={senzingLogo} alt="logo" id="logo-img" />
+          <img src={`../../uploadedfiles/senzing-squarelogo.png`} alt="logo" id="logo-img" />
         </div>
         <ul className="profile-links">
           {categories.map((cat, index) => (
