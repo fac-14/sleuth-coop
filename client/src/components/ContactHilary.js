@@ -1,20 +1,15 @@
 import React from "react";
-// import BackBtn from "./BackBtn";
 import twitterIcon from "../assets/Twitter.svg";
 import linkedInIcon from "../assets/Linkedin.svg";
 import mediumIcon from "../assets/Medium.svg";
-
-// import { Link } from "react-router-dom";
 
 export default class ContactHilary extends React.Component {
   render() {
     return (
       <div className="contact-hilary">
-        <div className="heading-banner">
-          {/* <BackBtn url="/profile/1/sme/add" /> */}
+        <div className="heading-banner-contact">
           <h1>Contact Sleuth</h1>
         </div>
-
         <p>
           We at Sleuth have extensive experience working in and with Local
           Authorities across the UK. As well as showcasing your product on our
