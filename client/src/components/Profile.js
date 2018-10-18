@@ -21,6 +21,7 @@ class Profile extends React.Component {
     console.log("PROFILE", profile);
     getProfile(profile)
       .then(res => {
+        console.log(res);
         const transformed = filterData(res);
         this.setState({
           response: transformed,
@@ -48,6 +49,7 @@ class Profile extends React.Component {
             desc={basicInfo.one_liner}
             answers={answers}
             editable={this.props.SME}
+            compId={basicInfo.id}
           />
           <div className="profile-content-wrapper">
             <Content answers={answers} about={basicInfo.one_liner} />
