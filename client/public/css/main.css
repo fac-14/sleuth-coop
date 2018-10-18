@@ -300,7 +300,7 @@ input:focus, textarea:focus {
   flex-flow: column nowrap;
   align-items: center;
   text-align: center;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 .header #logo-div {
   border-radius: 50%;
@@ -844,19 +844,67 @@ img {
 
 .contact-hilary {
   position: fixed;
-  left: 0;
-  background-color: #ecf0f1;
+  max-width: 900px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
   width: 90%;
-  margin: 10% 5%;
   border-radius: 5px;
-  border: 1px solid #3c5e5d;
-  box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, 0.055);
+  box-shadow: 0 5px 100px 0 rgba(0, 0, 0, 0.4);
 }
-.contact-hilary h1 {
-  margin-top: 2rem;
+.contact-hilary .heading-banner-contact {
+  background: #555561;
+  color: white;
+  border-radius: 5px 5px 0 0;
 }
-.contact-hilary p {
-  padding: 1rem;
+.contact-hilary .heading-banner-contact h1 {
+  border-radius: 5px;
+  padding: 50px 0;
+  margin: 0;
+}
+.contact-hilary > p {
+  padding: 40px 10vw 20px;
+  margin: 0;
+}
+.contact-hilary #sleuth-info {
+  display: flex;
+  padding: 0 10vw 40px;
+}
+.contact-hilary #sleuth-info .contact-section,
+.contact-hilary #sleuth-info .sleuth-link-section {
+  width: 50%;
+  height: 50%;
+}
+.contact-hilary #sleuth-info .contact-section h4 {
+  margin: 8px 0;
+  font-size: 1.2rem;
+}
+.contact-hilary #sleuth-info .sleuth-link-section {
+  transition: transform 0.2s ease;
+}
+.contact-hilary #sleuth-info .sleuth-link-section a {
+  font-family: "Quicksand", sans-serif;
+  font-size: 1.2rem;
+  color: #1d2425;
+  cursor: pointer;
+  text-decoration: none;
+}
+.contact-hilary #sleuth-info .sleuth-link-section a:hover, .contact-hilary #sleuth-info .sleuth-link-section a:focus {
+  color: #db792e;
+}
+.contact-hilary #sleuth-info .sleuth-link-section a:active {
+  color: #3c5e5d;
+}
+.contact-hilary #sleuth-info .sleuth-link-section .sleuth-profile-links {
+  margin-top: 1rem;
+}
+.contact-hilary #sleuth-info .sleuth-link-section .sleuth-profile-links img {
+  margin-right: 1rem;
+  transition: transform 0.2s ease;
+}
+.contact-hilary #sleuth-info .sleuth-link-section .sleuth-profile-links img:hover {
+  transform: scale(1.1);
 }
 
 #login-form {
