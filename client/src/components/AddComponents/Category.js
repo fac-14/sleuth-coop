@@ -59,7 +59,7 @@ export default class Category extends React.Component {
                 alreadyAnswered={this.props.alreadyAnswered}
               />
             );
-          } /*else if (el.input_type === "url_inputs") {
+          } else if (el.input_type === "url_inputs") {
             return (
               <LinkList
                 key={index}
@@ -68,9 +68,7 @@ export default class Category extends React.Component {
                 answers={this.props.state.formState}
               />
             );
-          }*/ else if (
-            el.input_type === "video"
-          ) {
+          } else if (el.input_type === "video") {
             return (
               <VideoInput
                 key={index}
