@@ -1,8 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
+import BackBtn from "./BackBtn";
 import Category from "./AddComponents/Category";
 import BasicInfo from "./AddComponents/BasicInfo";
+import ContactHilary from "./ContactHilary";
 
 import getQuestions from "../utils/getQuestions";
 import getProfile from "../utils/getProfile";
@@ -14,7 +16,8 @@ export default class Add extends React.Component {
     formState: {},
     questions: "",
     files: {},
-    basicInfo: {}
+    basicInfo: {},
+    help: ""
   };
   componentDidMount() {
     const profile = this.props.location.pathname;
@@ -168,19 +171,29 @@ export default class Add extends React.Component {
       // })
       .catch(err => console.log(err));
   };
-
+  getHelp = () => {
+    if (this.state.help === "yes") {
+      this.setState({ help: "" });
+    } else {
+      this.setState({ help: "yes" });
+    }
+  };
   render() {
     if (!this.state.questions) {
       return <h3>Loading...</h3>;
     }
-    // console.log(this.state.formState)
+    console.log(this.state.help);
     const { questions } = this.state;
     const categories = Object.entries(questions);
     return (
       <div className="edit-page-container">
-        <Link to={"/profile/1/SME"}>
-          <button>Back</button>
-        </Link>
+        <BackBtn url="/profile/1/SME" color="dark" />
+
+        <button id="help" onClick={this.getHelp}>
+          Click for help
+        </button>
+        {this.state.help === "yes" ? <ContactHilary /> : null}
+
         <form id="edit-form" onSubmit={this.handleSubmit}>
           <BasicInfo
             onChange={this.handleChange}

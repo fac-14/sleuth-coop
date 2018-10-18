@@ -4,6 +4,7 @@ import { withRouter } from "react-router-dom";
 import Contact from "./ProfileComponents/Contact";
 import Content from "./ProfileComponents/Content";
 import HomeBtn from "./HomeBtn";
+import BackBtn from "./BackBtn";
 import Sidebar from "./ProfileComponents/Sidebar";
 
 import getProfile from "../utils/getProfile";
@@ -38,7 +39,7 @@ class Profile extends React.Component {
     const { basic_info: basicInfo, answers } = this.state.response;
     return (
       <React.Fragment>
-        <HomeBtn />
+        {this.props.SME ? <HomeBtn /> : <BackBtn url="/discover" />}
         <div id="profile-wrapper">
           <Sidebar
             className="Header"

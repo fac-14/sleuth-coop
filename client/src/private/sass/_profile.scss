@@ -1,82 +1,3 @@
-.profile-content-wrapper {
-  // width: 70vw;
-  // Commented the above out to temporarily fix issues with scrollIntoView()
-  margin-left: 30vw;
-  box-sizing: border-box;
-  padding: 0;
-}
-
-.profile-block {
-  background: white;
-  padding: 20px;
-  border-radius: 20px;
-  margin: $medium $larger $mediumish $larger;
-  box-shadow: $dat-big-shadow;
-  display: inline-block;
-  margin-bottom: 0;
-  h3 {
-    margin-top: 0;
-  }
-}
-
-.file_upload {
-  display: inline-flex;
-  flex-flow: column nowrap;
-}
-.download-badge {
-  display: inline-flex;
-  align-items: center;
-  background-color: $js-grey;
-  border-radius: 40px;
-  color: $js-grey;
-  font-size: $mediumish;
-  text-decoration: none;
-  color: $teal1;
-  padding-right: 30px;
-
-  .icon-wrapper {
-    background-color: $teal1;
-    border-radius: 50%;
-    margin-right: 20px;
-  }
-  img {
-    width: 70px;
-    height: 70px;
-    padding: 15px;
-  }
-}
-
-.star-badge {
-  display: inline-flex;
-  align-items: center;
-  width: auto;
-  margin-bottom: 0;
-  border: 2px solid $turqoise1;
-  h3 {
-    margin: 0;
-    font-size: $mediumish;
-    margin-right: 8px;
-  }
-  img {
-    height: $large;
-    width: $large;
-    margin-right: 10px;
-  }
-}
-
-.tagged-list {
-  ul {
-    display: flex;
-  }
-  .tag {
-    margin: 5px;
-    background: $teal1;
-    padding: 10px;
-    color: $js-grey;
-    border-radius: 5px;
-  }
-}
-
 .header {
   width: 30vw;
   height: 100vh;
@@ -94,7 +15,7 @@
   #logo-div {
     border-radius: 50%;
     // background: rgba(0, 0, 0, 0.3);
-    min-width: 60%;
+    width: 60%;
     margin: 1rem;
     // box-shadow: $dat-drop-shadow;
 
@@ -103,7 +24,6 @@
       background: rgba(0, 0, 0, 0.3);
     }
   }
-
   h1 {
     font-size: $larger;
     margin-top: $large;
@@ -114,8 +34,16 @@
     word-wrap: break-word;
     max-width: 28vw;
   }
-  h2 {
-    margin-top: 0;
+  #comp-link {
+    font-size: $mediumish;
+    margin: 0;
+  }
+  a {
+    text-decoration: none;
+    color: white;
+    &:hover {
+      color: $teal1;
+    }
   }
 }
 
@@ -135,15 +63,6 @@
   color: $grey1;
   border-radius: $large;
   box-shadow: inset 0 0 0 2px $teal1;
-}
-
-.contact {
-  display: inline-block;
-  .label-text {
-    text-transform: uppercase;
-    color: $grey1;
-    font-size: $small-medium;
-  }
 }
 
 .link-component {
@@ -174,6 +93,14 @@
   }
 }
 
+.profile-content-wrapper {
+  // width: 70vw;
+  // Commented the above out to temporarily fix issues with scrollIntoView()
+  margin-left: 30vw;
+  box-sizing: border-box;
+  padding: 0;
+}
+
 .category {
   min-height: 100vh;
   display: flex;
@@ -184,6 +111,15 @@
   }
 }
 
+.contact {
+  display: inline-block;
+  .label-text {
+    text-transform: uppercase;
+    color: $grey1;
+    font-size: $small-medium;
+  }
+}
+
 .vert-center > h2 {
   background: $turqoise1;
   width: 50%;
@@ -191,6 +127,77 @@
   padding: $small;
   color: $white;
   margin-bottom: $large;
+}
+
+.profile-block {
+  background: white;
+  padding: 20px;
+  border-radius: 20px;
+  margin: $medium $larger $mediumish $larger;
+  box-shadow: $dat-big-shadow;
+  display: inline-block;
+  margin-bottom: 0;
+  h3 {
+    margin-top: 0;
+  }
+}
+
+.star-badge {
+  display: inline-flex;
+  align-items: center;
+  width: auto;
+  margin-bottom: 0;
+  border: 2px solid $turqoise1;
+  h3 {
+    margin: 0;
+    font-size: $mediumish;
+    margin-right: 8px;
+  }
+  img {
+    height: $large;
+    width: $large;
+    margin-right: 10px;
+  }
+}
+
+.file_upload {
+  display: inline-flex;
+  flex-flow: column nowrap;
+}
+.download-badge {
+  display: inline-flex;
+  align-items: center;
+  background-color: $js-grey;
+  border-radius: 40px;
+  color: $js-grey;
+  font-size: $mediumish;
+  text-decoration: none;
+  color: $teal1;
+  padding-right: 30px;
+
+  .icon-wrapper {
+    background-color: $teal1;
+    border-radius: 50%;
+    margin-right: 20px;
+  }
+  img {
+    width: 70px;
+    height: 70px;
+    padding: 15px;
+  }
+}
+
+.tagged-list {
+  ul {
+    display: flex;
+  }
+  .tag {
+    margin: 5px;
+    background: $teal1;
+    padding: 10px;
+    color: $js-grey;
+    border-radius: 5px;
+  }
 }
 
 img {

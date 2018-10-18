@@ -1,5 +1,7 @@
 import React from "react";
 import SignUpCard from "./SignUpCard";
+import BackBtn from "./BackBtn";
+
 import nextImg from "../assets/next-arrow.svg";
 import prevImg from "../assets/prev-arrow.svg";
 import formValidation from "../utils/formValidation";
@@ -92,6 +94,7 @@ export default class SignUp extends React.Component {
   render() {
     return (
       <React.Fragment>
+        <BackBtn url="/info" color="dark" />
         <form id="form" onSubmit={this.handleSubmit}>
           <div id="0" className={this.handleFocus(0)}>
             <SignUpCard
@@ -170,7 +173,7 @@ export default class SignUp extends React.Component {
               inputType="textarea"
               name="description"
               type="textarea"
-              text="a short description explaining your product"
+              text="a short description explaining the problem your product solves in plain English"
               change={this.handleChange}
               value={this.state.description}
               validator={this.handleValidation}

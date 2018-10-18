@@ -8,11 +8,12 @@ export default class TextInput extends React.Component {
       <fieldset className="text-input-section">
         <label htmlFor={content.id}>
           <h4>{content.question}</h4>
+          <p>{content.helper_text}</p>
         </label>
         {/* <button>
           <img src={arrow} alt="down arrow" />
         </button> */}
-        <p>{content.helper_text}</p>
+
         <textarea
           id={content.id}
           onChange={this.props.onChange}

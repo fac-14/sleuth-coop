@@ -1,16 +1,55 @@
-.edit-container {
+.edit-page-container {
+  #back-btn {
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+}
+
+#help {
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: $orange1;
+  margin: $small;
+  font-family: $main-text;
+  border-radius: 50px;
+  font-size: $medium;
+  padding: $small $medium;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  &:hover {
+    transform: scale(1.1);
+  }
+  // min-width: 200px;
 }
 
 #edit-form {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: $larger;
   fieldset {
     width: 100%;
     margin-bottom: $medium;
     font-family: $main-text;
     label,
     input {
+      font-family: $main-text;
+      font-size: $medium;
+      padding: $smallest;
+      margin: $smallest;
+    }
+    input[type="text"],
+    input[type="url"],
+    input[type="file"] {
+      border-radius: 5px;
+      border: 1px solid $teal1;
+    }
+    textarea {
+      border-radius: 5px;
+      border: 1px solid $teal1;
+      max-height: $godzilla;
       font-family: $main-text;
       font-size: $medium;
       padding: $smallest;
@@ -28,17 +67,26 @@
   padding: $medium;
   width: 90vw;
 }
+#basic-info-section {
+  // padding: $medium;
+  width: 90vw;
+  h4 {
+    margin: $medium;
+  }
+  #basic-first {
+    margin-top: 0;
+  }
+  input {
+    min-width: 60%;
+  }
+  textarea {
+    min-width: 60%;
+  }
+}
 
 .text-input-section {
   textarea {
     width: calc(100% - 0.5rem);
-    border-radius: 5px;
-    border: 1px solid $teal1;
-    max-height: $godzilla;
-    font-family: $main-text;
-    font-size: $medium;
-    padding: $smallest;
-    margin: $smallest;
   }
 }
 
@@ -86,6 +134,7 @@
     overflow-y: scroll;
   }
   .dropdown {
+    width: 16rem;
     ul {
       border-radius: 5px;
     }
@@ -102,19 +151,18 @@
 
 .video-add {
   input {
-    border-radius: 5px;
-    border: 1px solid $teal1;
+    min-width: 60%;
   }
 }
 
 .link-section {
-  input {
-    border-radius: 5px;
-    border: 1px solid $teal1;
-  }
   label {
     padding: $smallest;
     margin: $smallest;
+  }
+  input[type="text"],
+  input[type="url"] {
+    min-width: 30%;
   }
 }
 
@@ -126,6 +174,11 @@
   font-family: $main-text;
   font-size: $mediumish;
   margin-bottom: $larger;
-  border-radius: 5px;
+  border-radius: 50px;
   border: 1px solid $grey1;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  &:hover {
+    transform: scale(1.1);
+  }
 }

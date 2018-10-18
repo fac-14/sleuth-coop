@@ -1,9 +1,5 @@
 import React, { Component } from "react";
-import {
-  BrowserRouter as Router,
-  Route,
-  Redirect
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 
 import LandingPage from "./components/LandingPage";
 import Info from "./components/Info";
@@ -78,7 +74,7 @@ class App extends Component {
             path="/profile/:id/add"
             render={props => <Add {...props} />}
           />
-          <Route exact={true} path="/discover" component={Discovery} />
+          <Route exact={true} path="/find" component={Discovery} />
           <Route exact={true} path="/login" component={LogIn} />
         </React.Fragment>
       </Router>

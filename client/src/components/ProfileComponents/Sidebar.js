@@ -9,7 +9,9 @@ export default class Header extends React.Component {
     return (
       <div className="header">
         <h1>{compName}</h1>
-        <h2>{website}</h2>
+        <a href={website} target="_blank" rel="noopener noreferrer">
+          <h2 id="comp-link">{website}</h2>
+        </a>
         <div id="logo-div">
           <img src={senzingLogo} alt="logo" id="logo-img" />
         </div>
