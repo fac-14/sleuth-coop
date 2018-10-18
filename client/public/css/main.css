@@ -237,7 +237,7 @@ input:focus, textarea:focus {
   outline: #db792e 2px solid;
 }
 
-button[type=submit] {
+#carousel-submit-btn {
   font-size: 1.2rem;
   background-color: #db792e;
   color: white;
@@ -571,6 +571,15 @@ img {
   transform: scale(1.1);
 }
 
+#log-in {
+  position: fixed;
+  top: 0.5rem;
+  right: 0.5rem;
+  min-width: 150px;
+  width: auto;
+  background-color: #db792e;
+}
+
 .discover-header {
   background-color: #555561;
   width: 100%;
@@ -862,6 +871,30 @@ img {
 }
 .contact-hilary #sleuth-info .sleuth-link-section .sleuth-profile-links img:hover {
   transform: scale(1.1);
+}
+
+#login-form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+#login-form label {
+  margin-top: 1rem;
+  text-align: center;
+}
+#login-form input {
+  min-width: 18rem;
+  max-width: 500px;
+  width: 40%;
+  border-radius: 1rem;
+  border: 0.25rem solid #3c5e5d;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  font-family: "Quicksand", sans-serif;
 }
 
 * {

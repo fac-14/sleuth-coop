@@ -21,7 +21,8 @@ export default class Info extends React.Component {
         <Link to={"/sign-up"}>
           <button className="large-home-btn1 default-btn">Start</button>
         </Link>
-        <Link to={"/profile/1/sme"}>
+        <Link to={"/login"}>
+          {/* <Link to={"/login"}> */}
           <button className="large-home-btn2 default-btn">
             I already have a profile
           </button>

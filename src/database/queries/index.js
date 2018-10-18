@@ -6,6 +6,7 @@ const getUserProfileData = require("./getUserProfileData");
 const getAllQs = require("./getAllQs");
 const updateAnswers = require("./updateAnswers");
 const updateBasicInfo = require("./updateBasicInfo");
+const checkPassword = require("./checkPassword");
 
 module.exports = {
   getUsers,
@@ -15,5 +16,6 @@ module.exports = {
   getUserProfileData,
   getAllQs,
   updateAnswers,
-  updateBasicInfo
+  updateBasicInfo,
+  checkPassword
 };

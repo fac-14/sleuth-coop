@@ -1,7 +1,7 @@
 import React from "react";
 import SignUpCard from "./SignUpCard";
 import BackBtn from "./BackBtn";
-import { Link } from "react-router-dom";
+
 import nextImg from "../assets/next-arrow.svg";
 import prevImg from "../assets/prev-arrow.svg";
 import formValidation from "../utils/formValidation";
@@ -10,7 +10,7 @@ export default class SignUp extends React.Component {
   state = {
     email: "",
     name: "",
-    password: "test-password",
+    password: "",
     jobtitle: "",
     company: "",
     website: "",
@@ -54,11 +54,13 @@ export default class SignUp extends React.Component {
       headers: { "content-type": "application/json" },
       body: data
     })
-      .then(res => console.log("response:", res))
+      // .then(res => console.log("response:", res))
+      .then(() => (window.location = "/login"))
       .catch(err => console.log(err));
 
     this.setState({
       email: "",
+      password: "",
       name: "",
       jobtitle: "",
       company: "",
@@ -109,6 +111,18 @@ export default class SignUp extends React.Component {
           <div id="1" className={this.handleFocus(1)}>
             <SignUpCard
               inputType="input"
+              name="password"
+              type="password"
+              text="your password"
+              change={this.handleChange}
+              value={this.state.password}
+              validator={this.handleValidation}
+              keyHandler={this.handleKey}
+            />
+          </div>
+          <div id="2" className={this.handleFocus(2)}>
+            <SignUpCard
+              inputType="input"
               name="name"
               type="text"
               text="your contact name"
@@ -118,7 +132,7 @@ export default class SignUp extends React.Component {
               keyHandler={this.handleKey}
             />
           </div>
-          <div id="2" className={this.handleFocus(2)}>
+          <div id="3" className={this.handleFocus(3)}>
             <SignUpCard
               inputType="input"
               name="jobtitle"
@@ -130,7 +144,7 @@ export default class SignUp extends React.Component {
               keyHandler={this.handleKey}
             />
           </div>
-          <div id="3" className={this.handleFocus(3)}>
+          <div id="4" className={this.handleFocus(4)}>
             <SignUpCard
               inputType="input"
               name="company"
@@ -142,7 +156,7 @@ export default class SignUp extends React.Component {
               keyHandler={this.handleKey}
             />
           </div>
-          <div id="4" className={this.handleFocus(4)}>
+          <div id="5" className={this.handleFocus(5)}>
             <SignUpCard
               inputType="input"
               name="website"
@@ -154,7 +168,7 @@ export default class SignUp extends React.Component {
               keyHandler={this.handleKey}
             />
           </div>
-          <div id="5" className={this.handleFocus(5)}>
+          <div id="6" className={this.handleFocus(6)}>
             <SignUpCard
               inputType="textarea"
               name="description"
@@ -179,26 +193,25 @@ export default class SignUp extends React.Component {
         />
         <input
           className={
-            this.state.position >= 5 ? "hidden" : "arrow forward-arrow"
+            this.state.position >= 6 ? "hidden" : "arrow forward-arrow"
           }
           type="image"
           src={nextImg}
           alt="forward arrow"
           onClick={this.handleFrontArrow}
         />
-        <Link to={"/profile/123"}>
-          <button
-            className={
-              this.state.position < 5 ? "hidden" : "forward-arrow default-btn"
-            }
-            type="submit"
-            onClick={this.handleSubmit}
-          >
-            Submit
-          </button>
-        </Link>
+        <button
+          className={
+            this.state.position < 6 ? "hidden" : "forward-arrow default-btn"
+          }
+          id="carousel-submit-btn"
+          type="submit"
+          onClick={this.handleSubmit}
+        >
+          Submit
+        </button>
         <div className="progress-circles-div">
-          {[0, 1, 2, 3, 4, 5].map((circle, index) => {
+          {[0, 1, 2, 3, 4, 5, 6].map((circle, index) => {
             if (circle === this.state.position) {
               return <div key={index} className="progress-circle filled" />;
             } else {
