@@ -1,6 +1,8 @@
 import React from "react";
 // import arrow from "../../assets/dropdown-arrow.svg";
 
+import closeIcon from "../../assets/close-icon.svg";
+
 export default class Dropdown extends React.Component {
   render() {
     const { content, answers } = this.props;

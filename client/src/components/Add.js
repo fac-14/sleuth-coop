@@ -11,6 +11,8 @@ import getProfile from "../utils/getProfile";
 import filterQuestions from "../utils/filterQuestions";
 import videoLinkFormatter from "../utils/videoLinkFormatter";
 
+import helpBtn from "../assets/question-btn-new.svg";
+
 export default class Add extends React.Component {
   state = {
     formState: {},
@@ -190,8 +192,8 @@ export default class Add extends React.Component {
       <div className="edit-page-container">
         <BackBtn url={url} color="dark" />
 
-        <button id="help" onClick={this.getHelp}>
-          Click for help
+        <button id="help-btn" onClick={this.getHelp}>
+          <img src={helpBtn} alt="help" />
         </button>
         {this.state.help === "yes" ? <ContactHilary /> : null}
 
