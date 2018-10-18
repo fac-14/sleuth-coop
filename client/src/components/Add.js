@@ -182,12 +182,13 @@ export default class Add extends React.Component {
     if (!this.state.questions) {
       return <h3>Loading...</h3>;
     }
-    console.log(this.state.help);
-    const { questions } = this.state;
+    // console.log(this.state.basicInfo);
+    const { questions, basicInfo } = this.state;
     const categories = Object.entries(questions);
+    const url = `/profile/${basicInfo.id}/SME`;
     return (
       <div className="edit-page-container">
-        <BackBtn url="/profile/1/SME" color="dark" />
+        <BackBtn url={url} color="dark" />
 
         <button id="help" onClick={this.getHelp}>
           Click for help

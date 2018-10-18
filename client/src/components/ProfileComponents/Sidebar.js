@@ -4,7 +4,7 @@ import AddContent from "./AddContent";
 
 export default class Header extends React.Component {
   render() {
-    const { compName, website, answers, editable } = this.props;
+    const { compName, website, answers, editable, compId } = this.props;
     const categories = Object.keys(answers);
     return (
       <div className="header">
@@ -29,7 +29,7 @@ export default class Header extends React.Component {
             </li>
           ))}
         </ul>
-        {editable ? <AddContent /> : null}
+        {editable ? <AddContent compId={compId} /> : null}
       </div>
     );
   }
