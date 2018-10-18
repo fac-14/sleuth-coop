@@ -1,6 +1,7 @@
 import React from "react";
 import download from "../../assets/download.svg";
 import star from "../../assets/star.svg";
+import eyeIcon from "../../assets/Eye button.svg";
 
 export default class Block extends React.Component {
   render() {
@@ -69,9 +70,13 @@ export default class Block extends React.Component {
       return (
         <div className="tagged-list profile-block">
           <h3>{this.props.heading}</h3>
-          <div>
-            {this.props.answer.map((el, index) => {
-              return (
+
+          {this.props.answer.map((el, index) => {
+            return (
+              <div>
+                <button id="eye-icon">
+                  <img src={eyeIcon} alt="question mark" />
+                </button>
                 <a
                   key={index}
                   href={el.split("-")[1]}
@@ -80,9 +85,10 @@ export default class Block extends React.Component {
                 >
                   <p>{el.split("-")[0]}</p>
                 </a>
-              );
-            })}
-          </div>
+                <p>{el.split("-")[1]}</p>
+              </div>
+            );
+          })}
         </div>
       );
     } else {

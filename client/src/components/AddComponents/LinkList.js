@@ -43,7 +43,12 @@ export default class LinkList extends React.Component {
             onChange={this.onChange}
           />
         </label>
-        <button onClick={() => this.props.getLinks(this.state)}>Add</button>
+        <button
+          onClick={() => this.props.getLinks(this.state)}
+          id="add-link-btn"
+        >
+          Add
+        </button>
       </fieldset>
     );
   }

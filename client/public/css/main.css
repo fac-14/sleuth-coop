@@ -800,6 +800,18 @@ img {
 .link-section input[type=url] {
   min-width: 30%;
 }
+.link-section #add-link-btn {
+  padding: 0.25rem 0.5rem;
+  font-family: "Quicksand", sans-serif;
+  font-size: 1rem;
+  border-radius: 50px;
+  border: 1px solid #555561;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.link-section #add-link-btn:hover {
+  transform: scale(1.1);
+}
 
 #add-submit-btn {
   position: relative;
@@ -938,7 +950,8 @@ p {
 }
 
 #home-btn,
-#back-btn {
+#back-btn,
+#eye-icon {
   width: 60px;
   background-color: transparent;
   border: none;
@@ -949,7 +962,8 @@ p {
   transition: transform 0.2s ease;
 }
 #home-btn:hover,
-#back-btn:hover {
+#back-btn:hover,
+#eye-icon:hover {
   transform: scale(1.1);
 }
 

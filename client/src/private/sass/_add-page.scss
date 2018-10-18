@@ -21,7 +21,6 @@
   &:hover {
     transform: scale(1.1);
   }
-  // min-width: 200px;
 }
 
 #edit-form {
@@ -163,6 +162,18 @@
   input[type="text"],
   input[type="url"] {
     min-width: 30%;
+  }
+  #add-link-btn {
+    padding: $smallest $small;
+    font-family: $main-text;
+    font-size: $medium;
+    border-radius: 50px;
+    border: 1px solid $grey1;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 }
 
