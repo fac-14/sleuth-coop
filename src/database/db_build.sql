@@ -9,7 +9,7 @@ CREATE TABLE users (
 );
 
 INSERT INTO users (email, password) VALUES
-('admin@senzing.com', 'canyousenzing');
+('admin@senzing.com', '$2a$10$/Yilvg/rSvMs7h61y/vfueNXHdr83jlmdl3aCkWcLFyXXD7zYhN4a'); --"canyousenzing" hashed
 
 CREATE TABLE companies (
   id SERIAL PRIMARY KEY,

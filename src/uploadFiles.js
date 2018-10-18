@@ -7,7 +7,7 @@ exports.post = (req, res) => {
     }
 
     fileArr.forEach(file => {
-        file.mv(`${__dirname}/../client/src/uploaded-files/${file.name}`, err => {
+        file.mv(`${__dirname}/public/${file.name}`, err => {
             if (err) {
                 return res.status(500).send(err);
             }

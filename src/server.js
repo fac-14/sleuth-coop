@@ -36,6 +36,7 @@ const isAuth = require("./isAuth");
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(fileUpload());
+app.use('/static', express.static(path.join(__dirname, "./public")))
 
 app.get("/api/hello", (req, res) => {
   res.send({ express: "Hello From Express" });
