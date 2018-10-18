@@ -11,8 +11,10 @@ const checkPassword = object => new Promise((resolve, reject) => {
           const hash = res[0].password;
           bcrypt.compare(password, hash, (err, resp) => {
             if (err) reject(`password incorrect: ${err}`);
-            else {
+            else if (resp === true) {
               resolve(res[0].id);
+            } else if (resp === false){
+              reject("password doesn't match")
             }
           });
         }
