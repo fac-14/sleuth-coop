@@ -15,12 +15,13 @@ export default class LinkList extends React.Component {
 
   render() {
     const { content, answers } = this.props;
+    const selected = answers[content.id] || [];
     return (
       <fieldset className="link-section">
         <h4>{content.question}</h4>
         <p>{content.helper_text}</p>
         <ul>
-          {answers[content.id].map((link, index) => {
+          {selected.map((link, index) => {
             return <li key={index}>{link.split("-")[0]}</li>;
           })}
         </ul>
