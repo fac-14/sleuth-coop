@@ -1,5 +1,4 @@
 import React from "react";
-// import arrow from "../../assets/dropdown-arrow.svg";
 
 export default class Dropdown extends React.Component {
   render() {
