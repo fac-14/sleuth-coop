@@ -4,6 +4,23 @@ import star from "../../assets/star.svg";
 import eyeIcon from "../../assets/Eye button.svg";
 
 export default class Block extends React.Component {
+  // download() {
+  //   // fake server request, getting the file url as response
+  //   // setTimeout(() => {
+  //   //   const response = {
+  //   //     file: `/static/3-london-borough-profiles.xlsx`
+  //   //   };
+  //   //   // server sent the url to the file!
+  //   //   // now, let's download:
+  //   //   window.location.href = response.file;
+  //   //   // you could also do:
+  //   //   // window.open(response.file);
+  //   // }, 100);
+  //   fetch("/download")
+  //     // .then(res => res.json())
+  //     .then(res => console.log(res.body));
+  // }
+
   render() {
     const { type, question } = this.props;
     if (type === "checkbox" && question !== "Do you collect personal data?") {
@@ -21,7 +38,16 @@ export default class Block extends React.Component {
       return (
         <div className={this.props.type + " profile-block"}>
           <h3>{this.props.heading}</h3>
-          <a href={`/static/3-${this.props.answer}`} download className="download-badge">
+          {/* <button type="button" onClick={this.download}>
+            Download
+          </button> */}
+          <a
+            href={`/download/${this.props.compId}-${
+              this.props.answer
+            }/download`}
+            download={this.props.answer}
+            className="download-badge"
+          >
             <div className="icon-wrapper">
               <img src={download} alt="download" />
             </div>

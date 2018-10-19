@@ -41,10 +41,16 @@ app.use(fileUpload());
 app.use("/static", express.static(path.join(__dirname, "./public")));
 
 // Get data routes
-app.get("/profile/:id", profileData.get);
-app.get("/profile/:id/sme", profileData.get);
+app.get("/profile/:id/get", profileData.get);
+app.get("/profile/:id/sme/get", profileData.get);
 app.get("/smes", smesData.get);
 app.get("/questions", questions.get);
+
+// download route
+app.get("/download/:file/download", (req, res) => {
+  const filePath = path.join(__dirname, `public/${req.params.file}`);
+  res.sendFile(filePath); // Set disposition and send it.
+});
 
 // Check for authorised cookie
 app.get("/auth", isAuth.get);

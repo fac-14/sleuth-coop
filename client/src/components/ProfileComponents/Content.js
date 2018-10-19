@@ -22,6 +22,7 @@ export default class Content extends React.Component {
                       type={e.input_type}
                       heading={e.question}
                       answer={e.answer}
+                      compId={this.props.compId}
                     />
                   );
                 })}

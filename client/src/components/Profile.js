@@ -51,6 +51,11 @@ class Profile extends React.Component {
             compId={basicInfo.id}
           />
           <div className="profile-content-wrapper">
+            <Content
+              answers={answers}
+              about={basicInfo.one_liner}
+              compId={basicInfo.id}
+            />
             <Contact
               className="contact"
               name={basicInfo.contact_name}

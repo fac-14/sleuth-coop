@@ -1,5 +1,5 @@
 const getProfile = async url => {
-  const response = await fetch(url);
+  const response = await fetch(`${url}/get`);
 
   const body = await response.json();
 
