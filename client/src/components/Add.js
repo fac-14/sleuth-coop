@@ -22,8 +22,27 @@ export default class Add extends React.Component {
     files: {},
     basicInfo: {},
     help: "",
-    save: ""
+    save: "",
+    expanded: ""
   };
+
+  selectExpandedItem = elementId => {
+    if(elementId === this.state.expanded){
+      return "q-category expand"
+    } else {
+      return "q-category"
+    }
+  }
+
+  expandedState = (el) => {
+    const elementId = el[0].toLowerCase().replace(/ /g, "-");
+    if(this.state.expanded === elementId){
+      this.setState({expanded: ""})
+    } else {
+    this.setState({expanded: elementId})
+    }
+  }
+
   componentDidMount() {
     const profile = this.props.location.pathname;
     const profileUrl = profile.replace(/add/gi, "sme");
@@ -176,11 +195,6 @@ export default class Add extends React.Component {
           this.setState({ save: "" });
         }, 1200)
       )
-      .then(
-        document
-          .querySelectorAll(".q-category")
-          .forEach(item => item.classList.remove("expand"))
-      )
       // .then(res => {
       // // INSTEAD OF CLEARING FORM HERE, WE COULD SHOW THAT THEY'VE SAVED SUCCESSFULLY WITH A TEMP MODAL OR SOMETHING...
       //   this.setState({ formState: {} });
@@ -223,7 +237,7 @@ export default class Add extends React.Component {
             return (
               <div
                 key={index}
-                className={"q-category"}
+                className={this.selectExpandedItem(el[0].toLowerCase().replace(/ /g, "-"))}
                 id={el[0].toLowerCase().replace(/ /g, "-")}
               >
                 <div className="cat-header">
@@ -231,13 +245,7 @@ export default class Add extends React.Component {
                   <button
                     type="button"
                     id="toggle-button"
-                    onClick={() => {
-                      document
-                        .getElementById(
-                          `${el[0].toLowerCase().replace(/ /g, "-")}`
-                        )
-                        .classList.toggle("expand");
-                    }}
+                    onClick={() => this.expandedState(el)}
                   >
                     <img src={dropBtn} alt="dropdown" />
                   </button>
