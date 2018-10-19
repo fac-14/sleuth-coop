@@ -1,15 +1,28 @@
 import React from "react";
+import dropBtn from "../../assets/dropdown-arrow.svg";
 
 export default class BasicInfo extends React.Component {
   render() {
     const profileData = this.props.profileData;
     console.log(profileData);
     return (
-      <div className="q-category">
+      <div className="q-category" id="basic-id">
+        <div className="cat-header">
+          <h2>Basic Info</h2>
+          <button
+            type="button"
+            id="toggle-button"
+            onClick={() => {
+              document.getElementById("basic-id").classList.toggle("expand");
+            }}
+          >
+            <img src={dropBtn} alt="dropdown" />
+          </button>
+        </div>
         <fieldset id="basic-info-section">
-          <legend>
+          {/* <legend>
             <h2>Basic Info</h2>
-          </legend>
+          </legend> */}
           <label htmlFor="basic-info">
             <h4 id="basic-first">Company Name:</h4>
           </label>

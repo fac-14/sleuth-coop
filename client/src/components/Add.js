@@ -13,6 +13,7 @@ import filterQuestions from "../utils/filterQuestions";
 import videoLinkFormatter from "../utils/videoLinkFormatter";
 
 import helpBtn from "../assets/question-btn-new.svg";
+import dropBtn from "../assets/dropdown-arrow.svg";
 
 export default class Add extends React.Component {
   state = {
@@ -175,6 +176,11 @@ export default class Add extends React.Component {
           this.setState({ save: "" });
         }, 1200)
       )
+      .then(
+        document
+          .querySelectorAll(".q-category")
+          .forEach(item => item.classList.remove("expand"))
+      )
       // .then(res => {
       // // INSTEAD OF CLEARING FORM HERE, WE COULD SHOW THAT THEY'VE SAVED SUCCESSFULLY WITH A TEMP MODAL OR SOMETHING...
       //   this.setState({ formState: {} });
@@ -217,10 +223,25 @@ export default class Add extends React.Component {
             return (
               <div
                 key={index}
-                className={"q-category "}
+                className={"q-category"}
                 id={el[0].toLowerCase().replace(/ /g, "-")}
               >
-                <h2>{el[0]}</h2>
+                <div className="cat-header">
+                  <h2>{el[0]}</h2>
+                  <button
+                    type="button"
+                    id="toggle-button"
+                    onClick={() => {
+                      document
+                        .getElementById(
+                          `${el[0].toLowerCase().replace(/ /g, "-")}`
+                        )
+                        .classList.toggle("expand");
+                    }}
+                  >
+                    <img src={dropBtn} alt="dropdown" />
+                  </button>
+                </div>
                 <Category
                   questions={el[1]}
                   change={this.handleChange}
