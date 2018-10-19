@@ -41,15 +41,17 @@ app.use(fileUpload());
 app.use("/static", express.static(path.join(__dirname, "./public")));
 
 // Get data routes
-app.get("/profile/:id", profileData.get);
-app.get("/profile/:id/sme", profileData.get);
+app.get("/profile/:id/get", profileData.get);
+app.get("/profile/:id/sme/get", profileData.get);
 app.get("/smes", smesData.get);
 app.get("/questions", questions.get);
 
 // download route
-app.get("/download", (req, res) => {
-  const file = path.join(__dirname, "/public/Workbook1-v2.xlsx");
-  res.sendFile(file); // Set disposition and send it.
+app.get("/download/:file", (req, res) => {
+  const { file } = req.params;
+  console.log("FILE", file);
+  const filePath = path.join(__dirname, `${file}`);
+  res.sendFile(filePath); // Set disposition and send it.
 });
 
 // Check for authorised cookie
