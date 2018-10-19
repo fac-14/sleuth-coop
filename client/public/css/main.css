@@ -690,6 +690,7 @@ img {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 150px;
 }
 .edit-page-container #back-btn {
   position: fixed;
