@@ -38,13 +38,19 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(fileUpload());
 
 // Serve image files e.g. logos from public file
-app.use('/static', express.static(path.join(__dirname, "./public")))
+app.use("/static", express.static(path.join(__dirname, "./public")));
 
 // Get data routes
 app.get("/profile/:id", profileData.get);
 app.get("/profile/:id/sme", profileData.get);
 app.get("/smes", smesData.get);
 app.get("/questions", questions.get);
+
+// download route
+app.get("/download", (req, res) => {
+  const file = path.join(__dirname, "/public/Workbook1-v2.xlsx");
+  res.sendFile(file); // Set disposition and send it.
+});
 
 // Check for authorised cookie
 app.get("/auth", isAuth.get);
