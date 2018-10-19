@@ -13,6 +13,7 @@ import filterQuestions from "../utils/filterQuestions";
 import videoLinkFormatter from "../utils/videoLinkFormatter";
 
 import helpBtn from "../assets/question-btn-new.svg";
+import dropBtn from "../assets/dropdown-arrow.svg";
 
 export default class Add extends React.Component {
   state = {
@@ -21,8 +22,27 @@ export default class Add extends React.Component {
     files: {},
     basicInfo: {},
     help: "",
-    save: ""
+    save: "",
+    expanded: ""
   };
+
+  selectExpandedItem = elementId => {
+    if(elementId === this.state.expanded){
+      return "q-category expand"
+    } else {
+      return "q-category"
+    }
+  }
+
+  expandedState = (el) => {
+    const elementId = el[0].toLowerCase().replace(/ /g, "-");
+    if(this.state.expanded === elementId){
+      this.setState({expanded: ""})
+    } else {
+    this.setState({expanded: elementId})
+    }
+  }
+
   componentDidMount() {
     const profile = this.props.location.pathname;
     const profileUrl = profile.replace(/add/gi, "sme");
@@ -212,10 +232,19 @@ export default class Add extends React.Component {
             return (
               <div
                 key={index}
-                className={"q-category "}
+                className={this.selectExpandedItem(el[0].toLowerCase().replace(/ /g, "-"))}
                 id={el[0].toLowerCase().replace(/ /g, "-")}
               >
-                <h2>{el[0]}</h2>
+                <div className="cat-header">
+                  <h2>{el[0]}</h2>
+                  <button
+                    type="button"
+                    id="toggle-button"
+                    onClick={() => this.expandedState(el)}
+                  >
+                    <img src={dropBtn} alt="dropdown" />
+                  </button>
+                </div>
                 <Category
                   questions={el[1]}
                   change={this.handleChange}

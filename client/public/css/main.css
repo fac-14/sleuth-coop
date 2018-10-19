@@ -690,6 +690,7 @@ img {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 150px;
 }
 .edit-page-container #back-btn {
   position: fixed;
@@ -710,6 +711,7 @@ img {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
   margin-top: 4rem;
 }
 #edit-form fieldset {
@@ -745,9 +747,38 @@ img {
   margin-bottom: 0.5rem;
 }
 
+.cat-header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+#toggle-button {
+  justify-self: flex-end;
+  border: none;
+  background: none;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+#toggle-button:hover {
+  transform: scale(1.1);
+}
+
+#toggle-button:focus {
+  outline: none;
+}
+
 .q-category {
   padding: 1rem;
   width: 90vw;
+  border-bottom: 2px #6ab8af solid;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  max-height: 100px;
+}
+.q-category h2 {
+  margin-bottom: 2rem;
 }
 
 #basic-info-section {
@@ -764,6 +795,10 @@ img {
 }
 #basic-info-section textarea {
   min-width: 60%;
+}
+
+.q-category.expand {
+  max-height: 2000px;
 }
 
 .text-input-section textarea {
