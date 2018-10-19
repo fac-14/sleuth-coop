@@ -4,7 +4,6 @@ import dropBtn from "../../assets/dropdown-arrow.svg";
 export default class BasicInfo extends React.Component {
   render() {
     const profileData = this.props.profileData;
-    console.log(profileData);
     return (
       <div className="q-category" id="basic-id">
         <div className="cat-header">

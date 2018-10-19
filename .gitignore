@@ -66,5 +66,3 @@ typings/
 # dotenv environment variables file
 *.env
 
-# ignore files in src public
-src/public/*

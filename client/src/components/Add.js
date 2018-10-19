@@ -145,14 +145,10 @@ export default class Add extends React.Component {
     const newState = this.state.formState;
     const linkArray = `${description}-${link}`;
     if (!newState[qId]) {
-      console.log("doesn'nt exist, creating...");
       newState[qId] = [linkArray];
     } else {
-      console.log("before: ", newState[qId]);
-      console.log("pushing...");
       newState[qId].push(linkArray);
     }
-    console.log("after: ", newState[qId]);
     this.setState({ formState: newState });
   };
 
@@ -213,7 +209,6 @@ export default class Add extends React.Component {
     if (!this.state.questions) {
       return <h3>Loading...</h3>;
     }
-    // console.log(this.state.basicInfo);
     const { questions, basicInfo } = this.state;
     const categories = Object.entries(questions);
     const url = `/profile/${basicInfo.id}/SME`;
