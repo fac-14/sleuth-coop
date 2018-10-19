@@ -11,9 +11,11 @@ export default class Header extends React.Component {
         <a href={website} target="_blank" rel="noopener noreferrer">
           <h2 id="comp-link">{website}</h2>
         </a>
-        { logo ? <div id="logo-div">
-          <img src={`/static/${logo}`} alt="logo" id="logo-img" />
-        </div> : ""}
+        {logo && !logo.includes("null") ? (
+          <div id="logo-div">
+            <img src={`/static/${logo}`} alt="logo" id="logo-img" />
+          </div>
+        ) : null}
         <ul className="profile-links">
           {categories.map((cat, index) => (
             <li
