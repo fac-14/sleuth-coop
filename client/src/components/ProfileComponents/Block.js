@@ -42,8 +42,10 @@ export default class Block extends React.Component {
             Download
           </button> */}
           <a
-            href={`/download/3-${this.props.answer}`}
-            download
+            href={`/download/${this.props.compId}-${
+              this.props.answer
+            }/download`}
+            download={this.props.answer}
             className="download-badge"
           >
             <div className="icon-wrapper">

@@ -47,10 +47,8 @@ app.get("/smes", smesData.get);
 app.get("/questions", questions.get);
 
 // download route
-app.get("/download/:file", (req, res) => {
-  const { file } = req.params;
-  console.log("FILE", file);
-  const filePath = path.join(__dirname, `${file}`);
+app.get("/download/:file/download", (req, res) => {
+  const filePath = path.join(__dirname, `public/${req.params.file}`);
   res.sendFile(filePath); // Set disposition and send it.
 });
 
