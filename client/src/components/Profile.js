@@ -49,16 +49,15 @@ class Profile extends React.Component {
             editable={this.props.SME}
             logo={basicInfo.logo_url}
             compId={basicInfo.id}
-
           />
           <div className="profile-content-wrapper">
-            <Content answers={answers} about={basicInfo.one_liner} />
             <Contact
               className="contact"
               name={basicInfo.contact_name}
               title={basicInfo.contact_title}
               email={basicInfo.contact_email}
             />
+            <Content answers={answers} about={basicInfo.one_liner} />
           </div>
         </div>
       </React.Fragment>

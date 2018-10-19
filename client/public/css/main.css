@@ -392,13 +392,18 @@ input:focus, textarea:focus {
   line-height: 1.3rem;
 }
 
-.contact {
-  display: inline-block;
+.contact.category {
+  min-height: 20vh;
 }
 .contact .label-text {
+  font-weight: 400;
+  font-size: 1.2rem;
   text-transform: uppercase;
   color: #555561;
-  font-size: 0.75rem;
+  margin: 1.2rem 0 0 0;
+}
+.label-text:first-child {
+  margin: 0;
 }
 
 .vert-center > h2 {
