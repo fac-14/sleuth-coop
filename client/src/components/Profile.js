@@ -62,6 +62,7 @@ class Profile extends React.Component {
               title={basicInfo.contact_title}
               email={basicInfo.contact_email}
             />
+            <Content answers={answers} about={basicInfo.one_liner} />
           </div>
         </div>
       </React.Fragment>

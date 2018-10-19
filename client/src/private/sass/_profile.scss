@@ -112,12 +112,22 @@
 }
 
 .contact {
-  display: inline-block;
+  &.category {
+    min-height: 20vh;
+  }
   .label-text {
+    font-weight: 400;
+    font-size: $mediumish;
     text-transform: uppercase;
     color: $grey1;
-    font-size: $small-medium;
+    margin: $mediumish 0 0 0;
   }
+  .vert-center {
+  }
+}
+
+.label-text:first-child {
+  margin: 0;
 }
 
 .vert-center > h2 {
