@@ -18,7 +18,7 @@ $red1: #801418;
 $white: rgb(255, 255, 255);
 $black: #1d2425;
 
-$js-grey: #ecf0f1;
+$js-grey: hsl(192, 15%, 94%);
 
 // gradient
 $gradient1: linear-gradient(
@@ -33,3 +33,7 @@ $gradient1: linear-gradient(
 $dat-drop-shadow: 0 15px 15px 0 rgba(0, 0, 0, 0.015);
 
 $dat-big-shadow: 5px 5px 15px 0 rgba(0, 0, 0, 0.055);
+
+$dat-long-shadow: inset 0px 17px 40px 0px rgba(0, 0, 0, 0.055);
+
+$dat-light-shadow: 0px -17px 40px 0px rgba(0, 0, 0, 0.055);
