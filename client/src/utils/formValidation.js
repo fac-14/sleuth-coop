@@ -7,7 +7,7 @@ const formValidation = state => {
     // email check
     return emailCheck(state.email);
   } else if (state.position === 1) {
-    return passwordCheck(state.password);
+    return passwordCheck(state.password, state.passwordConfirm);
   } else if (state.position === 2) {
     // name check
     return textCheck(state.name);
@@ -45,8 +45,11 @@ const textCheck = text => {
   return "Invalid entry. Please only use letters, numbers, spaces, dashes and apostrophes.";
 };
 
-const passwordCheck = pw => {
-  if(pw.length > 3){
+const passwordCheck = (pw, confirmation) => {
+  if(pw !== confirmation){
+    return "Passwords do not match."
+  }
+  else if(pw.length > 3){
     return true;
   }
   return "Password too short."
