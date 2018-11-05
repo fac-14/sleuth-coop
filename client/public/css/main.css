@@ -340,8 +340,7 @@ input:focus, textarea:focus {
   margin-bottom: 0.5rem;
   transition: all 0.2s ease-in-out;
 }
-
-.profile-links > li:hover {
+.profile-links li:hover {
   cursor: pointer;
   color: #555561;
   border-radius: 2rem;
@@ -391,19 +390,8 @@ input:focus, textarea:focus {
 .category p {
   line-height: 1.3rem;
 }
-
-.contact.category {
-  min-height: 20vh;
-}
-.contact .label-text {
-  font-weight: 400;
-  font-size: 1.2rem;
-  text-transform: uppercase;
-  color: #555561;
-  margin: 1.2rem 0 0 0;
-}
-.label-text:first-child {
-  margin: 0;
+.category .vert-center {
+  margin-bottom: 1rem;
 }
 
 .vert-center > h2 {
@@ -429,6 +417,20 @@ input:focus, textarea:focus {
   margin-top: 0;
 }
 
+#contact .label-text {
+  font-weight: 400;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  color: #555561;
+  margin: 1.2rem 0 0 0;
+}
+#contact .label-text:first-child {
+  margin: 0;
+}
+#contact .vert-center {
+  margin-bottom: 3rem;
+}
+
 .star-badge {
   display: inline-flex;
   align-items: center;
@@ -444,6 +446,7 @@ input:focus, textarea:focus {
 .star-badge img {
   height: 2rem;
   width: 2rem;
+  max-width: none;
   margin-right: 10px;
 }
 
@@ -455,9 +458,9 @@ input:focus, textarea:focus {
 .download-badge {
   display: inline-flex;
   align-items: center;
-  background-color: #ecf0f1;
+  background-color: #edf1f2;
   border-radius: 40px;
-  color: #ecf0f1;
+  color: #edf1f2;
   font-size: 1.2rem;
   text-decoration: none;
   color: #3c5e5d;
@@ -481,7 +484,7 @@ input:focus, textarea:focus {
   margin: 5px;
   background: #3c5e5d;
   padding: 10px;
-  color: #ecf0f1;
+  color: #edf1f2;
   border-radius: 5px;
 }
 
@@ -585,7 +588,7 @@ img {
   width: 100%;
 }
 .heading-banner h1 {
-  color: #ecf0f1;
+  color: #edf1f2;
   margin-top: 6rem;
   margin-bottom: 2rem;
 }
@@ -621,7 +624,7 @@ img {
   width: 100%;
   padding-top: 4rem;
   padding-bottom: 2rem;
-  color: #ecf0f1;
+  color: #edf1f2;
   text-align: center;
 }
 .discover-header h1 {
@@ -677,7 +680,7 @@ img {
   display: block;
   margin-top: 5px;
   right: 0;
-  background: #ecf0f1;
+  background: #edf1f2;
   transition: width 0.4s ease;
 }
 
@@ -925,7 +928,7 @@ img {
 .save-success .success-header {
   padding: 1.2rem;
   background-color: #3c5e5d;
-  color: #ecf0f1;
+  color: #edf1f2;
   border-radius: 5px;
   border: 1px solid #3c5e5d;
   box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, 0.055);
@@ -1031,7 +1034,7 @@ body {
   font-family: "Quicksand", sans-serif;
   font-size: medium;
   color: #1d2425;
-  background-color: #ecf0f1;
+  background-color: #edf1f2;
   padding: 0.5rem;
 }
 

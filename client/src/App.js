@@ -12,8 +12,8 @@ import LogIn from "./components/LogIn";
 class App extends Component {
   state = {
     response: "",
-    isAuthenticated: false,
-    loaded: false,
+    isAuthenticated: true,
+    loaded: true,
     authId: null
   };
 
@@ -45,6 +45,7 @@ class App extends Component {
   render() {
     const { loaded, isAuthenticated } = this.state;
     if (!loaded) return null;
+    console.log("hi");
     return (
       <Router>
         <React.Fragment>

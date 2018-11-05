@@ -138,7 +138,7 @@ body {
   font-family: "Quicksand", sans-serif;
   font-size: medium;
   color: #1d2425;
-  background-color: #ecf0f1;
+  background-color: #edf1f2;
   padding: 0.5rem;
 }
 
@@ -217,7 +217,7 @@ p {
 }
 
 .colors > li:nth-child(8) {
-  background: #ecf0f1;
+  background: #edf1f2;
   color: #1d2425;
 }
 

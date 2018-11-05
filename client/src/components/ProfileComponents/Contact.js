@@ -4,7 +4,7 @@ export default class Contact extends React.Component {
   render() {
     const { name, title, email } = this.props;
     return (
-      <div className="contact category">
+      <div className="category" id="contact">
         <div className="vert-center">
           <h2>Contact Details</h2>
           <div className="profile-block">
