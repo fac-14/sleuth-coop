@@ -11,6 +11,7 @@ export default class SignUp extends React.Component {
     email: "",
     name: "",
     password: "",
+    passwordConfirm: "",
     jobtitle: "",
     company: "",
     website: "",
@@ -106,18 +107,23 @@ export default class SignUp extends React.Component {
               value={this.state.email}
               validator={this.handleValidation}
               keyHandler={this.handleKey}
+              placeholder="e.g. name@yourcompany.com"
             />
           </div>
           <div id="1" className={this.handleFocus(1)}>
             <SignUpCard
-              inputType="input"
+              inputType="passwordconfirm"
               name="password"
+              confirmName="passwordConfirm"
               type="password"
               text="your password"
               change={this.handleChange}
               value={this.state.password}
+              confirmValue={this.state.passwordConfirm}
               validator={this.handleValidation}
               keyHandler={this.handleKey}
+              placeholder="password here"
+              confirmPlaceholder="confirm password here"
             />
           </div>
           <div id="2" className={this.handleFocus(2)}>

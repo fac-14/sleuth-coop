@@ -45,7 +45,6 @@ class App extends Component {
   render() {
     const { loaded, isAuthenticated } = this.state;
     if (!loaded) return null;
-    console.log("hi");
     return (
       <Router>
         <React.Fragment>
