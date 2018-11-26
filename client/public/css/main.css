@@ -380,6 +380,12 @@ input:focus, textarea:focus {
   box-sizing: border-box;
   padding: 0;
 }
+.profile-content-wrapper .category:nth-child(even) {
+  box-shadow: inset 0px 17px 40px 0px rgba(0, 0, 0, 0.055);
+}
+.profile-content-wrapper .category:nth-child(odd) {
+  box-shadow: 0px -17px 40px 0px rgba(0, 0, 0, 0.055);
+}
 
 .category {
   min-height: 100vh;
@@ -743,6 +749,7 @@ img {
   font-size: 1rem;
   padding: 0.25rem;
   margin: 0.25rem;
+  resize: none;
 }
 #edit-form fieldset h4 {
   font-size: 1.2rem;
