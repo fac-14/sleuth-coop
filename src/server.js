@@ -47,10 +47,9 @@ app.get("/smes", smesData.get);
 app.get("/questions", questions.get);
 
 // download route
-app.get("/download/:file/download", (req, res) => {
-  console.log(req.params.file);
-  const filePath = path.join(__dirname, `public/${req.params.file}`);
-  res.sendFile(filePath); // Set disposition and send it.
+app.get("/download/:compId/:file", (req, res) => {
+  console.log("heyyy guys super cool and im greatt!!");
+  res.sendFile(`${__dirname}/public/${req.params.compId}/${req.params.file}`); // Set disposition and send it.
 });
 
 // Check for authorised cookie

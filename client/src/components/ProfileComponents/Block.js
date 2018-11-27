@@ -38,14 +38,11 @@ export default class Block extends React.Component {
       return (
         <div className={this.props.type + " profile-block"}>
           <h3>{this.props.heading}</h3>
-          {/* <button type="button" onClick={this.download}>
-            Download
-          </button> */}
           <a
-            href={`/download/${this.props.compId}-${
-              this.props.answer
-            }/download`}
-            download={this.props.answer}
+            href={`static/download/${this.props.compId}/${
+              this.props.answer[0]
+            }`}
+            download={this.props.answer[0]}
             className="download-badge"
           >
             <div className="icon-wrapper">
