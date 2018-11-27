@@ -706,6 +706,9 @@ img {
   top: 0;
   left: 0;
 }
+.edit-page-container #back-btn:hover:after {
+  content: "Profile";
+}
 .edit-page-container #help-btn {
   position: fixed;
   top: 0;

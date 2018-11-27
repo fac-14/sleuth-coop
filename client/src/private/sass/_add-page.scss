@@ -7,6 +7,9 @@
     position: fixed;
     top: 0;
     left: 0;
+    &:hover:after {
+      content: "Profile";
+    }
   }
   #help-btn {
     position: fixed;
