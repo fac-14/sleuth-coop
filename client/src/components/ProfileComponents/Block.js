@@ -3,6 +3,10 @@ import download from "../../assets/download.svg";
 import star from "../../assets/star.svg";
 import eyeIcon from "../../assets/Eye button.svg";
 
+let url =
+  process.env.NODE_ENV === "development"
+    ? "http://localhost:5000"
+    : "https://sleuth-sme.herokuapp.com";
 export default class Block extends React.Component {
   // download() {
   //   // fake server request, getting the file url as response
@@ -39,9 +43,11 @@ export default class Block extends React.Component {
         <div className={this.props.type + " profile-block"}>
           <h3>{this.props.heading}</h3>
           <a
-            href={`static/download/${this.props.compId}/${
+            href={`${url}/download/${this.props.compId}/${
               this.props.answer[0]
             }`}
+            target="_blank"
+            rel="noopener noreferrer"
             download={this.props.answer[0]}
             className="download-badge"
           >
