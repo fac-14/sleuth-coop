@@ -2,6 +2,10 @@ const db = require("../db_connection");
 
 const updateBasicInfo = userObj =>
   new Promise((resolve, reject) => {
+    let fileExtension = `${userObj.id}-${userObj.logo_url}`;
+    if (userObj.logo_url.startsWith(`${userObj.id}-`)) {
+      fileExtension = userObj.logo_url;
+    }
     db.query(
       `UPDATE companies SET (user_id, company_name, website, description, contact_name, contact_title, contact_email, logo_url) = ($1, $2, $3, $4, $5, $6, $7, $8) WHERE id=$9`,
       [
@@ -12,14 +16,14 @@ const updateBasicInfo = userObj =>
         userObj.contact_name,
         userObj.contact_title,
         userObj.contact_email,
-        `${userObj.id}-${userObj.logo_url}`,
+        fileExtension,
         userObj.id
       ]
-    );
-  })
-    .then(res => {
-      resolve(res);
-    })
-    .catch(err => reject(err));
+    )
+      .then(res => {
+        resolve(res);
+      })
+      .catch(err => reject(err));
+  });
 
 module.exports = updateBasicInfo;

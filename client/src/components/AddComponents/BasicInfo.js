@@ -92,9 +92,10 @@ export default class BasicInfo extends React.Component {
             className="basic-info"
             type="file"
           />
-          {/* <p>
-            Current File: {basicInfo[profileData.id] ? basicinfo[profileData.id] : "None"}
-          </p> */}
+          <p>
+            Current File:
+            {profileData.logo_url ? profileData.logo_url : "None"}
+          </p>
           {/* <button>
           <img src={arrow} alt="down arrow" />
         </button> */}
