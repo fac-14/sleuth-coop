@@ -68,12 +68,17 @@ $ psql (or pgcli)
 # ALTER DATABASE test_sleuth OWNER TO [your user];
 ```
 
-#### 6. Ensure you have Databases Environment Variables
+#### 6. Add some more Environment Variables
 Create a `config.env` file in the root.
-Add these👇 lines to the file inserting your own psql username and password.
+
+Add these👇 lines to the file, to make your local databases work, inserting your own psql username and password.
 ```
 DB_URL = postgres://[USER]:[PASSWORD]@localhost:5432/sleuth
 TEST_DB_URL = postgres://[USER]:[PASSWORD]@localhost:5432/test_sleuth
+```
+Add a 'Secret' for password encryption.
+```
+SECRET = "[SOMETHING SECRET]"
 ```
 
 #### 7. Build the Database
