@@ -37,6 +37,7 @@ export default class LinkList extends React.Component {
             className={content.id}
             id="description"
             onChange={this.onChange}
+            value={this.state.description}
           />
         </label>
         <label htmlFor="link">
@@ -46,11 +47,16 @@ export default class LinkList extends React.Component {
             className={content.id}
             id="link"
             onChange={this.onChange}
+            value={this.state.link}
           />
         </label>
         <button
-          onClick={() => this.props.getLinks(this.state)}
+          onClick={() => {
+            this.props.getLinks(this.state);
+            this.setState({ description: "", link: "" });
+          }}
           id="add-link-btn"
+          type="submit"
         >
           Add
         </button>

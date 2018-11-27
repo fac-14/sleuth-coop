@@ -80,8 +80,8 @@ INSERT INTO answers (company_id, question_id, answer) VALUES
 Extremely cuuuuuute waggy wags blep bork woofer, very taste wow waggy wags. very taste wow bork blep. shoober pupper smol borking doggo with a long snoot for pats. Doing me a frighten very jealous pupper pats he made many woofs, shoob corgo shooberino heckin good boys, woofer wow very biscit. Long bois he made many woofs long woofer, pupper. Porgo corgo he made many woofs noodle horse the neighborhood pupper, heckin good boys and girls the neighborhood pupper boof. Wow very biscit blop you are doin me a concern many pats such treat shoob what a nice floof, shoober long bois vvv blop pupper. Long doggo extremely cuuuuuute pupper shooberino, extremely cuuuuuute. H*ck pupper doggorino fat boi long doggo, heckin good boys lotsa pats doge.']),
 (1, 11, ARRAY['Jessie Beech from the Council of Fun and Good Vibes is happy to discuss her experience implementing our product. Contact her at jessie-beech@fun_and_good_vibes.com']),
 (1, 12, ARRAY['https://www.youtube.com/embed/YeemJlrNx2Q']),
-(1, 13, ARRAY['test.xlsx']),
-(1, 14, ARRAY['test.xlsx']),
+(1, 13, ARRAY['pairicon.png']),
+(1, 14, ARRAY['pairicon.png']),
 (1, 15, ARRAY['no']),
 (1, 19, ARRAY['https://confluence.atlassian.com/jirasoftware/files/949226697/950287800/4/1527857985277/jira_issue_navigator.png']),
 (1, 21, ARRAY['Linkedin Company Page-https://www.linkedin.com/company/atlassian']);

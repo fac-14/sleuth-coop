@@ -16,7 +16,6 @@ const updateAnswers = async dummyResponse => {
 
 const updateOneAnswer = (questionId, answer, companyId) =>
   new Promise((resolve, reject) => {
-
     const ans = answer;
 
     db.query(

@@ -27,21 +27,21 @@ export default class Add extends React.Component {
   };
 
   selectExpandedItem = elementId => {
-    if(elementId === this.state.expanded){
-      return "q-category expand"
+    if (elementId === this.state.expanded) {
+      return "q-category expand";
     } else {
-      return "q-category"
+      return "q-category";
     }
-  }
+  };
 
-  expandedState = (el) => {
+  expandedState = el => {
     const elementId = el[0].toLowerCase().replace(/ /g, "-");
-    if(this.state.expanded === elementId){
-      this.setState({expanded: ""})
+    if (this.state.expanded === elementId) {
+      this.setState({ expanded: "" });
     } else {
-    this.setState({expanded: elementId})
+      this.setState({ expanded: elementId });
     }
-  }
+  };
 
   componentDidMount() {
     const profile = this.props.location.pathname;
@@ -77,7 +77,7 @@ export default class Add extends React.Component {
   };
 
   handleChange = e => {
-    const questionId = e.target.id;
+    let questionId = e.target.id;
     let answer;
     let file;
     let profileAnswer;
@@ -89,8 +89,12 @@ export default class Add extends React.Component {
         profileAnswer = e.target.value;
       }
     } else {
-      if (e.target.type === "checkbox" && e.target.checked === true) {
-        answer = [e.target.name];
+      if (e.target.type === "checkbox") {
+        if (e.target.checked === true) {
+          answer = [e.target.name];
+        } else {
+          answer = [e.target.value];
+        }
       } else if (e.target.type === "file" && e.target.files[0] !== undefined) {
         answer = [e.target.files[0].name];
         file = e.target.files[0];
@@ -211,7 +215,7 @@ export default class Add extends React.Component {
     }
     const { questions, basicInfo } = this.state;
     const categories = Object.entries(questions);
-    const url = `/profile/${basicInfo.id}/SME`;
+    const url = `/profile/${basicInfo.id}/sme`;
     return (
       <div className="edit-page-container">
         {this.state.save === "yes" ? <SaveSuccess /> : null}
@@ -232,7 +236,9 @@ export default class Add extends React.Component {
             return (
               <div
                 key={index}
-                className={this.selectExpandedItem(el[0].toLowerCase().replace(/ /g, "-"))}
+                className={this.selectExpandedItem(
+                  el[0].toLowerCase().replace(/ /g, "-")
+                )}
                 id={el[0].toLowerCase().replace(/ /g, "-")}
               >
                 <div className="cat-header">

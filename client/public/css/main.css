@@ -701,6 +701,9 @@ img {
   top: 0;
   left: 0;
 }
+.edit-page-container #back-btn:hover:after {
+  content: "Profile";
+}
 .edit-page-container #help-btn {
   position: fixed;
   top: 0;
@@ -744,6 +747,7 @@ img {
   font-size: 1rem;
   padding: 0.25rem;
   margin: 0.25rem;
+  resize: none;
 }
 #edit-form fieldset h4 {
   font-size: 1.2rem;

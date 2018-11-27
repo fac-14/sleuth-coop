@@ -7,24 +7,15 @@
     position: fixed;
     top: 0;
     left: 0;
+    &:hover:after {
+      content: "Profile";
+    }
   }
   #help-btn {
     position: fixed;
     top: 0;
     right: 0;
     transition: transform 0.2s ease;
-    // background-color: $orange1;
-    // margin: $small;
-    // font-family: $main-text;
-    // border-radius: 50px;
-    // font-size: $medium;
-    // padding: $small $medium;
-    // cursor: pointer;
-    // transition: transform 0.2s ease;
-    // &:hover {
-    //   transform: scale(1.1);
-    // }
-    // min-width: 200px;
   }
   #help-btn:hover:after {
     content: "Help";
@@ -62,6 +53,7 @@
       font-size: $medium;
       padding: $smallest;
       margin: $smallest;
+      resize: none;
     }
     h4 {
       font-size: $mediumish;
