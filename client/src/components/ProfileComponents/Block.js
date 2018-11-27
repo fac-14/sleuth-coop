@@ -22,9 +22,10 @@ export default class Block extends React.Component {
   // }
 
   render() {
-    const { type, question } = this.props;
-    if (type === "checkbox" && question !== "Do you collect personal data?") {
-      if (this.props.answer) {
+    const { type } = this.props;
+    if (type === "checkbox") {
+      console.log(this.props.answer);
+      if (this.props.answer[0] === "yes") {
         return (
           <div className="star-badge profile-block">
             <div className="icon-wrapper">
@@ -33,6 +34,8 @@ export default class Block extends React.Component {
             <h3>{this.props.heading}</h3>
           </div>
         );
+      } else {
+        return null;
       }
     } else if (type === "file_upload") {
       return (

@@ -77,7 +77,7 @@ export default class Add extends React.Component {
   };
 
   handleChange = e => {
-    const questionId = e.target.id;
+    let questionId = e.target.id;
     let answer;
     let file;
     let profileAnswer;
@@ -89,8 +89,12 @@ export default class Add extends React.Component {
         profileAnswer = e.target.value;
       }
     } else {
-      if (e.target.type === "checkbox" && e.target.checked === true) {
-        answer = [e.target.name];
+      if (e.target.type === "checkbox") {
+        if (e.target.checked === true) {
+          answer = [e.target.name];
+        } else {
+          answer = [e.target.value];
+        }
       } else if (e.target.type === "file" && e.target.files[0] !== undefined) {
         answer = [e.target.files[0].name];
         file = e.target.files[0];
