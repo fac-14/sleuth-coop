@@ -48,6 +48,7 @@ app.get("/questions", questions.get);
 
 // download route
 app.get("/download/:file/download", (req, res) => {
+  console.log(req.params.file);
   const filePath = path.join(__dirname, `public/${req.params.file}`);
   res.sendFile(filePath); // Set disposition and send it.
 });

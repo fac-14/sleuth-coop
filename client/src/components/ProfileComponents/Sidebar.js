@@ -13,7 +13,7 @@ export default class Header extends React.Component {
         </a>
         {logo && !logo.includes("null") ? (
           <div id="logo-div">
-            <img src={`/static/${logo}`} alt="logo" id="logo-img" />
+            <img src={`/static/${compId}/${logo}`} alt="logo" id="logo-img" />
           </div>
         ) : null}
         <ul className="profile-links">
