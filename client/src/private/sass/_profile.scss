@@ -101,12 +101,6 @@
   margin-left: 30vw;
   box-sizing: border-box;
   padding: 0;
-  .category:nth-child(even) {
-    box-shadow: $dat-long-shadow;
-  }
-  .category:nth-child(odd) {
-    box-shadow: $dat-light-shadow;
-  }
 }
 
 .category {

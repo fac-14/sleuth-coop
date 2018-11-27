@@ -22,7 +22,7 @@ class App extends Component {
     fetch("/auth")
       .then(res => {
         if (res.ok) {
-          console.log("profileId", res);
+          console.log("Authenticated");
         } else {
           console.log("Not authenticated, setting state.");
           if (this.state.isAuthenticated)
@@ -45,7 +45,6 @@ class App extends Component {
   render() {
     const { loaded, isAuthenticated } = this.state;
     if (!loaded) return null;
-    console.log("hi");
     return (
       <Router>
         <React.Fragment>
