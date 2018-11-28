@@ -19,8 +19,11 @@ export default class FileUpload extends React.Component {
           onChange={this.props.onChange}
           className="file-upload-input"
           type="file"
+          accept=".pdf, .csv, application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, text/plain, .doc, .docx"
         />
-        <p>Current File: {answers[content.id] ? answers[content.id] : "None"}</p>
+        <p>
+          Current File: {answers[content.id] ? answers[content.id] : "None"}
+        </p>
       </fieldset>
     );
   }
