@@ -29,6 +29,10 @@ export default class Add extends React.Component {
   selectExpandedItem = elementId => {
     if (elementId === this.state.expanded) {
       return "q-category expand";
+    }
+    if (elementId === "basic-info") {
+      document.getElementById("basic-id").classList.toggle("expand");
+      this.setState({ expanded: "" });
     } else {
       return "q-category";
     }
@@ -40,6 +44,7 @@ export default class Add extends React.Component {
       this.setState({ expanded: "" });
     } else {
       this.setState({ expanded: elementId });
+      document.getElementById("basic-id").classList.remove("expand");
     }
   };
 
@@ -230,6 +235,7 @@ export default class Add extends React.Component {
           <BasicInfo
             onChange={this.handleChange}
             profileData={this.state.basicInfo}
+            expand={this.selectExpandedItem}
           />
 
           {categories.map((el, index) => {
