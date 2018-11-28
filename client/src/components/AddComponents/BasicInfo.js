@@ -11,17 +11,12 @@ export default class BasicInfo extends React.Component {
           <button
             type="button"
             id="toggle-button"
-            onClick={() => {
-              document.getElementById("basic-id").classList.toggle("expand");
-            }}
+            onClick={() => this.props.expand("basic-info")}
           >
             <img src={dropBtn} alt="dropdown" />
           </button>
         </div>
         <fieldset id="basic-info-section">
-          {/* <legend>
-            <h2>Basic Info</h2>
-          </legend> */}
           <label htmlFor="basic-info">
             <h4 id="basic-first">Company Name:</h4>
           </label>
@@ -32,6 +27,7 @@ export default class BasicInfo extends React.Component {
             type="text"
             value={profileData.company_name}
           />
+
           <label htmlFor="basic-info">
             <h4>Website:</h4>
           </label>
@@ -42,6 +38,7 @@ export default class BasicInfo extends React.Component {
             type="text"
             value={profileData.website}
           />
+
           <label htmlFor="basic-info">
             <h4>Contact Name:</h4>
           </label>
@@ -52,6 +49,7 @@ export default class BasicInfo extends React.Component {
             type="text"
             value={profileData.contact_name}
           />
+
           <label htmlFor="basic-info">
             <h4>Contact Title:</h4>
           </label>
@@ -62,6 +60,7 @@ export default class BasicInfo extends React.Component {
             type="text"
             value={profileData.contact_title}
           />
+
           <label htmlFor="basic-info">
             <h4>Contact Email:</h4>
           </label>
@@ -72,6 +71,7 @@ export default class BasicInfo extends React.Component {
             type="text"
             value={profileData.contact_email}
           />
+
           <label htmlFor="basic-info">
             <h4>Company Description:</h4>
           </label>
@@ -83,6 +83,7 @@ export default class BasicInfo extends React.Component {
             value={profileData.description}
             rows="5"
           />
+
           <label htmlFor="basic-info">
             <h4>Logo:</h4>
           </label>
@@ -96,17 +97,8 @@ export default class BasicInfo extends React.Component {
             Current File:
             {profileData.logo_url ? profileData.logo_url : "None"}
           </p>
-          {/* <button>
-          <img src={arrow} alt="down arrow" />
-        </button> */}
         </fieldset>
       </div>
     );
-
-    // return (
-    //   <React.Fragment>
-    //     <p>hello</p>
-    //   </React.Fragment>
-    // );
   }
 }
