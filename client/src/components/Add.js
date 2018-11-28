@@ -39,7 +39,6 @@ export default class Add extends React.Component {
   };
 
   expandedState = el => {
-    console.log("state2 =", this.state.expanded);
     const elementId = el[0].toLowerCase().replace(/ /g, "-");
     if (this.state.expanded === elementId) {
       this.setState({ expanded: "" });
