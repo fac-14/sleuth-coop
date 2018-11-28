@@ -18,7 +18,9 @@ export default class CheckBox extends React.Component {
             type="checkbox"
             name="yes"
             value="no"
-            checked={answers[content.id][0] === "yes"}
+            checked={
+              answers[content.id] ? answers[content.id][0] === "yes" : null
+            }
           />
         </label>
       </fieldset>
