@@ -91,6 +91,7 @@ export default class BasicInfo extends React.Component {
             onChange={this.props.onChange}
             className="basic-info"
             type="file"
+            accept="image/*"
           />
           <p>
             Current File:
