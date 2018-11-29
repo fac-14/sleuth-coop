@@ -73,7 +73,7 @@ Create a `config.env` file in the root.
 
 Add these👇 lines to the file, to make your local databases work, inserting your own psql username and password.
 ```
-DB_URL = postgres://[USER]:[PASSWORD]@localhost:5432/sleuth
+DATABASE_URL = postgres://[USER]:[PASSWORD]@localhost:5432/sleuth
 TEST_DB_URL = postgres://[USER]:[PASSWORD]@localhost:5432/test_sleuth
 ```
 Add a 'Secret' for password encryption.
