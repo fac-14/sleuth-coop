@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=K2D:100,200,300,400,500,600,700,800|Quicksand:300,400,500,700|Roboto:100,100i,300,400,500,700,900");
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
@@ -820,16 +819,28 @@ img {
 .dropdown-section .dropdown-selected {
   display: flex;
   flex-wrap: wrap;
+  margin-bottom: 0.25rem;
 }
 .dropdown-section .dropdown-selected li {
-  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  padding: 0.25rem 0.25rem 0.25rem 0.5rem;
   background-color: #6ab8af;
   color: white;
   margin: 0.25rem;
   border-radius: 5px;
+  cursor: pointer;
 }
-.dropdown-section .dropdown-selected li::after {
-  content: " ✕";
+.dropdown-section .dropdown-selected li:hover #cross-icon {
+  transform: scale(1.1);
+  border: solid 1px #3c5e5d;
+}
+.dropdown-section .dropdown-selected li #cross-icon {
+  width: 25px;
+  height: 25px;
+  margin: 0.25rem 0.25rem 0.25rem 0.5rem;
+  border-radius: 50%;
+  transition: transform 0.2s ease;
 }
 .dropdown-section .dropdown-btn {
   background-color: #3c5e5d;
@@ -887,10 +898,27 @@ img {
   margin: 0.5rem 0 1rem 0;
 }
 .link-section #add-link-list li {
-  padding: 0.25rem;
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  max-width: 100%;
+  padding: 0.25rem 0.25rem 0.25rem 0.5rem;
+  background-color: #6ab8af;
+  color: white;
+  margin: 0.25rem;
+  border-radius: 5px;
+  cursor: pointer;
 }
-.link-section #add-link-list li:after {
-  content: " ✕";
+.link-section #add-link-list li:hover #cross-icon {
+  transform: scale(1.1);
+  border: solid 1px #3c5e5d;
+}
+.link-section #add-link-list li #cross-icon {
+  width: 25px;
+  height: 25px;
+  margin: 0.25rem 0.25rem 0.25rem 0.5rem;
+  border-radius: 50%;
+  transition: transform 0.2s ease;
 }
 .link-section #add-link-btn {
   padding: 0.25rem 0.5rem;

@@ -111,7 +111,7 @@ export default class Block extends React.Component {
                   rel="noopener noreferrer"
                   target="_blank"
                 >
-                  <p>{el.split("-")[0]}</p>
+                  <p>{el.split(":-:")[0]}</p>
                 </a>
               </div>
             );
