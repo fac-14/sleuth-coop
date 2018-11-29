@@ -29,8 +29,7 @@ export default class LinkList extends React.Component {
                 className={content.id}
                 key={index}
                 onClick={() => this.props.removeLinks(this.state.qId, index)}
-                value={`${link.split("-")[0]} - ${link.split("-")[1]}`}
-              >{`${link.split("-")[0]} - ${link.split("-")[1]}`}</li>
+              >{`${link.split(":-:")[0]} - ${link.split(":-:")[1]}`}</li>
             );
           })}
         </ul>

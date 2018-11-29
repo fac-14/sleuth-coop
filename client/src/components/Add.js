@@ -152,7 +152,7 @@ export default class Add extends React.Component {
   getLinks = linkState => {
     const { qId, description, link } = linkState;
     const newState = this.state.formState;
-    const linkArray = `${description}-${link}`;
+    const linkArray = `${description}:-:${link}`;
     if (!newState[qId]) {
       newState[qId] = [linkArray];
     } else {
