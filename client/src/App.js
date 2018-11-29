@@ -72,7 +72,15 @@ class App extends Component {
           <Route
             exact={true}
             path="/profile/:id/add"
-            render={props => <Add {...props} />}
+            render={props => {
+              return isAuthenticated ? (
+                <Add {...props} />
+              ) : (
+                <Redirect
+                  to={{ pathname: "/login", state: { from: props.location } }}
+                />
+              );
+            }}
           />
           <Route exact={true} path="/find" component={Discovery} />
           <Route exact={true} path="/login" component={LogIn} />
