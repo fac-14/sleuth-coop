@@ -11,7 +11,7 @@ export default class LogIn extends React.Component {
     allowFetchSubmit: false
   };
 
-  /* 
+  /*
   Possible functions:
     sanitiseInputs() // to remove any "illegal" characters from email and pw inputs
     handleBackendValidation // likely not necessary and implemented as part of the fetch
@@ -112,6 +112,8 @@ export default class LogIn extends React.Component {
             type="email"
             onBlur={this.checkEmailValid}
             required
+            autocomplete="on"
+            x-autocompletetype="email"
           />
           <label htmlFor="password">
             <h3>Password</h3>
