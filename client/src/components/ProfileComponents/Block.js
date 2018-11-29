@@ -28,7 +28,6 @@ export default class Block extends React.Component {
   render() {
     const { type } = this.props;
     if (type === "checkbox") {
-      console.log(this.props.answer);
       if (this.props.answer[0] === "yes") {
         return (
           <div className="star-badge profile-block">

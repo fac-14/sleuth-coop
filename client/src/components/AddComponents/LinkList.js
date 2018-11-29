@@ -4,7 +4,8 @@ export default class LinkList extends React.Component {
   state = {
     qId: this.props.content.id,
     description: "",
-    link: ""
+    link: "",
+    remove: ""
   };
 
   onChange = e => {
@@ -24,9 +25,12 @@ export default class LinkList extends React.Component {
         <ul id="add-link-list">
           {selected.map((link, index) => {
             return (
-              <li key={index}>{`${link.split("-")[0]} - ${
-                link.split("-")[1]
-              }`}</li>
+              <li
+                className={content.id}
+                key={index}
+                onClick={() => this.props.removeLinks(this.state.qId, index)}
+                value={`${link.split("-")[0]} - ${link.split("-")[1]}`}
+              >{`${link.split("-")[0]} - ${link.split("-")[1]}`}</li>
             );
           })}
         </ul>
@@ -56,7 +60,7 @@ export default class LinkList extends React.Component {
             this.setState({ description: "", link: "" });
           }}
           id="add-link-btn"
-          type="submit"
+          type="button"
         >
           Add
         </button>

@@ -145,16 +145,9 @@
       color: $white;
       margin: $smallest;
       border-radius: 5px;
-      // .close-icon {
-      //   width: 15px;
-      //   margin: 0;
-      // }
     }
     li::after {
       content: " \2715";
-      // background-image: url(../../assets/closebtn.png);
-      // width: 30px;
-      // height: 30px;
     }
   }
   .dropdown-btn {
@@ -217,6 +210,9 @@
     margin: $small 0 $medium 0;
     li {
       padding: $smallest;
+      &:after {
+        content: " \2715";
+      }
     }
   }
   #add-link-btn {

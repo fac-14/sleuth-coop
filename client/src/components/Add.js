@@ -161,6 +161,12 @@ export default class Add extends React.Component {
     this.setState({ formState: newState });
   };
 
+  removeLinks = (qId, linkNum) => {
+    const state = this.state.formState;
+    state[qId].splice(linkNum, 1);
+    this.setState({ formstate: state });
+  };
+
   handleSubmit = e => {
     e.preventDefault();
     const data = new FormData();
@@ -263,6 +269,7 @@ export default class Add extends React.Component {
                   dropdownSelect={this.dropdownSelect}
                   dropdownRemove={this.dropdownRemove}
                   getLinks={this.getLinks}
+                  removeLinks={this.removeLinks}
                   state={this.state}
                   alreadyAnswered={this.alreadyAnswered}
                 />

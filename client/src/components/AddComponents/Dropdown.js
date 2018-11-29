@@ -30,7 +30,9 @@ export default class Dropdown extends React.Component {
 
         <h5>Select Options:</h5>
         <div className="dropdown">
-          <button className="dropdown-btn">Select here</button>
+          <button className="dropdown-btn" type="button">
+            Select here
+          </button>
           <ul className="select-items">
             {options.map((item, index) => {
               return (

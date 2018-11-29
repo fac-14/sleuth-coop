@@ -889,6 +889,9 @@ img {
 .link-section #add-link-list li {
   padding: 0.25rem;
 }
+.link-section #add-link-list li:after {
+  content: " ✕";
+}
 .link-section #add-link-btn {
   padding: 0.25rem 0.5rem;
   font-family: "Quicksand", sans-serif;
