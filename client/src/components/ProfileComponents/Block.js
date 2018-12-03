@@ -120,12 +120,19 @@ export default class Block extends React.Component {
         </div>
       );
     } else {
+      if(this.props.answer[0] === "") {
+        return (
+          ""
+        //  <h3>hello world </h3>
+       )
+       } else{
       return (
         <div className={this.props.type + " profile-block"}>
           <h3>{this.props.heading}</h3>
           <p>{this.props.answer}</p>
         </div>
       );
+     }
     }
   }
 }
