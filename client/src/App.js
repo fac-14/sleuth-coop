@@ -19,31 +19,24 @@ class App extends Component {
 
   componentDidMount() {
     this.authenticate();
+  }
+
+  authenticate() {
     fetch("/auth")
       .then(res => {
         if (res.ok) {
-          console.log("Authenticated");
+          res.json().then(userId => this.setState({ authId: userId }));
         } else {
           console.log("Not authenticated, setting state.");
           if (this.state.isAuthenticated)
             this.setState({ isAuthenticated: false });
         }
       })
-      .catch(e => {
-        console.log(e);
-      });
-  }
-
-  authenticate() {
-    fetch("/auth")
-      .then(res => {
-        this.setState({ loaded: true, isAuthenticated: true });
-      })
-      .catch(e => console.log(e));
+      .catch(err => console.log(err));
   }
 
   render() {
-    const { loaded, isAuthenticated } = this.state;
+    const { loaded, isAuthenticated, authId } = this.state;
     if (!loaded) return null;
     return (
       <Router>
@@ -60,26 +53,31 @@ class App extends Component {
             exact={true}
             path="/profile/:id/sme"
             render={props => {
-              return isAuthenticated ? (
-                <Profile {...props} SME={true} />
-              ) : (
-                <Redirect
-                  to={{ pathname: "/login", state: { from: props.location } }}
-                />
-              );
+              if (isAuthenticated) {
+                return <Profile {...props} SME={true} />;
+              } else {
+                return (
+                  <Redirect
+                    to={{ pathname: "/login", state: { from: props.location } }}
+                  />
+                );
+              }
             }}
           />
           <Route
             exact={true}
             path="/profile/:id/add"
             render={props => {
-              return isAuthenticated ? (
-                <Add {...props} />
-              ) : (
-                <Redirect
-                  to={{ pathname: "/login", state: { from: props.location } }}
-                />
-              );
+              if (isAuthenticated && Number(props.match.params.id) === authId) {
+                console.log(props.match.params.id === authId);
+                return <Add {...props} />;
+              } else {
+                return (
+                  <Redirect
+                    to={{ pathname: "/login", state: { from: props.location } }}
+                  />
+                );
+              }
             }}
           />
           <Route exact={true} path="/find" component={Discovery} />

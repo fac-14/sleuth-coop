@@ -10,7 +10,8 @@ exports.post = (req, res) => {
         const payload = {
           id: userId
         }; //Create JWT payload
-
+        req.session.loggedIn = true;
+        req.session.profileId = userId;
         jwt.sign(
           payload,
           process.env.SECRET,
@@ -18,7 +19,8 @@ exports.post = (req, res) => {
           (err, token) => {
             res.json({
               success: true,
-              token: "Bearer " + token
+              token: "Bearer " + token,
+              userId
             });
           }
         );

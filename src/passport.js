@@ -10,6 +10,7 @@ const opts = {
 module.exports = passport => {
   passport.use(
     new JwtStrategy(opts, (jwt_payload, done) => {
+      console.log("hello");
       getCompanyInfo(jwt_payload.id)
         .then(company => {
           if (company) {

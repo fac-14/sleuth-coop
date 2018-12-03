@@ -57,13 +57,16 @@ export default class LogIn extends React.Component {
         .then(res => res.json())
         .then(res => {
           // if returning id, user is auth - redirect
-          if (typeof res === "number") {
-            return (window.location = `/profile/${res}/sme`);
+          if (typeof res.ok) {
+            localStorage.setItem("jwt", res.token);
+            return (window.location = `/profile/${res.userId}/sme`);
           } else {
-            this.setState({ serverError: res });
+            this.setState({
+              serverError: "Something went wrong on the server. Try again later"
+            });
           }
         })
-        .catch(e => console.log(e));
+        .catch(err => console.log(err));
 
       this.setState({
         password: ""
@@ -112,7 +115,7 @@ export default class LogIn extends React.Component {
             type="email"
             onBlur={this.checkEmailValid}
             required
-            autocomplete="on"
+            autoComplete="on"
             x-autocompletetype="email"
           />
           <label htmlFor="password">

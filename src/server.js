@@ -19,6 +19,7 @@ const isAuth = require("./isAuth");
 const app = express();
 const port = process.env.PORT || 5000;
 
+if (!process.env.SECRET) throw new Error("cant find the secret! server.js");
 // Passport middleware
 
 app.use(passport.initialize());
@@ -29,6 +30,7 @@ require("./passport")(passport);
 /////Express sessions: to be superceeded
 app.use(
   session({
+    name: "session",
     secret: process.env.SECRET,
     resave: false,
     saveUnitialized: true,
@@ -75,9 +77,21 @@ app.post("/signup", signup.post);
 app.post("/login-check", logincheck.post);
 
 // Update profile info routes
-app.post("/upload", updateInfo.post);
-app.post("/upload-files", uploadFiles.post);
-app.post("/updateBasicInfo", updateBasicInfo.post);
+app.post(
+  "/upload",
+  passport.authenticate("jwt", { session: false }),
+  updateInfo.post
+);
+app.post(
+  "/upload-files",
+  passport.authenticate("jwt", { session: false }),
+  uploadFiles.post
+);
+app.post(
+  "/updateBasicInfo",
+  passport.authenticate("jwt", { session: false }),
+  updateBasicInfo.post
+);
 
 if (process.env.NODE_ENV === "production") {
   // serve any static files
