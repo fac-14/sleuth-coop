@@ -3,7 +3,6 @@ import Block from "./Block";
 export default class Content extends React.Component {
   render() {
     const categories = Object.entries(this.props.answers);
-    console.log('SANGITA categoires=', categories);
     return (
       <React.Fragment>
         {categories.map((el, index) => {
