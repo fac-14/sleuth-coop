@@ -65,6 +65,7 @@ export default class Category extends React.Component {
                 key={index}
                 content={el}
                 getLinks={this.props.getLinks}
+                removeLinks={this.props.removeLinks}
                 answers={this.props.state.formState}
               />
             );

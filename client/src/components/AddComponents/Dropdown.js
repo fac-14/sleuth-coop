@@ -1,4 +1,5 @@
 import React from "react";
+import crossIcon from "../../assets/close-icon.svg";
 
 export default class Dropdown extends React.Component {
   render() {
@@ -21,6 +22,7 @@ export default class Dropdown extends React.Component {
                     onClick={this.props.dropdownRemove}
                   >
                     {item}
+                    <img id="cross-icon" src={crossIcon} alt="question mark" />
                   </li>
                 );
               })}
@@ -30,7 +32,9 @@ export default class Dropdown extends React.Component {
 
         <h5>Select Options:</h5>
         <div className="dropdown">
-          <button className="dropdown-btn">Select here</button>
+          <button className="dropdown-btn" type="button">
+            Select here
+          </button>
           <ul className="select-items">
             {options.map((item, index) => {
               return (
