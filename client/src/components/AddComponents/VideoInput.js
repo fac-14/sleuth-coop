@@ -14,6 +14,7 @@ export default class VideoInput extends React.Component {
           onChange={this.props.onChange}
           className="file-upload-input video"
           type="text"
+          pattern="(?:https?:\/\/)?(?:youtu\.be\/|(?:www\.|m\.)?youtube\.com\/(?:watch|v|embed)(?:\.php)?(?:\?.*v=|\/))([a-zA-Z0-9\-_]+)"
         />
       </fieldset>
     );

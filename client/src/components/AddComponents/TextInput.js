@@ -8,7 +8,7 @@ export default class TextInput extends React.Component {
       <fieldset className="text-input-section">
         <label htmlFor={content.id}>
           <h4>{content.question}</h4>
-          <p>{content.helper_text}</p>
+          <p>{content.helper_text} (max. length 3000 characters) </p>
         </label>
         {/* <button>
           <img src={arrow} alt="down arrow" />
@@ -21,6 +21,7 @@ export default class TextInput extends React.Component {
           type="text"
           rows="5"
           value={answers[content.id] ? answers[content.id] : ""}
+          maxLength="3000"
         />
         {/* <input
           id={content.id}
