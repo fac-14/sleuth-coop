@@ -1,10 +1,12 @@
 import React from "react";
+import crossIcon from "../../assets/close-icon.svg";
 
 export default class LinkList extends React.Component {
   state = {
     qId: this.props.content.id,
     description: "",
-    link: ""
+    link: "",
+    remove: ""
   };
 
   onChange = e => {
@@ -24,9 +26,14 @@ export default class LinkList extends React.Component {
         <ul id="add-link-list">
           {selected.map((link, index) => {
             return (
-              <li key={index}>{`${link.split("-")[0]} - ${
-                link.split("-")[1]
-              }`}</li>
+              <li
+                className={content.id}
+                key={index}
+                onClick={() => this.props.removeLinks(this.state.qId, index)}
+              >
+                {`${link.split(":-:")[0]} - ${link.split(":-:")[1]}`}
+                <img id="cross-icon" src={crossIcon} alt="question mark" />
+              </li>
             );
           })}
         </ul>
@@ -56,7 +63,7 @@ export default class LinkList extends React.Component {
             this.setState({ description: "", link: "" });
           }}
           id="add-link-btn"
-          type="submit"
+          type="button"
         >
           Add
         </button>

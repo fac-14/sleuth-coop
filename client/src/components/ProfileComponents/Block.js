@@ -28,7 +28,6 @@ export default class Block extends React.Component {
   render() {
     const { type } = this.props;
     if (type === "checkbox") {
-      console.log(this.props.answer);
       if (this.props.answer[0] === "yes") {
         return (
           <div className="star-badge profile-block">
@@ -108,11 +107,11 @@ export default class Block extends React.Component {
               <div id="links" key={index}>
                 <img id="eye-icon" src={eyeIcon} alt="question mark" />
                 <a
-                  href={el.split("-")[1]}
+                  href={el.split(":-:")[1]}
                   rel="noopener noreferrer"
                   target="_blank"
                 >
-                  <p>{el.split("-")[0]}</p>
+                  <p>{el.split(":-:")[0]}</p>
                 </a>
               </div>
             );
