@@ -127,7 +127,7 @@ export default class Block extends React.Component {
         </div>
       );
     } else {
-      if(this.props.answer[0] === "") {
+      if(this.props.answer[0].trim() === "") {
         return (
           ""
        )
