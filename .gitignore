@@ -66,3 +66,11 @@ typings/
 # dotenv environment variables file
 *.env
 
+# sass cache
+
+/.sass-cache
+.sass-cache
+
+# public folder with user login downloaded files
+src/public
+

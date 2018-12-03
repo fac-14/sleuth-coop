@@ -2,7 +2,7 @@ import React from "react";
 
 export default class VideoInput extends React.Component {
   render() {
-    const { content } = this.props;
+    const { content, answers } = this.props;
     return (
       <fieldset className="video-add">
         <label htmlFor={content.id}>
@@ -16,6 +16,9 @@ export default class VideoInput extends React.Component {
           type="text"
           pattern="(?:https?:\/\/)?(?:youtu\.be\/|(?:www\.|m\.)?youtube\.com\/(?:watch|v|embed)(?:\.php)?(?:\?.*v=|\/))([a-zA-Z0-9\-_]+)"
         />
+        <p>
+          Current Link: {answers[content.id] ? answers[content.id] : "None"}
+        </p>
       </fieldset>
     );
   }
