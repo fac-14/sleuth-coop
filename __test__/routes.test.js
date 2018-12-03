@@ -45,20 +45,20 @@ describe("POST /signup", () => {
   });
 });
 
-describe("POST /upload", () => {
-  test("upload does something", done => {
-    Supertest(app)
-      .post("/upload")
-      .send(testSubmit)
-      .set("Accept", "application/json")
-      .set("Referer", "http://localhost:3000/profile/1/add")
-      .expect(200)
-      .then(res => {
-        expect(res.status).toBe(200);
-        done();
-      });
-  });
-});
+// describe("POST /upload", () => {
+//   test("upload does something", done => {
+//     Supertest(app)
+//       .post("/upload")
+//       .send(testSubmit)
+//       .set("Accept", "application/json")
+//       .set("Referer", "http://localhost:3000/profile/1/add")
+//       .expect(200)
+//       .then(res => {
+//         expect(res.status).toBe(200);
+//         done();
+//       });
+//   });
+// });
 
 const testState = {
   email: "test@test.com",
