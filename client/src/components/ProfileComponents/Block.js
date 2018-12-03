@@ -83,11 +83,18 @@ export default class Block extends React.Component {
         </div>
       );
     } else if (type === "dropdown") {
-      return (
+      
+        if(this.props.answer.length === 0){
+          return (
+            ""
+          )
+        } else {
+          return (
         <div className="tagged-list profile-block">
+        
           <h3>{this.props.heading}</h3>
           <ul>
-            {this.props.answer.map((el, index) => {
+            {this.props.answer.map((el, index) => { 
               return (
                 <li key={index} className="tag">
                   {el}
@@ -97,6 +104,7 @@ export default class Block extends React.Component {
           </ul>
         </div>
       );
+    }
     } else if (type === "url_inputs") {
       return (
         <div className="link-list profile-block">
