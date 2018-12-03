@@ -2,7 +2,6 @@ const { checkPassword } = require("./database/queries/index");
 const jwt = require("jsonwebtoken");
 
 exports.post = (req, res) => {
-  console.log(req.body);
   // need to create this function!
   checkPassword(req.body)
     .then(userId => {

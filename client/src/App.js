@@ -69,7 +69,6 @@ class App extends Component {
             path="/profile/:id/add"
             render={props => {
               if (isAuthenticated && Number(props.match.params.id) === authId) {
-                console.log(props.match.params.id === authId);
                 return <Add {...props} />;
               } else {
                 return (
