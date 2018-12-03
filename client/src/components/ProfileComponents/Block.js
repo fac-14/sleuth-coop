@@ -122,7 +122,6 @@ export default class Block extends React.Component {
       if(this.props.answer[0] === "") {
         return (
           ""
-        //  <h3>hello world </h3>
        )
        } else{
       return (
