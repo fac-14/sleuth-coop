@@ -10,15 +10,16 @@ const opts = {
 module.exports = passport => {
   passport.use(
     new JwtStrategy(opts, (jwt_payload, done) => {
-      console.log("hello");
-      getCompanyInfo(jwt_payload.id)
+      console.log(jwt_payload.id);
+      getCompanyInfo(Number(jwt_payload.id))
         .then(company => {
-          if (company) {
+          if (company[0].id === jwt_payload.id) {
+            console.log("passport is working bae!!!");
             return done(null, company);
           }
           return done(null, false);
         })
-        .catch(err => console.log(err));
+        .catch(err => console.log("JwtStrategy Error:" + err));
     })
   );
 };

@@ -79,7 +79,7 @@ app.post("/login-check", logincheck.post);
 // Update profile info routes
 app.post(
   "/upload",
-  // passport.authenticate("jwt", { session: false }),
+  passport.authenticate("jwt", { session: false }),
   updateInfo.post
 );
 app.post(
@@ -89,7 +89,7 @@ app.post(
 );
 app.post(
   "/updateBasicInfo",
-  // passport.authenticate("jwt", { session: false }),
+  passport.authenticate("jwt", { session: false }),
   updateBasicInfo.post
 );
 
