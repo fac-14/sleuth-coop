@@ -176,14 +176,16 @@ export default class Add extends React.Component {
     }
     fetch("/upload-files", {
       method: "POST",
-      body: data
+      body: data,
+      Authorization: localStorage.getItem("jwt")
     })
       .catch(err => console.log(err))
       .then(
         fetch("/upload", {
           headers: {
             Accept: "application/json",
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            Authorization: localStorage.getItem("jwt")
           },
           method: "POST",
           body: JSON.stringify(this.state.formState)
@@ -194,7 +196,8 @@ export default class Add extends React.Component {
         fetch("/updateBasicInfo", {
           headers: {
             Accept: "application/json",
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            Authorization: localStorage.getItem("jwt")
           },
           method: "POST",
           body: JSON.stringify(this.state.basicInfo)
