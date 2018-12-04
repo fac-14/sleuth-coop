@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=K2D:100,200,300,400,500,600,700,800|Quicksand:300,400,500,700|Roboto:100,100i,300,400,500,700,900");
-/* http://meyerweb.com/eric/tools/css/reset/ 
+/* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
 */
@@ -352,6 +352,20 @@ input:focus, textarea:focus {
   max-width: 28vw;
 }
 
+#change-status-btn {
+  background: #ff9999;
+  color: white;
+  border: 2px solid white;
+  font-size: 1rem;
+  padding: 5px 15px 5px 5px;
+  display: block;
+  border-radius: 20px;
+  font-family: "Quicksand", sans-serif;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 15px 15px 0 rgba(0, 0, 0, 0.015);
+  max-width: 28vw
+}
 #add-content-btn {
   background: #555561;
   color: white;

@@ -20,11 +20,12 @@ CREATE TABLE companies (
   contact_name VARCHAR(100) NOT NULL,
   contact_title VARCHAR(100) NOT NULL,
   contact_email VARCHAR(100) NOT NULL,
-  logo_url VARCHAR(100)
+  logo_url VARCHAR(100),
+  deleted INTEGER
 );
 
-INSERT INTO companies (user_id, company_name, website, description, contact_name, contact_title, contact_email) VALUES
-(1, 'Senzing', 'http://www.senzing.com', 'Super duper fancy technological solution that in some way is relevant for local government but we don''t know how or why', 'Jessie Beech', 'Head of Fun', 'senzing@senzing.com');
+INSERT INTO companies (user_id, company_name, website, description, contact_name, contact_title, contact_email, deleted) VALUES
+(1, 'Senzing', 'http://www.senzing.com', 'Super duper fancy technological solution that in some way is relevant for local government but we don''t know how or why', 'Jessie Beech', 'Head of Fun', 'senzing@senzing.com', 0);
 
 CREATE TABLE questions (
   id SERIAL PRIMARY KEY,
@@ -65,7 +66,7 @@ CREATE TABLE answers (
   answer TEXT [] NOT NULL
 );
 
-INSERT INTO answers (company_id, question_id, answer) VALUES 
+INSERT INTO answers (company_id, question_id, answer) VALUES
 (1, 1, ARRAY['We are useful because... Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking monstra adventus resi dentevil vultus comedat cerebella viventium. Qui animated corpse, cricket bat max brucks terribilem incessu zomby. The voodoo sacerdos flesh eater, suscitat mortuos comedere carnem virus. Zonbi tattered for solum oculi eorum defunctis go lum cerebro.']),
 (1, 2, ARRAY['https://www.youtube.com/embed/sGdVEbHTI1A']),
 (1, 3, ARRAY['yes']),

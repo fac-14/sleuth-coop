@@ -16,6 +16,8 @@ const signup = require("./signup");
 const logincheck = require("./logincheck");
 const logout = require("./logout");
 const isAuth = require("./isAuth");
+const updateDelete = require("./updateDelete");
+const getStatus = require("./getStatus");
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -45,16 +47,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(fileUpload());
 
-app.get(
-  "/test",
-  passport.authenticate("jwt", { session: false }),
-  (req, res) => {
-    res.json({
-      id: req.user[0].id,
-      email: req.user[0].email
-    });
-  }
-);
 // Serve image files e.g. logos from public file
 app.use("/static", express.static(path.join(__dirname, "./public")));
 
@@ -80,6 +72,17 @@ app.post("/login-check", logincheck.post);
 //logout - removes the cookie sessions
 app.post("/logout", logout.post);
 
+// PROTECTED ROUTES >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+//delete - changes the delete status, to hide or show a company.
+app.post(
+  "/delete",
+  // passport.authenticate("jwt", { session: false }),
+  updateDelete.post
+);
+
+// getStatus - retrieves the status of the company so the deactivate/reactiviate button is shown correctly
+// app.post("/getStatus", getStatus.post);
+
 // Update profile info routes
 app.post(
   "/upload",
@@ -96,6 +99,7 @@ app.post(
   passport.authenticate("jwt", { session: false }),
   updateBasicInfo.post
 );
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 if (process.env.NODE_ENV === "production") {
   // serve any static files
