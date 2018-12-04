@@ -3,7 +3,6 @@ import Block from "./Block";
 export default class Content extends React.Component {
   render() {
     const categories = Object.entries(this.props.answers);
-
     return (
       <React.Fragment>
         {categories.map((el, index) => {
@@ -25,6 +24,7 @@ export default class Content extends React.Component {
                       compId={this.props.compId}
                     />
                   );
+                
                 })}
               </div>
             </div>

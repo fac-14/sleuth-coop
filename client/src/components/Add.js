@@ -139,8 +139,13 @@ export default class Add extends React.Component {
   };
 
   dropdownRemove = e => {
-    const questionId = e.target.className;
-    const selected = e.target.textContent;
+    let target = ''; 
+    //with the addition of cross image when cross image is clicked e.target was selecting <img> and 
+    //this code will work for the containing element <li> so this ternary will set the target value
+    //to <li> if cross is clicked <img>
+    if(e.target.tagName === 'LI'? target = e.target: target = e.currentTarget);
+    const questionId = target.className; 
+    const selected = target.textContent; 
     const state = this.state.formState;
     if (state[questionId].includes(selected)) {
       const index = state[questionId].indexOf(selected);
