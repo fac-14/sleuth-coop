@@ -14,6 +14,7 @@ const updateBasicInfo = require("./updateBasicInfo");
 const questions = require("./questions");
 const signup = require("./signup");
 const logincheck = require("./logincheck");
+const logout = require("./logout");
 const isAuth = require("./isAuth");
 
 const app = express();
@@ -75,6 +76,9 @@ app.get("/auth", isAuth.get);
 app.post("/signup", signup.post);
 // Sign in route, authorise cookie
 app.post("/login-check", logincheck.post);
+
+//logout - removes the cookie sessions
+app.post("/logout", logout.post);
 
 // Update profile info routes
 app.post(
