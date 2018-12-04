@@ -86,22 +86,12 @@ export default class SignUp extends React.Component {
 
   handleKey = e => { 
     const key = e.key.toLowerCase();
-    if (key === "tab" || key === "enter") {
+    //avoid this behaviour on entering password and pressing tab, as desirable behaviour is to go to confirm password input element 
+    if ((key === "tab" || key === "enter" ) && e.target.id !== 'password') {
       e.preventDefault();
       this.handleFrontArrow();
     }
   };
-  handleKeyPsdPage = e => { 
-    const key = e.key.toLowerCase();
-    if(e.target.name === 'passwordConfirm'){ 
-      if(key === "tab" || key === "enter") {
-        e.preventDefault();
-        this.handleFrontArrow();
-      }
-    }
-   
-  };
-
 
   render() {
     return (
@@ -132,7 +122,7 @@ export default class SignUp extends React.Component {
               value={this.state.password}
               confirmValue={this.state.passwordConfirm}
               validator={this.handleValidation}
-              keyHandler={this.handleKeyPsdPage}
+              keyHandler={this.handleKey}
               placeholder="password here"
               confirmPlaceholder="confirm password here"
             />
