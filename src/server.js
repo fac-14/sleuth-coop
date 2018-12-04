@@ -81,7 +81,7 @@ app.post(
 );
 
 // getStatus - retrieves the status of the company so the deactivate/reactiviate button is shown correctly
-// app.post("/getStatus", getStatus.post);
+app.post("/getStatus", getStatus.post);
 
 // Update profile info routes
 app.post(

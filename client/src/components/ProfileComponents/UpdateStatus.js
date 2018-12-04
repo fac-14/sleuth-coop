@@ -4,8 +4,8 @@ import React from "react";
 
 export default class deleteBtn extends React.Component {
   state = {
-    deleted: 1,
-    color: "red",
+    deleted: 0,
+    color: "#FF7F7F",
     text: "Deactivate account",
     img: "deactivate"
   };
@@ -18,7 +18,16 @@ export default class deleteBtn extends React.Component {
       method: "post",
       body: JSON.stringify(data)
     })
-      .then(res => res.json().then(res => console.log(res)))
+      .then(res => res.json())
+      .then(jsonData => {
+        if (jsonData[0].deleted === 1)
+          this.setState({
+            deleted: 1,
+            color: "#009900",
+            text: "Reactivate account",
+            img: "reactivate"
+          });
+      })
       .catch(err => console.log(err));
   }
   changeStatus = () => {

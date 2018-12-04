@@ -1,7 +1,6 @@
-const { getStatus } = require("./database/queries/index");
+const getStatus = require("./database/queries/getStatus");
 
-exports.get = (req, res) => {
-  console.log("im in getStatus.js (exports.get)");
+exports.post = (req, res) => {
   getStatus(req.body.compId)
     .then(result => {
       res.send(JSON.stringify(result));
