@@ -84,13 +84,24 @@ export default class SignUp extends React.Component {
     return "nope";
   };
 
-  handleKey = e => {
+  handleKey = e => { 
     const key = e.key.toLowerCase();
     if (key === "tab" || key === "enter") {
       e.preventDefault();
       this.handleFrontArrow();
     }
   };
+  handleKeyPsdPage = e => { 
+    const key = e.key.toLowerCase();
+    if(e.target.name === 'passwordConfirm'){ 
+      if(key === "tab" || key === "enter") {
+        e.preventDefault();
+        this.handleFrontArrow();
+      }
+    }
+   
+  };
+
 
   render() {
     return (
@@ -121,7 +132,7 @@ export default class SignUp extends React.Component {
               value={this.state.password}
               confirmValue={this.state.passwordConfirm}
               validator={this.handleValidation}
-              keyHandler={this.handleKey}
+              keyHandler={this.handleKeyPsdPage}
               placeholder="password here"
               confirmPlaceholder="confirm password here"
             />
