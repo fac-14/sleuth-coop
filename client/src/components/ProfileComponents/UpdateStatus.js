@@ -4,12 +4,12 @@ import React from "react";
 
 export default class deleteBtn extends React.Component {
   state = {
-    deleted: false,
-    color: "#FF7F7F",
-    text: "Deactivate account",
-    img: "deactivate"
+    deleted: true,
+    color: "#009900",
+    text: "Reactivate account",
+    img: "reactivate"
   };
-  componentDidMount() {
+  componentWillMount() {
     const data = { compId: this.props.compId };
     fetch("/getStatus", {
       headers: {
@@ -22,10 +22,10 @@ export default class deleteBtn extends React.Component {
       .then(jsonData => {
         if (jsonData[0].deleted === false)
           this.setState({
-            deleted: true,
-            color: "#009900",
-            text: "Reactivate account",
-            img: "reactivate"
+            deleted: false,
+            color: "#FF0000",
+            text: "Deactivate account",
+            img: "deactivate"
           });
       })
       .catch(err => console.log(err));
@@ -34,14 +34,14 @@ export default class deleteBtn extends React.Component {
     if (this.state.deleted === false) {
       this.setState({
         deleted: true,
-        color: "#FF7F7F",
+        color: "#009900",
         text: "Reactivate account",
         img: "reactivate"
       });
     } else if (this.state.deleted === true) {
       this.setState({
         deleted: false,
-        color: "#009900",
+        color: "#FF0000",
         text: "Deactivate account",
         img: "deactivate"
       });
@@ -58,6 +58,7 @@ export default class deleteBtn extends React.Component {
       .catch(err => console.log(err));
   };
   render() {
+    console.log(this.state);
     return (
       <button
         id="home-btn"
