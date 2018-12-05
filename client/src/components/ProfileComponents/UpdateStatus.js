@@ -49,7 +49,8 @@ export default class deleteBtn extends React.Component {
     const data = { compId: this.props.compId, status: !status };
     fetch("/delete", {
       headers: {
-        "Content-Type": "application/json; charset=utf-8"
+        "Content-Type": "application/json; charset=utf-8",
+        Authorization: localStorage.getItem("jwt")
       },
       method: "post",
       body: JSON.stringify(data)
