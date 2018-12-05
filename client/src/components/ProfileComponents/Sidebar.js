@@ -1,5 +1,6 @@
 import React from "react";
 import AddContent from "./AddContent";
+import UpdateStatus from "./UpdateStatus";
 
 export default class Header extends React.Component {
   render() {
@@ -40,6 +41,7 @@ export default class Header extends React.Component {
           ))}
         </ul>
         {editable ? <AddContent compId={compId} /> : null}
+        {editable ? <UpdateStatus compId={compId} /> : null}
       </div>
     );
   }
