@@ -18,6 +18,7 @@ const logout = require("./logout");
 const isAuth = require("./isAuth");
 const updateDelete = require("./updateDelete");
 const getStatus = require("./getStatus");
+const passwordReset = require("./passwordReset");
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -97,6 +98,12 @@ app.post(
   "/updateBasicInfo",
   passport.authenticate("jwt", { session: false }),
   updateBasicInfo.post
+);
+
+app.post(
+  "/password-reset",
+  // passport.authenticate("jwt", { session: false }),
+  passwordReset.post
 );
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
