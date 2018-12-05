@@ -26,7 +26,7 @@ const addUser = userObj =>
                 userObj.name,
                 userObj.jobtitle,
                 userObj.email,
-                0
+                false
               ]
             );
           })

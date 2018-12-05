@@ -4,7 +4,7 @@ import React from "react";
 
 export default class deleteBtn extends React.Component {
   state = {
-    deleted: 0,
+    deleted: false,
     color: "#FF7F7F",
     text: "Deactivate account",
     img: "deactivate"
@@ -20,9 +20,9 @@ export default class deleteBtn extends React.Component {
     })
       .then(res => res.json())
       .then(jsonData => {
-        if (jsonData[0].deleted === 1)
+        if (jsonData[0].deleted === false)
           this.setState({
-            deleted: 1,
+            deleted: true,
             color: "#009900",
             text: "Reactivate account",
             img: "reactivate"
@@ -31,16 +31,16 @@ export default class deleteBtn extends React.Component {
       .catch(err => console.log(err));
   }
   changeStatus = () => {
-    if (this.state.deleted === 0) {
+    if (this.state.deleted === false) {
       this.setState({
-        deleted: 1,
+        deleted: true,
         color: "#FF7F7F",
         text: "Reactivate account",
         img: "reactivate"
       });
-    } else if (this.state.deleted === 1) {
+    } else if (this.state.deleted === true) {
       this.setState({
-        deleted: 0,
+        deleted: false,
         color: "#009900",
         text: "Deactivate account",
         img: "deactivate"

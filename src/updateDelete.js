@@ -1,7 +1,6 @@
 const updateDelete = require("./database/queries/updateDelete");
 
 exports.post = (req, res) => {
-  console.log(req.body.compId, req.body.status);
   updateDelete(req.body.compId, req.body.status)
     .then(() =>
       res.send(
