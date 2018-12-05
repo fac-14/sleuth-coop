@@ -23,13 +23,13 @@ CREATE TABLE companies (
   contact_title VARCHAR(100) NOT NULL,
   contact_email VARCHAR(100) NOT NULL,
   logo_url VARCHAR(100),
-  deleted BOOLEAN
+  deleted BOOLEAN NOT NULL
 );
 
 INSERT INTO companies (user_id, company_name, website, description, contact_name, contact_title, contact_email, deleted) VALUES
 (1, 'Senzing', 'http://www.senzing.com', 'Super duper fancy technological solution that in some way is relevant for local government but we don''t know how or why', 'Jessie Beech', 'Head of Fun', 'senzing@senzing.com', FALSE),
-(2, 'Dom ind', 'https://dominic.digital', 'great stuff', 'dominic coelho', 'master of fun', 'spam@dominic.digital', 0),
-(3, 'AntiDom', 'https://dom.digital', 'bad stuff', 'dom lho', 'master of nun', 'spam@dom.digital', 0);
+(2, 'Dom ind', 'https://dominic.digital', 'great stuff', 'dominic coelho', 'master of fun', 'spam@dominic.digital', FALSE),
+(3, 'AntiDom', 'https://dom.digital', 'bad stuff', 'dom lho', 'master of nun', 'spam@dom.digital', FALSE);
 
 CREATE TABLE questions (
   id SERIAL PRIMARY KEY,

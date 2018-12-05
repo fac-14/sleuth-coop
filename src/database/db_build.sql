@@ -21,7 +21,7 @@ CREATE TABLE companies (
   contact_title VARCHAR(100) NOT NULL,
   contact_email VARCHAR(100) NOT NULL,
   logo_url VARCHAR(100),
-  deleted BOOLEAN
+  deleted BOOLEAN NOT NULL
 );
 
 INSERT INTO companies (user_id, company_name, website, description, contact_name, contact_title, contact_email, deleted) VALUES
