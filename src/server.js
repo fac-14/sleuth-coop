@@ -72,17 +72,16 @@ app.post("/login-check", logincheck.post);
 //logout - removes the cookie sessions
 app.post("/logout", logout.post);
 
+// getStatus - retrieves the status of the company so the deactivate/reactiviate button is shown correctly
+app.post("/getStatus", getStatus.post);
 // PROTECTED ROUTES >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
 //delete - changes the delete status, to hide or show a company.
 app.post(
   "/delete",
-  // passport.authenticate("jwt", { session: false }),
+  passport.authenticate("jwt", { session: false }),
   updateDelete.post
 );
-
-// getStatus - retrieves the status of the company so the deactivate/reactiviate button is shown correctly
-app.post("/getStatus", getStatus.post);
-
 // Update profile info routes
 app.post(
   "/upload",
