@@ -84,9 +84,10 @@ export default class SignUp extends React.Component {
     return "nope";
   };
 
-  handleKey = e => {
+  handleKey = e => { 
     const key = e.key.toLowerCase();
-    if (key === "tab" || key === "enter") {
+    //avoid this behaviour on entering password and pressing tab, as desirable behaviour is to go to confirm password input element 
+    if ((key === "tab" || key === "enter" ) && e.target.id !== 'password') {
       e.preventDefault();
       this.handleFrontArrow();
     }

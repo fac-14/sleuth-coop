@@ -115,7 +115,7 @@ export default class Block extends React.Component {
               <div id="links" key={index}>
                 <img id="eye-icon" src={eyeIcon} alt="question mark" />
                 <a
-                  href={el.split(":-:")[1]}
+                  href={el.split("-")[1]}
                   rel="noopener noreferrer"
                   target="_blank"
                 >

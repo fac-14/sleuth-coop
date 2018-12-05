@@ -17,7 +17,7 @@ export default class LinkList extends React.Component {
 
   render() {
     const { content, answers } = this.props;
-    const selected = answers[content.id] || [];
+    const selected = answers[content.id] || []; 
     return (
       <fieldset className="link-section">
         <h4>{content.question}</h4>
@@ -31,7 +31,7 @@ export default class LinkList extends React.Component {
                 key={index}
                 onClick={() => this.props.removeLinks(this.state.qId, index)}
               >
-                {`${link.split(":-:")[0]} - ${link.split(":-:")[1]}`}
+                {`${link.split("-")[0]} - ${link.split("-")[1]}`}
                 <img id="cross-icon" src={crossIcon} alt="question mark" />
               </li>
             );
