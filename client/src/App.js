@@ -82,7 +82,7 @@ class App extends Component {
           />
           <Route exact={true} path="/find" component={Discovery} />
           <Route exact={true} path="/login" component={LogIn} />
-          <Route exact={true} path="/reset-password" component={ResetPassword} /> 
+          <Route exact={true} path="/forgotten-password" component={ResetPassword} /> 
         </React.Fragment>
       </Router>
     );

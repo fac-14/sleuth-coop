@@ -59,7 +59,7 @@ export default class ResetPassword extends React.Component {
       <React.Fragment>
         <HomeBtn color='dark'/>
         <div className="landing-content">
-        <h1>Reset Password</h1>
+        <h1>Forgotten Password</h1>
 
         <form id="reset-password-form" onSubmit={this.handleSubmit}>
         <label htmlFor="email">

@@ -150,10 +150,10 @@ export default class LogIn extends React.Component {
             Log In
           </button>
         </form>
-        <Link to={"reset-password"}>
+        <Link to={"forgotten-password"}>
           {/* this will likely become the top left home button... */}
           <button className="large-home-btn2 default-btn">
-            Reset password
+            forgotten password
           </button>
         </Link>
       </div>
