@@ -6,10 +6,7 @@ const setResetPasswordToken = (token, tokenExpDate, email) => {
     tokenExpDate,
     email
   ])
-    .then(() => {
-      console.log(token);
-      return token;
-    })
+    .then(() => token)
     .catch(err => console.log(err));
 };
 
