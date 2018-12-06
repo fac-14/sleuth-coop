@@ -97,7 +97,6 @@ export default class deleteBtn extends React.Component {
     return (
       <button
         onClick={this.changeStatus}
-        id="home-btn"
         id="change-status-btn"
         style={{ backgroundColor: this.state.color }}
       >
