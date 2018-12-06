@@ -26,6 +26,7 @@ export default class BasicInfo extends React.Component {
             className="basic-info"
             type="text"
             value={profileData.company_name}
+            required
           />
 
           <label htmlFor="basic-info">
@@ -37,6 +38,7 @@ export default class BasicInfo extends React.Component {
             className="basic-info"
             type="text"
             value={profileData.website}
+            required
           />
 
           <label htmlFor="basic-info">
@@ -48,6 +50,7 @@ export default class BasicInfo extends React.Component {
             className="basic-info"
             type="text"
             value={profileData.contact_name}
+            required
           />
 
           <label htmlFor="basic-info">
@@ -59,6 +62,7 @@ export default class BasicInfo extends React.Component {
             className="basic-info"
             type="text"
             value={profileData.contact_title}
+            required
           />
 
           <label htmlFor="basic-info">
@@ -70,6 +74,8 @@ export default class BasicInfo extends React.Component {
             className="basic-info"
             type="text"
             value={profileData.contact_email}
+            autoComplete="email"
+            required
           />
 
           <label htmlFor="basic-info">
@@ -82,6 +88,7 @@ export default class BasicInfo extends React.Component {
             type="text"
             value={profileData.description}
             rows="5"
+            required
           />
 
           <label htmlFor="basic-info">
