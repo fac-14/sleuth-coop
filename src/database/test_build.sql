@@ -5,7 +5,9 @@ DROP TABLE IF EXISTS users, companies, questions, answers CASCADE;
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
   email VARCHAR(100) UNIQUE NOT NULL,
-  password VARCHAR(100) NOT NULL
+  password VARCHAR(100) NOT NULL,
+  token VARCHAR (100),
+  tokenExpDate bigint
 );
 
 INSERT INTO users (email, password) VALUES
