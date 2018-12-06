@@ -18,7 +18,7 @@ const sendEmail = (email, url, token) => {
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: "sleuth.reset@gmail.com",
+      user: process.env.EMAILACCOUNT,
       pass: process.env.GMAILPW
     }
   });
