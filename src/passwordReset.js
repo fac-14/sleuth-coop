@@ -1,3 +1,4 @@
+require("env2")("./config.env");
 const nodemailer = require("nodemailer");
 
 exports.post = (req, res) => {
@@ -5,7 +6,7 @@ exports.post = (req, res) => {
     service: "gmail",
     auth: {
       user: "sleuth.reset@gmail.com",
-      pass: "sleuth123"
+      pass: process.env.GMAILPW
     }
   });
   // setup email data with unicode symbols
