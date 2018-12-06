@@ -1,7 +1,7 @@
 require("env2")("./config.env");
 const nodemailer = require("nodemailer");
 const verifyEmail = require("./database/queries/verifyEmail");
-const setResetPasswordToken = require("./database/queries/setResetPasswordTokens");
+const setResetPasswordToken = require("./database/queries/setResetToken");
 
 const createToken = () =>
   new Promise((resolve, reject) => {
@@ -51,7 +51,7 @@ exports.post = (req, res) => {
       createToken()
         .then(token => {
           resetToken = token;
-          setResetPasswordToken(token, Date.now() + 36000000, req.body.email);
+          setResetPasswordToken(token, Date.now() + 3600000, req.body.email);
         })
         .then(() => {
           sendEmail(req.body.email, req.headers.host, resetToken);

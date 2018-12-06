@@ -18,7 +18,8 @@ const logout = require("./logout");
 const isAuth = require("./isAuth");
 const updateDelete = require("./updateDelete");
 const getStatus = require("./getStatus");
-const passwordReset = require("./passwordReset");
+const forgotPassword = require("./forgotPassword");
+const reset = require("./reset");
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -99,13 +100,11 @@ app.post(
   passport.authenticate("jwt", { session: false }),
   updateBasicInfo.post
 );
-
-app.post(
-  "/password-reset",
-  // passport.authenticate("jwt", { session: false }),
-  passwordReset.post
-);
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+app.post("/forgot-password", forgotPassword.post);
+
+app.post("/reset", reset.post);
 
 if (process.env.NODE_ENV === "production") {
   // serve any static files
