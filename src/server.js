@@ -18,7 +18,6 @@ const logout = require("./logout");
 const isAuth = require("./isAuth");
 const updateDelete = require("./updateDelete");
 const getStatus = require("./getStatus");
-const testRoute = require("./testRoute")
 const forgotPassword = require("./forgotPassword");
 const reset = require("./reset");
 
@@ -71,8 +70,6 @@ app.get("/auth", isAuth.get);
 app.post("/signup", signup.post);
 // Sign in route, authorise cookie
 app.post("/login-check", logincheck.post);
-//test route
-app.post("/testRoute", testRoute.post);
 
 //logout - removes the cookie sessions
 app.post("/logout", logout.post);
@@ -121,7 +118,7 @@ if (process.env.NODE_ENV === "production") {
 
 app.use((req, res) => {
   res.status(404).send("Sorry - can't find that!");
-})
+});
 
 app.use((err, req, res) => {
   res.status(500).send(`Something broke! ${err}`);

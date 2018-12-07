@@ -44,7 +44,7 @@ const sendEmail = (email, url, token) => {
   });
 };
 
-exports.post = (req, res) => { console.log('I AM HERE')
+exports.post = (req, res) => {
   let resetToken = "";
   verifyEmail(req.body.email)
     .then(() => {
@@ -59,7 +59,9 @@ exports.post = (req, res) => { console.log('I AM HERE')
         .then(() => {
           res.status(200);
           res.send(
-            "The account has been found and an email has been sent. Please check your inbox."
+            `An email has been sent to ${
+              req.body.email
+            }. Please check your inbox.`
           );
         });
     })
