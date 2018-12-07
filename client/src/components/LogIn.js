@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import HomeBtn from "./HomeBtn";
 // import logo from '../assets/sleuth-logo.png';
 
 export default class LogIn extends React.Component {
@@ -97,10 +98,14 @@ export default class LogIn extends React.Component {
 
   render() {
     return (
+      <React.Fragment>
+      <HomeBtn color='dark'/>
       <div className="landing-content">
         {/* <div className="logo-div">
           <img src={logo} alt="sleuth logo" />
         </div> */}
+        
+        
         <h1>Log In</h1>
         {/* See if "id="form"" is relevant here */}
         <form id="login-form" onSubmit={this.handleSubmit}>
@@ -145,13 +150,14 @@ export default class LogIn extends React.Component {
             Log In
           </button>
         </form>
-        <Link to={"/"}>
+        <Link to={"forgotten-password"}>
           {/* this will likely become the top left home button... */}
           <button className="large-home-btn2 default-btn">
-            Return to home
+            forgotten password
           </button>
         </Link>
       </div>
+      </React.Fragment>
     );
   }
 }

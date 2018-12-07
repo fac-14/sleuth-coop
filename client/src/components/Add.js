@@ -175,7 +175,7 @@ export default class Add extends React.Component {
     this.setState({ formstate: state });
   };
 
-  handleSubmit = e => {
+  handleSubmit = e => { 
     e.preventDefault();
     const data = new FormData();
     const { files } = this.state;
