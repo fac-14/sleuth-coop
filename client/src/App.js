@@ -8,7 +8,7 @@ import Profile from "./components/Profile";
 import Add from "./components/Add";
 import Discovery from "./components/Discovery";
 import LogIn from "./components/LogIn";
-import ResetPassword from "./components/ForgottenPassword";
+import ResetPassword from "./components/ForgotPassword";
 
 class App extends Component {
   state = {

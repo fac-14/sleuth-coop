@@ -104,7 +104,7 @@ app.post(
 
 app.post("/forgot-password", forgotPassword.post);
 
-app.post("/reset", reset.post);
+app.post("/reset/", reset.post);
 
 if (process.env.NODE_ENV === "production") {
   // serve any static files

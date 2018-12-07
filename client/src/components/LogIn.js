@@ -35,7 +35,6 @@ export default class LogIn extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault();
-
     // clear serverError state before retrying fetch request
     this.setState({ serverError: "" });
 
@@ -43,6 +42,7 @@ export default class LogIn extends React.Component {
     // checkEmailValid isn't called on each change because then
     this.checkEmailValid();
     this.checkIfSubmitAllowed();
+    console.log("ive been clicked");
 
     if (this.state.password.length <= 3) {
       this.setState({ errorMsg: "Invalid login information" });
@@ -154,7 +154,7 @@ export default class LogIn extends React.Component {
           <Link to={"forgot-password"}>
             {/* this will likely become the top left home button... */}
             <button className="large-home-btn2 default-btn">
-              forgotten password
+              forgot password?
             </button>
           </Link>
         </div>
