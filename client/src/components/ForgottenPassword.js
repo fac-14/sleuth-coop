@@ -9,15 +9,16 @@ export default class ResetPassword extends React.Component {
     allowFetchSubmit: false
   }
 
-  handleChange = e => {
+  handleChange = e => {console.log('hello')
     const target = e.target;
-    const value = target.value;
-    this.setState({ [target.name]: value });
+    const value = target.value; console.log('value=',value)
+    this.setState({ [target.name]: value }); //console.log('email=',this.state.email) //This console log runs one step before the setState
+    //happens so I will see my earlier(one step before) input in this console log 
     this.checkIfSubmitAllowed();
   };
   checkIfSubmitAllowed = () => {
     if (this.emailCheck(this.state.email) ) {
-      this.setState({ allowFetchSubmit: true });
+      this.setState({ allowFetchSubmit: true }); 
     } else {
       this.setState({ allowFetchSubmit: false });
     }
@@ -48,6 +49,15 @@ export default class ResetPassword extends React.Component {
     this.checkEmailValid();
     this.checkIfSubmitAllowed();
     if(this.state.allowFetchSubmit){
+      const data = JSON.stringify(this.state.email)
+      // console.log('datainFetch=')
+      fetch("/testRoute", {
+        method: "post",
+        headers: {"Content-Type": "application/json"},
+        body: data  
+      }).then(res => {
+        console.log('res=', res.text())
+      }).catch(err => console.log('err=', err));
       console.log('form submitted');
     }
       
