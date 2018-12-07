@@ -19,6 +19,8 @@ const isAuth = require("./isAuth");
 const updateDelete = require("./updateDelete");
 const getStatus = require("./getStatus");
 const testRoute = require("./testRoute")
+const forgotPassword = require("./forgotPassword");
+const reset = require("./reset");
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -103,6 +105,10 @@ app.post(
 );
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
+app.post("/forgot-password", forgotPassword.post);
+
+app.post("/reset", reset.post);
+
 if (process.env.NODE_ENV === "production") {
   // serve any static files
   app.use(express.static(path.join(__dirname, "../client/build")));
@@ -115,7 +121,7 @@ if (process.env.NODE_ENV === "production") {
 
 app.use((req, res) => {
   res.status(404).send("Sorry - can't find that!");
-});
+})
 
 app.use((err, req, res) => {
   res.status(500).send(`Something broke! ${err}`);

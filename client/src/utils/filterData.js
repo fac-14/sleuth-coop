@@ -3,7 +3,10 @@ const filter = data => {
   transformed["basic_info"] = data[0][0];
   transformed.answers = {};
   data[1].forEach(element => {
-    if (!transformed.answers[element.category]) {
+    // prevents empty category sections from being rendered
+    if (element.answer.length === 0 || element.answer[0] === "no") {
+      console.log("no links here!!");
+    } else if (!transformed.answers[element.category]) {
       // create category
       transformed.answers[element.category] = [];
       transformed.answers[element.category].push(element);
