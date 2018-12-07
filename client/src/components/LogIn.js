@@ -42,7 +42,6 @@ export default class LogIn extends React.Component {
     // checkEmailValid isn't called on each change because then
     this.checkEmailValid();
     this.checkIfSubmitAllowed();
-    console.log("ive been clicked");
 
     if (this.state.password.length <= 3) {
       this.setState({ errorMsg: "Invalid login information" });
