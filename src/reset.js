@@ -1,9 +1,9 @@
 const db = require("./database/db_connection");
 const bcrypt = require("bcryptjs");
 
-exports.post = (req, res) => {
+exports.post = (req, res) => { console.log('token server=',req.body.token);
   db.query(`SELECT tokenExpDate FROM users WHERE token = $1`, [req.body.token])
-    .then(tokenExpDate => {
+    .then(tokenExpDate => { console.log('expDate= ',tokenExpDate);
       if (tokenExpDate.length === 0) {
         res.send("Token is invaid");
       } else if (Number(tokenExpDate[0].tokenexpdate) < Date.now()) {

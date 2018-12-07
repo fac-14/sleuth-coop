@@ -15,7 +15,6 @@ export default class LogIn extends React.Component {
   /*
   Possible functions:
     sanitiseInputs() // to remove any "illegal" characters from email and pw inputs
-    handleBackendValidation // likely not necessary and implemented as part of the fetch
   */
 
   handleChange = e => {
