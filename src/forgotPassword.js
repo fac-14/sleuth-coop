@@ -44,7 +44,7 @@ const sendEmail = (email, url, token) => {
   });
 };
 
-exports.post = (req, res) => {
+exports.post = (req, res) => { console.log('I AM HERE')
   let resetToken = "";
   verifyEmail(req.body.email)
     .then(() => {
