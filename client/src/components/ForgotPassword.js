@@ -5,34 +5,16 @@ import HomeBtn from "./HomeBtn";
 export default class ResetPassword extends React.Component {
   state = {
     email: "",
-    errorMsg: "",
-    allowFetchSubmit: false
-  }
+    errorMsg: ""
+  };
 
   handleChange = e => {
-    console.log('hello')
     const target = e.target;
-    const value = target.value; console.log('value=', value)
+    const value = target.value;
     this.setState({ [target.name]: value }); //console.log('email=',this.state.email) //This console log runs one step before the setState
-    //happens so I will see my earlier(one step before) input in this console log 
-    this.checkIfSubmitAllowed();
+    //happens so I will see my earlier(one step before) input in this console log
   };
-  checkIfSubmitAllowed = () => {
-    if (this.emailCheck(this.state.email)) {
-      this.setState({ allowFetchSubmit: true });
-    } else {
-      this.setState({ allowFetchSubmit: false });
-    }
-  };
-  checkEmailValid = () => {
-    const emailCheckRes = this.emailCheck(this.state.email);
 
-    if (emailCheckRes === true) {
-      this.setState({ errorMsg: false });
-    } else {
-      this.setState({ errorMsg: "Invalid email address" });
-    }
-  };
   emailCheck = email => {
     const emailRegex = RegExp(
       "^[0-9a-z]([a-z_\\d\\.-]*)@[a-z\\d]([a-z\\d-]*)\\.([a-z]{2,8})(\\.[a-z]{2,8})?$",
@@ -44,39 +26,36 @@ export default class ResetPassword extends React.Component {
     return false;
   };
 
-
-  handleSubmit = (e) => {
+  handleSubmit = e => {
     e.preventDefault();
-    this.checkEmailValid();
-    this.checkIfSubmitAllowed();
-    if (this.state.allowFetchSubmit) {
-      const data = JSON.stringify(this.state)
-      // console.log('datainFetch=')
+    if (this.emailCheck(this.state.email)) {
+      const data = JSON.stringify(this.state);
       fetch("/forgot-password", {
         method: "post",
         headers: { "Content-Type": "application/json" },
         body: data
-      }).then(res => {
-        console.log("data here=", res)
-        return res.text()
       })
-        .then((res2) => {
-          console.log(res2)
-          this.setState({ errorMsg: res2 })
+        .then(res => {
+          console.log("data here=", res);
+          return res.text();
         })
-        .catch(err => console.log('err=', err));
-      console.log('form submitted');
+        .then(message => {
+          console.log(message);
+          this.setState({ errorMsg: message });
+        })
+        .catch(err => console.log("err=", err));
+      console.log("form submitted");
+    } else {
+      this.setState({ errorMsg: "Email address not valid" });
     }
-
-  }
+  };
 
   render() {
     return (
-
       <React.Fragment>
-        <HomeBtn color='dark' />
+        <HomeBtn color="dark" />
         <div className="landing-content">
-          <h1>Forgotten Password</h1>
+          <h1>Forgot Password</h1>
 
           <form id="reset-password-form" onSubmit={this.handleSubmit}>
             <label htmlFor="email">
@@ -96,7 +75,9 @@ export default class ResetPassword extends React.Component {
 
             <div
               className={
-                this.state.errorMsg || this.state.serverError ? "error" : "hidden"
+                this.state.errorMsg || this.state.serverError
+                  ? "error"
+                  : "hidden"
               }
             >
               {this.state.errorMsg} {this.state.serverError}
@@ -108,12 +89,10 @@ export default class ResetPassword extends React.Component {
               onClick={this.handleSubmit}
             >
               submit
-        </button>
-
+            </button>
           </form>
         </div>
       </React.Fragment>
-    )
+    );
   }
 }
-
