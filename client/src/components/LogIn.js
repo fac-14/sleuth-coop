@@ -34,7 +34,6 @@ export default class LogIn extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault();
-
     // clear serverError state before retrying fetch request
     this.setState({ serverError: "" });
 
@@ -98,64 +97,65 @@ export default class LogIn extends React.Component {
   render() {
     return (
       <React.Fragment>
-      <HomeBtn color='dark'/>
-      <div className="landing-content">
-        {/* <div className="logo-div">
+        <HomeBtn color="dark" />
+        <div className="landing-content">
+          {/* <div className="logo-div">
           <img src={logo} alt="sleuth logo" />
         </div> */}
-        
-        
-        <h1>Log In</h1>
-        {/* See if "id="form"" is relevant here */}
-        <form id="login-form" onSubmit={this.handleSubmit}>
-          <label htmlFor="email">
-            <h3>Email Address</h3>
-          </label>
-          <input
-            className="input"
-            name="email"
-            value={this.state.email}
-            onChange={this.handleChange}
-            type="email"
-            onBlur={this.checkEmailValid}
-            required
-            autoComplete="on"
-            x-autocompletetype="email"
-          />
-          <label htmlFor="password">
-            <h3>Password</h3>
-          </label>
-          <input
-            className="input"
-            name="password"
-            value={this.state.password}
-            onChange={this.handleChange}
-            onBlur={this.checkEmailValid}
-            type="password"
-            required
-          />
-          <div
-            className={
-              this.state.errorMsg || this.state.serverError ? "error" : "hidden"
-            }
-          >
-            {this.state.errorMsg} {this.state.serverError}
-          </div>
-          <button
-            className="large-home-btn2 default-btn"
-            type="submit"
-            onClick={this.handleSubmit}
-          >
-            Log In
-          </button>
-        </form>
-        <Link to={"forgotten-password"}>
-          {/* this will likely become the top left home button... */}
-          <button className="large-home-btn2 default-btn">
-            forgotten password
-          </button>
-        </Link>
-      </div>
+
+          <h1>Log In</h1>
+          {/* See if "id="form"" is relevant here */}
+          <form id="login-form" onSubmit={this.handleSubmit}>
+            <label htmlFor="email">
+              <h3>Email Address</h3>
+            </label>
+            <input
+              className="input"
+              name="email"
+              value={this.state.email}
+              onChange={this.handleChange}
+              type="email"
+              onBlur={this.checkEmailValid}
+              required
+              autoComplete="on"
+              x-autocompletetype="email"
+            />
+            <label htmlFor="password">
+              <h3>Password</h3>
+            </label>
+            <input
+              className="input"
+              name="password"
+              value={this.state.password}
+              onChange={this.handleChange}
+              onBlur={this.checkEmailValid}
+              type="password"
+              required
+            />
+            <div
+              className={
+                this.state.errorMsg || this.state.serverError
+                  ? "error"
+                  : "hidden"
+              }
+            >
+              {this.state.errorMsg} {this.state.serverError}
+            </div>
+            <button
+              className="large-home-btn2 default-btn"
+              type="submit"
+              onClick={this.handleSubmit}
+            >
+              Log In
+            </button>
+          </form>
+          <Link to={"forgot-password"}>
+            {/* this will likely become the top left home button... */}
+            <button className="large-home-btn2 default-btn">
+              forgot password?
+            </button>
+          </Link>
+        </div>
       </React.Fragment>
     );
   }
