@@ -1,9 +1,9 @@
 const db = require("./database/db_connection");
 const bcrypt = require("bcryptjs");
 
-exports.post = (req, res) => { console.log('token server=',req.body.token);
+exports.post = (req, res) => {
   db.query(`SELECT tokenExpDate FROM users WHERE token = $1`, [req.body.token])
-    .then(tokenExpDate => { console.log('expDate= ',tokenExpDate);
+    .then(tokenExpDate => { 
       if (tokenExpDate.length === 0) {
         res.send("Token is invalid");
       } else if (Number(tokenExpDate[0].tokenexpdate) < Date.now()) {

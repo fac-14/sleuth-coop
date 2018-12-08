@@ -13,7 +13,6 @@ export default class ResetPassword extends React.Component {
   componentDidMount(){
     const url = window.location.href;
     const token = url.split('reset/')[1]
-    console.log('token=',token)
     this.setState({token:token});
   }
 
