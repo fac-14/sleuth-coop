@@ -1,5 +1,4 @@
 import React from "react";
-// import {Link } from "react-router-dom";
 import HomeBtn from "./HomeBtn";
 
 export default class ResetPassword extends React.Component {
@@ -11,80 +10,92 @@ export default class ResetPassword extends React.Component {
     token: ""
   }
 
-  handleChange = e => {
-    const target = e.target;
-    const value = target.value; 
-    this.setState({ [target.name]: value }); //console.log('email=',this.state.email) //This console log runs one step before the setState
-    //happens so I will see my earlier(one step before) input in this console log 
-    // this.checkIfSubmitAllowed();
-  };
- 
- 
-
-  handleSubmit = (e) => {
-    e.preventDefault();
-  
-    if (this.state.allowFetchSubmit) {
+  componentDidMount(){
     const url = window.location.href;
     const token = url.split('reset/')[1]
     console.log('token=',token)
     this.setState({token:token});
-    // {
-      const data = JSON.stringify(this.state)
+  }
+
+  handleChange = e => {
+    const target = e.target;
+    const value = target.value; 
+    this.setState({ [target.name]: value }); 
+  };
+ 
+ 
+
+  handleSubmit = (e) => { 
+    e.preventDefault();
+    
+    if(!this.state.allowFetchSubmit) {
+    const {password, confirmPassword} = this.state;
+    
+    if(password !== confirmPassword){
+      this.setState({errorMsg:"Passwords do not match"})
+    }
+    else if(password.length < 4 || confirmPassword.length < 4){
+      this.setState({errorMsg:"Password is too short"})
+    } else{      
+        this.setState({errorMsg:""})
+        this.setState({allowFetchSubmit: true});
+        this.allowSubmit();
+    }
+    } else {
+      this.allowSubmit();
+    }
+ 
+  }
+
+  allowSubmit = () => {
+    const data = JSON.stringify(this.state)
       fetch("/reset", {
         method: "post",
         headers: { "Content-Type": "application/json" },
         body: data
       }).then(res => {
-        console.log('form submitted');
-        console.log("data here=", res)
         return res.text()
       })
         .then((res2) => {
-          console.log("res2=",res2)
           this.setState({ errorMsg: res2 })
         })
         .catch(err => console.log('err=', err));
-      
-    }
   }
 
   handleKey = e => { 
     this.setState({allowFetchSubmit: false});
     const key = e.key.toLowerCase();
-    const password = this.state.password;
-    const confirmPassword = this.state.confirmPassword;
+    const {password, confirmPassword} = this.state;
 
-    if( (password !== "") && (confirmPassword !== "")) {
-      if ((key === "tab" || key === "enter" ) ) {
-        if(password !== confirmPassword){
-          e.preventDefault();
-          this.setState({errorMsg:"Passwords do not match"})
-        }
-      } else {
-        this.setState({errorMsg:""})
-      }
-    }
-    else if ((key === "tab" || key === "enter" ) ) {
-      if(this.state.password.length <= 3){
-        e.preventDefault();
-        this.setState({errorMsg:"Password is too short"})
-      } else{      
+    if (key === "tab" || key === "enter"  ) { 
+      if( password !== "" && confirmPassword !== "") {
+          if(password !== confirmPassword){
+            e.preventDefault();
+            this.setState({errorMsg:"Passwords do not match"})
+          
+        } else {
           this.setState({errorMsg:""})
+        }
+      } //if one of them is empty
+      else if( password === "" || confirmPassword === ""){ 
+        if(password.length < 4 ){
+          e.preventDefault();
+          this.setState({errorMsg:"Password is too short"})
+        } else{      
+            this.setState({errorMsg:""})
+        }
       }
-    }
-    else {
+      else { //remove the error message when user starts to type character other than enter or tab
+        this.setState({errorMsg:""})
+        this.setState({allowFetchSubmit: true});
+      }
+    } else {
       this.setState({errorMsg:""})
     }
-
-    if( ((password !== "") && (confirmPassword !== "")) &&
-        ((password.length >3) && (confirmPassword.length >3)) 
-    ){
-    this.setState({allowFetchSubmit: true});
-      }
-    };
+  };
 
   render() {
+
     return (
 
       <React.Fragment>
