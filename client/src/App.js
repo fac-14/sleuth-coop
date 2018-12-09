@@ -8,7 +8,8 @@ import Profile from "./components/Profile";
 import Add from "./components/Add";
 import Discovery from "./components/Discovery";
 import LogIn from "./components/LogIn";
-import ResetPassword from "./components/ForgotPassword";
+import ForgottenPassword from "./components/ForgottenPassword";
+import ResetPassword from "./components/ResetPassword";
 
 class App extends Component {
   state = {
@@ -82,11 +83,8 @@ class App extends Component {
           />
           <Route exact={true} path="/find" component={Discovery} />
           <Route exact={true} path="/login" component={LogIn} />
-          <Route
-            exact={true}
-            path="/forgot-password"
-            component={ResetPassword}
-          />
+          <Route exact={true} path="/forgot-password" component={ForgottenPassword} />
+          <Route exact={true} path="/reset/:token" component={ResetPassword} />
         </React.Fragment>
       </Router>
     );

@@ -2,7 +2,7 @@ import React from "react";
 // import {Link } from "react-router-dom";
 import HomeBtn from "./HomeBtn";
 
-export default class ResetPassword extends React.Component {
+export default class ForgottenPassword extends React.Component {
   state = {
     email: "",
     errorMsg: ""
