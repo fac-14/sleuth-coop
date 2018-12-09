@@ -20,16 +20,16 @@ export default class LogIn extends React.Component {
   handleChange = e => {
     const target = e.target;
     const value = target.value;
-    this.setState({ [target.name]: value });
-    this.checkIfSubmitAllowed();
+    this.setState({ [target.name]: value }, () => this.checkIfSubmitAllowed() );
   };
 
   checkIfSubmitAllowed = () => {
-    if (this.emailCheck(this.state.email) && this.state.password.length > 3) {
+    if (this.emailCheck(this.state.email) && this.state.password.length > 3) { 
       this.setState({ allowFetchSubmit: true });
     } else {
       this.setState({ allowFetchSubmit: false });
     }
+    
   };
 
   handleSubmit = e => {
@@ -37,15 +37,11 @@ export default class LogIn extends React.Component {
     // clear serverError state before retrying fetch request
     this.setState({ serverError: "" });
 
-    // update email error state in case focus not taken off email input field (as checkEmailValid only gets called onBlur)
-    // checkEmailValid isn't called on each change because then
-    this.checkEmailValid();
-    this.checkIfSubmitAllowed();
 
-    if (this.state.password.length <= 3) {
+    if (this.state.password.length <= 3) { 
       this.setState({ errorMsg: "Invalid login information" });
       this.setState({ password: "" });
-    } else if (this.state.allowFetchSubmit) {
+    } else if (this.state.allowFetchSubmit) { 
       const data = JSON.stringify(this.state);
 
       fetch("/login-check", {
@@ -53,33 +49,27 @@ export default class LogIn extends React.Component {
         headers: { "Content-Type": "application/json" },
         body: data
       })
-        .then(res => res.json())
+        .then(res => {         
+          return res.json()} )
         .then(res => {
           // if returning id, user is auth - redirect
           if (typeof res.ok) {
             localStorage.setItem("jwt", res.token);
             return (window.location = `/profile/${res.userId}/sme`);
           } else {
+            this.setState({ errorMsg: res }) ;
             this.setState({
               serverError: "Something went wrong on the server. Try again later"
             });
           }
         })
-        .catch(err => console.log(err));
+        .catch(err => {
+          console.log(err);
+        })
 
       this.setState({
         password: ""
       });
-    }
-  };
-
-  checkEmailValid = () => {
-    const emailCheckRes = this.emailCheck(this.state.email);
-
-    if (emailCheckRes === true) {
-      this.setState({ errorMsg: false });
-    } else {
-      this.setState({ errorMsg: "Invalid email address" });
     }
   };
 
@@ -88,10 +78,13 @@ export default class LogIn extends React.Component {
       "^[0-9a-z]([a-z_\\d\\.-]*)@[a-z\\d]([a-z\\d-]*)\\.([a-z]{2,8})(\\.[a-z]{2,8})?$",
       "i"
     );
-    if (emailRegex.test(email.trim())) {
+    if (emailRegex.test(email.trim())) { 
+      this.setState({ errorMsg: false });
       return true;
-    }
+    } else {
+    this.setState({ errorMsg: "Invalid email address"  });
     return false;
+  }
   };
 
   render() {
