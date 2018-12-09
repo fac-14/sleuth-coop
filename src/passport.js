@@ -14,7 +14,6 @@ module.exports = passport => {
       getCompanyInfo(Number(jwt_payload.id))
         .then(company => {
           if (company[0].id === jwt_payload.id) {
-            console.log("passport is working bae!!!");
             return done(null, company);
           }
           return done(null, false);

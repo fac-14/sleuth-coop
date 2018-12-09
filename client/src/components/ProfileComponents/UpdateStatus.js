@@ -59,7 +59,6 @@ export default class deleteBtn extends React.Component {
         return res.text();
       })
       .then(text => {
-        console.log(text);
         return text;
       })
       .catch(err => console.log(err));
@@ -90,7 +89,6 @@ export default class deleteBtn extends React.Component {
     this.hydrateState(this.props.compId);
   }
   render() {
-    // console.log(this.state);
     while (this.state.deleted === null) {
       return <h3>Loading...</h3>;
     }

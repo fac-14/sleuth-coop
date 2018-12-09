@@ -131,6 +131,8 @@ export default class LogIn extends React.Component {
               onBlur={this.checkEmailValid}
               type="password"
               required
+              autoComplete="on"
+              x-autocompletetype="current-password"
             />
             <div
               className={
