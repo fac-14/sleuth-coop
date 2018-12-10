@@ -3,7 +3,6 @@ import { withRouter } from "react-router-dom";
 
 import Contact from "./ProfileComponents/Contact";
 import Content from "./ProfileComponents/Content";
-import HomeBtn from "./HomeBtn";
 import BackBtn from "./BackBtn";
 import Sidebar from "./ProfileComponents/Sidebar";
 
@@ -29,6 +28,21 @@ class Profile extends React.Component {
       .catch(err => console.log(err));
   }
 
+  logOut = () => { 
+  localStorage.removeItem("jwt");	
+
+    fetch("/logout", {
+      method: "post"
+    })
+    .then(res => {
+      this.props.history.push('/');
+      return res.text();
+    })
+    .then(res2=> console.log(res2))
+    .catch(err => console.log(err));
+  }
+ 
+
   render() {
     // destructure the state
     if (this.state.loading) {
@@ -38,8 +52,11 @@ class Profile extends React.Component {
     const { basic_info: basicInfo, answers } = this.state.response;
     return (
       <React.Fragment>
-        {this.props.SME ? <HomeBtn /> : <BackBtn url="/find" />}
+        {this.props.SME ? "" : <BackBtn url="/find" />}
         <div id="profile-wrapper">
+          <button className="large-home-btn2 default-btn" id="log-in" onClick={this.logOut}>
+            Log Out
+          </button>
           <Sidebar
             className="Header"
             compName={basicInfo.company_name}
