@@ -53,10 +53,14 @@ class Profile extends React.Component {
     return (
       <React.Fragment>
         {this.props.SME ? "" : <BackBtn url="/find" />}
+        
         <div id="profile-wrapper">
+        //if this is not sme profile page , do not render logout button , else render logout button
+        {!this.props.SME ? "" :
           <button className="large-home-btn2 default-btn" id="log-in" onClick={this.logOut}>
             Log Out
           </button>
+        }
           <Sidebar
             className="Header"
             compName={basicInfo.company_name}
