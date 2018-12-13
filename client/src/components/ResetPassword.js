@@ -108,7 +108,7 @@ export default class ResetPassword extends React.Component {
               type="password"
               onKeyDown={this.handleKey}
               required
-              autofocus
+              autoFocus
             />
             <label htmlFor="confirmPassword">
               <h3>confirm new password</h3>

@@ -90,7 +90,7 @@ export default class Add extends React.Component {
       if (e.target.type === "file" && e.target.files[0] !== undefined) {
         profileAnswer = e.target.files[0].name;
         file = e.target.files[0];
-      } else if (e.target.type === "text") {
+      } else if (e.target.type === "text" || e.target.tagName === "TEXTAREA") {
         profileAnswer = e.target.value;
       }
     } else {
@@ -139,16 +139,20 @@ export default class Add extends React.Component {
   };
 
   dropdownRemove = e => {
-    let target = ''; 
+    let target = "";
     //target = e.target, will work for the element <li> (when user clicks in tag area other than cross-image)
     //with the addition of cross-image within <li> when cross-image is clicked e.target was selecting <img> (child element) and not <li>
-    //,which is now the parent of selected element,  
-    //so this ternary will set the target value to <li> if cross-image is clicked by setting 
+    //,which is now the parent of selected element,
+    //so this ternary will set the target value to <li> if cross-image is clicked by setting
     //target = e.currentTarget (which is parent element), if e.target.tagName != 'LI'
-    
-    if(e.target.tagName === 'LI'? target = e.target: target = e.currentTarget);
-    const questionId = target.className; 
-    const selected = target.textContent; 
+
+    if (
+      e.target.tagName === "LI"
+        ? (target = e.target)
+        : (target = e.currentTarget)
+    );
+    const questionId = target.className;
+    const selected = target.textContent;
     const state = this.state.formState;
     if (state[questionId].includes(selected)) {
       const index = state[questionId].indexOf(selected);
@@ -175,7 +179,7 @@ export default class Add extends React.Component {
     this.setState({ formstate: state });
   };
 
-  handleSubmit = e => { 
+  handleSubmit = e => {
     e.preventDefault();
     const data = new FormData();
     const { files } = this.state;
