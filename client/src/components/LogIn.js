@@ -112,6 +112,7 @@ export default class LogIn extends React.Component {
               required
               autoComplete="on"
               x-autocompletetype="email"
+              autofocus
             />
             <label htmlFor="password">
               <h3>Password</h3>
@@ -124,6 +125,8 @@ export default class LogIn extends React.Component {
               onBlur={this.checkEmailValid}
               type="password"
               required
+              autoComplete="on"
+              x-autocompletetype="current-password"
             />
             <div
               className={

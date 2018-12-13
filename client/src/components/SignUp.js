@@ -49,7 +49,6 @@ export default class SignUp extends React.Component {
   handleSubmit = e => {
     e.preventDefault();
     const data = JSON.stringify(this.state);
-    console.log("sending...", data);
     fetch("/signup", {
       method: "post",
       headers: { "content-type": "application/json" },
@@ -84,10 +83,10 @@ export default class SignUp extends React.Component {
     return "nope";
   };
 
-  handleKey = e => { 
+  handleKey = e => {
     const key = e.key.toLowerCase();
-    //avoid this behaviour on entering password and pressing tab, as desirable behaviour is to go to confirm password input element 
-    if ((key === "tab" || key === "enter" ) && e.target.id !== 'password') {
+    //avoid this behaviour on entering password and pressing tab, as desirable behaviour is to go to confirm password input element
+    if ((key === "tab" || key === "enter") && e.target.id !== "password") {
       e.preventDefault();
       this.handleFrontArrow();
     }

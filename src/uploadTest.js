@@ -9,7 +9,6 @@ exports.post = (req, res) => {
   fileArr.forEach(file => {
     file.mv(`${__dirname}/public/${file.name}`, err => {
       if (err) {
-        console.log("2", err);
         return res.status(500).send(err);
       }
 

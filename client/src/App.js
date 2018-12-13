@@ -29,7 +29,6 @@ class App extends Component {
         if (res.ok) {
           res.json().then(userId => this.setState({ authId: userId }));
         } else {
-          console.log("Not authenticated, setting state.");
           if (this.state.isAuthenticated)
             this.setState({ isAuthenticated: false });
         }
@@ -83,7 +82,11 @@ class App extends Component {
           />
           <Route exact={true} path="/find" component={Discovery} />
           <Route exact={true} path="/login" component={LogIn} />
-          <Route exact={true} path="/forgot-password" component={ForgottenPassword} />
+          <Route
+            exact={true}
+            path="/forgot-password"
+            component={ForgottenPassword}
+          />
           <Route exact={true} path="/reset/:token" component={ResetPassword} />
         </React.Fragment>
       </Router>

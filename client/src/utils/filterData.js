@@ -5,7 +5,6 @@ const filter = data => {
   data[1].forEach(element => {
     // prevents empty category sections from being rendered
     if (element.answer.length === 0 || element.answer[0] === "no") {
-      console.log("no links here!!");
     } else if (!transformed.answers[element.category]) {
       // create category
       transformed.answers[element.category] = [];
