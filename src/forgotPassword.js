@@ -66,6 +66,7 @@ exports.post = (req, res) => {
         });
     })
     .catch(err => {
+      res.status(404);
       res.send("There is no account registered with that email address");
       console.log("Error in reset-password: " + err);
     });

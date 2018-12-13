@@ -119,6 +119,7 @@ export default class LogIn extends React.Component {
               required
               autoComplete="on"
               x-autocompletetype="email"
+              autofocus
             />
             <label htmlFor="password">
               <h3>Password</h3>

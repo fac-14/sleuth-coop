@@ -68,6 +68,7 @@ export default class ResetPassword extends React.Component {
               required
               autoComplete="on"
               x-autocompletetype="email"
+              autofocus
             />
 
             <div
