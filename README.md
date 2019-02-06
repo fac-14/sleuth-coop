@@ -1,6 +1,7 @@
 [![Build Status](https://travis-ci.com/fac-14/sleuth-coop.svg?branch=master)](https://travis-ci.com/fac-14/sleuth-coop)
 
 # Sleuth Co-operative
+https://sleuth-sme.herokuapp.com/
 
 An online network connecting local government and SMEs. 
 
